@@ -59,30 +59,11 @@ public unsafe class GrassManager : Singleton<GrassManager> {
 	private bool pressed;
 	IEnumerator FreeMemory () {
 
-		int i = 0;
-		for (int width = 0; width < terrainData.alphamapWidth; width++) {
-			for (int height = 0; height < terrainData.alphamapHeight; height++) {
-				for (int layer = 0; layer < terrainData.alphamapLayers; layer++) {
-					IntPtr pointer = new IntPtr (finalResultPointer.ToInt32() + elemSize * i); 
-					if (i < 10) {
-						float value = (float)Marshal.PtrToStructure(pointer, typeof(float));
-						Debug.Log(i + ": pointer: " + pointer.ToInt32() + ", value: " + value);
-					}
-					//Marshal.FreeHGlobal(pointer);
-					yield return null;
-					i++;
-				}
-			}
-		}
-
-		/*
+		float value = (float)Marshal.PtrToStructure(finalResultPointer, typeof(float));
+		Debug.Log ("value of finalResultPointer before freeing(the first value of the array): " + value);
 		Marshal.FreeHGlobal(finalResultPointer);
-		Debug.Log ("finalResult 1: " + finalResult[0,0,0]);
-		Debug.Log ("finalResult 2: " + finalResult[0,0,1]);
-		Debug.Log ("finalResult 3: " + finalResult[0,0,2]);
-		*/
-		finalResultPointer = IntPtr.Zero;
-		Debug.Log("freed aparently");
+		value = (float)Marshal.PtrToStructure(finalResultPointer, typeof(float));
+		Debug.Log ("value of finalResultPointer after freeing(the first value of the array): " + value);
 		yield return null;
 	}
 
