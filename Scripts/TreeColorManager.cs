@@ -2,24 +2,26 @@
 using System.Collections;
 
 public class TreeColorManager : Singleton<TreeColorManager>{
-	
-	public Gradient colorOverYear;
-	[HideInInspector] public Color currentColor;
-	public Gradient billboardLightingColor;
-	
+
 	void Start () {
 		
 		SceneManager.instance.OnNewDay += dayUpdate;
 		dayUpdate ();
 	}
-	
+
+	public Gradient colorOverYear;
+	[HideInInspector] public Color currentColor;
 	void dayUpdate () {
 		
 		currentColor = colorOverYear.Evaluate (SceneManager.curvePos);
 		TerrainData terrainData = Terrain.activeTerrain.terrainData;
 		terrainData.wavingGrassTint = currentColor;
+#if !UNITY_WEBPLAYER
+		LeafFallManager.instance.ChangeColor (currentColor);
+#endif
 	}
-	
+
+	public Gradient billboardLightingColor;
 	void Update () {
 		
 		Color billboardColor = billboardLightingColor.Evaluate (1 - SkyManager.instance.intensityLerp);

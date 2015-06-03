@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿#if !UNITY_WEBPLAYER
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-public class TerrainAlphaExporter : Singleton<TerrainAlphaExporter>{//comment out for web build
+public class TerrainAlphaExporter : Singleton<TerrainAlphaExporter>{
 	
 	public int spacing;
 	private TerrainData terrainData;
@@ -69,3 +70,4 @@ public class TerrainAlphaExporter : Singleton<TerrainAlphaExporter>{//comment ou
 	}
 	
 }
+#endif

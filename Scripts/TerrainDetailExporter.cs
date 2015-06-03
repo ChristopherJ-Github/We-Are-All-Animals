@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if !UNITY_WEBPLAYER
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -64,5 +65,5 @@ public class TerrainDetailExporter : Singleton<TerrainDetailExporter> {//comment
 		byte[] bytes = texture.EncodeToPNG ();
 		File.WriteAllBytes (path + name + ".png", bytes);
 	}
-	
 }
+#endif

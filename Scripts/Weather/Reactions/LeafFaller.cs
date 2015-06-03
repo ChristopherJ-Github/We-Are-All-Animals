@@ -2,20 +2,28 @@
 using System.Collections;
 
 public class LeafFaller : MonoBehaviour {
-
-	// Use this for initialization
+#if UNITY_EDITOR
 	void Start () {
-		Tree treeObject = gameObject.GetComponent<Tree> ();
+	}
+	
+	void Update () {
 
-
-
-		foreach ( Transform treeNode in treeObject.transform) {
-			Debug.Log (treeNode);
+		if (Input.GetKeyDown(KeyCode.T)) {
+			SwitchLeaves();
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void SwitchLeaves () {
+
+		Tree treeObject = gameObject.GetComponent<Tree> ();
+		TreeEditor.TreeData treeData = treeObject.data as TreeEditor.TreeData;
+		TreeEditor.TreeGroupLeaf[] treeGroupLeaves = treeData.leafGroups;
+		foreach (TreeEditor.TreeGroupLeaf treeGroupLeaf in treeGroupLeaves) {
+			treeGroupLeaf.visible = !treeGroupLeaf.visible;
+		}
+		
+		Material[] materials;
+		treeData.UpdateMesh (treeObject.transform.worldToLocalMatrix, out materials);
 	}
+#endif
 }

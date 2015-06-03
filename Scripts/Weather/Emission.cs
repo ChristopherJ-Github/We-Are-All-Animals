@@ -7,7 +7,7 @@ using System.Collections;
 public class Emission : GeneralWeather
 {
 	private bool applicationIsQuitting;
-	public float maxHVelocity = 0.2f; //add a range from 0 to 1
+	public float maxHVelocity = 0.2f; 
 	public float maxSpeed = 150;
 	public float minSpeed = 50;
 	public float maxEmission = 1000; 
@@ -102,11 +102,11 @@ public class Emission : GeneralWeather
 	void changeSettings (float srv, float minSpd, float maxSpd, float minEmn, float maxEmn) {
 		
 		float speed = Mathf.Lerp (minSpd, maxSpd, srv);
-		float HVelocity = Mathf.Lerp (0, maxHVelocity, WindControl.instance.windiness);
-		Vector3 Velocity = WindControl.instance.direction * HVelocity;
-		Velocity.y = -1;
-		Velocity *= speed;
-		particleEmitter.worldVelocity = Velocity;
+		float hVelocity = Mathf.Lerp (0, maxHVelocity, WindControl.instance.windiness);
+		Vector3 velocity = WindControl.instance.direction * hVelocity;
+		velocity.y = -1;
+		velocity *= speed;
+		particleEmitter.worldVelocity = velocity;
 		particleEmitter.maxEmission =  Mathf.Lerp(minEmn, maxEmn, srv);
 		
 		float fogDesnity = Mathf.Lerp (initFogDesnity, maxFogDesnity, srv);

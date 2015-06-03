@@ -231,13 +231,15 @@ public class LEDPreviewManager : MonoBehaviour {
 		if (Input.GetKey(KeyCode.W)) 
 			overcast -= transitionSpeed * Time.deltaTime;
 		CloudControl.instance.setOvercast(Mathf.Clamp01(overcast));
-		
+
+#if !UNITY_WEBPLAYER
 		float windiness = WindControl.instance.windiness;
 		if (Input.GetKey(KeyCode.E))
 			windiness -= transitionSpeed * Time.deltaTime;
 		if (Input.GetKey(KeyCode.R))
 			windiness += transitionSpeed * Time.deltaTime;
 		WindControl.instance.SetValues (Mathf.Clamp (windiness, 0, WindControl.instance.maxDailyWindiness));
+#endif
 	}
 }
 

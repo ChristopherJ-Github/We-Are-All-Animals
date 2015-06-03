@@ -20,7 +20,7 @@ public class GrassTextureCombiner : Singleton<GrassTextureCombiner> {
 		Application.runInBackground = true;
 		combinerMat = new Material (combiner);
 		TerrainData terrainData = Terrain.activeTerrain.terrainData;
-		outputTexture = new RenderTexture (terrainData.detailWidth, terrainData.detailHeight, 0);
+		outputTexture = new RenderTexture (GrassManager.instance.blockWidth, GrassManager.instance.blockWidth, 0);
 	}
 	
 	void OnPostRender () {
@@ -31,7 +31,6 @@ public class GrassTextureCombiner : Singleton<GrassTextureCombiner> {
 		combinerMat.SetTexture ("_InputTex1", inputTex1);
 		combinerMat.SetTexture ("_InputTex2", inputTex2);
 		combinerMat.SetFloat ("_Blend", blend);
-
 		outputTexture2D = new Texture2D (inputTex1.width, inputTex1.height);
 		Graphics.Blit (inputTex1, outputTexture, combinerMat);
 		RenderTexture.active = outputTexture;

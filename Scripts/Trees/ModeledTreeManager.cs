@@ -25,7 +25,6 @@ public class ModeledTreeManager : MonoBehaviour {
 
 		ObjectChanger.setTextureForMonth (leaves, leafMatNumber, renderer);
 		ObjectChanger.setTextureForMonth (bark, barkMatNumber, renderer);
-
 	}
 
 }

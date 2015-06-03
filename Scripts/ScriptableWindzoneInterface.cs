@@ -12,7 +12,9 @@ using System.Reflection ;
  *          Finished writing the get/set methods for everything
  *              except the Mode.
  */
-public class ScriptableWindzoneInterface : Singleton<ScriptableWindzoneInterface> { //comment out for webbuild
+public class ScriptableWindzoneInterface : Singleton<ScriptableWindzoneInterface> { 
+
+#if !UNITY_WEBPLAYER
 
 	// Private vars ===================================
 	
@@ -149,7 +151,7 @@ public class ScriptableWindzoneInterface : Singleton<ScriptableWindzoneInterface
 			m_WindzoneComponent ,
 			args ) ;
 	}
-	
+
 	// Get a WindZone property value
 	object GetWindZoneValue ( string MemberName ){
 		// Call the getter
@@ -160,5 +162,7 @@ public class ScriptableWindzoneInterface : Singleton<ScriptableWindzoneInterface
 			m_WindzoneComponent ,
 			null ) ;
 	}
+
+#endif
 
 }

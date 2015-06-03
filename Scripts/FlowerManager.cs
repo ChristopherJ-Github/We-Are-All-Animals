@@ -15,77 +15,61 @@ public class FlowerManager : Singleton<FlowerManager> {
 	public Texture2D noise;
 	public AnimationCurve mainGrowthOverYear;
 	public List<FlowerInfo> flowerAlphaMaps;
-	public int spacing;
 	private Texture2D detailMap;
-	private int[,] outputMap;
-	
+	private int[,] outputBlock;
+	public int blockWidth;
+
 	void Start () {
 		
-		SceneManager.instance.OnNewDay += setDetailMaps; 
+		SceneManager.instance.OnNewDay += SetDetailMaps; 
 		terrainData = Terrain.activeTerrain.terrainData;
 		if (flowerAlphaMaps.Count != terrainData.detailPrototypes.Length) { 
 			Debug.LogError("not enough or too many detail maps");
 			return;
 		}
-		outputMap = new int[terrainData.detailWidth, terrainData.detailHeight];
+		outputBlock = new int[blockWidth, blockWidth];
 		//setDetailMaps ();  
 	}
 	
-	public void setDetailMaps () {
-		
-		
+	public void SetDetailMaps () {
+
 		if (GUIManager.instance.sliderUsed || SpeedThroughDay.instance.on) //avoid updating slowly every time the slider moves
 			return;
-		
-		StopAllCoroutines ();
-		setDetailMap (0);
+
+		DetailMapRoutine ();
 	}
-	
-	void setDetailMap (int map) {
-		
-		detailMap = flowerAlphaMaps[map].detailMap;
-		AnimationCurve growthOverYear = flowerAlphaMaps[map].useMainCurve ? mainGrowthOverYear : flowerAlphaMaps[map].growthOverYear;
-		float growth = getCurrentGrowth(growthOverYear);
-		StartCoroutine(applyDetail (outputMap, detailMap, growth, map));
-		detailMap = null;
-		Destroy(detailMap);
-	}
-	
-	float getCurrentGrowth(AnimationCurve growthOverYear) {
-		
-		float growth = growthOverYear.Evaluate (SceneManager.curvePos);
-		return growth;
-	}
-	
-	IEnumerator applyDetail (int[,] _outputMap, Texture2D detail, float lerp, int map) { 
-		
-		int x = 0;
-		int i = 0;
-		float total = detail.width * detail.height;
-		while(x < detail.width) {
-			
-			int y = 0;
-			while(y < detail.height) {
-				
-				float a = detail.GetPixel(x,y).r; //r g or b works
-				float noiseA = noise.GetPixel(x,y).r;
-				a = noiseA + lerp >= 1f && a == 1 ? 1f : 0f;
-				outputMap[x, y] = (int)a;
-				y ++;
-				i ++;
-				GUIManager.instance.growthPercentage = i/total * 100;
-				if (i % spacing == 0)
-					yield return null;
-			} 
-			x++;
+
+	public Vector2 cropOrigin;
+	public int cropWidth, cropHeight;
+	void DetailMapRoutine () {
+
+		for (int originY = 0; originY <= cropHeight - blockWidth; originY += blockWidth) {
+
+			float currentCropWidth = cropWidth + originY;
+			for (int originX = 0; originX <= currentCropWidth - blockWidth; originX += blockWidth) {
+
+				int offsetOriginX = originX + (int)(cropOrigin.x - originY/2);
+				int offsetOriginY = originY + (int)cropOrigin.y;
+				for (int map = 0; map < terrainData.detailPrototypes.Length; map ++) {
+
+					detailMap = flowerAlphaMaps[map].detailMap;
+					AnimationCurve growthOverYear = flowerAlphaMaps[map].useMainCurve ? mainGrowthOverYear : flowerAlphaMaps[map].growthOverYear;
+					float growth = growthOverYear.Evaluate (SceneManager.curvePos);
+					Color[] detailMapPixels = detailMap.GetPixels(offsetOriginY, offsetOriginX, blockWidth, blockWidth);
+
+					int index = 0;
+					for (int y = 0; y < blockWidth; y++) {
+						for (int x = 0; x < blockWidth; x++) {
+							float a = detailMapPixels[index].r; //it's grayscale so any one value will do
+							float noiseA = noise.GetPixel(x,y).r;
+							a = noiseA + growth >= 1f && a == 1 ? 1f : 0f;
+							outputBlock[x, y] = (int)a;
+							index ++;
+						}
+					} 
+					terrainData.SetDetailLayer(offsetOriginX, offsetOriginY, map, outputBlock);
+				}
+			}
 		}
-		terrainData.SetDetailLayer(0, 0, map, outputMap);
-		_outputMap = null;
-		detail = null;
-		
-		if (map < terrainData.detailPrototypes.Length -1)
-			setDetailMap(map + 1);
-		else
-			System.GC.Collect ();
 	}
 }

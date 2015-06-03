@@ -9,9 +9,6 @@ public class GUIManager : Singleton<GUIManager>
 	public Vector2 scrollPosition = Vector2.zero;
 	public bool toggleStats = false;
 	public bool sliderUsed;
-	public float growthPercentage, alphaSavePercentage, detailSavePercentage;
-	public float growthTotal, alphaSaveTotal, detailSaveTotal;
-	public float growthCurrent, alphaSaveCurrent, detailSaveCurrent;
 	float delay;
 	float delayVal = 1f;
 	
@@ -75,7 +72,10 @@ public class GUIManager : Singleton<GUIManager>
 		if (severitySliderValue != tempVal3)
 			TriggerGuiEvent (severitySliderValue);
 	}
-	
+
+	public float alphaSavePercentage, detailSavePercentage;
+	public float alphaSaveTotal, detailSaveTotal;
+	public float alphaSaveCurrent, detailSaveCurrent;
 	void buttons () {
 
 		if (WeatherControl.instance.safeToPress) {
@@ -90,17 +90,16 @@ public class GUIManager : Singleton<GUIManager>
 		}
 
 		GUI.backgroundColor = Color.grey;
-		if (GUI.Button (new Rect (Screen.width * 0.8f, Screen.height * 0.59f, Screen.width * 0.17f, Screen.height * 0.1f), "Update Greenery " + (int)growthPercentage +"%")) {
-				if (FlowerManager.active)
-					FlowerManager.instance.setDetailMaps();
-				if (GrassManager.active)
-					GrassManager.instance.SetAlphaMaps();
+		if (GUI.Button (new Rect (Screen.width * 0.8f, Screen.height * 0.59f, Screen.width * 0.17f, Screen.height * 0.1f), "Update Greenery " + (int)GrassManager.instance.progress +"%")) {
+
+			FlowerManager.instance.SetDetailMaps();
+			GrassManager.instance.SetAlphaMaps();
 		}
 		
 		if (GUI.Button (new Rect (Screen.width * 0.75f, Screen.height * 0.59f, Screen.width * 0.05f, Screen.height * 0.1f), "Stop")) {
 			
 			FlowerManager.instance.StopAllCoroutines();
-			growthPercentage = 0;
+			GrassManager.instance.StopAllCoroutines();
 		}
 		
 		if (GUI.Button (new Rect(Screen.width * 0.8f, Screen.height * 0.48f, Screen.width * 0.17f, Screen.height * 0.1f), "Export Alpha Maps " + (int)alphaSavePercentage +"%")) {
@@ -108,8 +107,9 @@ public class GUIManager : Singleton<GUIManager>
 			TerrainData terrainData = Terrain.activeTerrain.terrainData;
 			alphaSaveTotal = terrainData.alphamapLayers * terrainData.alphamapWidth * terrainData.alphamapHeight;
 			alphaSaveCurrent = 0;
-			
-			TerrainAlphaExporter.instance.extractAlphaMaps();//comment out for web build
+#if !UNITY_WEBPLAYER
+			TerrainAlphaExporter.instance.extractAlphaMaps();
+#endif
 		}
 		
 		if (GUI.Button (new Rect(Screen.width * 0.63f, Screen.height * 0.48f, Screen.width * 0.17f, Screen.height * 0.1f), "Export Detail Maps " + (int)detailSavePercentage +"%")) {
@@ -117,8 +117,9 @@ public class GUIManager : Singleton<GUIManager>
 			TerrainData terrainData = Terrain.activeTerrain.terrainData;
 			detailSaveTotal = terrainData.detailPrototypes.Length * terrainData.detailWidth * terrainData.detailHeight;
 			detailSaveCurrent = 0;
-			
+#if !UNITY_WEBPLAYER
 			TerrainDetailExporter.instance.extractDetailMaps();//comment out for web build
+#endif
 		}
 	}
 	

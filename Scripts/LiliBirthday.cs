@@ -11,12 +11,12 @@ public class LiliBirthday : MonoBehaviour {
 
 		originalDetailMap = FlowerManager.instance.flowerAlphaMaps [index].detailMap;
 		FlowerManager.instance.flowerAlphaMaps [index].detailMap = detailMap;
-		FlowerManager.instance.setDetailMaps ();
+		FlowerManager.instance.SetDetailMaps ();
 	}
 	
 	void OnDisable () {
 
 		FlowerManager.instance.flowerAlphaMaps [index].detailMap = originalDetailMap;
-		FlowerManager.instance.setDetailMaps ();
+		FlowerManager.instance.SetDetailMaps ();
 	}
 }

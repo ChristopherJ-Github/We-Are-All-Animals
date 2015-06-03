@@ -54,8 +54,19 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 				}
 		}
 
-		public static bool active { get {return _instance != null;} }
-	
+		public static bool active { 
+			get {
+				if (_instance != null) {
+					return true;
+				} else {
+					T tempInstance = (T)FindObjectOfType (typeof(T));
+					if (tempInstance.enabled) 
+						return true;
+					else
+						return false;
+				}
+			} 
+		}
 		public static bool applicationIsQuitting = false;
 		/// <summary>
 		/// When Unity quits, it destroys objects in a random order.

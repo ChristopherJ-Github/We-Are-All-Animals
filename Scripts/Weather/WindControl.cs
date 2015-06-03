@@ -2,42 +2,13 @@
 using System.Collections;
 
 public class WindControl : Singleton<WindControl> {
-	
-	public AnimationCurve likelyWindinessOverYear;
-	public AnimationCurve likelyInfluence;
-	public float minMainWind, maxMainWind;
-	public float minTurbulence, maxTurbulence;
-	public float minFlowerBending, maxFlowerBending;
-	public float directionChangeSpeed;
-	public float maxDailyWindiness;
 
-	[HideInInspector] public Vector3 direction; 
-	[HideInInspector] public float windiness;
-	private ScriptableWindzoneInterface WindZone; 
-
-	public Terrain terrain;
-	public GameObject dust;
-	private ParticleEmitter _particleEmitter;
-	private ParticleAnimator _particleAnimator;
-	public float minAlphaOffset, maxAlphaOffset;
-	public float minSpeed, maxSpeed;
-	public float minScale, maxScale;
-	private Color[] originalColors;
-	private bool _createDust;
-	public bool createDust {
-		get {
-			return _createDust;
-		}
-		set {
-			_createDust = value;
-			dust.SetActive(_createDust);
-		}
-	}
-	
 	void OnEnable () {
-		
-		WindZone = gameObject.AddComponent (typeof(ScriptableWindzoneInterface)) as ScriptableWindzoneInterface;//comment out for webbuild
-		WindZone.Init ();//comment out for webbuild
+
+#if !UNITY_WEBPLAYER
+		WindZone = gameObject.AddComponent (typeof(ScriptableWindzoneInterface)) as ScriptableWindzoneInterface;
+		WindZone.Init ();
+#endif
 		_particleEmitter = dust.GetComponent<ParticleEmitter> ();
 		_particleAnimator = dust.GetComponent<ParticleAnimator> ();
 		originalColors = _particleAnimator.colorAnimation;
@@ -51,27 +22,91 @@ public class WindControl : Singleton<WindControl> {
 		
 		ChangeDirection ();
 	}
-	
+
+
+	public void ChangeDirection (Vector3 _direction = default(Vector3)) {
+		
+		if (_direction == default(Vector3)) {
+			_direction = Random.insideUnitSphere;
+			_direction.y = 0;
+			_direction = _direction.normalized;
+		}
+		StopAllCoroutines ();
+		StartCoroutine (ChangeDirectionRoutine (_direction));
+	}
+
+	[HideInInspector] public Vector3 direction;
+	public float directionChangeSpeed;
+	IEnumerator ChangeDirectionRoutine (Vector3 _direction) {
+		
+		Quaternion initRotation = transform.rotation;
+		Quaternion goalRotation = Quaternion.LookRotation (_direction);
+		while (initRotation != goalRotation) {
+			
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, directionChangeSpeed * Time.deltaTime);
+			direction = transform.forward;
+			yield return null;
+		}
+	}
+
+	public AnimationCurve likelyWindinessOverYear;
+	public AnimationCurve likelyInfluence;
+	public float maxDailyWindiness;
 	void dayUpdate () {
 		
 		float likelyWindiness = likelyWindinessOverYear.Evaluate (SceneManager.curvePos);
 		float influence = likelyInfluence.Evaluate (Random.value);
-		
 		windiness = Mathf.Lerp (Random.value, likelyWindiness, influence) * maxDailyWindiness;
 		SetValues (windiness);
 	}
 
-	void Update () {
 
+	private ScriptableWindzoneInterface WindZone;
+	public Terrain terrain;
+	public float minMainWind, maxMainWind;
+	public float minTurbulence, maxTurbulence;
+	public float minFlowerBending, maxFlowerBending;
+	[HideInInspector] public float windiness; 
+	public void SetValues (float wnd) {
+		
+		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence , wnd);
+		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, wnd);
+
+#if !UNITY_WEBPLAYER
+		WindZone.WindMain = mainWind;
+		WindZone.WindTurbulence = turbulence;
+#endif
+		TerrainData terrainData = terrain.terrainData;
+		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, wnd);  //the variables names are off
+		windiness = wnd;
+	}
+
+	void Update () {
+		
 		if (createDust)
 			CreateDust ();
 	}
 
+	private bool _createDust;
+	public bool createDust {
+		get { return _createDust; }
+		set {
+			_createDust = value;
+			dust.SetActive(_createDust);
+		}
+	}
+	public GameObject dust;
+	private ParticleEmitter _particleEmitter;
+	private ParticleAnimator _particleAnimator;
+	private Color[] originalColors;
+	public float minAlphaOffset, maxAlphaOffset;
+	public float minSpeed, maxSpeed;
+	public float minScale, maxScale;
 	void CreateDust () {
 		
 		float speed = Mathf.Lerp(minSpeed, maxSpeed, windiness);
-		_particleEmitter.worldVelocity = WindControl.instance.direction * speed;
-
+		_particleEmitter.worldVelocity = direction * speed;
+		
 		float scale = Mathf.Lerp (minScale, maxScale, windiness);
 		_particleEmitter.minSize = Mathf.Clamp(scale - 1, 0, scale -1);
 		_particleEmitter.maxSize = scale;
@@ -87,40 +122,5 @@ public class WindControl : Singleton<WindControl> {
 			newColors[i].a *= WeatherControl.instance.totalTransition;
 		}
 		_particleAnimator.colorAnimation = newColors;
-	}
-	
-	public void SetValues (float wnd) {
-		
-		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence , wnd);
-		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, wnd);
-		
-		WindZone.WindMain = mainWind;//comment out for webbuild
-		WindZone.WindTurbulence = turbulence;//comment out for webbuild
-		TerrainData terrainData = terrain.terrainData;
-		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, wnd);  //the variables names are off
-		windiness = wnd;
-	}
-
-	public void ChangeDirection (Vector3 _direction = default(Vector3)) {
-		
-		if (_direction == default(Vector3)) {
-			_direction = Random.insideUnitSphere;
-			_direction.y = 0;
-			_direction = _direction.normalized;
-		}
-		direction = _direction;
-		StopAllCoroutines ();
-		StartCoroutine (ChangeDirectionRoutine (_direction));
-	}
-	
-	IEnumerator ChangeDirectionRoutine (Vector3 _direction) {
-		
-		Quaternion initRotation = transform.rotation;
-		Quaternion goalRotation = Quaternion.LookRotation (_direction);
-		while (initRotation != goalRotation) {
-			
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, directionChangeSpeed * Time.deltaTime);
-			yield return null;
-		}
 	}
 }
