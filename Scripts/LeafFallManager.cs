@@ -6,13 +6,9 @@ using System.Reflection ;
 public class LeafFallManager : Singleton<LeafFallManager> {
 	
 	public ParticleEmitter _particleEmitter;
-
-	AnimationClip clip;
 	void Start () {
 
 		originalPosition = _particleEmitter.transform.position;
-		clip = new AnimationClip ();
-		animation.AddClip (clip, "Multiplier");
 	}
 	
 	public void ChangeColor (Color treeColor) {
@@ -20,11 +16,10 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		_particleEmitter.renderer.material.color = treeColor;
 	}
 	
-	void Update () {
+	void LateUpdate () {
 
 		UpdateEmission ();
 		UpdateVelocity ();
-		InvokeTest ();
 	}
 	
 	public AnimationCurve leafFallOverYear;
@@ -42,48 +37,33 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 	}
 
 	public float minSpeed, maxSpeed;
-	public float maxHVelocity;
-	public float maxShift;
+	public float horizontalShift, verticalShift;
+	public AnimationCurve windinessToShift;
 	private Vector3 originalPosition;
+	public float transitionSpeed;
 	void UpdateVelocity () {
 
+		float windiness = WindControl.instance.windiness;
 		Vector3 newPosition = originalPosition;
-		float shift = Mathf.Lerp (0, maxShift, WindControl.instance.windiness);
-		newPosition += -WindControl.instance.direction * shift;
+		float shiftAmount = windinessToShift.Evaluate (windiness);
+		float currentHorizontalShift = Mathf.Lerp (0, horizontalShift, shiftAmount);
+		float currentVericalShift = Mathf.Lerp (0, verticalShift, shiftAmount);
+		newPosition += -WindControl.instance.direction * currentHorizontalShift;
+		newPosition += Vector3.down * currentVericalShift;
 		_particleEmitter.transform.position = newPosition;
 
-		float speed = Mathf.Lerp (minSpeed, maxSpeed, WindControl.instance.windiness);
-		float hVelocity = Mathf.Lerp (0, maxHVelocity, WindControl.instance.windiness);
-		Vector3 velocity = WindControl.instance.direction * hVelocity;
-		velocity.y = -1;
-		velocity *= speed;
-		_particleEmitter.worldVelocity = velocity;
-	}
-	
-	private System.Type m_ParticleSystemType;
-	public Component leafParticleSystem;
-	public float multiplier;
-	void InvokeTest () {
+		float speed = Mathf.Lerp (minSpeed, maxSpeed, windiness);
+		Particle[] particles = _particleEmitter.particles;
+		Vector3 targetDirection = Vector3.Lerp (Vector3.down, WindControl.instance.direction, windiness);
+		Vector3 targetVelocity = targetDirection * speed;
+		float currentTransitionSpeed = Mathf.Lerp (0, transitionSpeed, windiness) * Time.deltaTime;
+		for (int i = 0; i < particles.Length; i++) {
 
-		/*
-		leafParticleSystem = leafParticleSystem.GetComponent("ExternalForcesModule");
-		m_ParticleSystemType = leafParticleSystem.GetType();
-		
-		MemberInfo[] members = m_ParticleSystemType.GetMembers (BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-		foreach (MemberInfo member in members) {
-			//Debug.Log(member.Name);
+			Particle particle = particles[i];
+			particle.velocity = Vector3.MoveTowards(particle.velocity, targetVelocity, currentTransitionSpeed);
+			particles[i] = particle;
 		}
-		*/
-		if (Input.GetKeyDown(KeyCode.T))
-			multiplier = 0;
-		if (Input.GetKeyDown(KeyCode.Y))
-			multiplier = 3;
-
-		AnimationCurve curve = AnimationCurve.Linear (0, multiplier, 0, multiplier);
-		clip.ClearCurves ();
-		clip.SetCurve ("", typeof(ParticleSystem), "ExternalForcesModule.multiplier", curve);
-		animation.Stop ("Multiplier");
-		animation.Play ("Multiplier");
+		_particleEmitter.particles = particles;
 	}
 }
 #endif

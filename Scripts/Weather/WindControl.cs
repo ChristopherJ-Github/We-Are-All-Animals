@@ -106,14 +106,12 @@ public class WindControl : Singleton<WindControl> {
 		
 		float speed = Mathf.Lerp(minSpeed, maxSpeed, windiness);
 		_particleEmitter.worldVelocity = direction * speed;
-		
 		float scale = Mathf.Lerp (minScale, maxScale, windiness);
 		_particleEmitter.minSize = Mathf.Clamp(scale - 1, 0, scale -1);
 		_particleEmitter.maxSize = scale;
-		
+
 		Color[] newColors = new Color[originalColors.Length];
 		System.Array.Copy (originalColors, newColors, originalColors.Length);
-		
 		float alphaOffset = Mathf.Lerp (minAlphaOffset, maxAlphaOffset, windiness);
 		for (int i = 0; i < newColors.Length; i++) {
 			if (i == 0 || i == newColors.Length - 1)
