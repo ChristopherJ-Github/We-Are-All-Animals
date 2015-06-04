@@ -31,9 +31,7 @@ public class Lightning : MonoBehaviour {
 
 		float timePassed = 0;
 		float initDelayNorm = initDelay / initMaxDelay; 
-		float initMaxDelayNorm = Mathf.InverseLerp (minLightningDelay, maxLightningDelay, initMaxDelay);
 		float currentDelay = initDelay;
-
 		while (timePassed < currentDelay) {
 
 			float lerp = severityToDelay.Evaluate (WeatherControl.currentWeather.weather.severity * WeatherControl.instance.totalTransition);
