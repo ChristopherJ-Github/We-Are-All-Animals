@@ -16,9 +16,15 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		currentColor = colorOverYear.Evaluate (SceneManager.curvePos);
 		TerrainData terrainData = Terrain.activeTerrain.terrainData;
 		terrainData.wavingGrassTint = currentColor;
-#if !UNITY_WEBPLAYER
-		LeafFallManager.instance.ChangeColor (currentColor);
-#endif
+		TriggerColorChange (currentColor);
+	}
+
+	public delegate void colorHandler (Color color);
+	public event colorHandler OnColorChange;
+	public void TriggerColorChange (Color color) {
+
+		if (OnColorChange != null)
+			OnColorChange(color);
 	}
 
 	public Gradient billboardLightingColor;
