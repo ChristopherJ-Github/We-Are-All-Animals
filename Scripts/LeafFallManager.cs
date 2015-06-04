@@ -6,6 +6,7 @@ using System.Reflection ;
 public class LeafFallManager : Singleton<LeafFallManager> {
 	
 	public ParticleEmitter _particleEmitter;
+	public ParticleAnimator particleAnimator;
 	void Start () {
 
 		originalPosition = _particleEmitter.transform.position;
@@ -18,17 +19,19 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 	
 	void LateUpdate () {
 
-		UpdateEmission ();
-		UpdateVelocity ();
+		float windiness = WindControl.instance.windiness;
+		UpdateEmission (windiness);
+		ShiftSource (windiness);
+		UpdateVelocity (windiness);
 	}
 	
 	public AnimationCurve leafFallOverYear;
 	public int minEmission, maxEmission;
 	public int minEnergy, maxEnergy;
-	void UpdateEmission () {
+	void UpdateEmission (float windiness) {
 		
 		float leafFall = leafFallOverYear.Evaluate (SceneManager.curvePos);
-		int energy = (int)Mathf.Lerp (minEnergy, maxEnergy, WindControl.instance.windiness);
+		int energy = (int)Mathf.Lerp (minEnergy, maxEnergy, windiness);
 		_particleEmitter.maxEnergy = energy;
 		int currentMinEmission = (int)Mathf.Lerp (0, minEmission, leafFall);
 		int currentMaxEmission = (int)Mathf.Lerp (minEmission, maxEmission, leafFall);
@@ -36,14 +39,11 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		_particleEmitter.maxEmission = emission;
 	}
 
-	public float minSpeed, maxSpeed;
 	public float horizontalShift, verticalShift;
 	public AnimationCurve windinessToShift;
 	private Vector3 originalPosition;
-	public float transitionSpeed;
-	void UpdateVelocity () {
+	void ShiftSource (float windiness) {
 
-		float windiness = WindControl.instance.windiness;
 		Vector3 newPosition = originalPosition;
 		float shiftAmount = windinessToShift.Evaluate (windiness);
 		float currentHorizontalShift = Mathf.Lerp (0, horizontalShift, shiftAmount);
@@ -51,19 +51,15 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		newPosition += -WindControl.instance.direction * currentHorizontalShift;
 		newPosition += Vector3.down * currentVericalShift;
 		_particleEmitter.transform.position = newPosition;
+	}
+
+	public float minSpeed, maxSpeed;
+	public float gravity;
+	void UpdateVelocity (float windiness) {
 
 		float speed = Mathf.Lerp (minSpeed, maxSpeed, windiness);
-		Particle[] particles = _particleEmitter.particles;
-		Vector3 targetDirection = Vector3.Lerp (Vector3.down, WindControl.instance.direction, windiness);
-		Vector3 targetVelocity = targetDirection * speed;
-		float currentTransitionSpeed = Mathf.Lerp (0, transitionSpeed, windiness) * Time.deltaTime;
-		for (int i = 0; i < particles.Length; i++) {
-
-			Particle particle = particles[i];
-			particle.velocity = Vector3.MoveTowards(particle.velocity, targetVelocity, currentTransitionSpeed);
-			particles[i] = particle;
-		}
-		_particleEmitter.particles = particles;
+		Vector3 currentHorizontalVelocity = Vector3.Lerp(Vector3.zero, WindControl.instance.direction * speed, windiness);
+		particleAnimator.force = Vector3.down * gravity + currentHorizontalVelocity;
 	}
 }
 #endif
