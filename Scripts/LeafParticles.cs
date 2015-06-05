@@ -85,8 +85,10 @@ public class LeafParticles : MonoBehaviour {
 	public Color originalColor;
 	public void ChangeColor (Color treeColor) {
 
-		float tintAmount = 1 - treeColor.grayscale;
-		Color newColor = Color.Lerp (originalColor, treeColor, tintAmount);
+		Color newColor = Color.white;
+		newColor.r = Mathf.Clamp01(originalColor.r - 1 + treeColor.r);
+		newColor.g = Mathf.Clamp01(originalColor.g - 1 + treeColor.g);
+		newColor.b = Mathf.Clamp01(originalColor.b - 1 + treeColor.b);
 		particleEmitter.renderer.material.color = newColor;
 	}
 }

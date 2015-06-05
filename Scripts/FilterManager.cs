@@ -7,41 +7,11 @@ public class FilterInfo {
 	
 	public Texture LutTexture;
 	public float blend;
+	public AnimationCurve effectOverYear = AnimationCurve.Linear(0, 1, 1, 1);
 }
 
 public class FilterManager : Singleton<FilterManager> {
-	
-	public FilterInfo[] filters, stormFilters;
-	public FilterInfo darkFilter;
-	private FilterInfo filter, stormFilter;
-	private int filterIndex, stormFilterIndex;
-	private AmplifyColorEffect amplifyColorEffect, stormAmplifyColorEffect, darkAmplifyColorEffect;
-	private float _blend, _blendNormalized, _stormBlend, _stormBlendNormalized;
-	public float blend {
-		get { return _blendNormalized; } 
-		set { 
-			_blendNormalized = value;
-			_blend = Mathf.Lerp(filter.blend, 1, _blendNormalized);
-		}
-	}
-	public float stormBlend {
-		get { return _stormBlendNormalized; } 
-		set {
-			_stormBlendNormalized = value;
-			_stormBlend = Mathf.Lerp (stormFilter.blend, 1, _stormBlendNormalized); 
-		}
-	}
-	private bool _on = true;
-	public bool on {
-		get { return _on; }
-		set {
-			_on = value;
-			amplifyColorEffect.enabled = _on;
-			stormAmplifyColorEffect.enabled = _on;
-			darkAmplifyColorEffect.enabled = _on;
-		}
-	}
-	
+
 	void Start () {
 		
 		amplifyColorEffect = Camera.main.gameObject.AddComponent<AmplifyColorEffect> ();
@@ -49,21 +19,31 @@ public class FilterManager : Singleton<FilterManager> {
 		darkAmplifyColorEffect = Camera.main.gameObject.AddComponent<AmplifyColorEffect> ();
 		SceneManager.instance.OnNewDay += RandomizeFilters;
 		RandomizeFilters ();
+		darkAmplifyColorEffect.LutTexture = darkFilter.LutTexture;
 	}
 	
 	void RandomizeFilters () {
 
+		RandomizeMainFilter ();
+		RandomizeStormFilter ();
+	}
+
+	public FilterInfo[] filters;
+	void RandomizeMainFilter () {
+
 		filterIndex = Random.Range (0, filters.Length);
 		filter = filters[filterIndex];
 		amplifyColorEffect.LutTexture = filter.LutTexture;
-		blend = Random.value;
+		blend = 1 - filter.effectOverYear.Evaluate (SceneManager.curvePos);
+	}
+
+	public FilterInfo[] stormFilters;
+	void RandomizeStormFilter () {
 
 		stormFilterIndex = Random.Range (0, stormFilters.Length);
 		stormFilter = stormFilters [stormFilterIndex];
 		stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
 		stormBlend = 1;
-
-		darkAmplifyColorEffect.LutTexture = darkFilter.LutTexture;
 	}
 	
 	void Update () {
@@ -71,6 +51,17 @@ public class FilterManager : Singleton<FilterManager> {
 		UpdateStormFilter ();
 		UpdateMainFilter ();
 		UpdateDarkFilter ();
+	}
+	
+	private FilterInfo stormFilter;
+	private AmplifyColorEffect stormAmplifyColorEffect;
+	private float _stormBlend, _stormBlendNormalized;
+	public float stormBlend {
+		get { return _stormBlendNormalized; } 
+		set {
+			_stormBlendNormalized = value;
+			_stormBlend = Mathf.Lerp (stormFilter.blend, 1, _stormBlendNormalized); 
+		}
 	}
 	
 	void UpdateStormFilter () {
@@ -87,6 +78,17 @@ public class FilterManager : Singleton<FilterManager> {
 		stormAmplifyColorEffect.BlendAmount = newBlend;
 	}
 
+	private FilterInfo filter;
+	private AmplifyColorEffect amplifyColorEffect;
+	private float _blend, _blendNormalized;
+	public float blend {
+		get { return _blendNormalized; } 
+		set { 
+			_blendNormalized = value;
+			_blend = Mathf.Lerp(filter.blend, 1, _blendNormalized);
+		}
+	}
+
 	void UpdateMainFilter () {
 
 		float newBlend = _blend;
@@ -101,12 +103,15 @@ public class FilterManager : Singleton<FilterManager> {
 		amplifyColorEffect.BlendAmount = newBlend;
 	}
 
+	public FilterInfo darkFilter;
+	private AmplifyColorEffect darkAmplifyColorEffect;
 	void UpdateDarkFilter () {
 
 		float newBlend = Mathf.Lerp (1, darkFilter.blend, 1 - SkyManager.instance.intensityLerp);
 		darkAmplifyColorEffect.BlendAmount = newBlend;
 	}
 
+	private int filterIndex, stormFilterIndex;
 	public void NextFilter (bool _filter = false, bool _stormFilter = false) {
 
 		if (_filter) {
@@ -121,6 +126,17 @@ public class FilterManager : Singleton<FilterManager> {
 			stormFilter = stormFilters [stormFilterIndex];
 			stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
 			stormBlend = 1;
+		}
+	}
+
+	private bool _on = true;
+	public bool on {
+		get { return _on; }
+		set {
+			_on = value;
+			amplifyColorEffect.enabled = _on;
+			stormAmplifyColorEffect.enabled = _on;
+			darkAmplifyColorEffect.enabled = _on;
 		}
 	}
 }
