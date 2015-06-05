@@ -43,19 +43,11 @@ public class TreePropertiesEditor : Editor {
 		
 		serializedObject.Update ();
 
-
-		hasLeafFall.boolValue = EditorGUILayout.BeginToggleGroup ("Has Leaf Fall", hasLeafFall.boolValue);
-			EditorGUILayout.PropertyField(leafParticals, true);
-			EditorGUILayout.PropertyField(leafFallPercentage, true);
-		EditorGUILayout.EndToggleGroup ();
-
 		EditorGUILayout.PropertyField(treeType, true);
 		EditorGUILayout.PropertyField(barkMatNumber, true);
 		EditorGUILayout.PropertyField(leafMatNumber, true);
 		useOwnColors.boolValue = EditorGUILayout.BeginToggleGroup ("Use Own Colors", useOwnColors.boolValue);
-			EditorGUILayout.PropertyField(colorOverYear, true);
-		EditorGUILayout.EndToggleGroup ();
-
+		EditorGUILayout.PropertyField(colorOverYear, true);
 		if (treeType.enumValueIndex == 0) {
 			EditorGUILayout.PropertyField(trees, true);
 		} else {

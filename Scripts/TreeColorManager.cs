@@ -8,15 +8,28 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		SceneManager.instance.OnNewDay += dayUpdate;
 		dayUpdate ();
 	}
-
-	public Gradient colorOverYear;
-	[HideInInspector] public Color currentColor;
+	
 	void dayUpdate () {
 		
-		currentColor = colorOverYear.Evaluate (SceneManager.curvePos);
+		ChangeTreeColor ();
+		ChangeFlowerColor ();
+		TriggerColorChange (currentColor);
+	}
+
+	public Gradient treeColorOverYear;
+	[HideInInspector] public Color currentColor;
+	void ChangeTreeColor () {
+
+		currentColor = treeColorOverYear.Evaluate (SceneManager.curvePos);
 		TerrainData terrainData = Terrain.activeTerrain.terrainData;
 		terrainData.wavingGrassTint = currentColor;
-		TriggerColorChange (currentColor);
+	}
+
+	public Gradient flowerColorOverYear;
+	void ChangeFlowerColor () {
+		
+		Color currentColor = flowerColorOverYear.Evaluate (SceneManager.curvePos);
+		Shader.SetGlobalColor ("_GrassTint", currentColor);
 	}
 
 	public delegate void colorHandler (Color color);
@@ -26,12 +39,17 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		if (OnColorChange != null)
 			OnColorChange(color);
 	}
+	
+	void Update () {
+
+		ChangeFlowerColor (); //testing
+		SetBillboardLighting ();
+	}
 
 	public Gradient billboardLightingColor;
-	void Update () {
-		
+	void SetBillboardLighting () {
+
 		Color billboardColor = billboardLightingColor.Evaluate (1 - SkyManager.instance.intensityLerp);
-		//Debug.Log (SunControl.instance.sun.intensityLerp);
 		billboardColor = billboardLightingColor.Evaluate(1 - SkyManager.instance.nightDayLerp);
 		Vector3 colorVector = new Vector3 (billboardColor.r, billboardColor.b, billboardColor.g);
 		Shader.SetGlobalVector("tree_color", colorVector);

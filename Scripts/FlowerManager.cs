@@ -41,6 +41,7 @@ public class FlowerManager : Singleton<FlowerManager> {
 
 	public Vector2 cropOrigin;
 	public int cropWidth, cropHeight;
+	public Texture2D safeZone;
 	void DetailMapRoutine () {
 
 		for (int originY = 0; originY <= cropHeight - blockWidth; originY += blockWidth) {
@@ -56,6 +57,7 @@ public class FlowerManager : Singleton<FlowerManager> {
 					AnimationCurve growthOverYear = flowerAlphaMaps[map].useMainCurve ? mainGrowthOverYear : flowerAlphaMaps[map].growthOverYear;
 					float growth = growthOverYear.Evaluate (SceneManager.curvePos);
 					Color[] detailMapPixels = detailMap.GetPixels(offsetOriginY, offsetOriginX, blockWidth, blockWidth);
+					Color[] safeZonePixels = safeZone.GetPixels(offsetOriginY, offsetOriginX, blockWidth, blockWidth);
 
 					int index = 0;
 					for (int y = 0; y < blockWidth; y++) {
@@ -63,7 +65,8 @@ public class FlowerManager : Singleton<FlowerManager> {
 							float a = detailMapPixels[index].r; //it's grayscale so any one value will do
 							float noiseA = noise.GetPixel(x,y).r;
 							a = noiseA + growth >= 1f && a == 1 ? 1f : 0f;
-							outputBlock[x, y] = (int)a;
+							int safeZoneProtection = (int)(safeZonePixels[index].r * detailMapPixels[index].r);
+							outputBlock[x, y] = safeZoneProtection != 1 ? (int)a : 1;
 							index ++;
 						}
 					} 

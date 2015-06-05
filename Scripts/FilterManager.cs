@@ -42,40 +42,18 @@ public class FilterManager : Singleton<FilterManager> {
 
 		stormFilterIndex = Random.Range (0, stormFilters.Length);
 		stormFilter = stormFilters [stormFilterIndex];
+		if (WeatherControl.currentWeather != null) 
+			if (WeatherControl.currentWeather.weather.name == "Fog" && Random.value >= 0.5f) 
+				stormFilter = filter;	
 		stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
-		stormBlend = 1;
+		stormBlend = 0;
 	}
 	
 	void Update () {
 
-		UpdateStormFilter ();
 		UpdateMainFilter ();
+		UpdateStormFilter ();
 		UpdateDarkFilter ();
-	}
-	
-	private FilterInfo stormFilter;
-	private AmplifyColorEffect stormAmplifyColorEffect;
-	private float _stormBlend, _stormBlendNormalized;
-	public float stormBlend {
-		get { return _stormBlendNormalized; } 
-		set {
-			_stormBlendNormalized = value;
-			_stormBlend = Mathf.Lerp (stormFilter.blend, 1, _stormBlendNormalized); 
-		}
-	}
-	
-	void UpdateStormFilter () {
-
-		float newBlend = _stormBlend;
-		if (WeatherControl.currentWeather != null) {
-			newBlend = Mathf.Lerp (1, newBlend, WeatherControl.instance.totalTransition);
-			newBlend = WeatherControl.currentWeather.usesFilter ? Mathf.Lerp (1, newBlend, WeatherControl.currentWeather.weather.severity) : 1;
-		} else {
-			newBlend = 1;
-		}
-
-		newBlend = Mathf.Lerp(1, newBlend, SkyManager.instance.nightDayLerp);
-		stormAmplifyColorEffect.BlendAmount = newBlend;
 	}
 
 	private FilterInfo filter;
@@ -88,7 +66,6 @@ public class FilterManager : Singleton<FilterManager> {
 			_blend = Mathf.Lerp(filter.blend, 1, _blendNormalized);
 		}
 	}
-
 	void UpdateMainFilter () {
 
 		float newBlend = _blend;
@@ -98,9 +75,31 @@ public class FilterManager : Singleton<FilterManager> {
 				stormInfluence = Mathf.Lerp(0, WeatherControl.currentWeather.weather.severity, WeatherControl.instance.totalTransition);	
 			newBlend = Mathf.Lerp(1, newBlend, 1 - stormInfluence);
 		}
-
 		newBlend = Mathf.Lerp(1, newBlend, SkyManager.instance.nightDayLerp);
 		amplifyColorEffect.BlendAmount = newBlend;
+	}
+
+	private FilterInfo stormFilter;
+	private AmplifyColorEffect stormAmplifyColorEffect;
+	private float _stormBlend, _stormBlendNormalized;
+	public float stormBlend {
+		get { return _stormBlendNormalized; } 
+		set {
+			_stormBlendNormalized = value;
+			_stormBlend = Mathf.Lerp (stormFilter.blend, 1, _stormBlendNormalized); 
+		}
+	}
+	void UpdateStormFilter () {
+		
+		float newBlend = _stormBlend;
+		if (WeatherControl.currentWeather != null) {
+			newBlend = Mathf.Lerp (1, newBlend, WeatherControl.instance.totalTransition);
+			newBlend = WeatherControl.currentWeather.usesFilter ? Mathf.Lerp (1, newBlend, WeatherControl.currentWeather.weather.severity) : 1;
+		} else {
+			newBlend = 1;
+		}
+		newBlend = Mathf.Lerp(1, newBlend, SkyManager.instance.nightDayLerp);
+		stormAmplifyColorEffect.BlendAmount = newBlend;
 	}
 
 	public FilterInfo darkFilter;
@@ -120,12 +119,11 @@ public class FilterManager : Singleton<FilterManager> {
 			amplifyColorEffect.LutTexture = filter.LutTexture;
 			blend = Random.value;
 		}
-
 		if (_stormFilter) {
 			stormFilterIndex = (int)Mathf.Repeat(stormFilterIndex + 1, stormFilters.Length);
 			stormFilter = stormFilters [stormFilterIndex];
 			stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
-			stormBlend = 1;
+			stormBlend = 0;
 		}
 	}
 

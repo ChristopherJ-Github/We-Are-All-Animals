@@ -16,33 +16,18 @@ public class textureInfo: monthInfo {
 	public Texture texture;
 }
 
-
 public class TreeProperties : MonoBehaviour {
 
 	public enum type {Generated, Model};
 	public type treeType;
 	ModeledTreeManager MTMinstance;
 	GeneratedTreeManager GTMinstance;
-	public Gradient colorOverYear;
-	public bool useOwnColors;
-
-	//=====Generated tree variables======
 	public prefabInfo[] trees;
-
-	//======Modeled tree variables======
-
 	public int barkMatNumber = 1;
 	public int leafMatNumber = 0;
 	public textureInfo[] bark;
 	public textureInfo[] leaves;
-
-	//=====Leaf particle variables====
-	public bool hasLeafFall;
-	public GameObject leafParticals;
-	public AnimationCurve leafFallPercentage;
 	
-	float initFallAmount;
-
 	void Start () {
 
 		SceneManager.instance.OnNewDay += dayUpdate;
@@ -59,37 +44,21 @@ public class TreeProperties : MonoBehaviour {
 			GTMinstance.init ();
 		}	
 
-		if (hasLeafFall) 
-			initFallAmount = leafParticals.particleSystem.emissionRate;
 		dayUpdate ();
 	}
 
 	void dayUpdate () {
 
-		setLeafParticals ();
 		changeMatColor ();
 	}
 
-	void setLeafParticals () {
-
-		if (!hasLeafFall)
-			return;
-
-		float fallPercentage = leafFallPercentage.Evaluate (SceneManager.curvePos);
-		fallPercentage = Mathf.Clamp(fallPercentage,0f,1f);
-		if (fallPercentage > 0) {
-			leafParticals.SetActive(true);
-			leafParticals.particleSystem.emissionRate = initFallAmount * fallPercentage;
-		} else 
-			leafParticals.SetActive(false);
-	}
-
+	public Gradient colorOverYear;
+	public bool useOwnColors;
 	void changeMatColor () {
 
 		GameObject tree = treeType == type.Model ? gameObject : GTMinstance.currentTree;
 		if (tree == null || tree.renderer.materials.Length < leafMatNumber + 1)
 			return;
-		
 		Color col = useOwnColors ? colorOverYear.Evaluate (SceneManager.curvePos) : TreeColorManager.instance.currentColor;
 		tree.renderer.materials [leafMatNumber].SetColor ("_Color", col);
 	}
