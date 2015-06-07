@@ -42,7 +42,6 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 	
 	void Update () {
 
-		ChangeFlowerColor (); //testing
 		SetBillboardLighting ();
 	}
 

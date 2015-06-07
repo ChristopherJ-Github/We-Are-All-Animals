@@ -48,6 +48,7 @@ public class TreePropertiesEditor : Editor {
 		EditorGUILayout.PropertyField(leafMatNumber, true);
 		useOwnColors.boolValue = EditorGUILayout.BeginToggleGroup ("Use Own Colors", useOwnColors.boolValue);
 		EditorGUILayout.PropertyField(colorOverYear, true);
+		EditorGUILayout.EndToggleGroup ();
 		if (treeType.enumValueIndex == 0) {
 			EditorGUILayout.PropertyField(trees, true);
 		} else {
