@@ -178,7 +178,7 @@ public class LEDPreviewManager : MonoBehaviour {
 	}
 
 	public GameObject animalPreviewPrefab;
-	private GameObject animalPreview;
+	private bool allAnimalsSpawned;
 	private bool idlePreviewSpawned;
 	void AnimalInput (ref bool keyPressed) {
 
@@ -187,17 +187,13 @@ public class LEDPreviewManager : MonoBehaviour {
 			idlePreviewSpawned = true;
 			StartCoroutine(SpawnIdleAnimations());
 		}
-		if (Input.GetKey(KeyCode.O)) {
-			if (animalPreview == null) {
-				animalPreview = Instantiate(animalPreviewPrefab) as GameObject;
-			}
+		if (Input.GetKey(KeyCode.O) && !allAnimalsSpawned) {
+			allAnimalsSpawned = true;
+			AnimationSpawner.instance.SpawnAllAnimals();
 		}
 		if (Input.GetKey(KeyCode.P)) {
-
 			idlePreviewSpawned = false;
-			if (animalPreview != null) {
-				animalPreview = null;
-			}
+			allAnimalsSpawned = false;
 		}
 	}
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
@@ -27,6 +28,7 @@ public class AnimalAnimator: MonoBehaviour {
 		animation.Play(initAnimation.name);
 		List<Spline> splines = GetSplines ();
 		splineIndex = GetSplineIndex(splines.Count);
+		Debug.Log (splineIndex);
 		if (splineIndex != -1) {
 			spline = splines[splineIndex];
 			InitStopNodeArray();
@@ -54,12 +56,11 @@ public class AnimalAnimator: MonoBehaviour {
 		return splines;
 	}
 	
-	[HideInInspector] public int splineIndex;
+	public int splineIndex = -1;
 	int GetSplineIndex (int splineCount) {
 		
-		if (splineIndex != null)
+		if (splineIndex != -1)
 			return splineIndex;
-		
 		List<int> availableSplines = Enumerable.Range (0, splineCount).ToList ();
 		foreach (AnimalAnimator animation in AnimationSpawner.instance.currentAnimations) {
 			if (animal.name == animation.animal.name) 
@@ -221,19 +222,21 @@ public class AnimalAnimator: MonoBehaviour {
 	}
 
 	void landing () {
-		
+
 		if (stopIn <= 0) {
 			splineState = idle;
 			AnimationClip idleAnimation = stopNodeProperties.idleAnimation;
 			stopIn = stopNodeProperties.duration;
+			animation.CrossFade(idleAnimation.name);
 		} 
 	}
-
+	
 	private float randomAnimationInterval;
 	void idle () {
 
 		RandomAnimationCheck ();
 		if (stopIn <= 0) {
+			StopAllCoroutines();//prevent random animation from playing after
 			if (bird) {
 				AnimationClip takeOffAnimation = stopNodeProperties.takeOffAnimation;
 				stopIn = stopNodeProperties.takeOffDuration;
@@ -251,14 +254,21 @@ public class AnimalAnimator: MonoBehaviour {
 
 	void RandomAnimationCheck () {
 
-		if (!bird && stopNodeProperties.showRandomAnimFields) {
+		if (stopNodeProperties.showRandomAnimFields) {
 			randomAnimationInterval -= Time.deltaTime;
 			if (randomAnimationInterval <= 0) {
 				animation.CrossFade(stopNodeProperties.randomAnimation.name);
-				animation.PlayQueued(stopNodeProperties.idleAnimation.name);
+				StartCoroutine(CrossFadeQueued (stopNodeProperties.idleAnimation.name, 
+				                                stopNodeProperties.randomAnimation.length));
 				randomAnimationInterval = Random.Range(stopNodeProperties.minInterval, stopNodeProperties.maxInterval);
 			}
 		}
+	}
+
+	IEnumerator CrossFadeQueued (string animationName, float delay) {
+
+		yield return new WaitForSeconds (delay);
+		animation.CrossFade (animationName);
 	}
 
 	void takingOff () {

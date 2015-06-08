@@ -39,9 +39,17 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	IEnumerator ForceSpawn () {
 
 		while (currentAnimations.Count < maxAllowed) {
-
 			tryToSpawn();
 			yield return null;
+		}
+	}
+
+	public void SpawnAllAnimals () {
+
+		Debug.Log ("pass");
+		for (int i = 0; i < animations.Length; i++) {
+			AnimalAnimator animalAnimator = animations[i];
+			Instantiate(animalAnimator.gameObject);
 		}
 	}
 
