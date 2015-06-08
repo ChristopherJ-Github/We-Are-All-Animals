@@ -6,7 +6,7 @@ using System.Collections.Generic;
 /// Animates a gameobject along the spline at a specific speed. 
 /// </summary>
 [AddComponentMenu("SuperSplines/Animation/Regular Animator")]
-public class AnimalAnimator: MonoBehaviour{
+public class AnimalAnimator: MonoBehaviour {
 	
 	public AnimationCurve spawnChance;
 	public bool bird;
@@ -211,6 +211,7 @@ public class AnimalAnimator: MonoBehaviour{
 				AnimationClip idleAnimation = stopNodeProperties.idleAnimation;
 				stopIn = stopNodeProperties.duration;
 				animation.CrossFade(idleAnimation.name);
+				randomAnimationInterval = Random.Range(stopNodeProperties.minInterval, stopNodeProperties.maxInterval);
 				splineState = idle;
 			}	
 			nodePassed[nodeIndex] = true;
@@ -218,19 +219,20 @@ public class AnimalAnimator: MonoBehaviour{
 		}
 		return false;
 	}
-	
+
 	void landing () {
 		
 		if (stopIn <= 0) {
 			splineState = idle;
 			AnimationClip idleAnimation = stopNodeProperties.idleAnimation;
 			stopIn = stopNodeProperties.duration;
-			animation.CrossFade(idleAnimation.name);		
 		} 
 	}
-	
+
+	private float randomAnimationInterval;
 	void idle () {
-		
+
+		RandomAnimationCheck ();
 		if (stopIn <= 0) {
 			if (bird) {
 				AnimationClip takeOffAnimation = stopNodeProperties.takeOffAnimation;
@@ -245,6 +247,18 @@ public class AnimalAnimator: MonoBehaviour{
 					speed = stopNodeProperties.afterMovementSpeed;	
 			}
 		} 
+	}
+
+	void RandomAnimationCheck () {
+
+		if (!bird && stopNodeProperties.showRandomAnimFields) {
+			randomAnimationInterval -= Time.deltaTime;
+			if (randomAnimationInterval <= 0) {
+				animation.CrossFade(stopNodeProperties.randomAnimation.name);
+				animation.PlayQueued(stopNodeProperties.idleAnimation.name);
+				randomAnimationInterval = Random.Range(stopNodeProperties.minInterval, stopNodeProperties.maxInterval);
+			}
+		}
 	}
 
 	void takingOff () {

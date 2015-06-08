@@ -5,11 +5,14 @@ using System;
 public class LEDPreviewManager : MonoBehaviour {
 	
 	public enum Season { Spring, Summer, Fall, Winter };
+	public bool hotKeyMode;
 	public Season season;
 	public float transitionSpeed;
 	
 	void Start () {
-		
+
+		if (hotKeyMode)
+			return;
 		SceneManager.instance.OnNewDay += ForceSettings;
 		if (season == Season.Spring)
 			SceneManager.currentDate = new DateTime (2015, 4, 8, 9, 23, 0);
