@@ -2,76 +2,60 @@
 using System.Collections;
 
 public class BirthdayManager : Singleton<BirthdayManager> {
-	
 
 	public enum spawnType {Animal, Plant, Effect};
-
 	[System.Serializable]
-	public class bdayInfo 
-	{ 
+	public class BirthdayInfo { 
+
 		public int month;
 		public int day;
 		public GameObject toSpawn;
 		public spawnType type;
+		public float spawnChance = 100;
 	}
-
-	public bdayInfo[] birthdays;
-	bdayInfo currentBDay;
 	
 	void Start () {
 
-		SceneManager.instance.OnNewDay += dayUpdate;
-		dayUpdate ();
-
+		SceneManager.instance.OnNewDay += CheckForBirthday;
+		CheckForBirthday ();
 	}
 
-	void dayUpdate () { //make sure nothing is activated while activating birthday events 
+	public BirthdayInfo[] birthdays;
+	private BirthdayInfo currentBirthday;
+	void CheckForBirthday () { 
 
-		deactivateEverything ();
-
-		SceneManager.instance.OnNewMin -= minUpdate;
-		foreach (bdayInfo birthday in birthdays) {
+		DeactivateLastBirthday ();
+		foreach (BirthdayInfo birthday in birthdays) {
 			if (birthday.month == SceneManager.currentDate.Month &&
 			    birthday.day == SceneManager.currentDate.Day) {
-				currentBDay = birthday;
-				SceneManager.instance.OnNewMin += minUpdate;
-				minUpdate();
+				ActivateBirthday(birthday);
 			}
 		}
-
 	}
 
-	void updateBirthday () {
-
-		if (currentBDay.type == spawnType.Plant || currentBDay.type == spawnType.Effect) { //don't bother updating every minute if its a one time spawn thing
-			currentBDay.toSpawn.SetActive(true);
-			SceneManager.instance.OnNewMin -= minUpdate; 
-		}
+	void ActivateBirthday (BirthdayInfo birthday) {
 		
-		if (currentBDay.type == spawnType.Animal) { 
-			
-			AnimalAnimator animalComponent = currentBDay.toSpawn.GetComponent<AnimalAnimator> ();
-			float currentChance = 100 * animalComponent.spawnChance.Evaluate(SceneManager.curvePosDay);
-			if (Random.Range (0,100) < currentChance && !currentBDay.toSpawn.activeInHierarchy) 
-				currentBDay.toSpawn.SetActive(true);
-		}
-
+		currentBirthday = birthday;
+		if (currentBirthday.type == spawnType.Plant || currentBirthday.type == spawnType.Effect) //don't bother updating every minute if its a one time spawn thing
+			currentBirthday.toSpawn.SetActive(true);
+		if (currentBirthday.type == spawnType.Animal) 
+			SceneManager.instance.OnNewMin += MakeAnimalSpawnAttempt;
 	}
 
-	void minUpdate () {
+	private GameObject currentAnimal;
+	void MakeAnimalSpawnAttempt () {
 
-		updateBirthday ();
+		if (Random.Range (0,100) < currentBirthday.spawnChance && currentAnimal == null) 
+			currentAnimal = Instantiate(currentBirthday.toSpawn) as GameObject;
 	}
 
-	void deactivateEverything() {
+	void DeactivateLastBirthday () {
 
-		foreach (bdayInfo birthday in birthdays) 
-			birthday.toSpawn.SetActive(false);	
-
-		if (!SceneManager.mainScene.activeInHierarchy) {
-			SceneManager.mainScene.SetActive(true);
-			SceneManager.currentScene = SceneManager.currentScene;
-		}
-
+		if (currentBirthday == null)
+			return;
+		if (currentBirthday.type == spawnType.Plant || currentBirthday.type == spawnType.Effect)
+			currentBirthday.toSpawn.SetActive (false);
+		if (currentBirthday.type == spawnType.Animal) 
+			SceneManager.instance.OnNewMin += MakeAnimalSpawnAttempt; 
 	}
 }

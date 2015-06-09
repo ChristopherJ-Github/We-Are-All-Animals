@@ -28,7 +28,6 @@ public class AnimalAnimator: MonoBehaviour {
 		animation.Play(initAnimation.name);
 		List<Spline> splines = GetSplines ();
 		splineIndex = GetSplineIndex(splines.Count);
-		Debug.Log (splineIndex);
 		if (splineIndex != -1) {
 			spline = splines[splineIndex];
 			InitStopNodeArray();
@@ -259,7 +258,7 @@ public class AnimalAnimator: MonoBehaviour {
 			if (randomAnimationInterval <= 0) {
 				animation.CrossFade(stopNodeProperties.randomAnimation.name);
 				StartCoroutine(CrossFadeQueued (stopNodeProperties.idleAnimation.name, 
-				                                stopNodeProperties.randomAnimation.length));
+				                                stopNodeProperties.randomAnimation.length * 0.9f));
 				randomAnimationInterval = Random.Range(stopNodeProperties.minInterval, stopNodeProperties.maxInterval);
 			}
 		}

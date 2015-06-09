@@ -47,13 +47,11 @@ public class LEDPreviewManager : MonoBehaviour {
 		keyDelayCounter -= Time.deltaTime;
 		if (keyDelayCounter > 0)
 			return;
-		
 		WeatherInput (ref keyPressed);
 		FilterInput (ref keyPressed);
 		TimeInput (ref keyPressed);
 		AnimalInput(ref keyPressed);
 		MiscInput (ref keyPressed);
-		
 		if (keyPressed)
 			keyDelayCounter = keyDelay;
 	}
@@ -91,7 +89,6 @@ public class LEDPreviewManager : MonoBehaviour {
 			keyPressed = true;
 			WeatherControl.instance.TurnOff();
 		}
-		
 		if (WeatherControl.currentWeather != null) {
 			
 			float severity = WeatherControl.currentWeather.weather.severity;
