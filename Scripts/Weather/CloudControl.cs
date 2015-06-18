@@ -3,92 +3,44 @@ using System.Collections;
 
 public class CloudControl : Singleton<CloudControl> {
 	
-	public AnimationCurve maxCloudinessOverYear;
-	public AnimationCurve minCloudinessOverYear;
-	public AnimationCurve likelyCloudinessOverYear;
-	public AnimationCurve likelyInfluence;
-	public float maxOvercast;
-	[HideInInspector] public float overcast; 
-	private float initOvercast; 
-	public float minHeight, maxHeight;
-	public float minSpeed, maxSpeed;
-	private float speed;
-
-	public float intensity = 4;
-	public float shadowScale = 0.75f;
-	public float distScale = 10.0f;
-	
-	public float minScattering, maxScattering;
-	public float minSharpness, maxSharpness;
-	public float minThickness, maxThickness;
-	public Gradient nightToDuskTint;
-	public Gradient _middayTint;
-	public AnimationCurve overcastToRandomization;
-	[HideInInspector]
-	public Color middayTint;
-	[HideInInspector]
-	public float middayLerp, grayAmount;
-	private float initMiddayLerp;
-	
-	[HideInInspector]
-	public float extraOvercast;
-	public float minExtraOvercast, maxExtraOvercast;
-	public float minDelaySpeed, maxDelaySpeed;
-	public float changeSpeed;
-	
 	void OnEnable () {
 		
 		SceneManager.instance.OnNewDay += UpdateClouds;
 		UpdateClouds ();
+		SetCloudProperties ();
 		StartCoroutine(ChangeExtraOvercast());
-		
-		Shader.SetGlobalFloat("ls_cloudintensity", intensity);
-		Shader.SetGlobalFloat("ls_shadowscale", shadowScale);
-		Shader.SetGlobalVector("ls_cloudcolor", (new Vector3(1,0.9f,0.95f)));
-		Shader.SetGlobalFloat("ls_distScale", distScale);
 	}
 	
 	void UpdateClouds () {
 		
+		RandomizeOvercast ();
+		RandomizeCloudHeight ();
+		SetSkyboxTint (Random.value);
+	}
+
+	public AnimationCurve maxCloudinessOverYear;
+	public AnimationCurve minCloudinessOverYear;
+	public AnimationCurve likelyCloudinessOverYear;
+	public AnimationCurve likelyInfluence;
+	private float initOvercast; 
+	void RandomizeOvercast () {
+
 		float minCloudiness = minCloudinessOverYear.Evaluate (SceneManager.curvePos);
 		float maxCloudiness = maxCloudinessOverYear.Evaluate (SceneManager.curvePos);
 		float randomCloudiness = Random.Range(minCloudiness, maxCloudiness);
 		float likelyCloudiness = likelyCloudinessOverYear.Evaluate (SceneManager.curvePos);
 		float influence = likelyInfluence.Evaluate (Random.value);
 		initOvercast = Mathf.Lerp (randomCloudiness, likelyCloudiness, influence);
-		setOvercast (initOvercast);
-		
-		float height = Random.Range (minHeight, maxHeight);
-		Shader.SetGlobalFloat ("ls_cloudscale", height);
-		float maxRandomValue = overcastToRandomization.Evaluate (overcast);
-		middayLerp = Random.Range (0, maxRandomValue);
-		initMiddayLerp = middayLerp;
-		middayTint = _middayTint.Evaluate (middayLerp);
-		
-		speed = Mathf.Lerp (minSpeed, maxSpeed, WindControl.instance.windiness);
-		Shader.SetGlobalFloat("ls_time", Time.time * speed * 0.25f);
+		SetOvercast (initOvercast);
 	}
-	
-	void Update () {
+
+	[HideInInspector] public float overcast;
+	public float minScattering, maxScattering;
+	public float minSharpness, maxSharpness;
+	public float minThickness, maxThickness;
+	public void SetOvercast(float overcast) {
 		
-		speed = Mathf.Lerp (minSpeed, maxSpeed, WindControl.instance.windiness);
-		Shader.SetGlobalFloat("ls_time", Time.time * speed * 0.25f);
-		/*
-		lerp = Mathf.Clamp01 (lerp);
-		lerp2 = Mathf.Clamp01 (lerp2);
-		setOvercast (lerp);
-		middayTint = _middayTint.Evaluate (lerp2);
-
-		Shader.SetGlobalFloat("ls_cloudintensity", intensity);
-		Shader.SetGlobalFloat("ls_shadowscale", shadowScale);
-
-		Shader.SetGlobalFloat("ls_distScale", distScale);
-		*/
-	}
-	
-	public void setOvercast(float _cloudiness) {
-
-		overcast = _cloudiness;
+		this.overcast = overcast;
 		float scattering = Mathf.Lerp (minScattering, maxScattering, overcast);
 		float sharpness = Mathf.Lerp (minSharpness, maxSharpness, overcast);
 		float thickness = Mathf.Lerp (minThickness, maxThickness, overcast);
@@ -97,21 +49,67 @@ public class CloudControl : Singleton<CloudControl> {
 		Shader.SetGlobalFloat("ls_cloudthickness", thickness);
 	}
 
+	public float minHeight, maxHeight;
+	void RandomizeCloudHeight () {
+
+		float height = Random.Range (minHeight, maxHeight);
+		Shader.SetGlobalFloat ("ls_cloudscale", height);
+	}
+
+	public AnimationCurve overcastToRandomization;
+	private float initMiddayValue;
+	[HideInInspector] public float middayValue;
+	[HideInInspector] public Color middayTint;
+	public Gradient _middayTint;
+	public Gradient nightToDuskTint;
+	void SetSkyboxTint (float tintValue) {
+
+		float maxRandomValue = overcastToRandomization.Evaluate (overcast);
+		middayValue = Mathf.Lerp(0, maxRandomValue, tintValue);
+		initMiddayValue = middayValue;
+		middayTint = _middayTint.Evaluate (middayValue);
+	}
+
+	public float intensity = 4;
+	public float shadowScale = 0.75f;
+	public float distScale = 10.0f;
+	void SetCloudProperties () {
+		
+		Shader.SetGlobalFloat("ls_cloudintensity", intensity);
+		Shader.SetGlobalFloat("ls_shadowscale", shadowScale);
+		Shader.SetGlobalVector("ls_cloudcolor", (new Vector3(1,0.9f,0.95f)));
+		Shader.SetGlobalFloat("ls_distScale", distScale);
+	}
+	
+	void Update () {
+		
+		SetCloudSpeed ();
+	}
+
+	public float minSpeed, maxSpeed;
+	void SetCloudSpeed () {
+		
+		float speed = Mathf.Lerp (minSpeed, maxSpeed, WindControl.instance.windiness);
+		Shader.SetGlobalFloat("ls_time", Time.time * speed * 0.25f);
+	}
+	
+	[HideInInspector] public float grayAmount;
 	public void SetStormTint (float _grayAmount, float _darkness) {
 
 		grayAmount = _grayAmount;
-		Color initMiddayTint = _middayTint.Evaluate (initMiddayLerp);
+		Color initMiddayTint = _middayTint.Evaluate (initMiddayValue);
 		Color middayGrayscale = new Color (initMiddayTint.grayscale, initMiddayTint.grayscale, initMiddayTint.grayscale);
 		Color middayAfterGray = Color.Lerp(initMiddayTint, middayGrayscale, _grayAmount);
 		Color middayDarkened = Color.Lerp (middayAfterGray, Color.black, _darkness);
 		middayTint = middayDarkened;
 	}
-	
+
+	public float minDelaySpeed, maxDelaySpeed;
+	public float minExtraOvercast, maxExtraOvercast;
 	IEnumerator ChangeExtraOvercast () {
 		
 		float timer = 1;
-		while (timer > 0) {
-			
+		while (timer > 0) {	
 			float speed = Mathf.Lerp(minDelaySpeed, maxDelaySpeed, WindControl.instance.windiness);
 			timer -= Time.deltaTime * speed;
 			yield return null;
@@ -120,11 +118,12 @@ public class CloudControl : Singleton<CloudControl> {
 		float extraOvercastGoal = Random.Range (-_extraOvercast, _extraOvercast);
 		StartCoroutine (SetExtraOvercast (extraOvercastGoal));
 	}
-	
+
+	[HideInInspector] public float extraOvercast;
+	public float changeSpeed;
 	IEnumerator SetExtraOvercast (float extraOvercastGoal) {
-		
+
 		while (extraOvercast != extraOvercastGoal) {
-			
 			extraOvercast = Mathf.MoveTowards(extraOvercast, extraOvercastGoal, Time.deltaTime * changeSpeed);
 			yield return null;
 		}

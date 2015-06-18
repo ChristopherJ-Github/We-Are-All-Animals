@@ -13,13 +13,11 @@ public class AnimalAnimator: MonoBehaviour {
 	public bool bird;
 	private delegate void splineStateHandler();
 	private splineStateHandler splineState;
-	
-	private float speed;
-	public float initSpeed = 1f;
 	public GameObject animal;
 	private Animation animation;
 	public AnimationClip initAnimation;
 	private Spline spline;
+
 	void Start () {
 		
 		AnimationSpawner.instance.currentAnimations.Add(this);
@@ -37,7 +35,7 @@ public class AnimalAnimator: MonoBehaviour {
 		}
 	}
 
-	void Remove () {
+	public void Remove () {
 		
 		AnimationSpawner.instance.currentAnimations.Remove(this);
 		Destroy (gameObject);
@@ -94,6 +92,8 @@ public class AnimalAnimator: MonoBehaviour {
 	}
 	
 	private float passedTime = 0f;
+	private float speed;
+	public float initSpeed = 1f;
 	void moving () {
 		
 		passedTime += (Time.deltaTime * speed) / spline.Length;

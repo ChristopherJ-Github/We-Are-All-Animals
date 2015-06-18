@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
+using System.Linq;
+using System.Collections;
+
 
 public class ModeledTreeManager : MonoBehaviour {
 
@@ -10,21 +12,20 @@ public class ModeledTreeManager : MonoBehaviour {
 	public AnimationCurve leafFallPercentage;
 	public textureInfo[] bark;
 	public textureInfo[] leaves;
+	
+	public void Init () {
 
-	// Use this for initialization
-	public void init () {
-
-		SceneManager.instance.OnNewMonth += monthUpdate;
-		ObjectChanger.sortArray (bark);
-		ObjectChanger.sortArray (leaves);
-		monthUpdate ();
+		SceneManager.instance.OnNewDay += SetCurrentTextures;
+		bark = bark.OrderBy (_textureInfo => _textureInfo.monthStart).ToArray();
+		leaves = leaves.OrderBy (_textureInfo => _textureInfo.monthStart).ThenBy (_textureInfo => _textureInfo.day).ToArray ();
+		SetCurrentTextures ();
 
 	}
 
-	void monthUpdate () {
+	void SetCurrentTextures () {
 
-		ObjectChanger.setTextureForMonth (leaves, leafMatNumber, renderer);
-		ObjectChanger.setTextureForMonth (bark, barkMatNumber, renderer);
+		ObjectChanger.SetCurrentTexture(leaves, leafMatNumber, renderer);
+		ObjectChanger.SetCurrentTexture (bark, barkMatNumber, renderer);
 	}
 
 }

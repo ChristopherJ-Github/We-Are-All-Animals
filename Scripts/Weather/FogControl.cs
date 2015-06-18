@@ -1,29 +1,18 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class FogControl : Singleton<FogControl> {
-	
-	public Gradient nightToDusk;
-	public Gradient _midday;
-	public Color middayCloudy;
-	public Color middayFullCloud;
-	[HideInInspector] 
-	public Color midday;
-	public GameObject globalFogActivator;
-	
-	public AnimationCurve minFogOverYear, maxFogOverYear;
-	public float maxDensity;
-	public float minDesnity;
-	public AnimationCurve overcastInfluence;
-	
+
 	void Start () {
 		
 		RenderSettings.fog = true;
-		SceneManager.instance.OnNewDay += dayUpdate;
-		dayUpdate ();
+		SceneManager.instance.OnNewDay += RandomizeFog;
+		RandomizeFog ();
 	}
-	
-	void dayUpdate () {
+
+	public AnimationCurve minFogOverYear, maxFogOverYear;
+	public float minDesnity, maxDensity;
+	void RandomizeFog () {
 		
 		float minFog = minFogOverYear.Evaluate (SceneManager.curvePos);
 		float maxFog = maxFogOverYear.Evaluate (SceneManager.curvePos);
@@ -36,21 +25,29 @@ public class FogControl : Singleton<FogControl> {
 		
 		RenderSettings.fogDensity = density;
 	}
-	
+
 	void Update () {
 		
-		Color initMidday = _midday.Evaluate (CloudControl.instance.middayLerp);
+		SetMidayColor ();
+	}
+
+	public Gradient _midday;
+	public AnimationCurve overcastInfluence;
+	public Color middayCloudy;
+	public Color middayFullCloud;
+	public Color middaySnow;
+	[HideInInspector] public Color midday;
+	void SetMidayColor () {
+
+		Color initMidday = _midday.Evaluate (CloudControl.instance.middayValue);
 		float _overcastInfluence = overcastInfluence.Evaluate(CloudControl.instance.overcast); 
 		Color middayAfterCloud = Color.Lerp (initMidday, middayCloudy, _overcastInfluence);
-		/*
-		Color middayGrayscale = new Color (middayAfterCloud.grayscale, middayAfterCloud.grayscale, middayAfterCloud.grayscale);
-		Color middayAfterGray = Color.Lerp (middayAfterCloud, middayGrayscale, CloudControl.instance.grayAmount);
-		*/
 		Color middayAfterFullCloud = Color.Lerp (middayAfterCloud, middayFullCloud, CloudControl.instance.grayAmount);
-
-		midday = middayAfterFullCloud;
+		Color middayAfterSnow = Color.Lerp (middayAfterFullCloud, middaySnow, SnowManager.instance.snowLevel * _overcastInfluence);
+		midday = middayAfterSnow;
 	}
-	
+
+	public Gradient nightToDusk;
 	public Color NightToDusk (float lerp) {
 		
 		Color initColor = nightToDusk.Evaluate (lerp);
@@ -58,7 +55,8 @@ public class FogControl : Singleton<FogControl> {
 		Color afterGray = Color.Lerp (initColor, grayscale, CloudControl.instance.grayAmount);
 		return afterGray;
 	}
-	
+
+	public GameObject globalFogActivator;
 	public void SetGlobalFog (bool active) {
 		
 		globalFogActivator.SetActive (active);

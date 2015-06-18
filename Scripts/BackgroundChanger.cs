@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
+using System.Linq;
+using System.Collections;
 
 public class BackgroundChanger : MonoBehaviour {
 	
@@ -9,15 +10,14 @@ public class BackgroundChanger : MonoBehaviour {
 	void OnEnable () {
 		
 		SceneManager.instance.OnNewMonth += monthUpdate;
-		ObjectChanger.sortArray (backgrounds);
+		backgrounds = backgrounds.OrderBy(_textureInfo => _textureInfo.monthStart).ToArray();
 		monthUpdate ();
 		
 	}
 	
 	void monthUpdate () {
 		
-		ObjectChanger.setTextureForMonth (backgrounds, 0, renderer);
-		
+		ObjectChanger.SetCurrentTexture (backgrounds, 0, renderer);
 	}
 	
 }

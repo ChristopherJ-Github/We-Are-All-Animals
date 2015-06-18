@@ -10,6 +10,11 @@ public class MoonProperties : MonoBehaviour {
 
 	void Start () {
 
-		currentIntesity = 0.74f;
+		currentIntesity = maxIntensity;
+	}
+
+	void Update () {
+
+		currentIntesity = maxIntensity;//debug
 	}
 }

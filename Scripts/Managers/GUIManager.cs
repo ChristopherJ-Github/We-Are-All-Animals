@@ -35,8 +35,8 @@ public class GUIManager : Singleton<GUIManager>
 		
 		delay -= Time.deltaTime;
 		if (delay <= 0) {
-			delay = 0; //avoids making a giant negative number if left alone
-			if (Input.GetKey (KeyCode.Space)) {
+			delay = 0;
+			if (Input.GetKeyDown (KeyCode.Space)) {
 				toggleStats = !toggleStats;
 				delay = delayVal;
 			}

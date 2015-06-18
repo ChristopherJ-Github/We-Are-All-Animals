@@ -7,7 +7,13 @@ public class FilterInfo {
 	
 	public Texture LutTexture;
 	public float blend;
+}
+
+[System.Serializable]
+public class FilterGroup {
+
 	public AnimationCurve effectOverYear = AnimationCurve.Linear(0, 1, 1, 1);
+	public FilterInfo[] filters;
 }
 
 public class FilterManager : Singleton<FilterManager> {
@@ -28,13 +34,18 @@ public class FilterManager : Singleton<FilterManager> {
 		RandomizeStormFilter ();
 	}
 
-	public FilterInfo[] filters;
+	public FilterGroup[] filterGroups;
+	private FilterGroup filterGroup;
 	void RandomizeMainFilter () {
 
-		filterIndex = Random.Range (0, filters.Length);
-		filter = filters[filterIndex];
+		int filterGroupIndex = Random.Range (0, filterGroups.Length);
+		filterGroup = filterGroups [filterGroupIndex];
+		filterIndex = Random.Range (0, filterGroup.filters.Length);
+		filter = filterGroup.filters[filterIndex];
 		amplifyColorEffect.LutTexture = filter.LutTexture;
-		blend = 1 - filter.effectOverYear.Evaluate (SceneManager.curvePos);
+		float currentEffect = filterGroup.effectOverYear.Evaluate (SceneManager.curvePos);
+		currentEffect = Mathf.Clamp01 (currentEffect);
+		blend = 1 - currentEffect;
 	}
 
 	public FilterInfo[] stormFilters;
@@ -114,10 +125,12 @@ public class FilterManager : Singleton<FilterManager> {
 	public void NextFilter (bool _filter = false, bool _stormFilter = false) {
 
 		if (_filter) {
-			filterIndex = (int)Mathf.Repeat(filterIndex + 1, filters.Length);
-			filter = filters[filterIndex];
+			filterIndex = (int)Mathf.Repeat(filterIndex + 1, filterGroup.filters.Length);
+			filter = filterGroup.filters[filterIndex];
 			amplifyColorEffect.LutTexture = filter.LutTexture;
-			blend = Random.value;
+			float currentEffect = filterGroup.effectOverYear.Evaluate (SceneManager.curvePos);
+			currentEffect = Mathf.Clamp01 (currentEffect);
+			blend = 1 - currentEffect;
 		}
 		if (_stormFilter) {
 			stormFilterIndex = (int)Mathf.Repeat(stormFilterIndex + 1, stormFilters.Length);

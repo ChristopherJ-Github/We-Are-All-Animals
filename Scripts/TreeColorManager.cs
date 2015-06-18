@@ -26,10 +26,13 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 	}
 
 	public Gradient flowerColorOverYear;
+	public AnimationCurve saturationOverYear;
 	void ChangeFlowerColor () {
 		
 		Color currentColor = flowerColorOverYear.Evaluate (SceneManager.curvePos);
 		Shader.SetGlobalColor ("_GrassTint", currentColor);
+		float saturation = saturationOverYear.Evaluate (SceneManager.curvePos);
+		Shader.SetGlobalFloat ("_Saturation", saturation);
 	}
 
 	public delegate void colorHandler (Color color);
@@ -42,6 +45,8 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 	
 	void Update () {
 
+		ChangeTreeColor ();//debug
+		ChangeFlowerColor (); //debug
 		SetBillboardLighting ();
 	}
 

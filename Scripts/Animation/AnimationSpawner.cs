@@ -5,19 +5,14 @@ using System.Collections.Generic;
 public class AnimationSpawner : Singleton<AnimationSpawner> {
 	
 	public AnimalAnimator[] animations;
-	[HideInInspector]
-	public List<AnimalAnimator> currentAnimations;
+	[HideInInspector] public List<AnimalAnimator> currentAnimations;
 	public int maxAllowed;
 	public float chanceDivisor = 1f;
+	[HideInInspector] public bool on = true;
 	
 	void OnEnable () {
 		
-		SceneManager.instance.OnNewMin += minUpdate;
-	}
-	
-	void minUpdate () {
-		
-		tryToSpawn ();
+		SceneManager.instance.OnNewMin += MakeSpawnAttempt;
 	}
 
 	void Update () {
@@ -27,8 +22,10 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 		}
 	}
 	
-	void tryToSpawn() {
+	void MakeSpawnAttempt() {
 
+		if (!on) 
+			return;
 		for (int i = 0; i < maxAllowed - currentAnimations.Count; i++) {
 			AnimalAnimator animalAnimator = animations[Random.Range(0, animations.Length)];
 			if (Random.value < animalAnimator.spawnChance.Evaluate(SceneManager.curvePos)/chanceDivisor) 
@@ -39,14 +36,13 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	IEnumerator ForceSpawn () {
 
 		while (currentAnimations.Count < maxAllowed) {
-			tryToSpawn();
+			MakeSpawnAttempt();
 			yield return null;
 		}
 	}
 
 	public void SpawnAllAnimals () {
 
-		Debug.Log ("pass");
 		for (int i = 0; i < animations.Length; i++) {
 			AnimalAnimator animalAnimator = animations[i];
 			Instantiate(animalAnimator.gameObject);

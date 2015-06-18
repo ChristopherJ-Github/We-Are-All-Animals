@@ -111,7 +111,7 @@
 		void surf (Input IN, inout SurfaceOutput o) { 
 				
 		  	o.Normal = UnpackNormal(tex2D(_MainBump, IN.uv_MainBump));
-		  	fixed snowLerp  = dot(WorldNormalVector(IN, o.Normal), _SnowDirection.xyz) * 7 + _Snow;
+		  	fixed snowLerp  = dot(WorldNormalVector(IN, o.Normal), _SnowDirection.xyz) + _Snow;
 		  	o.Albedo = lerp (o.Albedo, _SnowColor.rgb, snowLerp);
 		  	o.Alpha = lerp (0, 1, snowLerp);	    
 		}

@@ -11,6 +11,7 @@ public class WindControl : Singleton<WindControl> {
 #endif
 		_particleEmitter = dust.GetComponent<ParticleEmitter> ();
 		_particleAnimator = dust.GetComponent<ParticleAnimator> ();
+		originalMatCol = dust.renderer.material.GetColor ("_TintColor");
 		originalColors = _particleAnimator.colorAnimation;
 		SceneManager.instance.OnNewMin += minUpdate; 
 		SceneManager.instance.OnNewDay += dayUpdate; 
@@ -42,7 +43,6 @@ public class WindControl : Singleton<WindControl> {
 		Quaternion initRotation = transform.rotation;
 		Quaternion goalRotation = Quaternion.LookRotation (_direction);
 		while (initRotation != goalRotation) {
-			
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, goalRotation, directionChangeSpeed * Time.deltaTime);
 			direction = transform.forward;
 			yield return null;
@@ -60,7 +60,6 @@ public class WindControl : Singleton<WindControl> {
 		SetValues (windiness);
 	}
 
-
 	private ScriptableWindzoneInterface WindZone;
 	public Terrain terrain;
 	public float minMainWind, maxMainWind;
@@ -71,7 +70,6 @@ public class WindControl : Singleton<WindControl> {
 		
 		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence , wnd);
 		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, wnd);
-
 #if !UNITY_WEBPLAYER
 		WindZone.WindMain = mainWind;
 		WindZone.WindTurbulence = turbulence;
@@ -83,7 +81,7 @@ public class WindControl : Singleton<WindControl> {
 
 	void Update () {
 		
-		if (createDust)
+		if (createDust) 
 			CreateDust ();
 	}
 
@@ -98,7 +96,6 @@ public class WindControl : Singleton<WindControl> {
 	public GameObject dust;
 	private ParticleEmitter _particleEmitter;
 	private ParticleAnimator _particleAnimator;
-	private Color[] originalColors;
 	public float minAlphaOffset, maxAlphaOffset;
 	public float minSpeed, maxSpeed;
 	public float minScale, maxScale;
@@ -109,16 +106,34 @@ public class WindControl : Singleton<WindControl> {
 		float scale = Mathf.Lerp (minScale, maxScale, windiness);
 		_particleEmitter.minSize = Mathf.Clamp(scale - 1, 0, scale -1);
 		_particleEmitter.maxSize = scale;
+		SetDustColors ();
+	}
+	
+	public float materialSnowAlpha;
+	private Color originalMatCol;
+	private Color[] originalColors;
+	void SetDustColors () {
 
 		Color[] newColors = new Color[originalColors.Length];
 		System.Array.Copy (originalColors, newColors, originalColors.Length);
 		float alphaOffset = Mathf.Lerp (minAlphaOffset, maxAlphaOffset, windiness);
 		for (int i = 0; i < newColors.Length; i++) {
+			newColors[i] = AddSnowTint(newColors[i]);
 			if (i == 0 || i == newColors.Length - 1)
 				continue;
 			newColors[i].a += alphaOffset;
 			newColors[i].a *= WeatherControl.instance.totalTransition;
 		}
 		_particleAnimator.colorAnimation = newColors;
+		Color newMatCol = AddSnowTint (originalMatCol);
+		newMatCol.a = Mathf.Lerp (newMatCol.a, materialSnowAlpha, SnowManager.instance.snowLevel);
+		dust.renderer.material.SetColor ("_TintColor", newMatCol);
+	}
+
+	Color AddSnowTint (Color toTint) {
+
+		Color snowTint = Color.white;
+		snowTint.a = toTint.a;
+		return Color.Lerp(toTint, snowTint, SnowManager.instance.snowLevel);
 	}
 }

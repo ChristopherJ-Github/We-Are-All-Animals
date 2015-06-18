@@ -6,6 +6,8 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 
 	public float minInterval, maxInterval;
 	public AnimationCurve leafFallOverYear;
+	public int startMonth, startDay;
+	public int stopMonth, stopDay; 
 	public int minEmission, maxEmission;
 	public int minEnergy, maxEnergy;
 	public float horizontalShift, verticalShift;
@@ -38,6 +40,10 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		leafParticles.minInterval = minInterval;
 		leafParticles.maxInterval = maxInterval;
 		leafParticles.leafFallOverYear = leafFallOverYear;
+		leafParticles.startMonth = startMonth;
+		leafParticles.startDay = startDay;
+		leafParticles.stopMonth = stopMonth;
+		leafParticles.stopDay = stopDay;
 		leafParticles.minEmission = minEmission / copyCount;
 		leafParticles.maxEmission = maxEmission / copyCount;
 		leafParticles.minEnergy = minEnergy;

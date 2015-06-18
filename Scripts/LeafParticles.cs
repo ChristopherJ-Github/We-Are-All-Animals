@@ -1,5 +1,6 @@
 ﻿#if !UNITY_WEBPLAYER
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class LeafParticles : MonoBehaviour {
@@ -7,10 +8,27 @@ public class LeafParticles : MonoBehaviour {
 	public void Init() {
 
 		TreeColorManager.instance.OnColorChange += ChangeColor;
+		SceneManager.instance.OnNewDay += SetAllowLeaves;
+		SetAllowLeaves ();
 		particleAnimator = GetComponent<ParticleAnimator> ();
 		originalPosition = transform.position;
 		ChangeColor (TreeColorManager.instance.currentColor);
 		StartCoroutine (IntervalCountDown ());
+	}
+
+	public int startMonth, startDay;
+	public int stopMonth, stopDay;
+	private bool allowLeaves;
+	void SetAllowLeaves () {
+		
+		DateTime currentDate = SceneManager.currentDate;
+		DateTime startDate = new DateTime (currentDate.Year, startMonth, startDay);
+		DateTime stopDate = new DateTime (currentDate.Year, stopMonth, stopDay);
+		double minsAtStart = (startDate - SceneManager.yearStart).TotalMinutes;
+		double minsAtStop = (stopDate - SceneManager.yearStart).TotalMinutes;
+		double startPos = minsAtStart / SceneManager.minsInYear;
+		double stopPos = minsAtStop / SceneManager.minsInYear;
+		allowLeaves = SceneManager.curvePos >= startPos && SceneManager.curvePos <= stopPos;
 	}
 	
 	public float minInterval, maxInterval;
@@ -43,12 +61,13 @@ public class LeafParticles : MonoBehaviour {
 	public int minEmission, maxEmission;
 	public int minEnergy, maxEnergy;
 	void UpdateEmission (float windiness) {
-		
-		float leafFall = leafFallOverYear.Evaluate (SceneManager.curvePos);
+
+		float curvePos = SceneManager.curvePos;
+		float leafFall = leafFallOverYear.Evaluate (curvePos);
 		int energy = (int)Mathf.Lerp (minEnergy, maxEnergy, windiness);
 		particleEmitter.maxEnergy = energy;
 		int emission = (int)Mathf.Lerp (minEmission, maxEmission, leafFall);
-		particleEmitter.maxEmission = emission;
+		particleEmitter.maxEmission = allowLeaves ? emission : 0;
 	}
 	
 	void LateUpdate () {

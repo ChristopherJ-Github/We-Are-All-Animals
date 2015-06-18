@@ -4,6 +4,7 @@ using System;
 
 public class monthInfo {
 	public int monthStart;
+	public int day = 1;
 }
 
 [System.Serializable]
@@ -37,11 +38,11 @@ public class TreeProperties : MonoBehaviour {
 			MTMinstance.leafMatNumber = leafMatNumber;
 			MTMinstance.bark = bark;
 			MTMinstance.leaves = leaves;
-			MTMinstance.init ();
+			MTMinstance.Init ();
 		} else { 
 			GTMinstance = gameObject.AddComponent<GeneratedTreeManager>() as GeneratedTreeManager;
 			GTMinstance.trees = trees;
-			GTMinstance.init ();
+			GTMinstance.Init ();
 		}	
 
 		dayUpdate ();
@@ -50,6 +51,11 @@ public class TreeProperties : MonoBehaviour {
 	void dayUpdate () {
 
 		changeMatColor ();
+	}
+
+	void Update () {
+
+		changeMatColor ();//debug
 	}
 
 	public Gradient colorOverYear;

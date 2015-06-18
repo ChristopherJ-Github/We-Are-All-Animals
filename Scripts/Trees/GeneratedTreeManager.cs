@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
+using System.Linq;
+using System.Collections;
+
 
 public class GeneratedTreeManager: MonoBehaviour {
 
@@ -8,20 +10,20 @@ public class GeneratedTreeManager: MonoBehaviour {
 	public GameObject currentTree;
 	public static Transform parent;
 
-	public void init () { 
+	public void Init () { 
 
-		SceneManager.instance.OnNewMonth += monthUpdate;
+		SceneManager.instance.OnNewDay += SetCurrentPrefab;
 		renderer.enabled = false; //replace the tree in the editor with one's spawned from this script
 		if (parent == null) {
 			parent = new GameObject ("Trees").transform;
 		}
-		ObjectChanger.sortArray (trees); 
-		monthUpdate ();
+		trees = trees.OrderBy (_prefabInfo => _prefabInfo.monthStart).ThenBy (_prefabInfo => _prefabInfo.day).ToArray ();
+		SetCurrentPrefab ();
 	}
 
-	void monthUpdate () {
+	void SetCurrentPrefab () {
 
-		currentTree = ObjectChanger.setPrefabForMonth(trees, currentTree, transform);
+		currentTree = ObjectChanger.SetCurrentPrefab(trees, currentTree, transform);
 		currentTree.transform.parent = parent;
 	}
 }

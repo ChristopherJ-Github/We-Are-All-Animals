@@ -7,7 +7,7 @@ public class TamiraBirthday : MonoBehaviour {
 	
 	void OnEnable () {
 
-		CloudControl.instance.setOvercast (0);
+		CloudControl.instance.SetOvercast (0);
 		weatherControl.gameObject.SetActive (false);
 	}
 

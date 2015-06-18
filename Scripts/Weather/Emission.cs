@@ -86,8 +86,9 @@ public class Emission : GeneralWeather
 		float transSeverity = Mathf.Lerp (0, severity, WeatherControl.instance.transition);
 
 		CloudControl.instance.SetStormTint (grayAmount, darkness);
-		CloudControl.instance.setOvercast (transOvercast); //limit the min value to prevent it from getting less cloudy 
-		WindControl.instance.SetValues(transWindiness); //comment out for webbuild
+		CloudControl.instance.SetOvercast (transOvercast); //limit the min value to prevent it from getting less cloudy 
+		SkyManager.instance.sun.weatherDarkness = WeatherControl.instance.cloudTransition * severity;
+		WindControl.instance.SetValues(transWindiness); 
 		changeSettings (transSeverity, minSpeed, maxSpeed, 0, maxEmission);
 	}
 	
@@ -119,7 +120,8 @@ public class Emission : GeneralWeather
 
 		GUIManager.instance.OnGuiEvent -= OnGuiEvent;
 		CloudControl.instance.SetStormTint (0, 0);
-		CloudControl.instance.setOvercast (initCloudiness); //limit the min value to prevent it from getting less cloudy 
+		CloudControl.instance.SetOvercast (initCloudiness); //limit the min value to prevent it from getting less cloudy 
+		SkyManager.instance.sun.weatherDarkness = 0;
 		WindControl.instance.SetValues(initWindiness); //comment out for webbuild
 		changeSettings (0, minSpeed, maxSpeed, 0, maxEmission);
 

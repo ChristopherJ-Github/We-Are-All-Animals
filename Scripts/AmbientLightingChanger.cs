@@ -29,6 +29,7 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 
 	void Update () {
 
+		midayColorOfDay = middayOverYear.Evaluate (SceneManager.curvePos);
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
 		night = SetDarkness (_night, darkness);
 		dusk = SetDarkness (_dusk, darkness);
@@ -38,7 +39,6 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 	public Color SetDarkness(Color color, float? darkness = null) {
 		
 		float _darkness = darkness ?? Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
-		
 		color.r = Mathf.Clamp01(color.r - _darkness);
 		color.b = Mathf.Clamp01(color.b - _darkness);
 		color.g = Mathf.Clamp01(color.g - _darkness);

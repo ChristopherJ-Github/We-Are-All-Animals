@@ -137,9 +137,9 @@ Shader "Custom/SnowTerrainAdd" {
 			nrm = lerp(flatNormal, nrm, splatSum);
 			o.Normal = UnpackNormal(nrm);		
 			
-			fixed snowLerp  = dot(WorldNormalVector(IN, o.Normal), _SnowDirection.xyz) * 10 + _Snow;
+			fixed snowLerp  = dot(WorldNormalVector(IN, o.Normal), _SnowDirection.xyz) + _Snow;
 			snowLerp = clamp(snowLerp, 0, 1);
-			o.Albedo = lerp (o.Albedo, _SnowColor.rgb, snowLerp);
+			o.Albedo = lerp (o.Albedo, _SnowColor.rgb * 0.7, snowLerp);
 			o.Alpha = lerp (0, splat_control.r + splat_control.g + splat_control.b + splat_control.a, snowLerp);
 		}
 		ENDCG   

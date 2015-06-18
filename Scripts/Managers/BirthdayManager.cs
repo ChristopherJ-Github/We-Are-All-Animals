@@ -34,19 +34,25 @@ public class BirthdayManager : Singleton<BirthdayManager> {
 	}
 
 	void ActivateBirthday (BirthdayInfo birthday) {
-		
+
 		currentBirthday = birthday;
 		if (currentBirthday.type == spawnType.Plant || currentBirthday.type == spawnType.Effect) //don't bother updating every minute if its a one time spawn thing
 			currentBirthday.toSpawn.SetActive(true);
-		if (currentBirthday.type == spawnType.Animal) 
+		if (currentBirthday.type == spawnType.Animal) {
+			AnimationSpawner.instance.on = false;
+			AnimationSpawner.instance.ClearAnimations();
 			SceneManager.instance.OnNewMin += MakeAnimalSpawnAttempt;
+			MakeAnimalSpawnAttempt();
+		}
 	}
 
-	private GameObject currentAnimal;
+	private AnimalAnimator currentAnimal;
 	void MakeAnimalSpawnAttempt () {
 
-		if (Random.Range (0,100) < currentBirthday.spawnChance && currentAnimal == null) 
-			currentAnimal = Instantiate(currentBirthday.toSpawn) as GameObject;
+		if (Random.Range (0,100) < currentBirthday.spawnChance && currentAnimal == null) {
+			GameObject animalObj = Instantiate(currentBirthday.toSpawn) as GameObject;
+			currentAnimal = animalObj.GetComponent<AnimalAnimator> ();
+		}
 	}
 
 	void DeactivateLastBirthday () {
@@ -55,7 +61,11 @@ public class BirthdayManager : Singleton<BirthdayManager> {
 			return;
 		if (currentBirthday.type == spawnType.Plant || currentBirthday.type == spawnType.Effect)
 			currentBirthday.toSpawn.SetActive (false);
-		if (currentBirthday.type == spawnType.Animal) 
-			SceneManager.instance.OnNewMin += MakeAnimalSpawnAttempt; 
+		if (currentBirthday.type == spawnType.Animal) {
+			if (currentAnimal != null)
+				currentAnimal.Remove();
+			AnimationSpawner.instance.on = true;
+			SceneManager.instance.OnNewMin -= MakeAnimalSpawnAttempt; 
+		}
 	}
 }

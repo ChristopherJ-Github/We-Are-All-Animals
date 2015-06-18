@@ -31,7 +31,7 @@ public class LEDPreviewManager : MonoBehaviour {
 		WeatherControl.instance.TurnOff ();
 		FilterManager.instance.blend = 0;
 		float likelyCloudiness =  CloudControl.instance.likelyCloudinessOverYear.Evaluate (SceneManager.curvePos);
-		CloudControl.instance.setOvercast (likelyCloudiness);
+		CloudControl.instance.SetOvercast (likelyCloudiness);
 	}
 	
 	void Update () {
@@ -115,12 +115,10 @@ public class LEDPreviewManager : MonoBehaviour {
 		if (Input.GetKey(KeyCode.Y)) {
 			keyPressed = true;
 			FilterManager.instance.NextFilter(true, false);
-			FilterManager.instance.blend = 0;
 		}
 		if (Input.GetKey(KeyCode.U)) {
 			keyPressed = true;
 			FilterManager.instance.NextFilter(false, true);
-			FilterManager.instance.stormBlend = 0;
 		}
 	}
 	
@@ -226,7 +224,7 @@ public class LEDPreviewManager : MonoBehaviour {
 			overcast += transitionSpeed * Time.deltaTime;
 		if (Input.GetKey(KeyCode.W)) 
 			overcast -= transitionSpeed * Time.deltaTime;
-		CloudControl.instance.setOvercast(Mathf.Clamp01(overcast));
+		CloudControl.instance.SetOvercast(Mathf.Clamp01(overcast));
 
 #if !UNITY_WEBPLAYER
 		float windiness = WindControl.instance.windiness;
