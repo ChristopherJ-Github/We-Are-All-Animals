@@ -61,7 +61,7 @@ void surf (Input IN, inout SurfaceOutput o) {
 		float minDistance = 43.49573;
 		float distanceNormalized = (_Distance - minDistance) / (maxDistance - minDistance);
 		distanceNormalized = clamp(distanceNormalized, 0, 1);
-		maxAmount = lerp (0.52, 0.74, distanceNormalized);
+		maxAmount = lerp (0.6, 0.7, distanceNormalized);
 	}
 	_SnowAmount = lerp(0.40, maxAmount, _SnowAmount);
 	// lerp = allows snow even on orthogonal surfaces // (1-col.g) = take the blue channel to get some kind of heightmap // worldNormal is stored in IN.color

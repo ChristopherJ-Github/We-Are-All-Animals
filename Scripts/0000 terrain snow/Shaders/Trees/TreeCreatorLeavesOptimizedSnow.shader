@@ -56,7 +56,7 @@ struct Input {
 void surf (Input IN, inout LeafSurfaceOutput o) {
 
 	fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
-  	col.a *= 1.7;
+  	col.a *= 3;
 	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
 	o.Translucency = trngls.b;
 	o.Alpha = col.a;
@@ -76,8 +76,9 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	snowAmount = clamp( pow(snowAmount,6)*256, 0, 1);
 	// mix all together
 	o.Gloss = trngls.a * _Color.r * (1-snowAmount) + ((1-snowtex) * snowAmount);
-	float shadow = lerp (IN.color.a, 0.9, _SnowNormalized);
-	o.Albedo = (col.rgb * (1-snowAmount) + snowtex.rgb*snowAmount) * shadow;
+	float shadow = lerp (IN.color.a, 1, _SnowNormalized);
+	half3 snowTint = 0.9;
+	o.Albedo = (col.rgb * (1-snowAmount) + snowTint * snowAmount) * shadow;
 	half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
 	o.Specular = norspc.r * (1-snowAmount) + _snowShininess * snowAmount;
 	o.Normal = UnpackNormalDXT5nm(norspc);

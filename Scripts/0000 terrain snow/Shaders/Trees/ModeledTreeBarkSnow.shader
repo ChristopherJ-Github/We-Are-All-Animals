@@ -70,7 +70,7 @@
 				float minDistance = 6.042689;
 				float distanceNormalized = (_Distance - minDistance) / (maxDistance - minDistance);
 				distanceNormalized = clamp(distanceNormalized, 0, 1);
-				maxAmount = lerp (0.80, 0.90, distanceNormalized);
+				maxAmount = lerp (0.85, 0.90, distanceNormalized);
 			}
 			_SnowAmount = lerp(0.48, maxAmount, _SnowAmount);
 			// lerp = allows snow even on orthogonal surfaces // (1-col.g) = take the blue channel to get some kind of heightmap // worldNormal is stored in IN.color
