@@ -94,9 +94,11 @@ public class SnowManager : Singleton<SnowManager> {
 		
 		reactionState = melting; 
 	}
-	
+
+	public float overrideSnowLevel; //debug
 	void Update () {
-		
+
+		snowLevel = overrideSnowLevel;//debug
 		TriggerSnowChange (snowLevel);
 		reactionState ();
 	}
@@ -139,8 +141,8 @@ public class SnowManager : Singleton<SnowManager> {
 	public delegate void eventHandler (float snowLvl); 
 	public event eventHandler OnSnowChange;
 	public void TriggerSnowChange (float snowLvl) {
-		
-		snowLvl = Mathf.Clamp01 (snowLvl);
+
+		Shader.SetGlobalFloat ("_SnowNormalized", snowLvl);
 		if (OnSnowChange != null) 
 			OnSnowChange (snowLvl);
 	}

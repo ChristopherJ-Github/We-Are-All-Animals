@@ -7,6 +7,7 @@ Properties {
 	_ShadowStrength("Shadow Strength", Range(0,1)) = 0.8
 	_ShadowOffsetScale ("Shadow Offset Scale", Float) = 1
 	_MaxSnow ("Maximum Snow", Float) = 0.45
+	_SnowTint ("Snow Tint", Float) = 0.4
 	_MainTex ("Base (RGB) Alpha (A)", 2D) = "white" {}
 	_ShadowTex ("Shadow (RGB)", 2D) = "white" {}
 	_BumpSpecMap ("Normalmap (GA) Spec (R) Shadow Offset (B)", 2D) = "bump" {}
@@ -40,8 +41,11 @@ sampler2D _TranslucencyMap;
 sampler2D _SnowTexture;
 float _snowShininess;
 float _SnowAmount;
+float _SnowNormalized;
 float _SnowStartHeight;
 float _MaxSnow;
+float _SnowTint;
+
 
 struct Input {
 	float2 uv_MainTex;
@@ -52,6 +56,7 @@ struct Input {
 void surf (Input IN, inout LeafSurfaceOutput o) {
 
 	fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
+  	col.a *= 1.7;
 	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
 	o.Translucency = trngls.b;
 	o.Alpha = col.a;
@@ -59,7 +64,7 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	// get snow texture
 	half3 snowtex = tex2D( _SnowTexture, IN.uv_MainTex).rgb;
 	
-	_SnowAmount = lerp(0.25, _MaxSnow, _SnowAmount);
+	_SnowAmount = lerp(0.25, _MaxSnow, _SnowNormalized);
 	// lerp = allows snow even on orthogonal surfaces // (1-col.g) = take the blue channel to get some kind of heightmap // worldNormal is stored in IN.color
 	float snowAmount = lerp(_SnowAmount * IN.color.y, 1, _SnowAmount) * (1-col.g) * .65 + o.Normal.y * _SnowAmount *.25 * IN.color.a * trngls.b;
 	
@@ -69,10 +74,10 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	
 	// sharpen snow mask
 	snowAmount = clamp( pow(snowAmount,6)*256, 0, 1);
-	
 	// mix all together
 	o.Gloss = trngls.a * _Color.r * (1-snowAmount) + ((1-snowtex) * snowAmount);
-	o.Albedo = (col.rgb * (1-snowAmount) + snowtex.rgb*snowAmount) * IN.color.a;
+	float shadow = lerp (IN.color.a, 0.9, _SnowNormalized);
+	o.Albedo = (col.rgb * (1-snowAmount) + snowtex.rgb*snowAmount) * shadow;
 	half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
 	o.Specular = norspc.r * (1-snowAmount) + _snowShininess * snowAmount;
 	o.Normal = UnpackNormalDXT5nm(norspc);
@@ -180,7 +185,6 @@ ENDCG
 			
 			float3 worldN = mul((float3x3)_Object2World, SCALED_NORMAL);
 			o.normal = mul(_World2Shadow, half4(worldN, 0)).xyz;
-
 			TRANSFER_SHADOW_COLLECTOR(o)
 			return o;
 		}
@@ -189,10 +193,8 @@ ENDCG
 		
 		half4 frag_surf (v2f_surf IN) : SV_Target {
 			half alpha = tex2D(_MainTex, IN.hip_pack0.xy).a;
-
 			float3 shadowOffset = _ShadowOffsetScale * IN.normal * tex2D (_BumpSpecMap, IN.hip_pack0.xy).b;
 			clip (alpha - _Cutoff);
-
 			IN._ShadowCoord0 += shadowOffset;
 			IN._ShadowCoord1 += shadowOffset;
 			IN._ShadowCoord2 += shadowOffset;
@@ -232,7 +234,6 @@ SubShader {
 			TreeVertLeaf(v);
 
 			o.color.rgb = ShadeVertexLights (v.vertex, v.normal);
-				
 			o.pos = mul (UNITY_MATRIX_MVP, v.vertex);	
 			o.uv = v.texcoord;
 			o.color.a = 1.0f;

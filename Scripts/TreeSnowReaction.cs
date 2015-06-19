@@ -14,7 +14,7 @@ public class TreeSnowReaction : MonoBehaviour {
 		
 		Shader.SetGlobalFloat("_snowShininess", snowShininess);
 		Shader.SetGlobalFloat("_SnowTile", SnowTile);
-		if(SnowTexture)
+		if (SnowTexture)
 			Shader.SetGlobalTexture("_SnowTexture", SnowTexture);
 	}
 	

@@ -12,7 +12,7 @@ public class SunProperties : MonoBehaviour {
 		if (this == SkyManager.instance.sun) 
 			isSun = true;
 	}
-
+	
 	void Update () {
 		
 		UpdateIntensity ();
