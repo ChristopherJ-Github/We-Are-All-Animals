@@ -2,40 +2,44 @@
 using System.Collections;
 
 public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
-	
-	public Color _night;
-	[HideInInspector] 
-	public Color night;
-	public Color _dusk;
-	[HideInInspector] 
-	public Color dusk;
-	public Gradient middayOverYear;
-	[HideInInspector]
-	public Color midday;
-	private Color midayColorOfDay;
-	public float minDarkness, maxDarkness;
-
 
 	void Start () {
 
-		SceneManager.instance.OnNewDay += dayUpdate;
-		dayUpdate ();
+		SceneManager.instance.OnNewDay += SetTodaysMiddayColor;
+		SetTodaysMiddayColor ();
 	}
-	
-	void dayUpdate () {
+
+	private Color midayColorOfDay;
+	void SetTodaysMiddayColor () {
 
 		midayColorOfDay = middayOverYear.Evaluate (SceneManager.curvePos);
 	}
 
 	void Update () {
 
+		UpdateAmbientLight ();
+		SetTodaysMiddayColor ();//debug
+	}
+
+	public Color _night;
+	[HideInInspector] public Color night;
+	public Color _dusk;
+	[HideInInspector] public Color dusk;
+	public Gradient middayOverYear;
+	[HideInInspector] public Color midday;
+	public Gradient _midday;
+	void UpdateAmbientLight () {
+
 		midayColorOfDay = middayOverYear.Evaluate (SceneManager.curvePos);
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
 		night = SetDarkness (_night, darkness);
 		dusk = SetDarkness (_dusk, darkness);
-		midday = SetDarkness (midayColorOfDay, darkness);
+		Color middayFullSnow = _midday.Evaluate (CloudControl.instance.middayValue);
+		Color middayAfterSnow = Color.Lerp (midayColorOfDay, middayFullSnow, SnowManager.instance.snowLevel);
+		midday = SetDarkness (middayAfterSnow, darkness);
 	}
 
+	public float minDarkness, maxDarkness;
 	public Color SetDarkness(Color color, float? darkness = null) {
 		
 		float _darkness = darkness ?? Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);

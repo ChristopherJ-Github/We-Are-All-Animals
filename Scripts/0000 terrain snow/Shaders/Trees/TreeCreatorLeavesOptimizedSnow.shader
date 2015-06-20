@@ -45,6 +45,7 @@ float _SnowNormalized;
 float _SnowStartHeight;
 float _MaxSnow;
 float _SnowTint;
+float _BranchThickness;
 
 
 struct Input {
@@ -56,7 +57,10 @@ struct Input {
 void surf (Input IN, inout LeafSurfaceOutput o) {
 
 	fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
-  	col.a *= 3;
+	half3 mainSnowTint = 0.9;
+	col.rgb = lerp (col.rgb, mainSnowTint, _SnowNormalized);
+	float alphaMultiplier = lerp(1.6, 3, _BranchThickness);
+  	col.a *= alphaMultiplier;
 	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
 	o.Translucency = trngls.b;
 	o.Alpha = col.a;
@@ -64,7 +68,7 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	// get snow texture
 	half3 snowtex = tex2D( _SnowTexture, IN.uv_MainTex).rgb;
 	
-	_SnowAmount = lerp(0.25, _MaxSnow, _SnowNormalized);
+	_SnowAmount = lerp(0.25, _MaxSnow, _BranchThickness);
 	// lerp = allows snow even on orthogonal surfaces // (1-col.g) = take the blue channel to get some kind of heightmap // worldNormal is stored in IN.color
 	float snowAmount = lerp(_SnowAmount * IN.color.y, 1, _SnowAmount) * (1-col.g) * .65 + o.Normal.y * _SnowAmount *.25 * IN.color.a * trngls.b;
 	
@@ -112,6 +116,7 @@ ENDCG
 		#include "Tree.cginc"
 
 		sampler2D _ShadowTex;
+		float _BranchThickness;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -132,6 +137,8 @@ ENDCG
 		fixed _Cutoff;
 		float4 frag_surf (v2f_surf IN) : SV_Target {
 			half alpha = tex2D(_ShadowTex, IN.hip_pack0.xy).r;
+			float alphaMultiplier = lerp(1.6, 3, _BranchThickness);
+  			alpha *= alphaMultiplier;
 			clip (alpha - _Cutoff);
 			SHADOW_CASTER_FRAGMENT(IN)
 		}

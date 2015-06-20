@@ -34,16 +34,20 @@ public class CloudControl : Singleton<CloudControl> {
 		SetOvercast (initOvercast);
 	}
 
-	[HideInInspector] public float overcast;
+	private float _overcast;
+	public float overcast {
+		get { return _overcast; }
+		set { _overcast = Mathf.Clamp01(value);}
+	}
 	public float minScattering, maxScattering;
 	public float minSharpness, maxSharpness;
 	public float minThickness, maxThickness;
 	public void SetOvercast(float overcast) {
-		
+
 		this.overcast = overcast;
-		float scattering = Mathf.Lerp (minScattering, maxScattering, overcast);
-		float sharpness = Mathf.Lerp (minSharpness, maxSharpness, overcast);
-		float thickness = Mathf.Lerp (minThickness, maxThickness, overcast);
+		float scattering = Mathf.Lerp (minScattering, maxScattering, _overcast);
+		float sharpness = Mathf.Lerp (minSharpness, maxSharpness, _overcast);
+		float thickness = Mathf.Lerp (minThickness, maxThickness, _overcast);
 		Shader.SetGlobalFloat("ls_cloudscattering", scattering);
 		Shader.SetGlobalFloat("ls_cloudsharpness", sharpness);
 		Shader.SetGlobalFloat("ls_cloudthickness", thickness);
@@ -64,7 +68,7 @@ public class CloudControl : Singleton<CloudControl> {
 	public Gradient nightToDuskTint;
 	void SetSkyboxTint (float tintValue) {
 
-		float maxRandomValue = overcastToRandomization.Evaluate (overcast);
+		float maxRandomValue = overcastToRandomization.Evaluate (_overcast);
 		middayValue = Mathf.Lerp(0, maxRandomValue, tintValue);
 		initMiddayValue = middayValue;
 		middayTint = _middayTint.Evaluate (middayValue);
@@ -80,10 +84,12 @@ public class CloudControl : Singleton<CloudControl> {
 		Shader.SetGlobalVector("ls_cloudcolor", (new Vector3(1,0.9f,0.95f)));
 		Shader.SetGlobalFloat("ls_distScale", distScale);
 	}
-	
+
+	public float overcastOverride; //debug
 	void Update () {
 		
 		SetCloudSpeed ();
+		SetOvercast (overcastOverride); //debug
 	}
 
 	public float minSpeed, maxSpeed;
@@ -106,6 +112,7 @@ public class CloudControl : Singleton<CloudControl> {
 
 	public float minDelaySpeed, maxDelaySpeed;
 	public float minExtraOvercast, maxExtraOvercast;
+	public float snowInfluence;
 	IEnumerator ChangeExtraOvercast () {
 		
 		float timer = 1;
@@ -114,8 +121,8 @@ public class CloudControl : Singleton<CloudControl> {
 			timer -= Time.deltaTime * speed;
 			yield return null;
 		}
-		float _extraOvercast = Mathf.Lerp (minExtraOvercast, maxExtraOvercast, 1 - overcast);
-		float extraOvercastGoal = Random.Range (-_extraOvercast, _extraOvercast);
+		float _extraOvercast = Mathf.Lerp (minExtraOvercast, maxExtraOvercast, 1 - _overcast);
+		float extraOvercastGoal = Random.Range (-_extraOvercast, _extraOvercast) * (1 - SnowManager.instance.snowLevel * snowInfluence);
 		StartCoroutine (SetExtraOvercast (extraOvercastGoal));
 	}
 

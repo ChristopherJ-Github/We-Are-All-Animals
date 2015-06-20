@@ -22,11 +22,12 @@ public class SunProperties : MonoBehaviour {
 	[HideInInspector] public float weatherDarkness;
 	public float minIntensity, maxIntensity;
 	[HideInInspector] public float currentIntesity;
+	public float snowInfluence;//debug
 	void UpdateIntensity () {
 
 		float curvePos = SceneManager.curvePos;
 		float posInDay = SunCtrl.dayCurve.Evaluate (curvePos);
-		float darknessAmount = weatherDarkness + CloudControl.instance.extraOvercast + SnowManager.instance.snowLevel;
+		float darknessAmount = weatherDarkness + CloudControl.instance.extraOvercast + (SnowManager.instance.snowLevel * snowInfluence);
 		float currentDarkness = Mathf.Lerp (0, maxIntensity, darknessAmount);
 		currentIntesity = Mathf.Clamp (maxIntensity - currentDarkness, minIntensity, maxIntensity);
 	}

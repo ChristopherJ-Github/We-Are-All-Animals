@@ -19,9 +19,17 @@ public class TreeSnowReaction : MonoBehaviour {
 	}
 	
 	void updateSnow (float snowLevel) {
-		
+
+		UpdateBranchThickness (snowLevel);
 		Shader.SetGlobalFloat("_SnowAmount", snowLevel);
 		Shader.SetGlobalFloat("_SnowStartHeight", SnowStartHeight);
+	}
+
+	public AnimationCurve snowToBranchThickness;
+	void UpdateBranchThickness (float snowLevel) {
+
+		float branchThickness = snowToBranchThickness.Evaluate (snowLevel);
+		Shader.SetGlobalFloat("_BranchThickness", branchThickness);
 	}
 	
 }
