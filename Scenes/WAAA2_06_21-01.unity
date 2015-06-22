@@ -3185,7 +3185,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: worldVelocity.y
-      value: -6.99147511
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: autodestruct
@@ -3237,7 +3237,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: localVelocity.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: m_Ellipsoid.x
@@ -3253,11 +3253,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: worldVelocity.x
-      value: -1.2932148
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: worldVelocity.z
-      value: .515938342
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: rndVelocity.x
@@ -14833,8 +14833,8 @@ EllipsoidParticleEmitter:
   maxEnergy: 50
   minEmission: 100
   maxEmission: 7965.90137
-  worldVelocity: {x: -1.2932148, y: -6.99147511, z: .515938342}
-  localVelocity: {x: 0, y: 1, z: 0}
+  worldVelocity: {x: 0, y: 0, z: 0}
+  localVelocity: {x: 0, y: 0, z: 0}
   rndVelocity: {x: 0, y: 0, z: 0}
   emitterVelocityScale: 0
   tangentVelocity: {x: 0, y: 0, z: 0}
@@ -14944,7 +14944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563d1105f981e4743b7bcc6393ae3b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: .995007873
+  severity: .971201241
   severityOverYear:
     serializedVersion: 2
     m_Curve:
@@ -14979,10 +14979,11 @@ MonoBehaviour:
   lightning: 0
   dust: 1
   minSpeed: 0
-  maxSpeed: 10
+  maxSpeed: 1.28999996
   gravity: 1
-  maxEmission: 8000
+  randomization: 0
   minEmission: 2000
+  maxEmission: 8000
   maxFogDesnity: .00999999978
   horizontalShift: 16.2299995
   verticalShift: 0
@@ -19114,8 +19115,9 @@ MonoBehaviour:
   minSpeed: 150
   maxSpeed: 150
   gravity: 0
-  maxEmission: 80299.5078
+  randomization: 0
   minEmission: 100
+  maxEmission: 80299.5078
   maxFogDesnity: .0110208504
   horizontalShift: 0
   verticalShift: 0
