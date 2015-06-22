@@ -14992,7 +14992,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  globalFog: 1
+  globalFog: 0
   lightning: 0
   dust: 1
   cloudTinting: 1
