@@ -36,7 +36,7 @@ public class Emission : GeneralWeather {
 		GUIManager.instance.OnGuiEvent += OnGuiEvent;
 		initializeValues ();
 	}
-
+	
 	public bool globalFog, lightning, dust;
 	private Lightning _lightning;
 	void initializeValues() {
@@ -66,12 +66,16 @@ public class Emission : GeneralWeather {
 	}
 
 	private float initOvercast;
+	public enum CloudTinting {darken, none};
+	public CloudTinting cloudTinting;
 	float UpdateOvercast () {
 
-		float grayAmount = Mathf.InverseLerp (0f, 0.7f, WeatherControl.instance.cloudTransition);
-		float darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * severity;
-		CloudControl.instance.SetStormTint (grayAmount, darkness);
-		float transOvercast = Mathf.Lerp (initOvercast, 1, grayAmount);
+		float transOvercast = Mathf.InverseLerp (0f, 0.7f, WeatherControl.instance.cloudTransition);
+		if (cloudTinting == CloudTinting.darken) {
+			float grayAmount = transOvercast;
+			float darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * severity;
+			CloudControl.instance.SetStormTint (grayAmount, darkness);
+		}
 		CloudControl.instance.SetOvercast (transOvercast); 
 		return transOvercast;
 	}

@@ -98,15 +98,22 @@ public class CloudControl : Singleton<CloudControl> {
 	}
 	
 	[HideInInspector] public float grayAmount;
-	public void SetStormTint (float _grayAmount, float _darkness) {
+	public void SetStormTint (float grayAmount, float darkness) {
 
-		grayAmount = _grayAmount;
+		this.grayAmount = grayAmount;
 		Color initMiddayTint = _middayTint.Evaluate (initMiddayValue);
 		Color middayGrayscale = new Color (initMiddayTint.grayscale, initMiddayTint.grayscale, initMiddayTint.grayscale);
-		Color middayAfterGray = Color.Lerp(initMiddayTint, middayGrayscale, _grayAmount);
-		Color middayDarkened = Color.Lerp (middayAfterGray, Color.black, _darkness);
+		Color middayAfterGray = Color.Lerp(initMiddayTint, middayGrayscale, grayAmount);
+		Color middayDarkened = Color.Lerp (middayAfterGray, Color.black, darkness);
 		middayTint = middayDarkened;
 	}
+
+	/*
+	public void SetSnowTint (float snowAmount) {
+
+		Color
+	}
+	*/
 
 	public float minDelaySpeed, maxDelaySpeed;
 	public float minExtraOvercast, maxExtraOvercast;

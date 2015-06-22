@@ -14995,6 +14995,7 @@ MonoBehaviour:
   globalFog: 1
   lightning: 0
   dust: 1
+  cloudTinting: 1
   minSpeed: .540000021
   maxSpeed: 1.28999996
   gravity: 1
@@ -19130,6 +19131,7 @@ MonoBehaviour:
   globalFog: 0
   lightning: 1
   dust: 1
+  cloudTinting: 0
   minSpeed: 150
   maxSpeed: 150
   gravity: 0
