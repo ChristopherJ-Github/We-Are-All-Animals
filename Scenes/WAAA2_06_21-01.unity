@@ -3193,11 +3193,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: colorAnimation[0].rgba
-      value: 1325400063
+      value: 352321535
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: colorAnimation[1].rgba
-      value: 1342177279
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2600000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: m_VelocityScale
@@ -3213,11 +3213,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: colorAnimation[2].rgba
-      value: 989855743
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: colorAnimation[3].rgba
-      value: 1174405119
+      value: 3556769791
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: worldRotationAxis.y
@@ -3225,7 +3225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: minSize
-      value: .0399999991
+      value: .0199999996
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: maxSize
@@ -3269,11 +3269,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: rndForce.x
-      value: 10
+      value: .130525127
       objectReference: {fileID: 0}
     - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: rndForce.z
-      value: 10
+      value: .130525127
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
+      propertyPath: colorAnimation[4].rgba
+      value: 16777215
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
+      propertyPath: force.x
+      value: .256106377
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
+      propertyPath: force.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
+      propertyPath: force.z
+      value: -1.24102569
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
@@ -14827,7 +14843,7 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .0399999991
+  minSize: .0199999996
   maxSize: .0799999982
   minEnergy: 50
   maxEnergy: 50
@@ -14900,24 +14916,24 @@ ParticleAnimator:
   Does Animate Color?: 1
   colorAnimation[0]:
     serializedVersion: 2
-    rgba: 1325400063
+    rgba: 352321535
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 1342177279
+    rgba: 4294967295
   colorAnimation[2]:
     serializedVersion: 2
-    rgba: 989855743
+    rgba: 4294967295
   colorAnimation[3]:
     serializedVersion: 2
-    rgba: 1174405119
+    rgba: 3556769791
   colorAnimation[4]:
     serializedVersion: 2
-    rgba: 184549375
+    rgba: 16777215
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
   sizeGrow: 0
-  rndForce: {x: 10, y: 0, z: 10}
-  force: {x: 0, y: -.100000001, z: 0}
+  rndForce: {x: .130525127, y: 0, z: .130525127}
+  force: {x: .256106377, y: -1, z: -1.24102569}
   damping: 1
   stopSimulation: 0
   autodestruct: 0
@@ -14944,7 +14960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563d1105f981e4743b7bcc6393ae3b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: .971201241
+  severity: .999572515
   severityOverYear:
     serializedVersion: 2
     m_Curve:
@@ -14978,10 +14994,11 @@ MonoBehaviour:
   globalFog: 1
   lightning: 0
   dust: 1
-  minSpeed: 0
+  minSpeed: .540000021
   maxSpeed: 1.28999996
   gravity: 1
-  randomization: 0
+  minRandomization: 5.73000002
+  maxRandomization: 0
   minEmission: 2000
   maxEmission: 8000
   maxFogDesnity: .00999999978
@@ -19115,7 +19132,8 @@ MonoBehaviour:
   minSpeed: 150
   maxSpeed: 150
   gravity: 0
-  randomization: 0
+  minRandomization: 0
+  maxRandomization: 0
   minEmission: 100
   maxEmission: 80299.5078
   maxFogDesnity: .0110208504
