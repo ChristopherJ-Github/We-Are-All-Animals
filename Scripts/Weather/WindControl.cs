@@ -24,7 +24,6 @@ public class WindControl : Singleton<WindControl> {
 		ChangeDirection ();
 	}
 
-
 	public void ChangeDirection (Vector3 _direction = default(Vector3)) {
 		
 		if (_direction == default(Vector3)) {
@@ -109,7 +108,7 @@ public class WindControl : Singleton<WindControl> {
 		SetDustColors ();
 	}
 	
-	public float materialSnowAlpha;
+	public float minSnowAlpha, maxSnowAlpha;
 	private Color originalMatCol;
 	private Color[] originalColors;
 	void SetDustColors () {
@@ -126,7 +125,8 @@ public class WindControl : Singleton<WindControl> {
 		}
 		_particleAnimator.colorAnimation = newColors;
 		Color newMatCol = AddSnowTint (originalMatCol);
-		newMatCol.a = Mathf.Lerp (newMatCol.a, materialSnowAlpha, SnowManager.instance.snowLevel);
+		float snowAlpha = Mathf.Lerp (minSnowAlpha, maxSnowAlpha, WindControl.instance.windiness);
+		newMatCol.a = Mathf.Lerp (newMatCol.a, snowAlpha, SnowManager.instance.snowLevel);
 		dust.renderer.material.SetColor ("_TintColor", newMatCol);
 	}
 
