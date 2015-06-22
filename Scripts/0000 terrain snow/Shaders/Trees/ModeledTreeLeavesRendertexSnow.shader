@@ -14,7 +14,7 @@ Shader "Hidden/Nature/Modeled Tree Leaves Rendertex Snow" {
 		_Scale ("Scale", Vector) = (1,1,1,1)
 		_SquashAmount ("Squash", Float) = 1
 	}
-	SubShader {
+	SubShader { 
 
 		Tags { "Queue" = "Transparent-99" }
 		Cull Off
@@ -38,6 +38,7 @@ Shader "Hidden/Nature/Modeled Tree Leaves Rendertex Snow" {
 			
 			float _snowShininess;
 			float _SnowAmount;
+			float _SnowNormalized;
 			float _SnowStartHeight;
 			
 			fixed4 frag(v2f input) : SV_Target
@@ -49,6 +50,9 @@ Shader "Hidden/Nature/Modeled Tree Leaves Rendertex Snow" {
 				
 				fixed4 output;
 				fixed4 col = tex2D( _MainTex, input.uv.xy);
+				fixed3 snowTint = 1;
+				float snowInfluence = 0.13;
+				col.rgb = lerp(col.rgb, snowTint, _SnowNormalized * snowInfluence);
 				fixed4 bump = tex2D(_MainBump, input.uv.xy);	
 				
 				clip (col.a - _Cutoff);
@@ -61,7 +65,7 @@ Shader "Hidden/Nature/Modeled Tree Leaves Rendertex Snow" {
 				// sharpen snow mask
 				snowAmount = 1 - clamp( pow(snowAmount,6)*256, 0, 1);
 				
-				output.rgb = (col.rgb * (1-snowAmount) + _SnowColor.rgb*snowAmount);
+				output.rgb = (col.rgb * (1-snowAmount) + snowTint * snowAmount);
 				//output.rgb *= input.color.rgb * 2;
 				output.rgb += tint;
 				output.a = 1;

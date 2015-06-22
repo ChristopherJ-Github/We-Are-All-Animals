@@ -42,6 +42,7 @@
 			
 			float _snowShininess;
 			float _SnowAmount;
+			float _SnowNormalized;
 			float _SnowStartHeight;
 			
 			fixed4 frag(v2f input) : SV_Target
@@ -52,6 +53,9 @@
 				
 				fixed4 output;
 				fixed4 col = tex2D( _MainTex, input.uv.xy);
+				fixed3 snowTint = 1;
+				float snowInfluence = 0.13;
+				col.rgb = lerp(col.rgb, snowTint, _SnowNormalized * snowInfluence);
 				fixed4 bump = tex2D(_MainBump, input.uv.xy);	
 				
 				clip (col.a - _Cutoff);
@@ -64,7 +68,7 @@
 				// sharpen snow mask
 				snowAmount = 1 - clamp( pow(snowAmount,6)*256, 0, 1);
 				
-				output.rgb = (col.rgb * (1-snowAmount) + _SnowColor.rgb*snowAmount);
+				output.rgb = (col.rgb * (1-snowAmount) + snowTint * snowAmount);
 				//output.rgb = col.rgb;
 				output.rgb *= input.color.rgb;
 				//output.rgb = fixed3(snowAmount, 0, 0);//debug color

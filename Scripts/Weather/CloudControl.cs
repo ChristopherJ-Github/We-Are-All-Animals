@@ -84,12 +84,10 @@ public class CloudControl : Singleton<CloudControl> {
 		Shader.SetGlobalVector("ls_cloudcolor", (new Vector3(1,0.9f,0.95f)));
 		Shader.SetGlobalFloat("ls_distScale", distScale);
 	}
-
-	public float overcastOverride; //debug
+	
 	void Update () {
 		
 		SetCloudSpeed ();
-		SetOvercast (overcastOverride); //debug
 	}
 
 	public float minSpeed, maxSpeed;

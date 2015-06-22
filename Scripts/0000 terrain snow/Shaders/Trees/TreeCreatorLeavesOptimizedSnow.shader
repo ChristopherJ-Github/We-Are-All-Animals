@@ -57,7 +57,7 @@ struct Input {
 void surf (Input IN, inout LeafSurfaceOutput o) {
 
 	fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
-	half3 mainSnowTint = 0.9;
+	half3 mainSnowTint = 1;
 	col.rgb = lerp (col.rgb, mainSnowTint, _SnowNormalized);
 	float alphaMultiplier = lerp(1.6, 3, _BranchThickness);
   	col.a *= alphaMultiplier;
@@ -81,7 +81,7 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	// mix all together
 	o.Gloss = trngls.a * _Color.r * (1-snowAmount) + ((1-snowtex) * snowAmount);
 	float shadow = lerp (IN.color.a, 1, _SnowNormalized);
-	half3 snowTint = 0.9;
+	half3 snowTint = 1;
 	o.Albedo = (col.rgb * (1-snowAmount) + snowTint * snowAmount) * shadow;
 	half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
 	o.Specular = norspc.r * (1-snowAmount) + _snowShininess * snowAmount;
@@ -173,6 +173,7 @@ ENDCG
 		sampler2D _BumpSpecMap;
 		sampler2D _TranslucencyMap;
 		float _ShadowOffsetScale;
+		float _BranchThickness;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -201,6 +202,8 @@ ENDCG
 		
 		half4 frag_surf (v2f_surf IN) : SV_Target {
 			half alpha = tex2D(_MainTex, IN.hip_pack0.xy).a;
+			float alphaMultiplier = lerp(1, 3, _BranchThickness);
+  			alpha *= alphaMultiplier;
 			float3 shadowOffset = _ShadowOffsetScale * IN.normal * tex2D (_BumpSpecMap, IN.hip_pack0.xy).b;
 			clip (alpha - _Cutoff);
 			IN._ShadowCoord0 += shadowOffset;

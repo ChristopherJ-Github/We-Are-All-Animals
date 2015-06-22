@@ -95,10 +95,8 @@ public class SnowManager : Singleton<SnowManager> {
 		reactionState = melting; 
 	}
 
-	public float overrideSnowLevel; //debug
 	void Update () {
 
-		snowLevel = overrideSnowLevel;//debug
 		TriggerSnowChange (snowLevel);
 		reactionState ();
 	}
