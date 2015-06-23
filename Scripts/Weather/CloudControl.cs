@@ -42,15 +42,23 @@ public class CloudControl : Singleton<CloudControl> {
 	public float minScattering, maxScattering;
 	public float minSharpness, maxSharpness;
 	public float minThickness, maxThickness;
+	private bool setOvercastCalled;
 	public void SetOvercast(float overcast) {
 
-		this.overcast = overcast;
+		setOvercastCalled = true;
+		this.overcast = GetNightOvercast(overcast);
 		float scattering = Mathf.Lerp (minScattering, maxScattering, _overcast);
 		float sharpness = Mathf.Lerp (minSharpness, maxSharpness, _overcast);
 		float thickness = Mathf.Lerp (minThickness, maxThickness, _overcast);
 		Shader.SetGlobalFloat("ls_cloudscattering", scattering);
 		Shader.SetGlobalFloat("ls_cloudsharpness", sharpness);
 		Shader.SetGlobalFloat("ls_cloudthickness", thickness);
+	}
+	
+	public float nightOvercast;
+	float GetNightOvercast (float overcast) {
+
+		return Mathf.Lerp (nightOvercast, overcast, SkyManager.instance.nightDayLerp);
 	}
 
 	public float minHeight, maxHeight;
@@ -88,6 +96,11 @@ public class CloudControl : Singleton<CloudControl> {
 	void Update () {
 		
 		SetCloudSpeed ();
+		if (setOvercastCalled) {
+			setOvercastCalled = false;
+		} else {
+			SetOvercast (initOvercast);
+		}
 	}
 
 	public float minSpeed, maxSpeed;
@@ -96,7 +109,7 @@ public class CloudControl : Singleton<CloudControl> {
 		float speed = Mathf.Lerp (minSpeed, maxSpeed, WindControl.instance.windiness);
 		Shader.SetGlobalFloat("ls_time", Time.time * speed * 0.25f);
 	}
-	
+
 	[HideInInspector] public float grayAmount;
 	public void SetStormTint (float grayAmount, float darkness) {
 
@@ -107,13 +120,6 @@ public class CloudControl : Singleton<CloudControl> {
 		Color middayDarkened = Color.Lerp (middayAfterGray, Color.black, darkness);
 		middayTint = middayDarkened;
 	}
-
-	/*
-	public void SetSnowTint (float snowAmount) {
-
-		Color
-	}
-	*/
 
 	public float minDelaySpeed, maxDelaySpeed;
 	public float minExtraOvercast, maxExtraOvercast;
