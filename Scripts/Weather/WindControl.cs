@@ -109,6 +109,7 @@ public class WindControl : Singleton<WindControl> {
 	}
 	
 	public float minSnowAlpha, maxSnowAlpha;
+	public float nightAlphaInfluence;
 	private Color originalMatCol;
 	private Color[] originalColors;
 	void SetDustColors () {
@@ -127,6 +128,7 @@ public class WindControl : Singleton<WindControl> {
 		Color newMatCol = AddSnowTint (originalMatCol);
 		float snowAlpha = Mathf.Lerp (minSnowAlpha, maxSnowAlpha, WindControl.instance.windiness);
 		newMatCol.a = Mathf.Lerp (newMatCol.a, snowAlpha, SnowManager.instance.snowLevel);
+		newMatCol.a = Mathf.Lerp (newMatCol.a, 0, (1 - SkyManager.instance.nightDayLerp) * nightAlphaInfluence);
 		dust.renderer.material.SetColor ("_TintColor", newMatCol);
 	}
 

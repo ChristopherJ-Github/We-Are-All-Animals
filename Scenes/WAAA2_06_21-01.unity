@@ -179,7 +179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
@@ -8181,6 +8181,7 @@ MonoBehaviour:
   maxScale: 5
   minSnowAlpha: .0900000036
   maxSnowAlpha: .170000002
+  nightAlphaInfluence: .850000024
 --- !u!1001 &939011053
 Prefab:
   m_ObjectHideFlags: 0
