@@ -12949,6 +12949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9318d613eaf214468125e9289eb636e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDarkness: .370000005
+  maxDarkness: .560000002
+  snowDarknessAtNight: .460000008
   _night: {r: .485294104, g: .485294104, b: .485294104, a: 1}
   night: {r: 0, g: 0, b: 0, a: 1}
   _dusk: {r: 1, g: .969318688, b: .926470578, a: 0}
@@ -12996,7 +12999,6 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  midday: {r: .370521665, g: .441109896, b: .511698127, a: 1}
   _midday:
     key0:
       serializedVersion: 2
@@ -13040,8 +13042,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  minDarkness: .370000005
-  maxDarkness: .560000002
+  midday: {r: .370521665, g: .441109896, b: .511698127, a: 1}
 --- !u!114 &1435038623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20119,7 +20120,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  currentColor: {r: 1, g: 1, b: 1, a: 1}
+  currentColor: {r: 1, g: .854901969, b: .843137264, a: 1}
   flowerColorOverYear:
     key0:
       serializedVersion: 2
@@ -20197,7 +20198,7 @@ MonoBehaviour:
       rgba: 4290032820
     key2:
       serializedVersion: 2
-      rgba: 3092271
+      rgba: 723723
     key3:
       serializedVersion: 2
       rgba: 3092271

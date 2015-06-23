@@ -20,6 +20,7 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 		UpdateAmbientLight ();
 	}
 
+	public float minDarkness, maxDarkness;
 	void UpdateAmbientLight () {
 
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
@@ -27,7 +28,7 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 		SetDuskDarkness (darkness);
 		SetMiddayAmbience (darkness);
 	}
-
+	
 	public Color _night;
 	[HideInInspector] public Color night;
 	void SetNightAmbience (float darkness) {
@@ -52,14 +53,12 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 		Color middayAfterSnow = Color.Lerp (midayColorOfDay, middayFullSnow, SnowManager.instance.snowLevel);
 		midday = SetDarkness (middayAfterSnow, darkness);
 	}
+	
+	public Color SetDarkness(Color color, float darkness) {
 
-	public float minDarkness, maxDarkness;
-	public Color SetDarkness(Color color, float? darkness = null) {
-		
-		float _darkness = darkness ?? Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
-		color.r = Mathf.Clamp01(color.r - _darkness);
-		color.b = Mathf.Clamp01(color.b - _darkness);
-		color.g = Mathf.Clamp01(color.g - _darkness);
+		color.r = Mathf.Clamp01(color.r - darkness);
+		color.b = Mathf.Clamp01(color.b - darkness);
+		color.g = Mathf.Clamp01(color.g - darkness);
 		return color;
 	}
 }
