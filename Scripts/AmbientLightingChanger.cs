@@ -30,14 +30,14 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 
 	public Color _night;
 	[HideInInspector] public Color night;
-	Color SetNightAmbience (float darkness) {
+	void SetNightAmbience (float darkness) {
 
 		night = SetDarkness (_night, darkness);
 	}
 
 	public Color _dusk;
 	[HideInInspector] public Color dusk;
-	Color SetDuskDarkness (float darkness) {
+	void SetDuskDarkness (float darkness) {
 
 		dusk = SetDarkness (_dusk, darkness);
 	}
@@ -45,7 +45,7 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 	public Gradient middayOverYear;
 	public Gradient _midday;
 	[HideInInspector] public Color midday;
-	Color SetMiddayAmbience (float darkness) {
+	void SetMiddayAmbience (float darkness) {
 
 		midayColorOfDay = middayOverYear.Evaluate (SceneManager.curvePos);
 		Color middayFullSnow = _midday.Evaluate (CloudControl.instance.middayValue);
