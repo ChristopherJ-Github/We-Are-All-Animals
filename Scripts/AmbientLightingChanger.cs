@@ -18,22 +18,36 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 	void Update () {
 
 		UpdateAmbientLight ();
-		SetTodaysMiddayColor ();//debug
+	}
+
+	void UpdateAmbientLight () {
+
+		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
+		SetNightAmbience (darkness);
+		SetDuskDarkness (darkness);
+		SetMiddayAmbience (darkness);
 	}
 
 	public Color _night;
 	[HideInInspector] public Color night;
+	Color SetNightAmbience (float darkness) {
+
+		night = SetDarkness (_night, darkness);
+	}
+
 	public Color _dusk;
 	[HideInInspector] public Color dusk;
+	Color SetDuskDarkness (float darkness) {
+
+		dusk = SetDarkness (_dusk, darkness);
+	}
+
 	public Gradient middayOverYear;
-	[HideInInspector] public Color midday;
 	public Gradient _midday;
-	void UpdateAmbientLight () {
+	[HideInInspector] public Color midday;
+	Color SetMiddayAmbience (float darkness) {
 
 		midayColorOfDay = middayOverYear.Evaluate (SceneManager.curvePos);
-		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
-		night = SetDarkness (_night, darkness);
-		dusk = SetDarkness (_dusk, darkness);
 		Color middayFullSnow = _midday.Evaluate (CloudControl.instance.middayValue);
 		Color middayAfterSnow = Color.Lerp (midayColorOfDay, middayFullSnow, SnowManager.instance.snowLevel);
 		midday = SetDarkness (middayAfterSnow, darkness);
