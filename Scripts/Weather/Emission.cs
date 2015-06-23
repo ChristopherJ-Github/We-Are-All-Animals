@@ -110,6 +110,7 @@ public class Emission : GeneralWeather {
 
 	private float initFogDesnity;
 	void UpdateFog (float severity) {
+
 		float fogDesnity = Mathf.Lerp (initFogDesnity, maxFogDesnity, severity);
 		FogControl.instance.SetFogDesnity (fogDesnity > initFogDesnity ? fogDesnity : initFogDesnity);
 	}

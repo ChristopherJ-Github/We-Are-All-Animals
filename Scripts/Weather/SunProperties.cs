@@ -50,8 +50,8 @@ public class SunProperties : MonoBehaviour {
 		_overcastInfluence *= 1 - SnowManager.instance.snowLevel;
 		Color middayAfterCloud = Color.Lerp (initMidday, Color.white, _overcastInfluence);
 		Color middayGrayscale = new Color (middayAfterCloud.grayscale, middayAfterCloud.grayscale, middayAfterCloud.grayscale);
-		Color middayAfterGray = Color.Lerp (middayAfterCloud, middayGrayscale, CloudControl.instance.grayAmount);
-		return middayAfterGray;
+		Color middayAfterStorm = Color.Lerp (middayAfterCloud, middayGrayscale, CloudControl.instance.grayAmount);
+		return middayAfterStorm;
 	}
 	
 }
