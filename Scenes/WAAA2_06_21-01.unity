@@ -3897,7 +3897,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2600000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: m_LengthScale
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: worldVelocity.x
@@ -16338,7 +16338,7 @@ ParticleRenderer:
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 3
-  m_LengthScale: 1
+  m_LengthScale: 1.5
   m_VelocityScale: .00600000005
   m_MaxParticleSize: .200000003
   UV Animation:
@@ -16399,7 +16399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563d1105f981e4743b7bcc6393ae3b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: 1
+  severity: 0
   severityOverYear:
     serializedVersion: 2
     m_Curve:
@@ -16434,11 +16434,12 @@ MonoBehaviour:
   lightning: 0
   dust: 1
   cloudTinting: 1
-  minSpeed: .540000021
+  minSpeed: 1.30999994
   maxSpeed: 1.28999996
   gravity: 1
-  minRandomization: 5.73000002
-  maxRandomization: 0
+  minRandomization: 0
+  maxRandomization: 25.6000004
+  verticleRandomization: 0
   minEmission: 2000
   maxEmission: 8000
   maxFogDesnity: .00999999978
@@ -20695,6 +20696,7 @@ MonoBehaviour:
   gravity: 0
   minRandomization: 0
   maxRandomization: 0
+  verticleRandomization: 0
   minEmission: 100
   maxEmission: 80299.5078
   maxFogDesnity: .0110208504
