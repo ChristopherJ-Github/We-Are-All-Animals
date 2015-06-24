@@ -25,7 +25,7 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
 		SetNightAmbience (darkness);
-		SetDuskDarkness (darkness);
+		SetDuskAmbience (darkness);
 		SetMiddayAmbience (darkness);
 	}
 	
@@ -38,7 +38,7 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 
 	public Color _dusk;
 	[HideInInspector] public Color dusk;
-	void SetDuskDarkness (float darkness) {
+	void SetDuskAmbience (float darkness) {
 
 		dusk = SetDarkness (_dusk, darkness);
 	}
