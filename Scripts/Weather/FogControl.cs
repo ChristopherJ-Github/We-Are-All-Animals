@@ -53,7 +53,8 @@ public class FogControl : Singleton<FogControl> {
 		Color initColor = nightToDusk.Evaluate (lerp);
 		Color grayscale = new Color (initColor.grayscale, initColor.grayscale, initColor.grayscale);
 		Color afterStorm = Color.Lerp (initColor, grayscale, CloudControl.instance.grayAmount);
-		return afterStorm;
+		Color darkened = Color.Lerp (Color.black, afterStorm, SkyManager.instance.nightDayLerp);
+		return darkened;
 	}
 
 	public GameObject globalFogActivator;

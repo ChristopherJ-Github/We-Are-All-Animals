@@ -66,7 +66,7 @@ public class Emission : GeneralWeather {
 	}
 
 	private float initOvercast;
-	public enum CloudTinting {darken, lighten, none};
+	public enum CloudTinting {darken, desaturate, none};
 	public CloudTinting cloudTinting;
 	float UpdateOvercast () {
 
@@ -77,8 +77,8 @@ public class Emission : GeneralWeather {
 				break;
 			case CloudTinting.darken:
 				darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * severity;
-				goto case CloudTinting.lighten;
-			case CloudTinting.lighten:
+				goto case CloudTinting.desaturate;
+			case CloudTinting.desaturate:
 				grayAmount = transOvercast;
 				break;
 		}
