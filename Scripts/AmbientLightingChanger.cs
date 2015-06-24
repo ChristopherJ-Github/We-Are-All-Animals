@@ -24,23 +24,16 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 	void UpdateAmbientLight () {
 
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
-		SetNightAmbience (darkness);
-		SetDuskAmbience (darkness);
 		SetMiddayAmbience (darkness);
 	}
 	
-	public Color _night;
-	[HideInInspector] public Color night;
-	void SetNightAmbience (float darkness) {
+	public Gradient nightToDusk;
+	public Color NightToDusk (float lerp) {
 
-		night = SetDarkness (_night, darkness);
-	}
-
-	public Color _dusk;
-	[HideInInspector] public Color dusk;
-	void SetDuskAmbience (float darkness) {
-
-		dusk = SetDarkness (_dusk, darkness);
+		Color initColor = nightToDusk.Evaluate (lerp);
+		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
+		Color darkened = SetDarkness (initColor, darkness);
+		return darkened;
 	}
 
 	public Gradient middayOverYear;

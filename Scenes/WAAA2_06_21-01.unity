@@ -14169,10 +14169,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDarkness: .370000005
   maxDarkness: .560000002
-  _night: {r: .485294104, g: .485294104, b: .485294104, a: 1}
-  night: {r: 0, g: 0, b: 0, a: 1}
-  _dusk: {r: 1, g: .969318688, b: .926470578, a: 0}
-  dusk: {r: .511698127, g: .481016815, b: .438168705, a: 0}
+  nightToDusk:
+    key0:
+      serializedVersion: 2
+      rgba: 4288453788
+    key1:
+      serializedVersion: 2
+      rgba: 4288453788
+    key2:
+      serializedVersion: 2
+      rgba: 10397358
+    key3:
+      serializedVersion: 2
+      rgba: 15332607
+    key4:
+      serializedVersion: 2
+      rgba: 15332607
+    key5:
+      serializedVersion: 2
+      rgba: 15332607
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 51313
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
   middayOverYear:
     key0:
       serializedVersion: 2
@@ -21601,7 +21640,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  currentColor: {r: 1, g: .854901969, b: .843137264, a: 1}
+  currentColor: {r: 1, g: 1, b: 1, a: 1}
   flowerColorOverYear:
     key0:
       serializedVersion: 2
@@ -21679,10 +21718,10 @@ MonoBehaviour:
       rgba: 4290032820
     key2:
       serializedVersion: 2
-      rgba: 723723
+      rgba: 2894892
     key3:
       serializedVersion: 2
-      rgba: 3092271
+      rgba: 723723
     key4:
       serializedVersion: 2
       rgba: 0
@@ -21697,7 +21736,7 @@ MonoBehaviour:
       rgba: 0
     ctime0: 0
     ctime1: 20797
-    ctime2: 65535
+    ctime2: 34593
     ctime3: 65535
     ctime4: 0
     ctime5: 0
@@ -21711,7 +21750,7 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 4
     m_NumAlphaKeys: 2
 --- !u!114 &1984906349
 MonoBehaviour:
