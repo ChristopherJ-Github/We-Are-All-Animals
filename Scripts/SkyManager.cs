@@ -59,7 +59,6 @@ public class SkyManager : Singleton<SkyManager>{
 	void ApplyPhaseChanges () {
 		
 		float time = SceneManager.curvePosDay * 24;
-		//sun.color = Color.Lerp (SunNight, SunDay, (time/24) * 2);
 		if (time > sunsetAstroTime || time < sunriseAstroTime)
 			SetNightSettings(time);
 		if (time > sunriseAstroTime && time < sunriseTime)
@@ -87,6 +86,7 @@ public class SkyManager : Singleton<SkyManager>{
 		moon.light.intensity = moon.currentIntesity;
 	}
 
+	public AnimationCurve daytimeToIntensity;
 	void SetDuskSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseAstroTime, sunriseTime, time);
@@ -97,7 +97,8 @@ public class SkyManager : Singleton<SkyManager>{
 		RenderSettings.fogColor = FogControl.instance.NightToDusk(lerp);
 		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
 		sun.light.color = sunNightToDusk.Evaluate(lerp);
-		sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, nightDayLerp);
+		float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
+		sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
 		moon.light.intensity = Mathf.Lerp(moon.currentIntesity, 0, lerp);
 	}
 
@@ -116,7 +117,8 @@ public class SkyManager : Singleton<SkyManager>{
 		Color sunMidday = sun.GetMiddayColor();
 		Color sunDusk = sunNightToDusk.Evaluate(1);
 		sun.light.color = Color.Lerp (sunDusk, sunMidday, lerp);
-		sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, nightDayLerp);
+		float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
+		sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
 		moon.light.intensity = 0;
 	}
 
@@ -169,8 +171,6 @@ public class SkyManager : Singleton<SkyManager>{
 
 	void AdjustSunAndMoon () {
 
-		//sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, nightDayLerp);
-		//moon.light.intensity = Mathf.Lerp(moon.currentIntesity, 0, nightDayLerp);
 		float currentIntensity = sun.light.intensity + moon.light.intensity;
 		intensityLerp = Mathf.InverseLerp(0, sun.maxIntensity, currentIntensity);
 		float posInDay = Mathf.Clamp01 (SunControl.instance.posInDay);

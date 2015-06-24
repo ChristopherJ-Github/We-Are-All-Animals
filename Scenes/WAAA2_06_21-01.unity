@@ -14178,7 +14178,7 @@ MonoBehaviour:
       rgba: 4288453788
     key2:
       serializedVersion: 2
-      rgba: 10397358
+      rgba: 8094603
     key3:
       serializedVersion: 2
       rgba: 15332607
@@ -14298,7 +14298,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  midday: {r: .370521665, g: .441109896, b: .511698127, a: 1}
+  midday: {r: .614138484, g: .590609074, b: .516099334, a: 1}
 --- !u!114 &1435038623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14357,16 +14357,16 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  intensityLerp: .377358526
+  intensityLerp: 1
   SkyBoxMaterial1: {fileID: 2100000, guid: 9296187a207dab14db758b8af6661f72, type: 2}
   SkyBoxMaterial2: {fileID: 2100000, guid: 7a51ee84628460446bfc2358f6f41067, type: 2}
   Water: {fileID: 0}
   IncludeWater: 0
   WaterNight: {r: 0, g: 0, b: 0, a: 0}
   WaterDay: {r: .629483163, g: .840926647, b: .947761178, a: 0}
-  sunrisePosInDay: .112176843
-  sunsetPosInDay: .870090902
-  nightDayLerp: 1
+  sunrisePosInDay: .101401351
+  sunsetPosInDay: .87459892
+  nightDayLerp: .943333387
   sunMiddayTint:
     key0:
       serializedVersion: 2
@@ -14410,6 +14410,41 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  daytimeToIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .012003812
+      outSlope: .012003812
+      tangentMode: 10
+    - time: .319473624
+      value: .00383490138
+      inSlope: .012003812
+      outSlope: .367790371
+      tangentMode: 5
+    - time: .422065288
+      value: .995027244
+      inSlope: 18.4906158
+      outSlope: 18.4906158
+      tangentMode: 10
+    - time: .488838226
+      value: 2.81924415
+      inSlope: 27.3197041
+      outSlope: -4.42464352
+      tangentMode: 21
+    - time: .899999976
+      value: 1
+      inSlope: -4.42464352
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1439648900
 GameObject:
   m_ObjectHideFlags: 0

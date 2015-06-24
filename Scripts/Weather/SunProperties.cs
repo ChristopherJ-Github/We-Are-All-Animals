@@ -22,7 +22,7 @@ public class SunProperties : MonoBehaviour {
 	[HideInInspector] public float weatherDarkness;
 	public float minIntensity, maxIntensity;
 	[HideInInspector] public float currentIntesity;
-	public float snowInfluence;//debug
+	public float snowInfluence;
 	void UpdateIntensity () {
 
 		float curvePos = SceneManager.curvePos;
