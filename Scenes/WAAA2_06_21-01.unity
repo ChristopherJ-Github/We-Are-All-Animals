@@ -12034,8 +12034,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   middayValue: 0
-  middayTint: {r: .474509805, g: .525490224, b: .631372571, a: 1}
-  _middayTint:
+  midday: {r: 0, g: 0, b: 0, a: 0}
+  _midday:
     key0:
       serializedVersion: 2
       rgba: 4292392355
@@ -12062,8 +12062,8 @@ MonoBehaviour:
       rgba: 0
     ctime0: 0
     ctime1: 65535
-    ctime2: 65535
-    ctime3: 65535
+    ctime2: 0
+    ctime3: 0
     ctime4: 0
     ctime5: 0
     ctime6: 0
@@ -12078,7 +12078,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  nightToDuskTint:
+  nightToDusk:
     key0:
       serializedVersion: 2
       rgba: 4278190080

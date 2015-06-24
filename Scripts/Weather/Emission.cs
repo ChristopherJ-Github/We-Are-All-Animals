@@ -66,16 +66,23 @@ public class Emission : GeneralWeather {
 	}
 
 	private float initOvercast;
-	public enum CloudTinting {darken, none};
+	public enum CloudTinting {darken, lighten, none};
 	public CloudTinting cloudTinting;
 	float UpdateOvercast () {
 
 		float transOvercast = Mathf.InverseLerp (0f, 0.7f, WeatherControl.instance.cloudTransition);
-		if (cloudTinting == CloudTinting.darken) {
-			float grayAmount = transOvercast;
-			float darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * severity;
-			CloudControl.instance.SetStormTint (grayAmount, darkness);
+		float grayAmount = 0, darkness = 0;
+		switch (cloudTinting) {
+			case CloudTinting.none:
+				break;
+			case CloudTinting.darken:
+				darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * severity;
+				goto case CloudTinting.lighten;
+			case CloudTinting.lighten:
+				grayAmount = transOvercast;
+				break;
 		}
+		CloudControl.instance.SetStormTint (grayAmount, darkness);
 		CloudControl.instance.SetOvercast (transOvercast); 
 		return transOvercast;
 	}

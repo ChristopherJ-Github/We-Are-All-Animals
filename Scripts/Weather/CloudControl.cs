@@ -15,7 +15,7 @@ public class CloudControl : Singleton<CloudControl> {
 		
 		RandomizeOvercast ();
 		RandomizeCloudHeight ();
-		SetSkyboxTint (Random.value);
+		RandomizeSkyboxTint (Random.value);
 	}
 
 	public AnimationCurve maxCloudinessOverYear;
@@ -58,7 +58,8 @@ public class CloudControl : Singleton<CloudControl> {
 	public float nightOvercast;
 	float GetNightOvercast (float overcast) {
 
-		return Mathf.Lerp (nightOvercast, overcast, SkyManager.instance.nightDayLerp);
+		float currentOvercast = Mathf.Lerp (nightOvercast, overcast, SkyManager.instance.nightDayLerp);
+		return currentOvercast;
 	}
 
 	public float minHeight, maxHeight;
@@ -71,15 +72,15 @@ public class CloudControl : Singleton<CloudControl> {
 	public AnimationCurve overcastToRandomization;
 	private float initMiddayValue;
 	[HideInInspector] public float middayValue;
-	[HideInInspector] public Color middayTint;
-	public Gradient _middayTint;
-	public Gradient nightToDuskTint;
-	void SetSkyboxTint (float tintValue) {
+	[HideInInspector] public Color midday;
+	public Gradient _midday;
+	public Gradient nightToDusk;
+	void RandomizeSkyboxTint (float tintValue) {
 
 		float maxRandomValue = overcastToRandomization.Evaluate (_overcast);
 		middayValue = Mathf.Lerp(0, maxRandomValue, tintValue);
 		initMiddayValue = middayValue;
-		middayTint = _middayTint.Evaluate (middayValue);
+		midday = _midday.Evaluate (middayValue);
 	}
 
 	public float intensity = 4;
@@ -94,7 +95,7 @@ public class CloudControl : Singleton<CloudControl> {
 	}
 	
 	void Update () {
-		
+
 		SetCloudSpeed ();
 		if (setOvercastCalled) {
 			setOvercastCalled = false;
@@ -114,11 +115,19 @@ public class CloudControl : Singleton<CloudControl> {
 	public void SetStormTint (float grayAmount, float darkness) {
 
 		this.grayAmount = grayAmount;
-		Color initMiddayTint = _middayTint.Evaluate (initMiddayValue);
-		Color middayGrayscale = new Color (initMiddayTint.grayscale, initMiddayTint.grayscale, initMiddayTint.grayscale);
-		Color middayAfterGray = Color.Lerp(initMiddayTint, middayGrayscale, grayAmount);
+		Color initMidday = _midday.Evaluate (initMiddayValue);
+		Color middayGrayscale = new Color (initMidday.grayscale, initMidday.grayscale, initMidday.grayscale);
+		Color middayAfterGray = Color.Lerp(initMidday, middayGrayscale, grayAmount);
 		Color middayDarkened = Color.Lerp (middayAfterGray, Color.black, darkness);
-		middayTint = middayDarkened;
+		midday = middayDarkened;
+	}
+
+	public Color NightToDusk (float lerp) {
+
+		Color initColor = nightToDusk.Evaluate (lerp);
+		Color grayscale = new Color (initColor.grayscale, initColor.grayscale, initColor.grayscale);
+		Color afterStorm = Color.Lerp (initColor, grayscale, grayAmount);
+		return afterStorm;
 	}
 
 	public float minDelaySpeed, maxDelaySpeed;
