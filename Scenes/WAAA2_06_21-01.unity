@@ -391,11 +391,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: minSize
-      value: .0199999996
+      value: .00999999978
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: maxSize
-      value: .0799999982
+      value: .0399999991
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: minEnergy
@@ -9798,14 +9798,14 @@ MonoBehaviour:
   cloudTinting: 1
   minSpeed: 1.30999994
   maxSpeed: .300000012
-  gravity: 2
+  gravity: .100000001
   minRandomization: 0
-  maxRandomization: .119999997
+  maxRandomization: 14.3000002
   minEmission: 200
-  maxEmission: 200
+  maxEmission: 600
   maxFogDesnity: .00999999978
-  horizontalShift: 4.38999987
-  verticalShift: 0
+  horizontalShift: 13.2200003
+  verticalShift: 10.9099998
   windinessToShift:
     serializedVersion: 2
     m_Curve:
@@ -9831,8 +9831,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .0199999996
-  maxSize: .0799999982
+  minSize: .00999999978
+  maxSize: .0399999991
   minEnergy: 50
   maxEnergy: 50
   minEmission: 100
