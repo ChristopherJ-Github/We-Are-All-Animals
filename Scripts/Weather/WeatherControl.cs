@@ -6,7 +6,8 @@ using System;
 
 [System.Serializable]
 public class WeatherInfo {
-	public GeneralWeather weather;
+
+	public GameObject weather;
 	public AnimationCurve spawnChance;
 	[HideInInspector] public float maxSeverity { 
 		get{ return severityOverYear.Evaluate (SceneManager.curvePos); } 
@@ -68,7 +69,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 
 		this.severity = severity ?? UnityEngine.Random.Range (0, weatherType.maxSeverity);
 		currentWeather = weatherType;
-		currentWeather.weather.gameObject.SetActive(true);
+		currentWeather.weather.SetActive(true);
 		if (currentWeather.changesClouds) {
 			cloudTransInTime = startTime;
 			transInTime = cloudTransInTime + cloudTransitionLength;
@@ -113,7 +114,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 	public void TurnOff () {
 		
 		if (currentWeather != null)
-			currentWeather.weather.gameObject.SetActive(false);
+			currentWeather.weather.SetActive(false);
 		cloudTransition = 0;
 		transition = 0;
 		totalTransition = 0;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Fog : GeneralWeather {
+public class Fog : MonoBehaviour {
 
 	private bool applicationIsQuitting;
 	public float minBrightness, maxBrightness;

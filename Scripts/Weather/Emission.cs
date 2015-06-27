@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Emission : GeneralWeather {
+public class Emission : MonoBehaviour {
 
 	public delegate void weatherChangeHandler (); 
 	public event weatherChangeHandler onStart;
@@ -25,9 +25,11 @@ public class Emission : GeneralWeather {
 		originalPosition = transform.position;
 	}
 
+	public bool mainSystem = true;
 	void OnEnable () {
-		
-		notifyStart ();
+
+		if (mainSystem)
+			notifyStart ();
 		initializeValues ();
 	}
 	
@@ -49,14 +51,16 @@ public class Emission : GeneralWeather {
 	
 	void Update () {
 
-		float transOvercast = UpdateOvercast ();
-		SkyManager.instance.sun.weatherDarkness = transOvercast; 
 		float transWindiness = UpdateWind ();
 		UpdateVelocity (transWindiness);
 		ShiftSource (transWindiness);
 		float transSeverity = Mathf.Lerp (0, WeatherControl.instance.severity, WeatherControl.instance.transition);
 		UpdateEmission (transSeverity);
-		UpdateFog (transSeverity);
+		if (mainSystem) {
+			float transOvercast = UpdateOvercast ();
+			SkyManager.instance.sun.weatherDarkness = transOvercast; 
+			UpdateFog (transSeverity);
+		}
 	}
 
 	private float initOvercast;
@@ -86,7 +90,8 @@ public class Emission : GeneralWeather {
 
 		float transWindiness = Mathf.Lerp (initWindiness, WeatherControl.instance.severity < initWindiness ? initWindiness : 
 		                                   WeatherControl.instance.severity, WeatherControl.instance.cloudTransition);
-		WindControl.instance.SetValues(transWindiness);
+		if (mainSystem)
+			WindControl.instance.SetValues(transWindiness);
 		return transWindiness;
 	}
 
@@ -134,20 +139,22 @@ public class Emission : GeneralWeather {
 	void OnDisable () {
 
 		if (applicationIsQuitting) return;
-		CloudControl.instance.SetStormTint (0, 0);
-		CloudControl.instance.SetOvercast (initOvercast); //limit the min value to prevent it from getting less cloudy 
-		SkyManager.instance.sun.weatherDarkness = 0;
-		WindControl.instance.SetValues(initWindiness); //comment out for webbuild
-		UpdateEmission (0);
-		UpdateVelocity (0);
-		UpdateFog (0);
 		if (globalFog)
 			FogControl.instance.SetGlobalFog(false);
 		if (lightning)
 			_lightning.enabled = false;
 		if (dust)
 			WindControl.instance.createDust = false;
-		notifyStop ();
+		UpdateEmission (0);
+		UpdateVelocity (0);
+		if (mainSystem) {
+			UpdateFog (0);
+			CloudControl.instance.SetStormTint (0, 0);
+			CloudControl.instance.SetOvercast (initOvercast); 
+			SkyManager.instance.sun.weatherDarkness = 0;
+			WindControl.instance.SetValues(initWindiness); 
+			notifyStop ();
+		}
 	}
 
 	private bool applicationIsQuitting;

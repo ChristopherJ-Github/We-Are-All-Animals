@@ -141,7 +141,7 @@ public class GUIManager : Singleton<GUIManager>
 
 	void CreateWeatherLabel (WeatherInfo weatherType, int y, int width, int height) {
 
-		float alpha = weatherType.weather.gameObject.activeSelf ? 1f : 0.45f;
+		float alpha = weatherType.weather.activeSelf ? 1f : 0.45f;
 		sidebarStyle.normal.textColor = new Color(1.0f, 1.0f, 1.0f, alpha);
 		string name = weatherType.weather.name;
 		int percentage = Mathf.FloorToInt(weatherType.spawnChance.Evaluate(SceneManager.curvePos) * 100);

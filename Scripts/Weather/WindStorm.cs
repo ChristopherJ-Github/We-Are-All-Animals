@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WindStorm : GeneralWeather {
+public class WindStorm : MonoBehaviour {
 
 	private float initWindiness;
 
