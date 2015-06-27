@@ -9326,15 +9326,17 @@ MonoBehaviour:
   maxFlowerBending: .25999999
   windiness: .999712348
   dust: {fileID: 1183390507}
+  minSnowAlpha: .0900000036
+  maxSnowAlpha: .0700000003
+  nightAlphaInfluence: .850000024
   minAlphaOffset: -.0299999993
   maxAlphaOffset: .100000001
   minSpeed: .310000002
   maxSpeed: 1.70000005
-  minScale: 5
-  maxScale: 2.1099999
-  minSnowAlpha: .0900000036
-  maxSnowAlpha: .0700000003
-  nightAlphaInfluence: .850000024
+  normalScale: 5
+  snowScale: 2.0999999
+  normalEmission: 35
+  snowEmission: 200
 --- !u!1001 &939011053
 Prefab:
   m_ObjectHideFlags: 0

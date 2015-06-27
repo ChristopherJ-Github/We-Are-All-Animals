@@ -95,23 +95,17 @@ public class WindControl : Singleton<WindControl> {
 	public GameObject dust;
 	private ParticleEmitter _particleEmitter;
 	private ParticleAnimator _particleAnimator;
-	public float minAlphaOffset, maxAlphaOffset;
-	public float minSpeed, maxSpeed;
-	public float minScale, maxScale;
 	void CreateDust () {
-		
-		float speed = Mathf.Lerp(minSpeed, maxSpeed, windiness);
-		_particleEmitter.worldVelocity = direction * speed;
-		float scale = Mathf.Lerp (minScale, maxScale, windiness);
-		_particleEmitter.minSize = Mathf.Clamp(scale - 1, 0, scale -1);
-		_particleEmitter.maxSize = scale;
+
 		SetDustColors ();
+		SetDustProperties ();
 	}
 	
 	public float minSnowAlpha, maxSnowAlpha;
 	public float nightAlphaInfluence;
 	private Color originalMatCol;
 	private Color[] originalColors;
+	public float minAlphaOffset, maxAlphaOffset;
 	void SetDustColors () {
 
 		Color[] newColors = new Color[originalColors.Length];
@@ -130,6 +124,23 @@ public class WindControl : Singleton<WindControl> {
 		newMatCol.a = Mathf.Lerp (newMatCol.a, snowAlpha, SnowManager.instance.snowLevel);
 		newMatCol.a = Mathf.Lerp (newMatCol.a, 0, (1 - SkyManager.instance.nightDayLerp) * nightAlphaInfluence);
 		dust.renderer.material.SetColor ("_TintColor", newMatCol);
+	}
+
+	public float minSpeed, maxSpeed;
+	public float normalScale, snowScale;
+	public float normalEmission, snowEmission;
+	void SetDustProperties () {
+
+		float snowLevel = SnowManager.instance.snowLevel;
+		float speed = Mathf.Lerp(minSpeed, maxSpeed, windiness);
+		_particleEmitter.worldVelocity = direction * speed;
+		float scale = Mathf.Lerp (normalScale, snowScale, snowLevel);
+		_particleEmitter.minSize = Mathf.Clamp(scale - 1, 0, scale -1);
+		_particleEmitter.maxSize = scale;
+		float emission = Mathf.Lerp (normalEmission, snowEmission, snowLevel);
+		_particleEmitter.minEmission = emission;
+		_particleEmitter.maxEmission = emission;
+
 	}
 
 	Color AddSnowTint (Color toTint) {
