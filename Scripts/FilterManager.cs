@@ -83,7 +83,7 @@ public class FilterManager : Singleton<FilterManager> {
 		if (WeatherControl.currentWeather != null) {
 			float stormInfluence = 0;
 			if (WeatherControl.currentWeather.usesFilter) 
-				stormInfluence = Mathf.Lerp(0, WeatherControl.currentWeather.weather.severity, WeatherControl.instance.totalTransition);	
+				stormInfluence = Mathf.Lerp(0, WeatherControl.instance.severity, WeatherControl.instance.totalTransition);	
 			newBlend = Mathf.Lerp(1, newBlend, 1 - stormInfluence);
 		}
 		newBlend = Mathf.Lerp(1, newBlend, SkyManager.instance.nightDayLerp);
@@ -105,7 +105,7 @@ public class FilterManager : Singleton<FilterManager> {
 		float newBlend = _stormBlend;
 		if (WeatherControl.currentWeather != null) {
 			newBlend = Mathf.Lerp (1, newBlend, WeatherControl.instance.totalTransition);
-			newBlend = WeatherControl.currentWeather.usesFilter ? Mathf.Lerp (1, newBlend, WeatherControl.currentWeather.weather.severity) : 1;
+			newBlend = WeatherControl.currentWeather.usesFilter ? Mathf.Lerp (1, newBlend, WeatherControl.instance.severity) : 1;
 		} else {
 			newBlend = 1;
 		}

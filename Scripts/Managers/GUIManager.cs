@@ -123,35 +123,32 @@ public class GUIManager : Singleton<GUIManager>
 		}
 	}
 	
-	void WeatherStats() {
+	void WeatherStats () {
+
 		int y = 0;
 		int width = 200;
 		int height = 25;
-		float alpha;
 		int virtualHeight = WeatherControl.instance.weatherTypes.Length * height;
 		virtualHeight = Mathf.Clamp (virtualHeight, Screen.height + 1, virtualHeight); //keep the scrollbar visible
 		GUI.backgroundColor = Color.red;
-		
 		scrollPosition = GUI.BeginScrollView(new Rect(0, 0, width, Screen.height), scrollPosition, new Rect(0, 0, width - 20, virtualHeight));
 		foreach (WeatherInfo weatherType in WeatherControl.instance.weatherTypes) {
-			if (weatherType.weather.gameObject.activeSelf) 
-				alpha = 1f;
-			else 
-				alpha = 0.45f;
-			
-			sidebarStyle.normal.textColor = new Color(1.0f, 1.0f, 1.0f, alpha);
-			string name = weatherType.weather.name;
-			int percentage = Mathf.FloorToInt(weatherType.spawnChance.Evaluate(SceneManager.curvePos) * 100);
-			GUI.Label(new Rect(0, y, width, height), name + ": " + percentage + "%", sidebarStyle);
-			
-			GeneralWeather GWComp = weatherType.weather.GetComponent<GeneralWeather>();
-			percentage = Mathf.FloorToInt(GWComp.severityOverYear.Evaluate(SceneManager.curvePos) * 100);
-			name = "Str";
-			GUI.Label(new Rect(100, y, width, height), name + ": " + percentage + "%", sidebarStyle);
-			
+			CreateWeatherLabel (weatherType, y, width, height);
 			y += height;
 		}
-		GUI.EndScrollView();
+		GUI.EndScrollView ();
+	}
+
+	void CreateWeatherLabel (WeatherInfo weatherType, int y, int width, int height) {
+
+		float alpha = weatherType.weather.gameObject.activeSelf ? 1f : 0.45f;
+		sidebarStyle.normal.textColor = new Color(1.0f, 1.0f, 1.0f, alpha);
+		string name = weatherType.weather.name;
+		int percentage = Mathf.FloorToInt(weatherType.spawnChance.Evaluate(SceneManager.curvePos) * 100);
+		GUI.Label(new Rect(0, y, width, height), name + ": " + percentage + "%", sidebarStyle);
+		percentage = Mathf.FloorToInt(weatherType.severityOverYear.Evaluate(SceneManager.curvePos) * 100);
+		name = "Str";
+		GUI.Label(new Rect(100, y, width, height), name + ": " + percentage + "%", sidebarStyle);
 	}
 	
 	public void UpdateAlphaSavePercentage (int toAdd) {

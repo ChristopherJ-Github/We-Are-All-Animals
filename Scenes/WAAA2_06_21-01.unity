@@ -3997,7 +3997,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1500000, guid: 4c4077be32151b4438d1bc10f77bf6c5, type: 2}
       propertyPath: m_MinEmitterRange
@@ -9765,37 +9765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563d1105f981e4743b7bcc6393ae3b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: .999289751
-  severityOverYear:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .140252337
-      value: .0660827234
-      inSlope: -1.04736495
-      outSlope: -1.04736495
-      tangentMode: 0
-    - time: .5
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .912239671
-      value: .0849608928
-      inSlope: .94691503
-      outSlope: .94691503
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   globalFog: 0
   lightning: 0
   dust: 1
@@ -16666,7 +16635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!15 &1580297457
 EllipsoidParticleEmitter:
   m_ObjectHideFlags: 0
@@ -16794,37 +16763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563d1105f981e4743b7bcc6393ae3b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: .999289751
-  severityOverYear:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .140252337
-      value: .0660827234
-      inSlope: -1.04736495
-      outSlope: -1.04736495
-      tangentMode: 0
-    - time: .5
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .912239671
-      value: .0849608928
-      inSlope: .94691503
-      outSlope: .94691503
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   globalFog: 0
   lightning: 0
   dust: 1
@@ -19721,37 +19659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c8f2f834579441b0a35fc749ac19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: 0
-  severityOverYear:
-    serializedVersion: 2
-    m_Curve:
-    - time: .333166808
-      value: -.00967304129
-      inSlope: 24.1898003
-      outSlope: 33.9409485
-      tangentMode: 21
-    - time: .362914741
-      value: 1
-      inSlope: 33.9409485
-      outSlope: -0
-      tangentMode: 21
-    - time: .574999988
-      value: 1
-      inSlope: 0
-      outSlope: -0
-      tangentMode: 21
-    - time: .888883293
-      value: 1
-      inSlope: 0
-      outSlope: -39.9803085
-      tangentMode: 21
-    - time: .913895607
-      value: 0
-      inSlope: -39.9803085
-      outSlope: -2.43568683
-      tangentMode: 21
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   minBrightness: 6.73000002
   maxBrightness: 18.2000008
   minExtinction: 1000
@@ -21050,37 +20957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563d1105f981e4743b7bcc6393ae3b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: 0
-  severityOverYear:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .200382471
-      value: .734829724
-      inSlope: 2.85238028
-      outSlope: 2.85238028
-      tangentMode: 0
-    - time: .497814178
-      value: .967871487
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .81126684
-      value: .696011603
-      inSlope: -2.89052725
-      outSlope: -2.89052725
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   globalFog: 0
   lightning: 1
   dust: 1
@@ -21353,22 +21229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e468e215ce307b14bb9cf8591ae68d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  severity: 0
-  severityOverYear:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &1927063546
 GameObject:
   m_ObjectHideFlags: 0
@@ -22920,6 +22780,36 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+    severityOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .140252337
+        value: .0660827234
+        inSlope: -1.04736495
+        outSlope: -1.04736495
+        tangentMode: 0
+      - time: .5
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .912239671
+        value: .0849608928
+        inSlope: .94691503
+        outSlope: .94691503
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
     minCloudTransition: 10
     maxCloudTransition: 720
     minTransition: 10
@@ -22931,6 +22821,36 @@ MonoBehaviour:
     usesFilter: 0
   - weather: {fileID: 1903033677}
     spawnChance:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .200382471
+        value: .734829724
+        inSlope: 2.85238028
+        outSlope: 2.85238028
+        tangentMode: 0
+      - time: .497814178
+        value: .967871487
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: .81126684
+        value: .696011603
+        inSlope: -2.89052725
+        outSlope: -2.89052725
+        tangentMode: 0
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    severityOverYear:
       serializedVersion: 2
       m_Curve:
       - time: 0
@@ -23005,6 +22925,36 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+    severityOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: .333166808
+        value: -.00967304129
+        inSlope: 24.1898003
+        outSlope: 33.9409485
+        tangentMode: 21
+      - time: .362914741
+        value: 1
+        inSlope: 33.9409485
+        outSlope: -0
+        tangentMode: 21
+      - time: .574999988
+        value: 1
+        inSlope: 0
+        outSlope: -0
+        tangentMode: 21
+      - time: .888883293
+        value: 1
+        inSlope: 0
+        outSlope: -39.9803085
+        tangentMode: 21
+      - time: .913895607
+        value: 0
+        inSlope: -39.9803085
+        outSlope: -2.43568683
+        tangentMode: 21
+      m_PreInfinity: 2
+      m_PostInfinity: 2
     minCloudTransition: 0
     maxCloudTransition: 0
     minTransition: 60
@@ -23030,6 +22980,21 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+    severityOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
     minCloudTransition: 0
     maxCloudTransition: 0
     minTransition: 60
@@ -23039,11 +23004,12 @@ MonoBehaviour:
     onceAYear: 0
     changesClouds: 1
     usesFilter: 0
+  chanceDivisor: 1
+  safeToPress: 0
   transition: 0
   cloudTransition: 0
   totalTransition: 0
-  chanceDivisor: 1
-  safeToPress: 0
+  severity: 0
   dataPath: C:\Data\data.txt
 --- !u!4 &2085161882
 Transform:

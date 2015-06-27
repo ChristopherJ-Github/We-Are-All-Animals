@@ -5,22 +5,17 @@ public class Emission : GeneralWeather {
 
 	public delegate void weatherChangeHandler (); 
 	public event weatherChangeHandler onStart;
-	public void notifyStart (){
+	public void notifyStart () {
 		
 		if (onStart != null) 
 			onStart ();
 	}
 
 	public event weatherChangeHandler onStop;
-	public void notifyStop (){
+	public void notifyStop () {
 		
 		if (onStop != null) 
 			onStop ();
-	}
-	
-	void OnGuiEvent (float val) {
-		
-		severity = Mathf.Lerp (0, maxSeverity, val);
 	}
 
 	void Awake () {
@@ -29,11 +24,10 @@ public class Emission : GeneralWeather {
 		particleAnimator = GetComponent<ParticleAnimator> ();
 		originalPosition = transform.position;
 	}
-	
+
 	void OnEnable () {
 		
 		notifyStart ();
-		GUIManager.instance.OnGuiEvent += OnGuiEvent;
 		initializeValues ();
 	}
 	
@@ -60,7 +54,7 @@ public class Emission : GeneralWeather {
 		float transWindiness = UpdateWind ();
 		UpdateVelocity (transWindiness);
 		ShiftSource (transWindiness);
-		float transSeverity = Mathf.Lerp (0, severity, WeatherControl.instance.transition);
+		float transSeverity = Mathf.Lerp (0, WeatherControl.instance.severity, WeatherControl.instance.transition);
 		UpdateEmission (transSeverity);
 		UpdateFog (transSeverity);
 	}
@@ -76,7 +70,7 @@ public class Emission : GeneralWeather {
 			case CloudTinting.none:
 				break;
 			case CloudTinting.darken:
-				darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * severity;
+				darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * WeatherControl.instance.severity;
 				goto case CloudTinting.desaturate;
 			case CloudTinting.desaturate:
 				grayAmount = transOvercast;
@@ -90,7 +84,8 @@ public class Emission : GeneralWeather {
 	private float initWindiness;
 	float UpdateWind () {
 
-		float transWindiness = Mathf.Lerp (initWindiness, severity < initWindiness ? initWindiness : severity, WeatherControl.instance.cloudTransition);
+		float transWindiness = Mathf.Lerp (initWindiness, WeatherControl.instance.severity < initWindiness ? initWindiness : 
+		                                   WeatherControl.instance.severity, WeatherControl.instance.cloudTransition);
 		WindControl.instance.SetValues(transWindiness);
 		return transWindiness;
 	}
@@ -139,7 +134,6 @@ public class Emission : GeneralWeather {
 	void OnDisable () {
 
 		if (applicationIsQuitting) return;
-		GUIManager.instance.OnGuiEvent -= OnGuiEvent;
 		CloudControl.instance.SetStormTint (0, 0);
 		CloudControl.instance.SetOvercast (initOvercast); //limit the min value to prevent it from getting less cloudy 
 		SkyManager.instance.sun.weatherDarkness = 0;

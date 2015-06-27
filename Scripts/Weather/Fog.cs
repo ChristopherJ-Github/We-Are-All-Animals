@@ -8,18 +8,10 @@ public class Fog : GeneralWeather {
 	private float brightness;
 	public float minExtinction, maxExtinction;
 	public LightShafts lightShafts;
-	
-	void OnGuiEvent (float val) {
-		
-		severity = Mathf.Lerp (0, maxSeverity, val);
-		//RenderSettings.fogDensity = Mathf.Lerp (minDesnity, maxSeverity, severity);
-	}
-	
+
 	void OnEnable () {
 
-		GUIManager.instance.OnGuiEvent += OnGuiEvent;
-		brightness = Mathf.Lerp (minBrightness, maxBrightness, severity);
-		GUIManager.instance.OnGuiEvent += OnGuiEvent;
+		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
 		lightShafts.enabled = true;
 		UpdateFog ();
 	}
@@ -39,8 +31,6 @@ public class Fog : GeneralWeather {
 	void OnDisable () {
 
 		if (applicationIsQuitting) return;
-
-		GUIManager.instance.OnGuiEvent -= OnGuiEvent;
 		lightShafts.enabled = false;
 	}
 

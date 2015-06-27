@@ -91,12 +91,12 @@ public class LEDPreviewManager : MonoBehaviour {
 		}
 		if (WeatherControl.currentWeather != null) {
 			
-			float severity = WeatherControl.currentWeather.weather.severity;
+			float severity = WeatherControl.instance.severity;
 			if (Input.GetKey(KeyCode.Minus)) 
 				severity -= transitionSpeed * Time.deltaTime;
 			if (Input.GetKey(KeyCode.Equals)) 
 				severity += transitionSpeed * Time.deltaTime;
-			WeatherControl.currentWeather.weather.severity = Mathf.Clamp01(severity);
+			WeatherControl.instance.severity = Mathf.Clamp01(severity);
 		}
 	}
 	

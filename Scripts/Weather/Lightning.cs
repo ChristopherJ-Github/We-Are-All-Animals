@@ -11,7 +11,7 @@ public class Lightning : MonoBehaviour {
 	void OnEnable () {
 
 		activated = false;
-		float spawnChance = severityToSpawnChance.Evaluate (WeatherControl.currentWeather.weather.severity);
+		float spawnChance = severityToSpawnChance.Evaluate (WeatherControl.instance.severity);
 		if (spawnChance > Random.value) {
 			activated = true;
 			CallLightning ();
@@ -20,7 +20,7 @@ public class Lightning : MonoBehaviour {
 
 	public void CallLightning () {
 
-		float lerp = severityToDelay.Evaluate (WeatherControl.currentWeather.weather.severity);
+		float lerp = severityToDelay.Evaluate (WeatherControl.instance.severity);
 		float currentMaxDelay = Mathf.Lerp (minLightningDelay, maxLightningDelay, lerp);
 		float delay = Random.Range (0, currentMaxDelay);
 		StartCoroutine (StartTimer (delay, currentMaxDelay));
@@ -34,7 +34,7 @@ public class Lightning : MonoBehaviour {
 		float currentDelay = initDelay;
 		while (timePassed < currentDelay) {
 
-			float lerp = severityToDelay.Evaluate (WeatherControl.currentWeather.weather.severity * WeatherControl.instance.totalTransition);
+			float lerp = severityToDelay.Evaluate (WeatherControl.instance.severity * WeatherControl.instance.totalTransition);
 			float currentMaxDelay = Mathf.Lerp (minLightningDelay, maxLightningDelay, lerp);
 			currentDelay = Mathf.Lerp(0, currentMaxDelay, initDelayNorm);
 			timePassed += Time.deltaTime;
