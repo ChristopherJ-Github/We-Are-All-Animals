@@ -9279,7 +9279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: .96064955, y: 0, z: -.277763367}
+  direction: {x: .951237559, y: 0, z: -.308459878}
   directionChangeSpeed: 3.5
   likelyWindinessOverYear:
     serializedVersion: 2
@@ -9324,7 +9324,7 @@ MonoBehaviour:
   maxTurbulence: 6.25
   minFlowerBending: 0
   maxFlowerBending: .25999999
-  windiness: .999712348
+  windiness: 1
   dust: {fileID: 1183390507}
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
@@ -9337,6 +9337,7 @@ MonoBehaviour:
   snowScale: 2.0999999
   normalEmission: 35
   snowEmission: 200
+  snowTintOffset: .5
 --- !u!1001 &939011053
 Prefab:
   m_ObjectHideFlags: 0

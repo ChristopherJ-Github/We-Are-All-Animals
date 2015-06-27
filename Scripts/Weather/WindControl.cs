@@ -140,13 +140,14 @@ public class WindControl : Singleton<WindControl> {
 		float emission = Mathf.Lerp (normalEmission, snowEmission, snowLevel);
 		_particleEmitter.minEmission = emission;
 		_particleEmitter.maxEmission = emission;
-
 	}
 
+	public float snowTintOffset;
 	Color AddSnowTint (Color toTint) {
 
 		Color snowTint = Color.white;
 		snowTint.a = toTint.a;
-		return Color.Lerp(toTint, snowTint, SnowManager.instance.snowLevel);
+		float tintAmount = Mathf.InverseLerp (snowTintOffset, 1, SnowManager.instance.snowLevel);
+		return Color.Lerp(toTint, snowTint, tintAmount);
 	}
 }
