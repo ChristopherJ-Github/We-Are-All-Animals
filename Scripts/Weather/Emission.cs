@@ -96,13 +96,14 @@ public class Emission : MonoBehaviour {
 	}
 
 	public float minSpeed = 50, maxSpeed = 150;
-	public float gravity;
+	public float minGravity, maxGravity;
 	private ParticleAnimator particleAnimator;
 	public float minRandomization, maxRandomization;
 	void UpdateVelocity (float windiness) {
 		
 		float speed = Mathf.Lerp (minSpeed, maxSpeed, windiness);
 		Vector3 currentHorizontalVelocity = Vector3.Lerp(Vector3.zero, WindControl.instance.direction * speed, windiness);
+		float gravity = Mathf.Lerp (minGravity, maxGravity, windiness);
 		particleAnimator.force = Vector3.down * gravity + currentHorizontalVelocity;
 		float currentRandomization = Mathf.Lerp (minRandomization, maxRandomization, windiness);
 		particleAnimator.rndForce = (new Vector3 (1, 0, 1)) * currentRandomization;

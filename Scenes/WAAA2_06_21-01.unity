@@ -9804,7 +9804,8 @@ MonoBehaviour:
   cloudTinting: 1
   minSpeed: 1.30999994
   maxSpeed: .300000012
-  gravity: .469999999
+  minGravity: .469999999
+  maxGravity: .469999999
   minRandomization: 0
   maxRandomization: 14.3000002
   minEmission: 200
@@ -16801,12 +16802,13 @@ MonoBehaviour:
   lightning: 0
   dust: 1
   cloudTinting: 1
-  minSpeed: 1.30999994
+  minSpeed: .620000005
   maxSpeed: .620000005
-  gravity: 2
-  minRandomization: 0
+  minGravity: .200000003
+  maxGravity: 2
+  minRandomization: .589999974
   maxRandomization: .589999974
-  minEmission: 2000
+  minEmission: 0
   maxEmission: 8000
   maxFogDesnity: .00999999978
   horizontalShift: 4.38999987
@@ -20998,7 +21000,8 @@ MonoBehaviour:
   cloudTinting: 0
   minSpeed: 150
   maxSpeed: 150
-  gravity: 0
+  minGravity: 0
+  maxGravity: 0
   minRandomization: 0
   maxRandomization: 0
   minEmission: 100
