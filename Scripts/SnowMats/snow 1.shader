@@ -7,13 +7,6 @@
 	    _SnowTint ("Snow Tint", Float) = 0.4
 	    _SnowSharpness ("Snow Sharpness", Float) = 3
 	    _SnowDirection ("Snow Direction", Vector) = (0,1,0)
-	    
-	    _Perlin ("Perlin Noise", 2D) = "black" {}
-	    _GrassTex ("GrassBase (RGB)", 2D) = "green" {}
-	    _Grass ("Grass Level", Range(-1,1) ) = 0
-	    
-	    _TestTex ("Test Text", 2D) = "red" {}
-	    _SpecColor ("Specular Color", Color) = (0.5, 0.5, 0.5, 1)
 	    _Shininess ("Shininess", Range (0.03, 1)) = 0.078125
 	}
 
@@ -29,7 +22,6 @@
 		sampler2D _MainTex;
 		sampler2D _MainBump;
 		half _Shininess;
-		float _Snow;
 		float _SnowNormalized;
 		float _SnowTint;
 		
