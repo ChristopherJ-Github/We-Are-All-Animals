@@ -17517,7 +17517,7 @@ Light:
     m_Type: 2
     m_Resolution: 1
     m_Strength: 1
-    m_Bias: 1.73000002
+    m_Bias: 0
     m_Softness: 5.19999981
     m_SoftnessFade: 1.46000004
   m_Cookie: {fileID: 0}
@@ -22968,6 +22968,10 @@ Prefab:
       propertyPath: duration
       value: 20000
       objectReference: {fileID: 0}
+    - target: {fileID: 100142, guid: 0a6cba3e15b14704a8a873e2441196e1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a6cba3e15b14704a8a873e2441196e1, type: 2}
   m_RootGameObject: {fileID: 1914238686}
@@ -23999,7 +24003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1914238687
 Transform:
   m_ObjectHideFlags: 0
@@ -24268,7 +24272,7 @@ Light:
     m_Type: 2
     m_Resolution: 1
     m_Strength: .709999979
-    m_Bias: 1.73000002
+    m_Bias: 0
     m_Softness: 5.19999981
     m_SoftnessFade: 1.46000004
   m_Cookie: {fileID: 0}
