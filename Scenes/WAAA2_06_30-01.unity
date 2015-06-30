@@ -23153,6 +23153,7 @@ MonoBehaviour:
   river: {fileID: 1540539284}
   frozenRiver: {fileID: 681405467}
   updateBillboards: 1
+  snowLevelOverride: 1
   accumRate: .00499999989
   meltRate: .00499999989
 --- !u!1 &1874939076

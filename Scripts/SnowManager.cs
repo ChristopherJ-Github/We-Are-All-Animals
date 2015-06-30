@@ -94,7 +94,7 @@ public class SnowManager : Singleton<SnowManager> {
 		
 		reactionState = melting; 
 	}
-
+	
 	void Update () {
 
 		TriggerSnowChange (snowLevel);

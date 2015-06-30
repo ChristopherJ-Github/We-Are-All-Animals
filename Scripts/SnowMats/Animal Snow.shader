@@ -35,9 +35,9 @@
 			half colWhiteAmount = (col.r + col.g + col.b) /3;
 			half4 snowTint = 0.87;
 		    snowTint.w = 1;
-		    half snowNormOffset = 0.5;
-		    half snowNormOffseted = (_SnowNormalized >= snowNormOffset) * 
-		    						lerp (snowNormOffset, 1, _SnowNormalized);
+		    half snowNormOffset = 0.2;
+		    half snowNormOffseted = (_SnowNormalized - snowNormOffset) / (1 - snowNormOffset);
+		    snowNormOffseted = clamp (snowNormOffseted, 0, 1);
 		    						
 			half tintAmount = colWhiteAmount;
 			half3 colAfterTint = lerp (col, snowTint, snowNormOffseted * tintAmount);
