@@ -79,7 +79,6 @@
 		  	half colWhiteAmount = (col.r + col.g + col.b) /3;
 		  	colWhiteAmount/= 2;
 		  	o.Alpha = snow.a * 20 * colWhiteAmount;
-		  	o.Alpha *= 0.7;
 		}
 		ENDCG
 	}
