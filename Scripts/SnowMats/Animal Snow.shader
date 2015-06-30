@@ -37,9 +37,10 @@
 			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
 			fixed4 col = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 			o.Alpha = col.a;
+			half colWhiteAmount = (col.r + col.g + col.b) /3;
 			half4 snowTint = _SnowTint;
 		    snowTint.w = 1;
-		    half tintAmount = _SnowNormalized;
+		    half tintAmount = lerp (0, _SnowNormalized, colWhiteAmount);
 		    col += snowTint * tintAmount;
 		    
 			o.Albedo = col.rgb;
@@ -80,6 +81,7 @@
 		  	colWhiteAmount/= 2;
 		  	o.Alpha = snow.a * 20 * colWhiteAmount;
 		  	o.Alpha *= _SnowNormalized;
+		  	o.Alpha = 0;
 		}
 		ENDCG
 	}
