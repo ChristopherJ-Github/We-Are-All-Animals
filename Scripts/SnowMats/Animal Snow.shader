@@ -42,9 +42,8 @@
 		    snowTint.w = 1;
 		    half tintAmount = lerp (0, _SnowNormalized, colWhiteAmount);
 		    col += snowTint * tintAmount;
-		    
 			o.Albedo = col.rgb;
-			
+			o.Albedo = clamp (col.rgb, 0, 1);
 		}
 		ENDCG
 		
