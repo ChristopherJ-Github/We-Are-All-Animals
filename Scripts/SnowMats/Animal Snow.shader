@@ -35,11 +35,14 @@
 			half colWhiteAmount = (col.r + col.g + col.b) /3;
 			half4 snowTint = 0.87;
 		    snowTint.w = 1;
-		   
+		    half snowNormOffset = 0.5;
+		    half snowNormOffseted = (_SnowNormalized >= snowNormOffset) * 
+		    						lerp (snowNormOffset, 1, _SnowNormalized);
+		    						
 			half tintAmount = colWhiteAmount;
-			half3 colAfterTint = lerp (col, snowTint, _SnowNormalized * tintAmount);
+			half3 colAfterTint = lerp (col, snowTint, snowNormOffseted * tintAmount);
 			
-		    half snowAmount = lerp (0, _SnowNormalized, colWhiteAmount);
+		    half snowAmount = lerp (0, snowNormOffseted, colWhiteAmount);
 		    half3 colAfterSnow = colAfterTint + (snowTint * snowAmount);
 		    
 			o.Albedo = colAfterSnow;
