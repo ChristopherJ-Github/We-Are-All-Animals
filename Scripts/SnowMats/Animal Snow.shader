@@ -9,7 +9,6 @@
 	    _Snow ("Snow Level", Float) = 0
 	    _SnowTexture ("Snow Texture", 2D) = "white" {}
 	    _SnowTint ("Snow Tint", Float) = 0.4
-	    _SnowSharpness ("Snow Sharpness", Float) = 3
 	    _SnowDirection ("Snow Direction", Vector) = (0,1,0)
 	    _Shininess ("Shininess", Range (0.03, 1)) = 0.078125
 	}
@@ -34,15 +33,17 @@
 		};
 
 		void surf (Input IN, inout SurfaceOutput o) {
+		
+			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
 			fixed4 col = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+			o.Alpha = col.a;
 			half4 snowTint = _SnowTint;
 		    snowTint.w = 1;
-		    //half tintAmount = _SnowNormalized * 0.3;
-		    //col = lerp(col, snowTint, tintAmount);
-		    col += snowTint;
+		    half tintAmount = _SnowNormalized;
+		    col += snowTint * tintAmount;
+		    
 			o.Albedo = col.rgb;
-			o.Alpha = col.a;
-			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
+			
 		}
 		ENDCG
 		
@@ -59,8 +60,8 @@
 		fixed4 _Color;
 		float4 _SnowColor;
 		float _Snow;
-		float _SnowSharpness;
 		float3 _SnowDirection;
+		float _SnowNormalized;
 
 		struct Input {
 			float3 worldNormal; INTERNAL_DATA
@@ -74,11 +75,11 @@
 			half4 col = tex2D (_MainTex, IN.uv_MainTex);
 			half4 snow = tex2D (_SnowTexture, IN.uv_SnowTexture);
 		  	o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
-		  	o.Albedo = 1;
-		  	half snowWhiteAmount = (snow.r + snow.g + snow.b)/3;
+		  	o.Albedo = _SnowColor.rgb;
 		  	half colWhiteAmount = (col.r + col.g + col.b) /3;
 		  	colWhiteAmount/= 2;
 		  	o.Alpha = snow.a * 20 * colWhiteAmount;
+		  	o.Alpha *= _SnowNormalized;
 		}
 		ENDCG
 	}
