@@ -37,8 +37,9 @@
 			fixed4 col = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 			half4 snowTint = _SnowTint;
 		    snowTint.w = 1;
-		    half tintAmount = _SnowNormalized * 0.3;
-		    col = lerp(col, snowTint, tintAmount);
+		    //half tintAmount = _SnowNormalized * 0.3;
+		    //col = lerp(col, snowTint, tintAmount);
+		    col += snowTint;
 			o.Albedo = col.rgb;
 			o.Alpha = col.a;
 			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));

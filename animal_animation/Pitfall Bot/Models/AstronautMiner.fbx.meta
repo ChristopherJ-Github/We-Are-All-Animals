@@ -1,0 +1,1059 @@
+fileFormatVersion: 2
+guid: 4e5b1e9e9c15d4ea2b7f4a63f52e5b93
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Armature
+    100002: armlower_l
+    100004: armlower_r
+    100006: armupper_l
+    100008: armupper_r
+    100010: //RootNode
+    100012: back
+    100014: Bone
+    100016: Camera
+    100018: Cube
+    100020: foot_l
+    100022: foot_r
+    100024: hand_l
+    100026: hand_r
+    100028: Hemi
+    100030: Lamp
+    100032: leglower_l
+    100034: leglower_r
+    100036: legupper_l
+    100038: legupper_r
+    100040: shoulder_l
+    100042: shoulder_r
+    100044: waist
+    400000: Armature
+    400002: armlower_l
+    400004: armlower_r
+    400006: armupper_l
+    400008: armupper_r
+    400010: //RootNode
+    400012: back
+    400014: Bone
+    400016: Camera
+    400018: Cube
+    400020: foot_l
+    400022: foot_r
+    400024: hand_l
+    400026: hand_r
+    400028: Hemi
+    400030: Lamp
+    400032: leglower_l
+    400034: leglower_r
+    400036: legupper_l
+    400038: legupper_r
+    400040: shoulder_l
+    400042: shoulder_r
+    400044: waist
+    4300000: Cube
+    7400000: Default Take
+    7400002: ArmatureAction
+    7400004: AstroWalk
+    7400006: Climb
+    7400008: Wave
+    7400010: CelebrateJump
+    7400012: KnockbackSkid
+    7400014: DeathStruggle
+    7400016: ButtWiggle
+    7400018: IdleAsleep
+    7400020: IdleFallAsleep
+    7400022: IdleSleeping
+    7400024: IdleWakeup
+    7400026: ArmatureAction0
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 351
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ArmatureAction
+      takeName: ArmatureAction
+      firstFrame: 0
+      lastFrame: 351
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AstroWalk
+      takeName: Default Take
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Climb
+      takeName: Default Take
+      firstFrame: 26
+      lastFrame: 44
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Wave
+      takeName: Default Take
+      firstFrame: 44
+      lastFrame: 84
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: CelebrateJump
+      takeName: Default Take
+      firstFrame: 86
+      lastFrame: 112
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: KnockbackSkid
+      takeName: Default Take
+      firstFrame: 116
+      lastFrame: 150
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: DeathStruggle
+      takeName: Default Take
+      firstFrame: 167
+      lastFrame: 182.5
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ButtWiggle
+      takeName: Default Take
+      firstFrame: 185
+      lastFrame: 208
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: IdleAsleep
+      takeName: Default Take
+      firstFrame: 209
+      lastFrame: 351
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: IdleFallAsleep
+      takeName: ArmatureAction
+      firstFrame: 209
+      lastFrame: 225
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: IdleSleeping
+      takeName: ArmatureAction
+      firstFrame: 226
+      lastFrame: 264
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: IdleWakeup
+      takeName: ArmatureAction
+      firstFrame: 290
+      lastFrame: 351
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/back
+        weight: 1
+      - path: Armature/back/Bone
+        weight: 1
+      - path: Armature/back/shoulder_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l
+        weight: 1
+      - path: Armature/back/shoulder_l/armupper_l/armlower_l/hand_l
+        weight: 1
+      - path: Armature/back/shoulder_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r
+        weight: 1
+      - path: Armature/back/shoulder_r/armupper_r/armlower_r/hand_r
+        weight: 1
+      - path: Armature/waist
+        weight: 1
+      - path: Armature/waist/legupper_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l
+        weight: 1
+      - path: Armature/waist/legupper_l/leglower_l/foot_l
+        weight: 1
+      - path: Armature/waist/legupper_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r
+        weight: 1
+      - path: Armature/waist/legupper_r/leglower_r/foot_r
+        weight: 1
+      - path: Camera
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Hemi
+        weight: 1
+      - path: Lamp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.10000002
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 33
+    splitTangentsAcrossUV: 1
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

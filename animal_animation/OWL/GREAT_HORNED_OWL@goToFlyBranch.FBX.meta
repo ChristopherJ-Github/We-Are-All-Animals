@@ -1,0 +1,297 @@
+fileFormatVersion: 2
+guid: 51eb2bee1042cbf4a953b9b4a3fccf1d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: CROW_ TailR
+    100002: CROW_ TailL
+    100004: //RootNode
+    100006: GREAT_HORNED_OWL_ Tail
+    100008: GREAT_HORNED_OWL_ R Hand
+    100010: GREAT_HORNED_OWL_ R Forearm
+    100012: GREAT_HORNED_OWL_ R UpperArm
+    100014: GREAT_HORNED_OWL_ R Clavicle
+    100016: GREAT_HORNED_OWL_ L Hand
+    100018: GREAT_HORNED_OWL_ L Forearm
+    100020: GREAT_HORNED_OWL_ L UpperArm
+    100022: GREAT_HORNED_OWL_ L Clavicle
+    100024: GREAT_HORNED_OWL_ Queue de cheval 1
+    100026: GREAT_HORNED_OWL_ Head
+    100028: GREAT_HORNED_OWL_ Neck
+    100030: GREAT_HORNED_OWL_ R Toe12
+    100032: GREAT_HORNED_OWL_ R Toe11
+    100034: GREAT_HORNED_OWL_ R Toe1
+    100036: GREAT_HORNED_OWL_ R Toe02
+    100038: GREAT_HORNED_OWL_ R Toe01
+    100040: GREAT_HORNED_OWL_ R Toe0
+    100042: GREAT_HORNED_OWL_ R Foot
+    100044: GREAT_HORNED_OWL_ R HorseLink
+    100046: GREAT_HORNED_OWL_ R Calf
+    100048: GREAT_HORNED_OWL_ R Thigh
+    100050: GREAT_HORNED_OWL_ L Toe12
+    100052: GREAT_HORNED_OWL_ L Toe11
+    100054: GREAT_HORNED_OWL_ L Toe1
+    100056: GREAT_HORNED_OWL_ L Toe02
+    100058: GREAT_HORNED_OWL_ L Toe01
+    100060: GREAT_HORNED_OWL_ L Toe0
+    100062: GREAT_HORNED_OWL_ L Foot
+    100064: GREAT_HORNED_OWL_ L HorseLink
+    100066: GREAT_HORNED_OWL_ L Calf
+    100068: GREAT_HORNED_OWL_ L Thigh
+    100070: GREAT_HORNED_OWL_ Spine
+    100072: GREAT_HORNED_OWL_ Pelvis
+    100074: GREAT_HORNED_OWL_ Footsteps
+    100076: GREAT_HORNED_OWL_
+    400000: CROW_ TailR
+    400002: CROW_ TailL
+    400004: //RootNode
+    400006: GREAT_HORNED_OWL_ Tail
+    400008: GREAT_HORNED_OWL_ R Hand
+    400010: GREAT_HORNED_OWL_ R Forearm
+    400012: GREAT_HORNED_OWL_ R UpperArm
+    400014: GREAT_HORNED_OWL_ R Clavicle
+    400016: GREAT_HORNED_OWL_ L Hand
+    400018: GREAT_HORNED_OWL_ L Forearm
+    400020: GREAT_HORNED_OWL_ L UpperArm
+    400022: GREAT_HORNED_OWL_ L Clavicle
+    400024: GREAT_HORNED_OWL_ Queue de cheval 1
+    400026: GREAT_HORNED_OWL_ Head
+    400028: GREAT_HORNED_OWL_ Neck
+    400030: GREAT_HORNED_OWL_ R Toe12
+    400032: GREAT_HORNED_OWL_ R Toe11
+    400034: GREAT_HORNED_OWL_ R Toe1
+    400036: GREAT_HORNED_OWL_ R Toe02
+    400038: GREAT_HORNED_OWL_ R Toe01
+    400040: GREAT_HORNED_OWL_ R Toe0
+    400042: GREAT_HORNED_OWL_ R Foot
+    400044: GREAT_HORNED_OWL_ R HorseLink
+    400046: GREAT_HORNED_OWL_ R Calf
+    400048: GREAT_HORNED_OWL_ R Thigh
+    400050: GREAT_HORNED_OWL_ L Toe12
+    400052: GREAT_HORNED_OWL_ L Toe11
+    400054: GREAT_HORNED_OWL_ L Toe1
+    400056: GREAT_HORNED_OWL_ L Toe02
+    400058: GREAT_HORNED_OWL_ L Toe01
+    400060: GREAT_HORNED_OWL_ L Toe0
+    400062: GREAT_HORNED_OWL_ L Foot
+    400064: GREAT_HORNED_OWL_ L HorseLink
+    400066: GREAT_HORNED_OWL_ L Calf
+    400068: GREAT_HORNED_OWL_ L Thigh
+    400070: GREAT_HORNED_OWL_ Spine
+    400072: GREAT_HORNED_OWL_ Pelvis
+    400074: GREAT_HORNED_OWL_ Footsteps
+    400076: GREAT_HORNED_OWL_
+    7400000: goToFlyBranch
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: goToFlyBranch
+      takeName: Take 001
+      firstFrame: 11
+      lastFrame: 32
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GREAT_HORNED_OWL_
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Footsteps
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/CROW_ TailL
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/CROW_ TailR
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink/GREAT_HORNED_OWL_
+          L Foot
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink/GREAT_HORNED_OWL_
+          L Foot/GREAT_HORNED_OWL_ L Toe0
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink/GREAT_HORNED_OWL_
+          L Foot/GREAT_HORNED_OWL_ L Toe0/GREAT_HORNED_OWL_ L Toe01
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink/GREAT_HORNED_OWL_
+          L Foot/GREAT_HORNED_OWL_ L Toe0/GREAT_HORNED_OWL_ L Toe01/GREAT_HORNED_OWL_
+          L Toe02
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink/GREAT_HORNED_OWL_
+          L Foot/GREAT_HORNED_OWL_ L Toe1
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink/GREAT_HORNED_OWL_
+          L Foot/GREAT_HORNED_OWL_ L Toe1/GREAT_HORNED_OWL_ L Toe11
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          L Thigh/GREAT_HORNED_OWL_ L Calf/GREAT_HORNED_OWL_ L HorseLink/GREAT_HORNED_OWL_
+          L Foot/GREAT_HORNED_OWL_ L Toe1/GREAT_HORNED_OWL_ L Toe11/GREAT_HORNED_OWL_
+          L Toe12
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ Head
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ Head/GREAT_HORNED_OWL_ Queue de cheval 1
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ L Clavicle
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ L Clavicle/GREAT_HORNED_OWL_ L UpperArm
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ L Clavicle/GREAT_HORNED_OWL_ L UpperArm/GREAT_HORNED_OWL_
+          L Forearm
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ L Clavicle/GREAT_HORNED_OWL_ L UpperArm/GREAT_HORNED_OWL_
+          L Forearm/GREAT_HORNED_OWL_ L Hand
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ R Clavicle
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ R Clavicle/GREAT_HORNED_OWL_ R UpperArm
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ R Clavicle/GREAT_HORNED_OWL_ R UpperArm/GREAT_HORNED_OWL_
+          R Forearm
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Neck/GREAT_HORNED_OWL_ R Clavicle/GREAT_HORNED_OWL_ R UpperArm/GREAT_HORNED_OWL_
+          R Forearm/GREAT_HORNED_OWL_ R Hand
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink/GREAT_HORNED_OWL_
+          R Foot
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink/GREAT_HORNED_OWL_
+          R Foot/GREAT_HORNED_OWL_ R Toe0
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink/GREAT_HORNED_OWL_
+          R Foot/GREAT_HORNED_OWL_ R Toe0/GREAT_HORNED_OWL_ R Toe01
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink/GREAT_HORNED_OWL_
+          R Foot/GREAT_HORNED_OWL_ R Toe0/GREAT_HORNED_OWL_ R Toe01/GREAT_HORNED_OWL_
+          R Toe02
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink/GREAT_HORNED_OWL_
+          R Foot/GREAT_HORNED_OWL_ R Toe1
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink/GREAT_HORNED_OWL_
+          R Foot/GREAT_HORNED_OWL_ R Toe1/GREAT_HORNED_OWL_ R Toe11
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          R Thigh/GREAT_HORNED_OWL_ R Calf/GREAT_HORNED_OWL_ R HorseLink/GREAT_HORNED_OWL_
+          R Foot/GREAT_HORNED_OWL_ R Toe1/GREAT_HORNED_OWL_ R Toe11/GREAT_HORNED_OWL_
+          R Toe12
+        weight: 1
+      - path: GREAT_HORNED_OWL_/GREAT_HORNED_OWL_ Pelvis/GREAT_HORNED_OWL_ Spine/GREAT_HORNED_OWL_
+          Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

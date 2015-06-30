@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: ff71466d5be0b4449b4e98d2070333a9
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Blue JayHead
+    100002: Blue JayLArm1
+    100004: Blue JayLArmCollarbone
+    100006: Blue JayLLeg1
+    100008: Blue JayLLeg2
+    100010: Blue JayLLegDigit11
+    100012: Blue JayLLegPalm
+    100014: Blue JayNeck1
+    100016: Blue JayNeck2
+    100018: Blue JayPelvis
+    100020: Blue JayRArm1
+    100022: Blue JayRArmCollarbone
+    100024: Blue JayRibcage
+    100026: Blue JayRLeg1
+    100028: Blue JayRLeg2
+    100030: Blue JayRLegDigit11
+    100032: Blue JayRLegPalm
+    100034: Blue JaySpine1
+    100036: Blue JaySpine2
+    100038: Blue JaySpine3
+    100040: Blue JayTail01
+    100042: Blue JayTail02
+    100044: Blue JayTail03
+    100046: Body
+    100048: //RootNode
+    400000: Blue JayHead
+    400002: Blue JayLArm1
+    400004: Blue JayLArmCollarbone
+    400006: Blue JayLLeg1
+    400008: Blue JayLLeg2
+    400010: Blue JayLLegDigit11
+    400012: Blue JayLLegPalm
+    400014: Blue JayNeck1
+    400016: Blue JayNeck2
+    400018: Blue JayPelvis
+    400020: Blue JayRArm1
+    400022: Blue JayRArmCollarbone
+    400024: Blue JayRibcage
+    400026: Blue JayRLeg1
+    400028: Blue JayRLeg2
+    400030: Blue JayRLegDigit11
+    400032: Blue JayRLegPalm
+    400034: Blue JaySpine1
+    400036: Blue JaySpine2
+    400038: Blue JaySpine3
+    400040: Blue JayTail01
+    400042: Blue JayTail02
+    400044: Blue JayTail03
+    400046: Body
+    400048: //RootNode
+    4300000: Body
+    7400000: Taking Off
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Taking Off
+      takeName: Take 001
+      firstFrame: 27
+      lastFrame: 67
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blue JayPelvis
+        weight: 1
+      - path: Blue JayPelvis/Blue JayLLeg1
+        weight: 1
+      - path: Blue JayPelvis/Blue JayLLeg1/Blue JayLLeg2
+        weight: 1
+      - path: Blue JayPelvis/Blue JayLLeg1/Blue JayLLeg2/Blue JayLLegPalm
+        weight: 1
+      - path: Blue JayPelvis/Blue JayLLeg1/Blue JayLLeg2/Blue JayLLegPalm/Blue JayLLegDigit11
+        weight: 1
+      - path: Blue JayPelvis/Blue JayRLeg1
+        weight: 1
+      - path: Blue JayPelvis/Blue JayRLeg1/Blue JayRLeg2
+        weight: 1
+      - path: Blue JayPelvis/Blue JayRLeg1/Blue JayRLeg2/Blue JayRLegPalm
+        weight: 1
+      - path: Blue JayPelvis/Blue JayRLeg1/Blue JayRLeg2/Blue JayRLegPalm/Blue JayRLegDigit11
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage/Blue
+          JayLArmCollarbone
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage/Blue
+          JayLArmCollarbone/Blue JayLArm1
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage/Blue
+          JayNeck1
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage/Blue
+          JayNeck1/Blue JayNeck2
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage/Blue
+          JayNeck1/Blue JayNeck2/Blue JayHead
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage/Blue
+          JayRArmCollarbone
+        weight: 1
+      - path: Blue JayPelvis/Blue JaySpine1/Blue JaySpine2/Blue JaySpine3/Blue JayRibcage/Blue
+          JayRArmCollarbone/Blue JayRArm1
+        weight: 1
+      - path: Blue JayPelvis/Blue JayTail01
+        weight: 1
+      - path: Blue JayPelvis/Blue JayTail01/Blue JayTail02
+        weight: 1
+      - path: Blue JayPelvis/Blue JayTail01/Blue JayTail02/Blue JayTail03
+        weight: 1
+      - path: Body
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

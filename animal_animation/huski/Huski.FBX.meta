@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 3d808459ce39244fba5f4a0f9d073a49
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BLElbow
+    100002: BLHand
+    100004: BLShoulder
+    100006: BLWrist
+    100008: BRElbow
+    100010: BRHand
+    100012: BRShoulder
+    100014: BRWrist
+    100016: Dog
+    100018: FLElbow
+    100020: FLHand
+    100022: FLShoulder
+    100024: FLWrist
+    100026: FRElbow
+    100028: FRHand
+    100030: FRShoulder
+    100032: FRWrist
+    100034: Head
+    100036: //RootNode
+    100038: Neck
+    100040: RootJoint
+    100042: Spine1
+    100044: Spine2
+    100046: Spine3
+    100048: Spine4
+    100050: Tail1
+    100052: Tail2
+    100054: Tail3
+    100056: Useless1
+    100058: Useless2
+    100060: Useless3
+    100062: Useless4
+    100064: Useless5
+    100066: Useless6
+    400000: BLElbow
+    400002: BLHand
+    400004: BLShoulder
+    400006: BLWrist
+    400008: BRElbow
+    400010: BRHand
+    400012: BRShoulder
+    400014: BRWrist
+    400016: Dog
+    400018: FLElbow
+    400020: FLHand
+    400022: FLShoulder
+    400024: FLWrist
+    400026: FRElbow
+    400028: FRHand
+    400030: FRShoulder
+    400032: FRWrist
+    400034: Head
+    400036: //RootNode
+    400038: Neck
+    400040: RootJoint
+    400042: Spine1
+    400044: Spine2
+    400046: Spine3
+    400048: Spine4
+    400050: Tail1
+    400052: Tail2
+    400054: Tail3
+    400056: Useless1
+    400058: Useless2
+    400060: Useless3
+    400062: Useless4
+    400064: Useless5
+    400066: Useless6
+    4300000: Dog
+    7400000: Take 001
+    7400002: Idle
+    7400004: Run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Dog
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dog
+        weight: 1
+      - path: RootJoint
+        weight: 1
+      - path: RootJoint/BLShoulder
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist/BLHand
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist/BLHand/Useless5
+        weight: 1
+      - path: RootJoint/BRShoulder
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist/BRHand
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist/BRHand/Useless6
+        weight: 1
+      - path: RootJoint/Spine1
+        weight: 1
+      - path: RootJoint/Spine1/Spine2
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist/FLHand
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist/FLHand/Useless2
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist/FRHand
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist/FRHand/Useless3
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck/Head
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck/Head/Useless1
+        weight: 1
+      - path: RootJoint/Tail1
+        weight: 1
+      - path: RootJoint/Tail1/Tail2
+        weight: 1
+      - path: RootJoint/Tail1/Tail2/Tail3
+        weight: 1
+      - path: RootJoint/Tail1/Tail2/Tail3/Useless4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 36
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dog
+        weight: 1
+      - path: RootJoint
+        weight: 1
+      - path: RootJoint/BLShoulder
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist/BLHand
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist/BLHand/Useless5
+        weight: 1
+      - path: RootJoint/BRShoulder
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist/BRHand
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist/BRHand/Useless6
+        weight: 1
+      - path: RootJoint/Spine1
+        weight: 1
+      - path: RootJoint/Spine1/Spine2
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist/FLHand
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist/FLHand/Useless2
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist/FRHand
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist/FRHand/Useless3
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck/Head
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck/Head/Useless1
+        weight: 1
+      - path: RootJoint/Tail1
+        weight: 1
+      - path: RootJoint/Tail1/Tail2
+        weight: 1
+      - path: RootJoint/Tail1/Tail2/Tail3
+        weight: 1
+      - path: RootJoint/Tail1/Tail2/Tail3/Useless4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 38
+      lastFrame: 77
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dog
+        weight: 1
+      - path: RootJoint
+        weight: 1
+      - path: RootJoint/BLShoulder
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist/BLHand
+        weight: 1
+      - path: RootJoint/BLShoulder/BLElbow/BLWrist/BLHand/Useless5
+        weight: 1
+      - path: RootJoint/BRShoulder
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist/BRHand
+        weight: 1
+      - path: RootJoint/BRShoulder/BRElbow/BRWrist/BRHand/Useless6
+        weight: 1
+      - path: RootJoint/Spine1
+        weight: 1
+      - path: RootJoint/Spine1/Spine2
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist/FLHand
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FLShoulder/FLElbow/FLWrist/FLHand/Useless2
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist/FRHand
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/FRShoulder/FRElbow/FRWrist/FRHand/Useless3
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck/Head
+        weight: 1
+      - path: RootJoint/Spine1/Spine2/Spine3/Spine4/Neck/Head/Useless1
+        weight: 1
+      - path: RootJoint/Tail1
+        weight: 1
+      - path: RootJoint/Tail1/Tail2
+        weight: 1
+      - path: RootJoint/Tail1/Tail2/Tail3
+        weight: 1
+      - path: RootJoint/Tail1/Tail2/Tail3/Useless4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

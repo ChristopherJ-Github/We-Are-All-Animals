@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 076589fb28d32624cacc78ca6f1faee9
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Bip01 R Thigh
+    100002: Bip01 Tail2
+    100004: Bip01 R Clavicle
+    100006: Bip01 R Toe0
+    100008: Bip01 Pelvis
+    100010: Bip01 R Toe0Nub
+    100012: Bip01 R Foot
+    100014: Bone05
+    100016: Bip01 R Hand
+    100018: Bip01 R HorseLink
+    100020: Bone05(mirrored)
+    100022: Bip01 R Finger0
+    100024: Bip01 L Thigh
+    100026: Bip01 R Calf
+    100028: Bip01 L Clavicle
+    100030: Bip01 Neck
+    100032: Bip01 Spine1
+    100034: Bip01 L Toe0Nub
+    100036: Bip01 Tail
+    100038: Bip01 L Foot
+    100040: Bip01 L UpperArm
+    100042: Bip01 R UpperArm
+    100044: Bip01 Tail1
+    100046: Pet_Dog_1
+    100048: Bip01 Neck1
+    100050: Bip01 L HorseLink
+    100052: Bone04
+    100054: Bip01 Head
+    100056: Bone01
+    100058: Bip01 Footsteps
+    100060: Bip01 TailNub
+    100062: Bip01 HeadNub
+    100064: Bip01 R Forearm
+    100066: Bip01 L Toe0
+    100068: Bip01
+    100070: Bip01 R Finger0Nub
+    100072: Bip01 L Hand
+    100074: Bip01 L Finger0Nub
+    100076: Bip01 L Finger0
+    100078: Bone03
+    100080: //RootNode
+    100082: Bip01 L Calf
+    100084: Bone06(mirrored)
+    100086: Bip01 Spine
+    100088: Bone06
+    100090: Bone02
+    100092: Bip01 L Forearm
+    400000: Bip01 R Thigh
+    400002: Bip01 Tail2
+    400004: Bip01 R Clavicle
+    400006: Bip01 R Toe0
+    400008: Bip01 Pelvis
+    400010: Bip01 R Toe0Nub
+    400012: Bip01 R Foot
+    400014: Bone05
+    400016: Bip01 R Hand
+    400018: Bip01 R HorseLink
+    400020: Bone05(mirrored)
+    400022: Bip01 R Finger0
+    400024: Bip01 L Thigh
+    400026: Bip01 R Calf
+    400028: Bip01 L Clavicle
+    400030: Bip01 Neck
+    400032: Bip01 Spine1
+    400034: Bip01 L Toe0Nub
+    400036: Bip01 Tail
+    400038: Bip01 L Foot
+    400040: Bip01 L UpperArm
+    400042: Bip01 R UpperArm
+    400044: Bip01 Tail1
+    400046: Pet_Dog_1
+    400048: Bip01 Neck1
+    400050: Bip01 L HorseLink
+    400052: Bone04
+    400054: Bip01 Head
+    400056: Bone01
+    400058: Bip01 Footsteps
+    400060: Bip01 TailNub
+    400062: Bip01 HeadNub
+    400064: Bip01 R Forearm
+    400066: Bip01 L Toe0
+    400068: Bip01
+    400070: Bip01 R Finger0Nub
+    400072: Bip01 L Hand
+    400074: Bip01 L Finger0Nub
+    400076: Bip01 L Finger0
+    400078: Bone03
+    400080: //RootNode
+    400082: Bip01 L Calf
+    400084: Bone06(mirrored)
+    400086: Bip01 Spine
+    400088: Bone06
+    400090: Bone02
+    400092: Bip01 L Forearm
+    4300000: Pet_Dog_1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Pet_Dog_1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .0299999993
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

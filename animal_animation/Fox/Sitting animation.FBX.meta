@@ -1,0 +1,238 @@
+fileFormatVersion: 2
+guid: b567fbff502ba4c64b177b824169079e
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Fox_Head
+    100002: Fox_LEar
+    100004: Fox_LLeg1
+    100006: Fox_LLeg1 1
+    100008: Fox_LLeg2
+    100010: Fox_LLeg2 1
+    100012: Fox_LLegCollarbone
+    100014: Fox_LLegDigit01
+    100016: Fox_LLegDigit01 1
+    100018: Fox_LLegPalm
+    100020: Fox_LLegPalm 1
+    100022: Fox_Neck1
+    100024: Fox_Neck2
+    100026: Fox_Neck3
+    100028: Fox_Pelvis
+    100030: Fox_REar
+    100032: Fox_Ribcage
+    100034: Fox_RLeg1
+    100036: Fox_RLeg1 1
+    100038: Fox_RLeg2
+    100040: Fox_RLeg2 1
+    100042: Fox_RLegCollarbone
+    100044: Fox_RLegDigit01
+    100046: Fox_RLegDigit01 1
+    100048: Fox_RLegPalm
+    100050: Fox_RLegPalm 1
+    100052: Fox_Spine1
+    100054: Fox_Spine2
+    100056: Fox_Spine3
+    100058: Fox_Tail1
+    100060: Fox_Tail2
+    100062: Fox_Tail3
+    100064: Fox_Tail4
+    100066: Fox_Textured_2
+    100068: //RootNode
+    400000: Fox_Head
+    400002: Fox_LEar
+    400004: Fox_LLeg1
+    400006: Fox_LLeg1 1
+    400008: Fox_LLeg2
+    400010: Fox_LLeg2 1
+    400012: Fox_LLegCollarbone
+    400014: Fox_LLegDigit01
+    400016: Fox_LLegDigit01 1
+    400018: Fox_LLegPalm
+    400020: Fox_LLegPalm 1
+    400022: Fox_Neck1
+    400024: Fox_Neck2
+    400026: Fox_Neck3
+    400028: Fox_Pelvis
+    400030: Fox_REar
+    400032: Fox_Ribcage
+    400034: Fox_RLeg1
+    400036: Fox_RLeg1 1
+    400038: Fox_RLeg2
+    400040: Fox_RLeg2 1
+    400042: Fox_RLegCollarbone
+    400044: Fox_RLegDigit01
+    400046: Fox_RLegDigit01 1
+    400048: Fox_RLegPalm
+    400050: Fox_RLegPalm 1
+    400052: Fox_Spine1
+    400054: Fox_Spine2
+    400056: Fox_Spine3
+    400058: Fox_Tail1
+    400060: Fox_Tail2
+    400062: Fox_Tail3
+    400064: Fox_Tail4
+    400066: Fox_Textured_2
+    400068: //RootNode
+    4300000: Fox_Textured_2
+    7400000: Sitting
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Fox_Textured_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sitting
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 400
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Fox_Pelvis
+        weight: 1
+      - path: Fox_Pelvis/Fox_LLeg1
+        weight: 1
+      - path: Fox_Pelvis/Fox_LLeg1/Fox_LLeg2
+        weight: 1
+      - path: Fox_Pelvis/Fox_LLeg1/Fox_LLeg2/Fox_LLegPalm
+        weight: 1
+      - path: Fox_Pelvis/Fox_LLeg1/Fox_LLeg2/Fox_LLegPalm/Fox_LLegDigit01
+        weight: 1
+      - path: Fox_Pelvis/Fox_RLeg1
+        weight: 1
+      - path: Fox_Pelvis/Fox_RLeg1/Fox_RLeg2
+        weight: 1
+      - path: Fox_Pelvis/Fox_RLeg1/Fox_RLeg2/Fox_RLegPalm
+        weight: 1
+      - path: Fox_Pelvis/Fox_RLeg1/Fox_RLeg2/Fox_RLegPalm/Fox_RLegDigit01
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_LLegCollarbone
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_LLegCollarbone/Fox_LLeg1
+          1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_LLegCollarbone/Fox_LLeg1
+          1/Fox_LLeg2 1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_LLegCollarbone/Fox_LLeg1
+          1/Fox_LLeg2 1/Fox_LLegPalm 1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_LLegCollarbone/Fox_LLeg1
+          1/Fox_LLeg2 1/Fox_LLegPalm 1/Fox_LLegDigit01 1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_Neck1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_Neck1/Fox_Neck2
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_Neck1/Fox_Neck2/Fox_Neck3
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_Neck1/Fox_Neck2/Fox_Neck3/Fox_Head
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_Neck1/Fox_Neck2/Fox_Neck3/Fox_Head/Fox_LEar
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_Neck1/Fox_Neck2/Fox_Neck3/Fox_Head/Fox_REar
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_RLegCollarbone
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_RLegCollarbone/Fox_RLeg1
+          1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_RLegCollarbone/Fox_RLeg1
+          1/Fox_RLeg2 1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_RLegCollarbone/Fox_RLeg1
+          1/Fox_RLeg2 1/Fox_RLegPalm 1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Spine1/Fox_Spine2/Fox_Spine3/Fox_Ribcage/Fox_RLegCollarbone/Fox_RLeg1
+          1/Fox_RLeg2 1/Fox_RLegPalm 1/Fox_RLegDigit01 1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Tail1
+        weight: 1
+      - path: Fox_Pelvis/Fox_Tail1/Fox_Tail2
+        weight: 1
+      - path: Fox_Pelvis/Fox_Tail1/Fox_Tail2/Fox_Tail3
+        weight: 1
+      - path: Fox_Pelvis/Fox_Tail1/Fox_Tail2/Fox_Tail3/Fox_Tail4
+        weight: 1
+      - path: Fox_Textured_2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

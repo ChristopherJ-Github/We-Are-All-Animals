@@ -1,0 +1,250 @@
+fileFormatVersion: 2
+guid: f1c4bd5b281ee4c6a9661b2caf8f75d0
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: FemDeer01
+    100002: HorseFrontRLegFrontHoof
+    100004: HorseFrontRLegHumerus
+    100006: HorseFrontRLegMetacarpus
+    100008: HorseFrontRLegPhalangesManus
+    100010: HorseFrontRLegRadius
+    100012: HorseFrontRLegScapula
+    100014: HorseJaw
+    100016: HorseLFemur
+    100018: HorseLFrontHoof
+    100020: HorseLHumerus
+    100022: HorseLLargeCannon
+    100024: HorseLMetacarpus
+    100026: HorseLPhalangesManus
+    100028: HorseLPhalanxPrima
+    100030: HorseLRadius
+    100032: HorseLRearHoof
+    100034: HorseLScapula
+    100036: HorseLTibia
+    100038: HorseNeck1
+    100040: HorseNeck2
+    100042: HorseNeck3
+    100044: HorseNeck4
+    100046: HorsePelvis
+    100048: HorseRFemur
+    100050: HorseRibcage
+    100052: HorseRLargeCannon
+    100054: HorseRPhalanxPrima
+    100056: HorseRRearHoof
+    100058: HorseRTibia
+    100060: HorseScull
+    100062: HorseSpine1
+    100064: HorseSpine2
+    100066: HorseSpine3
+    100068: HorseSpine4
+    100070: HorseTail1
+    100072: HorseTail2
+    100074: //RootNode
+    100076: LEar
+    100078: REar
+    400000: FemDeer01
+    400002: HorseFrontRLegFrontHoof
+    400004: HorseFrontRLegHumerus
+    400006: HorseFrontRLegMetacarpus
+    400008: HorseFrontRLegPhalangesManus
+    400010: HorseFrontRLegRadius
+    400012: HorseFrontRLegScapula
+    400014: HorseJaw
+    400016: HorseLFemur
+    400018: HorseLFrontHoof
+    400020: HorseLHumerus
+    400022: HorseLLargeCannon
+    400024: HorseLMetacarpus
+    400026: HorseLPhalangesManus
+    400028: HorseLPhalanxPrima
+    400030: HorseLRadius
+    400032: HorseLRearHoof
+    400034: HorseLScapula
+    400036: HorseLTibia
+    400038: HorseNeck1
+    400040: HorseNeck2
+    400042: HorseNeck3
+    400044: HorseNeck4
+    400046: HorsePelvis
+    400048: HorseRFemur
+    400050: HorseRibcage
+    400052: HorseRLargeCannon
+    400054: HorseRPhalanxPrima
+    400056: HorseRRearHoof
+    400058: HorseRTibia
+    400060: HorseScull
+    400062: HorseSpine1
+    400064: HorseSpine2
+    400066: HorseSpine3
+    400068: HorseSpine4
+    400070: HorseTail1
+    400072: HorseTail2
+    400074: //RootNode
+    400076: LEar
+    400078: REar
+    4300000: FemDeer01
+    7400000: Idle
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: FemDeer01
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 140
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: FemDeer01
+        weight: 1
+      - path: HorsePelvis
+        weight: 1
+      - path: HorsePelvis/HorseLFemur
+        weight: 1
+      - path: HorsePelvis/HorseLFemur/HorseLTibia
+        weight: 1
+      - path: HorsePelvis/HorseLFemur/HorseLTibia/HorseLLargeCannon
+        weight: 1
+      - path: HorsePelvis/HorseLFemur/HorseLTibia/HorseLLargeCannon/HorseLPhalanxPrima
+        weight: 1
+      - path: HorsePelvis/HorseLFemur/HorseLTibia/HorseLLargeCannon/HorseLPhalanxPrima/HorseLRearHoof
+        weight: 1
+      - path: HorsePelvis/HorseRFemur
+        weight: 1
+      - path: HorsePelvis/HorseRFemur/HorseRTibia
+        weight: 1
+      - path: HorsePelvis/HorseRFemur/HorseRTibia/HorseRLargeCannon
+        weight: 1
+      - path: HorsePelvis/HorseRFemur/HorseRTibia/HorseRLargeCannon/HorseRPhalanxPrima
+        weight: 1
+      - path: HorsePelvis/HorseRFemur/HorseRTibia/HorseRLargeCannon/HorseRPhalanxPrima/HorseRRearHoof
+        weight: 1
+      - path: HorsePelvis/HorseSpine1
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseFrontRLegScapula
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseFrontRLegScapula/HorseFrontRLegHumerus
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseFrontRLegScapula/HorseFrontRLegHumerus/HorseFrontRLegRadius
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseFrontRLegScapula/HorseFrontRLegHumerus/HorseFrontRLegRadius/HorseFrontRLegMetacarpus
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseFrontRLegScapula/HorseFrontRLegHumerus/HorseFrontRLegRadius/HorseFrontRLegMetacarpus/HorseFrontRLegPhalangesManus
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseFrontRLegScapula/HorseFrontRLegHumerus/HorseFrontRLegRadius/HorseFrontRLegMetacarpus/HorseFrontRLegPhalangesManus/HorseFrontRLegFrontHoof
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseLScapula
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseLScapula/HorseLHumerus
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseLScapula/HorseLHumerus/HorseLRadius
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseLScapula/HorseLHumerus/HorseLRadius/HorseLMetacarpus
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseLScapula/HorseLHumerus/HorseLRadius/HorseLMetacarpus/HorseLPhalangesManus
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseLScapula/HorseLHumerus/HorseLRadius/HorseLMetacarpus/HorseLPhalangesManus/HorseLFrontHoof
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1/HorseNeck2
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1/HorseNeck2/HorseNeck3
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1/HorseNeck2/HorseNeck3/HorseNeck4
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1/HorseNeck2/HorseNeck3/HorseNeck4/HorseScull
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1/HorseNeck2/HorseNeck3/HorseNeck4/HorseScull/HorseJaw
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1/HorseNeck2/HorseNeck3/HorseNeck4/HorseScull/LEar
+        weight: 1
+      - path: HorsePelvis/HorseSpine1/HorseSpine2/HorseSpine3/HorseSpine4/HorseRibcage/HorseNeck1/HorseNeck2/HorseNeck3/HorseNeck4/HorseScull/REar
+        weight: 1
+      - path: HorsePelvis/HorseTail1
+        weight: 1
+      - path: HorsePelvis/HorseTail1/HorseTail2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
