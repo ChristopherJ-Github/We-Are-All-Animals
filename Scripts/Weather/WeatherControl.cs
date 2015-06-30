@@ -35,6 +35,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 		SceneManager.instance.OnNewDay += AttemptToSpawn;
 		GUIManager.instance.OnGuiEvent += OnGuiEvent;
 		AttemptToSpawn ();
+		Debug.Log (weatherTypes.Length);
 	}
 
 	public WeatherInfo[] weatherTypes;
@@ -112,7 +113,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 	/// to spawn new weather.
 	/// </summary>
 	public void TurnOff () {
-		
+
 		if (currentWeather != null)
 			currentWeather.weather.SetActive(false);
 		cloudTransition = 0;

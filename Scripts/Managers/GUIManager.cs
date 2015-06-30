@@ -128,6 +128,7 @@ public class GUIManager : Singleton<GUIManager>
 		int y = 0;
 		int width = 200;
 		int height = 25;
+
 		int virtualHeight = WeatherControl.instance.weatherTypes.Length * height;
 		virtualHeight = Mathf.Clamp (virtualHeight, Screen.height + 1, virtualHeight); //keep the scrollbar visible
 		GUI.backgroundColor = Color.red;

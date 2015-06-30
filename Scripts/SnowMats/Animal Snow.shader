@@ -1,4 +1,4 @@
-﻿Shader "Transparent/Cutout/Bumped Diffuse" {
+﻿Shader "Custom/Animal Snow" {
 	Properties {
 		_Color ("Main Color", Color) = (1,1,1,1)
 		_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
@@ -35,10 +35,10 @@
 
 		void surf (Input IN, inout SurfaceOutput o) {
 			fixed4 col = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-			//half4 snowTint = _SnowTint;
-		    //snowTint.w = 1;
-		    //half tintAmount = _SnowNormalized * 0.7;
-		    //col = lerp(col, snowTint, tintAmount);
+			half4 snowTint = _SnowTint;
+		    snowTint.w = 1;
+		    half tintAmount = _SnowNormalized * 0.3;
+		    col = lerp(col, snowTint, tintAmount);
 			o.Albedo = col.rgb;
 			o.Alpha = col.a;
 			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
@@ -70,12 +70,15 @@
 
 		void surf (Input IN, inout SurfaceOutput o) {
 	
-			half4 col = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+			half4 col = tex2D (_MainTex, IN.uv_MainTex);
 			half4 snow = tex2D (_SnowTexture, IN.uv_SnowTexture);
 		  	o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
-		  	o.Albedo = snow.rgb;
+		  	o.Albedo = 1;
 		  	half snowWhiteAmount = (snow.r + snow.g + snow.b)/3;
-		  	o.Alpha = col.a * snow.a * snowWhiteAmount;
+		  	half colWhiteAmount = (col.r + col.g + col.b) /3;
+		  	colWhiteAmount/= 2;
+		  	o.Alpha = snow.a * 20 * colWhiteAmount;
+		  	o.Alpha *= 0.7;
 		}
 		ENDCG
 	}
