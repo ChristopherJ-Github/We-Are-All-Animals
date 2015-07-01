@@ -19,11 +19,9 @@ public class SnowManager : Singleton<SnowManager> {
 		reactTo.onStart += startReaction;
 		reactTo.onStop += stopReaction;
 		SceneManager.instance.OnNewDay += SetRiverEvent;
-		SceneManager.instance.OnNewDay += UpdateBillboards;
 		DataManager.instance.OnSave += OnSave;
 		retrieveData ();
 		SetRiver ();
-		UpdateBillboards ();
 	}
 	
 	void retrieveData () {
@@ -63,28 +61,7 @@ public class SnowManager : Singleton<SnowManager> {
 			}
 		}
 	}
-	
-	public bool updateBillboards;
-	void UpdateBillboards () {
-		
-		if (updateBillboards)
-			StartCoroutine (MoveCamera ());
-	}
-	
-	IEnumerator MoveCamera () {
-		
-		Transform mainCamera = Camera.main.transform;
-		Vector3 euler = mainCamera.transform.eulerAngles;
-		float shift = 0.5f;
-		euler.y += shift;
-		mainCamera.transform.rotation = Quaternion.Euler (euler);
-		yield return new WaitForEndOfFrame ();
-		
-		euler = mainCamera.transform.eulerAngles;
-		euler.y -= shift;
-		mainCamera.transform.rotation = Quaternion.Euler (euler);
-	}
-	
+
 	void startReaction () {
 		
 		reactionState = accumulating;
@@ -100,7 +77,7 @@ public class SnowManager : Singleton<SnowManager> {
 		TriggerSnowChange (snowLevel);
 		reactionState ();
 	}
-	
+
 	void idle() {}
 	
 	public float accumRate;

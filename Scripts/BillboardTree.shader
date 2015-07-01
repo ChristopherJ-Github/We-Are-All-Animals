@@ -41,7 +41,7 @@
                     {
                             fixed4 col = tex2D( _MainTex, input.uv);
                             //col.rgb *= input.color.rgb;
-                      		col.rgb *= tree_color.xyz;
+                      		col.rgb *= tree_color.rgb;
                             clip(col.a);
                             return col;
                     }

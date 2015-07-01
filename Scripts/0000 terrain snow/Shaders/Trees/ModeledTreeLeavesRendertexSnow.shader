@@ -18,7 +18,6 @@ Shader "Hidden/Nature/Modeled Tree Leaves Rendertex Snow" {
 
 		Tags { "Queue" = "Transparent-99" }
 		Cull Off
-		Fog { Mode Off}
 		
 		Pass {
 			Lighting On

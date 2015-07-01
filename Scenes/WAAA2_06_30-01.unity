@@ -23158,7 +23158,6 @@ MonoBehaviour:
   freezelevel: .75
   river: {fileID: 1540539284}
   frozenRiver: {fileID: 681405467}
-  updateBillboards: 1
   accumRate: .00499999989
   meltRate: .00499999989
 --- !u!1 &1874939076
@@ -24440,6 +24439,7 @@ MonoBehaviour:
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   currentColor: {r: 1, g: 1, b: 1, a: 1}
+  updateBillboards: 1
   flowerColorOverYear:
     key0:
       serializedVersion: 2
@@ -24551,6 +24551,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
+  forceBillboardUpdate: 0
 --- !u!114 &1984906349
 MonoBehaviour:
   m_ObjectHideFlags: 0

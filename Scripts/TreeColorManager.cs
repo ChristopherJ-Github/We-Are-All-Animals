@@ -13,6 +13,7 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		
 		ChangeTreeColor ();
 		ChangeFlowerColor ();
+		UpdateBillboards ();
 		TriggerColorChange (currentColor);
 	}
 
@@ -23,6 +24,26 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		currentColor = treeColorOverYear.Evaluate (SceneManager.curvePos);
 		TerrainData terrainData = Terrain.activeTerrain.terrainData;
 		terrainData.wavingGrassTint = currentColor;
+	}
+
+	public bool updateBillboards;
+	void UpdateBillboards () {
+		
+		if (updateBillboards)
+			StartCoroutine (MoveCamera ());
+	}
+	
+	IEnumerator MoveCamera () {
+		
+		Transform mainCamera = Camera.main.transform;
+		Vector3 euler = mainCamera.transform.eulerAngles;
+		float shift = 0.5f;
+		euler.y += shift;
+		mainCamera.transform.rotation = Quaternion.Euler (euler);
+		yield return new WaitForEndOfFrame ();
+		euler = mainCamera.transform.eulerAngles;
+		euler.y -= shift;
+		mainCamera.transform.rotation = Quaternion.Euler (euler);
 	}
 
 	public Gradient flowerColorOverYear;
@@ -42,12 +63,13 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		if (OnColorChange != null)
 			OnColorChange(color);
 	}
-	
+
 	void Update () {
 
 		ChangeTreeColor ();//debug
 		ChangeFlowerColor (); //debug
 		SetBillboardLighting ();
+		ForceBillboardUpdateCheck ();
 	}
 
 	public Gradient billboardLightingColor;
@@ -57,5 +79,14 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		billboardColor = billboardLightingColor.Evaluate(1 - SkyManager.instance.nightDayLerp);
 		Vector3 colorVector = new Vector3 (billboardColor.r, billboardColor.b, billboardColor.g);
 		Shader.SetGlobalVector("tree_color", colorVector);
+	}
+
+	public bool forceBillboardUpdate;
+	void ForceBillboardUpdateCheck () {
+		
+		if (forceBillboardUpdate) {
+			forceBillboardUpdate = false;
+			StartCoroutine(MoveCamera());
+		}
 	}
 }
