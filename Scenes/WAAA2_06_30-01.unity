@@ -7833,6 +7833,7 @@ MonoBehaviour:
     onceAYear: 0
     changesClouds: 1
     usesFilter: 0
+    causesStorms: 1
   - weather: {fileID: 1586924656}
     spawnChance:
       serializedVersion: 2
@@ -7903,6 +7904,7 @@ MonoBehaviour:
     onceAYear: 0
     changesClouds: 1
     usesFilter: 1
+    causesStorms: 1
   - weather: {fileID: 2132949552}
     spawnChance:
       serializedVersion: 2
@@ -7978,6 +7980,7 @@ MonoBehaviour:
     onceAYear: 0
     changesClouds: 0
     usesFilter: 1
+    causesStorms: 0
   - weather: {fileID: 736160403}
     spawnChance:
       serializedVersion: 2
@@ -8018,13 +8021,14 @@ MonoBehaviour:
     onceAYear: 0
     changesClouds: 1
     usesFilter: 0
+    causesStorms: 1
   chanceDivisor: 1
   safeToPress: 0
-  storm: 0
-  stormThreshold: .5
   transition: 0
   cloudTransition: 0
   totalTransition: 0
+  storm: 0
+  stormThreshold: .5
   severity: 0
   dataPath: C:\Data\data.txt
 --- !u!1 &825264538
