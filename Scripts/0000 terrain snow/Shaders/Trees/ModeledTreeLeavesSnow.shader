@@ -44,7 +44,6 @@
 			float _SnowAmount;
 			float _SnowNormalized;
 			float _SnowStartHeight;
-			float4 unity_FogColor;
 			
 			fixed4 frag(v2f input) : SV_Target
 			{
@@ -70,7 +69,6 @@
 				snowAmount = 1 - clamp( pow(snowAmount,6)*256, 0, 1);
 				
 				output.rgb = (col.rgb * (1-snowAmount) + snowTint * snowAmount);
-				output.rgb *= unity_FogColor.rgb;
 				output.rgb *= input.color.rgb;
 				output.a = col.a;
 				return output;
