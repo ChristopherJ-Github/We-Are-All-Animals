@@ -22,6 +22,7 @@ public class WeatherInfo {
 	public bool onceAYear;
 	public bool changesClouds = true;
 	public bool usesFilter = true;
+	public bool causesStorms = true;
 }
 
 public class WeatherControl : Singleton<WeatherControl> {
@@ -107,7 +108,15 @@ public class WeatherControl : Singleton<WeatherControl> {
 	public float stormThreshold;
 	void SetStormSatus (bool? status = null) {
 
-		storm = status ?? totalTransition * severity >= stormThreshold;
+		if (status == null) {
+			if (currentWeather.causesStorms) {
+				storm = totalTransition * severity >= stormThreshold;
+			} else {
+				storm = false;
+			}
+		} else {
+			storm = (bool)status;
+		}
 	}
 	
 	void Update () {
