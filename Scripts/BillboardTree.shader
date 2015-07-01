@@ -41,8 +41,7 @@
                     fixed4 frag(v2f input) : COLOR
                     {
                             fixed4 col = tex2D( _MainTex, input.uv);
-                            half3 fogTint = half3 (unity_FogColor.r, unity_FogColor.g, unity_FogColor.b);
-                            col.rgb *= fogTint;
+                            col.rgb *= unity_FogColor.rgb;
                       		col.rgb *= tree_color.rgb;
                             clip(col.a);
                             return col;
