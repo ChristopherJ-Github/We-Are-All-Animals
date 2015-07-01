@@ -24,7 +24,7 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	
 	void MakeSpawnAttempt() {
 
-		if (!on) 
+		if (!on || WeatherControl.instance.storm) 
 			return;
 		for (int i = 0; i < maxAllowed - currentAnimations.Count; i++) {
 			AnimalAnimator animalAnimator = animations[Random.Range(0, animations.Length)];

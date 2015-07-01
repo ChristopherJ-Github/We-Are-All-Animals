@@ -35,7 +35,6 @@ public class WeatherControl : Singleton<WeatherControl> {
 		SceneManager.instance.OnNewDay += AttemptToSpawn;
 		GUIManager.instance.OnGuiEvent += OnGuiEvent;
 		AttemptToSpawn ();
-		Debug.Log (weatherTypes.Length);
 	}
 
 	public WeatherInfo[] weatherTypes;
@@ -61,7 +60,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 
 	public static WeatherInfo currentWeather;
 	[HideInInspector] private float cloudTransInTime, transInTime, idleTime, transOutTime, cloudTransOutTime, stopTime;
-	public bool safeToPress;
+	[HideInInspector] public bool safeToPress;
 	/// <summary>
 	/// Starting point of weather cycle where weatherType is enabled
 	/// </summary>
@@ -87,7 +86,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 		safeToPress = false;
 		weatherState = On;
 	}
-
+	
 	[HideInInspector] public float transition, cloudTransition, totalTransition;
 	void On () {
 		
@@ -101,6 +100,14 @@ public class WeatherControl : Singleton<WeatherControl> {
 			cloudTransition = Mathf.InverseLerp (stopTime, cloudTransOutTime, currentMinutes);
 			totalTransition = Mathf.InverseLerp(stopTime, transOutTime, currentMinutes);
 		}
+		SetStormSatus ();
+	}
+
+	[HideInInspector] public bool storm;
+	public float stormThreshold;
+	void SetStormSatus (bool? status = null) {
+
+		storm = status ?? totalTransition * severity >= stormThreshold;
 	}
 	
 	void Update () {
@@ -119,6 +126,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 		cloudTransition = 0;
 		transition = 0;
 		totalTransition = 0;
+		SetStormSatus (false);
 		safeToPress = true;
 		currentWeather = null;
 		weatherState = Off;

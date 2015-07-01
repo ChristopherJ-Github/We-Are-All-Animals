@@ -8020,6 +8020,8 @@ MonoBehaviour:
     usesFilter: 0
   chanceDivisor: 1
   safeToPress: 0
+  storm: 0
+  stormThreshold: .5
   transition: 0
   cloudTransition: 0
   totalTransition: 0
@@ -24284,7 +24286,7 @@ MonoBehaviour:
   season: 1
   transitionSpeed: 2.20000005
   keyDelay: .219999999
-  lightning: {fileID: 0}
+  lightning: {fileID: 1586924658}
   daySpeed: 754.700012
   yearSpeed: 250868
   animalPreviewPrefab: {fileID: 100000, guid: e63fc1e94ca3c374db32ce8036c2c19c, type: 2}

@@ -234,6 +234,7 @@ public class AnimalAnimator: MonoBehaviour {
 	void idle () {
 
 		RandomAnimationCheck ();
+		StormCheck ();
 		if (stopIn <= 0) {
 			StopAllCoroutines();//prevent random animation from playing after
 			if (bird) {
@@ -249,6 +250,12 @@ public class AnimalAnimator: MonoBehaviour {
 					speed = stopNodeProperties.afterMovementSpeed;	
 			}
 		} 
+	}
+
+	void StormCheck () {
+
+		if (WeatherControl.instance.storm)
+			stopIn = 0;
 	}
 
 	void RandomAnimationCheck () {
