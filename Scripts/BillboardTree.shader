@@ -36,11 +36,13 @@
 
                     sampler2D _MainTex;
                     float3 tree_color;
-                     
+                    float4 unity_FogColor; 
+                    
                     fixed4 frag(v2f input) : COLOR
                     {
                             fixed4 col = tex2D( _MainTex, input.uv);
-                            //col.rgb *= input.color.rgb;
+                            half3 fogTint = half3 (unity_FogColor.r, unity_FogColor.g, unity_FogColor.b);
+                            col.rgb *= fogTint;
                       		col.rgb *= tree_color.rgb;
                             clip(col.a);
                             return col;
