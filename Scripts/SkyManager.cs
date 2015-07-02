@@ -79,7 +79,7 @@ public class SkyManager : Singleton<SkyManager>{
 		SetSkyBox (1, 0);
 		Color nightTint = CloudControl.instance.nightToDusk.Evaluate(0);
 		SetAmbientLightColor (0, 0);
-		RenderSettings.fogColor = FogControl.instance.NightToDusk(0);	
+		SetFogColor (0, 0);
 		nightDayLerp = testDarkness;
 		sun.light.intensity = 0;
 		moon.light.intensity = moon.currentIntesity;
@@ -93,9 +93,9 @@ public class SkyManager : Singleton<SkyManager>{
 		SetSkyBox (1, lerp);
 		SkyBoxMaterial1.SetColor ("_Tint", CloudControl.instance.NightToDusk(lerp));
 		SetAmbientLightColor (lerp, 0);
-		RenderSettings.fogColor = FogControl.instance.NightToDusk(lerp);
-		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
+		SetFogColor (lerp, 0);
 		SetSunColor (lerp, 0);
+		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
 		float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
 		sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
 		moon.light.intensity = Mathf.Lerp(moon.currentIntesity, 0, lerp);
@@ -109,10 +109,9 @@ public class SkyManager : Singleton<SkyManager>{
 		Color duskTint = CloudControl.instance.NightToDusk(1);
 		SkyBoxMaterial2.SetColor ("_Tint", Color.Lerp (duskTint, CloudControl.instance.midday, lerp));
 		SetAmbientLightColor (1, lerp);
-		Color duskFog = FogControl.instance.NightToDusk(1);
-		RenderSettings.fogColor = Color.Lerp(duskFog, FogControl.instance.midday, lerp);
-		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
+		SetFogColor (1, lerp);
 		SetSunColor (1, lerp);
+		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
 		float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
 		sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
 		moon.light.intensity = 0;
@@ -124,7 +123,7 @@ public class SkyManager : Singleton<SkyManager>{
 		SetSkyBox (2, 1);
 		SkyBoxMaterial2.SetColor ("_Tint", CloudControl.instance.midday);
 		SetAmbientLightColor (0, 1);
-		RenderSettings.fogColor = FogControl.instance.midday;
+		SetFogColor (0, 1);
 		SetSunColor (0, 1);
 		sun.light.intensity = sun.currentIntesity;
 		moon.light.intensity = 0;
@@ -138,10 +137,9 @@ public class SkyManager : Singleton<SkyManager>{
 		Color duskTint = CloudControl.instance.NightToDusk(1);
 		SkyBoxMaterial2.SetColor ("_Tint", Color.Lerp (duskTint, CloudControl.instance.midday, lerp));
 		SetAmbientLightColor (1, lerp);
-		Color duskFog = FogControl.instance.NightToDusk(1);
-		RenderSettings.fogColor = Color.Lerp(duskFog, FogControl.instance.midday, lerp);
-		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
+		SetFogColor (1, lerp);
 		SetSunColor (1, lerp);
+		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, lerp);
 		moon.light.intensity = 0;
 		DarkenSky (1 - lerp);
@@ -153,9 +151,9 @@ public class SkyManager : Singleton<SkyManager>{
 		SetSkyBox (1, lerp);
 		SkyBoxMaterial1.SetColor ("_Tint", CloudControl.instance.NightToDusk(lerp));
 		SetAmbientLightColor (lerp, 0);
-		RenderSettings.fogColor = FogControl.instance.NightToDusk(lerp);
-		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
+		SetFogColor (lerp, 0);
 		SetSunColor (lerp, 0);
+		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		sun.light.intensity = 0;
 		moon.light.intensity = Mathf.Lerp(moon.currentIntesity, 0, lerp);
 		DarkenSky (1);
@@ -195,6 +193,13 @@ public class SkyManager : Singleton<SkyManager>{
 		RenderSettings.ambientLight = currentColor;
 	}
 
+	void SetFogColor (float nightToDuskValue, float middayValue, bool desaturate = false) {
+		
+		Color colorAroundNight = FogControl.instance.NightToDusk (nightToDuskValue);
+		Color colorAtMidday = FogControl.instance.midday;
+		Color currentColor = Color.Lerp (colorAroundNight, colorAtMidday, middayValue);
+		RenderSettings.fogColor = currentColor;
+	}
 
 	void SetSkyBox (int index, float blend) {
 

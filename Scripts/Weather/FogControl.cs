@@ -42,8 +42,8 @@ public class FogControl : Singleton<FogControl> {
 		Color initMidday = _midday.Evaluate (CloudControl.instance.middayValue);
 		float _overcastInfluence = overcastInfluence.Evaluate(CloudControl.instance.overcast); 
 		Color middayAfterCloud = Color.Lerp (initMidday, middayCloudy, _overcastInfluence);
-		Color middayAfterStorm = Color.Lerp (middayAfterCloud, middayStorm, CloudControl.instance.grayAmount);
-		Color middayAfterSnow = Color.Lerp (middayAfterStorm, middaySnow, SnowManager.instance.snowLevel * _overcastInfluence);
+		Color middayAfterSnow = Color.Lerp (middayAfterCloud, middaySnow, SnowManager.instance.snowLevel * _overcastInfluence);
+		Color middayAfterStorm = Color.Lerp (middayAfterSnow, middayStorm, CloudControl.instance.grayAmount);
 		midday = middayAfterSnow;
 	}
 
