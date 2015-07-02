@@ -12498,7 +12498,6 @@ MonoBehaviour:
   maxSharpness: .610000014
   minThickness: .550000012
   maxThickness: 2.58999991
-  nightOvercast: .670000017
   minHeight: 23.1800003
   maxHeight: 127.599998
   overcastToRandomization:

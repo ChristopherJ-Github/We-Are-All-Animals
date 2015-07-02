@@ -76,8 +76,7 @@ public class SkyManager : Singleton<SkyManager>{
 	public float testDarkness;
 	void SetNightSettings (float time) {
 
-		RenderSettings.skybox = SkyBoxMaterial1;
-		RenderSettings.skybox.SetFloat("_Blend", 0);
+		SetSkyBox (1, 0);
 		Color nightTint = CloudControl.instance.nightToDusk.Evaluate(0);
 		RenderSettings.ambientLight = AmbientLightingChanger.instance.NightToDusk(0);
 		RenderSettings.fogColor = FogControl.instance.NightToDusk(0);	
@@ -91,8 +90,7 @@ public class SkyManager : Singleton<SkyManager>{
 	void SetDuskSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseAstroTime, sunriseTime, time);
-		RenderSettings.skybox = SkyBoxMaterial1;
-		RenderSettings.skybox.SetFloat("_Blend", lerp);
+		SetSkyBox (1, lerp);
 		SkyBoxMaterial1.SetColor ("_Tint", CloudControl.instance.NightToDusk(lerp));
 		RenderSettings.ambientLight = AmbientLightingChanger.instance.NightToDusk (lerp);
 		RenderSettings.fogColor = FogControl.instance.NightToDusk(lerp);
@@ -107,8 +105,7 @@ public class SkyManager : Singleton<SkyManager>{
 	void SetDuskToMidaySettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseTime, sunriseTime + 2, time);
-		RenderSettings.skybox = SkyBoxMaterial2;
-		RenderSettings.skybox.SetFloat("_Blend", lerp);
+		SetSkyBox (2, lerp);
 		Color duskTint = CloudControl.instance.NightToDusk(1);
 		SkyBoxMaterial2.SetColor ("_Tint", Color.Lerp (duskTint, CloudControl.instance.midday, lerp));
 		Color duskAmbience = AmbientLightingChanger.instance.NightToDusk (1);
@@ -125,8 +122,7 @@ public class SkyManager : Singleton<SkyManager>{
 
 	void SetMiddaySettings (float time) {
 
-		RenderSettings.skybox = SkyBoxMaterial2;
-		RenderSettings.skybox.SetFloat("_Blend", 1);
+		SetSkyBox (2, 1);
 		SkyBoxMaterial2.SetColor ("_Tint", CloudControl.instance.midday);
 		RenderSettings.ambientLight = AmbientLightingChanger.instance.midday;
 		RenderSettings.fogColor = FogControl.instance.midday;
@@ -139,8 +135,7 @@ public class SkyManager : Singleton<SkyManager>{
 	void SetMiddayToDawnSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunsetTime, sunsetTime - 2, time);
-		RenderSettings.skybox = SkyBoxMaterial2;
-		RenderSettings.skybox.SetFloat("_Blend", lerp);
+		SetSkyBox (2, lerp);
 		Color duskTint = CloudControl.instance.NightToDusk(1);
 		SkyBoxMaterial2.SetColor ("_Tint", Color.Lerp (duskTint, CloudControl.instance.midday, lerp));
 		Color duskAmbience = AmbientLightingChanger.instance.NightToDusk (1);
@@ -157,8 +152,7 @@ public class SkyManager : Singleton<SkyManager>{
 	void SetDawnSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunsetAstroTime, sunsetTime, time);
-		RenderSettings.skybox = SkyBoxMaterial1;
-		RenderSettings.skybox.SetFloat("_Blend", lerp);
+		SetSkyBox (1, lerp);
 		SkyBoxMaterial1.SetColor ("_Tint", CloudControl.instance.NightToDusk(lerp));
 		RenderSettings.ambientLight = AmbientLightingChanger.instance.NightToDusk (lerp);
 		RenderSettings.fogColor = FogControl.instance.NightToDusk(lerp);
@@ -193,5 +187,11 @@ public class SkyManager : Singleton<SkyManager>{
 		Color colorAtMidday = sun.GetMiddayColor ();
 		Color currentColor = Color.Lerp (colorAroundNight, colorAtMidday, middayValue);
 		sun.light.color = currentColor;
+	}
+
+	void SetSkyBox (int index, float blend) {
+
+		RenderSettings.skybox = index == 1 ? SkyBoxMaterial1 : SkyBoxMaterial2;
+		RenderSettings.skybox.SetFloat("_Blend", blend);
 	}
 }
