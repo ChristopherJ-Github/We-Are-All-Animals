@@ -14792,10 +14792,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be7c79c6fee38643aebb0dc310e93ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nightDayLerp: .943333387
+  daytimeToIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: .012003812
+      outSlope: .012003812
+      tangentMode: 10
+    - time: .319473624
+      value: .00383490138
+      inSlope: .012003812
+      outSlope: .367790371
+      tangentMode: 5
+    - time: .422065288
+      value: .995027244
+      inSlope: 18.4906158
+      outSlope: 18.4906158
+      tangentMode: 10
+    - time: .488838226
+      value: 2.81924415
+      inSlope: 27.3197041
+      outSlope: -4.42464352
+      tangentMode: 21
+    - time: .899999976
+      value: 1
+      inSlope: -4.42464352
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   sun: {fileID: 1930510222}
   moon: {fileID: 1506733896}
+  intensityLerp: 1
+  sunrisePosInDay: .101401351
+  sunsetPosInDay: .87459892
   sunriseAngle: 2.60925293
   sunsetAngle: 180
+  SkyBoxMaterial1: {fileID: 2100000, guid: 9296187a207dab14db758b8af6661f72, type: 2}
+  SkyBoxMaterial2: {fileID: 2100000, guid: 7a51ee84628460446bfc2358f6f41067, type: 2}
   sunNightToDusk:
     key0:
       serializedVersion: 2
@@ -14839,16 +14880,6 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  intensityLerp: 1
-  SkyBoxMaterial1: {fileID: 2100000, guid: 9296187a207dab14db758b8af6661f72, type: 2}
-  SkyBoxMaterial2: {fileID: 2100000, guid: 7a51ee84628460446bfc2358f6f41067, type: 2}
-  Water: {fileID: 0}
-  IncludeWater: 0
-  WaterNight: {r: 0, g: 0, b: 0, a: 0}
-  WaterDay: {r: .629483163, g: .840926647, b: .947761178, a: 0}
-  sunrisePosInDay: .101401351
-  sunsetPosInDay: .87459892
-  nightDayLerp: .943333387
   sunMiddayTint:
     key0:
       serializedVersion: 2
@@ -14892,42 +14923,6 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  testDarkness: 0
-  daytimeToIntensity:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: .012003812
-      outSlope: .012003812
-      tangentMode: 10
-    - time: .319473624
-      value: .00383490138
-      inSlope: .012003812
-      outSlope: .367790371
-      tangentMode: 5
-    - time: .422065288
-      value: .995027244
-      inSlope: 18.4906158
-      outSlope: 18.4906158
-      tangentMode: 10
-    - time: .488838226
-      value: 2.81924415
-      inSlope: 27.3197041
-      outSlope: -4.42464352
-      tangentMode: 21
-    - time: .899999976
-      value: 1
-      inSlope: -4.42464352
-      outSlope: -0
-      tangentMode: 21
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &1439648900
 GameObject:
   m_ObjectHideFlags: 0

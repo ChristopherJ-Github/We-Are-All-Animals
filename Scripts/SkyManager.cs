@@ -2,29 +2,7 @@
 using Tools;
 using System.Collections;
 
-public class SkyManager : Singleton<SkyManager>{
-	
-	public SunProperties sun;
-	public MoonProperties moon;
-	public float sunriseAngle, sunsetAngle;
-	public Gradient sunNightToDusk;
-	[HideInInspector]
-	public float intensityLerp;
-	
-	public Material SkyBoxMaterial1;
-	public Material SkyBoxMaterial2;
-	
-	public GameObject Water;
-	public bool IncludeWater = false;
-	public Color WaterNight;
-	public Color WaterDay;
-	
-	private float sunriseAstroTime, sunriseTime, sunsetTime, sunsetAstroTime;
-	[HideInInspector]
-	public float sunrisePosInDay, sunsetPosInDay;
-	[HideInInspector]
-	public float nightDayLerp;
-	public Gradient sunMiddayTint;
+public class SkyManager : Singleton<SkyManager> {
 
 	void OnEnable () { 
 		
@@ -35,7 +13,8 @@ public class SkyManager : Singleton<SkyManager>{
 
 		UpdatePhaseTimes ();
 	}
-	
+
+	private float sunriseAstroTime, sunriseTime, sunsetTime, sunsetAstroTime;
 	void UpdatePhaseTimes () {
 		
 		sunriseAstroTime = SunControl.instance.sunriseAstroTime;
@@ -72,7 +51,8 @@ public class SkyManager : Singleton<SkyManager>{
 		if (time > sunsetTime && time < sunsetAstroTime)
 			SetDawnSettings(time);
 	}
-	
+
+	[HideInInspector] public float nightDayLerp;
 	void SetNightSettings (float time) {
 
 		nightDayLerp = 0;
@@ -132,6 +112,11 @@ public class SkyManager : Singleton<SkyManager>{
 		DarkenSky (1);
 	}
 
+	public SunProperties sun;
+	public MoonProperties moon;
+	[HideInInspector] public float intensityLerp;
+	[HideInInspector] public float sunrisePosInDay, sunsetPosInDay;
+	public float sunriseAngle, sunsetAngle;
 	void AdjustSunAndMoon () {
 
 		float currentIntensity = sun.light.intensity + moon.light.intensity;
@@ -156,6 +141,8 @@ public class SkyManager : Singleton<SkyManager>{
 		}
 	}
 
+	public Material SkyBoxMaterial1;
+	public Material SkyBoxMaterial2;
 	void SetSkyBox (int index, float blend) {
 		
 		RenderSettings.skybox = index == 1 ? SkyBoxMaterial1 : SkyBoxMaterial2;
@@ -184,6 +171,8 @@ public class SkyManager : Singleton<SkyManager>{
 		RenderSettings.skybox.SetColor ("_Tint", currentColor);
 	}
 
+	public Gradient sunNightToDusk;
+	public Gradient sunMiddayTint;
 	void SetSunColor (float nightToDuskValue, float middayValue, bool desaturate = false) {
 
 		Color colorAroundNight = sunNightToDusk.Evaluate(nightToDuskValue);
