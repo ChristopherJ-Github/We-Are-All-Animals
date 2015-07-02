@@ -102,7 +102,8 @@ public class WindControl : Singleton<WindControl> {
 	}
 	
 	public float minSnowAlpha, maxSnowAlpha;
-	public float nightAlphaInfluence;
+	public float nightAlpha;
+	public AnimationCurve datetimeToNightAlpha;
 	private Color originalMatCol;
 	private Color[] originalColors;
 	public float minAlphaOffset, maxAlphaOffset;
@@ -122,7 +123,8 @@ public class WindControl : Singleton<WindControl> {
 		Color newMatCol = AddSnowTint (originalMatCol);
 		float snowAlpha = Mathf.Lerp (minSnowAlpha, maxSnowAlpha, WindControl.instance.windiness);
 		newMatCol.a = Mathf.Lerp (newMatCol.a, snowAlpha, SnowManager.instance.snowLevel);
-		newMatCol.a = Mathf.Lerp (newMatCol.a, 0, (1 - SkyManager.instance.nightDayLerp) * nightAlphaInfluence);
+		float nightAlphaInfluence = datetimeToNightAlpha.Evaluate (SkyManager.instance.nightDayLerp);
+		newMatCol.a = Mathf.Lerp (nightAlpha, newMatCol.a, nightAlphaInfluence);
 		dust.renderer.material.SetColor ("_TintColor", newMatCol);
 	}
 

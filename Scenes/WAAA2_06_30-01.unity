@@ -9466,7 +9466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: .951237559, y: 0, z: -.308459878}
+  direction: {x: .224734262, y: 0, z: .974420071}
   directionChangeSpeed: 3.5
   likelyWindinessOverYear:
     serializedVersion: 2
@@ -9515,7 +9515,27 @@ MonoBehaviour:
   dust: {fileID: 421872992}
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
-  nightAlphaInfluence: .850000024
+  nightAlpha: .00669999979
+  datetimeToNightAlpha:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .459999979
+      value: 0
+      inSlope: 0
+      outSlope: 1.85185182
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 1.85185182
+      outSlope: 1.85185182
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   minAlphaOffset: -.0299999993
   maxAlphaOffset: .100000001
   minSpeed: .310000002
