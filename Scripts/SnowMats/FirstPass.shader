@@ -88,20 +88,20 @@ Shader "Custom/SnowTerrain" {
 			"Queue" = "Geometry-100"
 			"RenderType" = "Transparent"
 		}
-
+		
 		CGPROGRAM
 		#pragma surface surf Lambert vertex:vert decal:blend
 		#pragma target 3.0 
 		#pragma glsl 
 				
 		struct Input {
-			float3 worldNormal; INTERNAL_DATA	
+			INTERNAL_DATA	
+			float3 worldNormal; 
 			float2 uv_Control : TEXCOORD0;
 			float2 uv_Splat0 : TEXCOORD1;
 			float2 uv_Splat1 : TEXCOORD2;
 			float2 uv_Splat2 : TEXCOORD3;
 			float2 uv_Splat3 : TEXCOORD4;
-			float2 uv_SingleBump;
 		};
 
 		float _Snow;
@@ -110,7 +110,6 @@ Shader "Custom/SnowTerrain" {
 		sampler2D _Control;
 		sampler2D _Splat0,_Splat1,_Splat2,_Splat3;
 		sampler2D _Normal0,_Normal1,_Normal2,_Normal3;
-		sampler2D _SingleBump;
 		
 		void vert (inout appdata_full v) {
 			v.tangent.xyz = cross(v.normal, float3(0,0,1));
@@ -132,13 +131,28 @@ Shader "Custom/SnowTerrain" {
 			fixed splatSum = dot(splat_control, fixed4(1,1,1,1));
 			fixed4 flatNormal = fixed4(0.5,0.5,1,0.5); // this is "flat normal" in both DXT5nm and xyz*2-1 cases
 			nrm = lerp(flatNormal, nrm, splatSum);
-			o.Normal = UnpackNormal(nrm);		
+			nrm = normalize(nrm);
+			o.Normal = UnpackNormal(nrm);
+			fixed3 worldNormal;
 			
-			fixed snowLerp  = dot(WorldNormalVector(IN, o.Normal), _SnowDirection.xyz) + _Snow;
+			worldNormal = WorldNormalVector(IN, o.Normal);
+			worldNormal = normalize(worldNormal);
+			float dotProduct = dot(worldNormal , _SnowDirection.xyz);
+			dotProduct = clamp(dotProduct, 0, 1);
+			fixed snowLerp  = dotProduct + _Snow;
+			
 			snowLerp = pow(snowLerp, 6) * 25;
 			snowLerp = clamp(snowLerp, 0, 1);
-			o.Albedo = lerp (o.Albedo, _SnowColor.rgb * 0.85, snowLerp);
-			o.Alpha = lerp (0, splat_control.r + splat_control.g + splat_control.b + splat_control.a, snowLerp);
+			o.Albedo = _SnowColor.rgb * 0.85;
+			float snowAlpha = splat_control.r + splat_control.g + splat_control.b + splat_control.a;
+			o.Alpha = lerp (0, snowAlpha, snowLerp);
+			
+			/*
+			o.Alpha = 1;
+			if (dotProduct < 0 || dotProduct > 1) {
+				o.Albedo = fixed3(1,0,0);
+			}
+			*/
 		}
 		ENDCG  
 	}

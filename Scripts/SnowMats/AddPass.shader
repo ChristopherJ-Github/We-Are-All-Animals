@@ -104,7 +104,6 @@ Shader "Custom/SnowTerrainAdd" {
 			float2 uv_Splat1 : TEXCOORD2;
 			float2 uv_Splat2 : TEXCOORD3;
 			float2 uv_Splat3 : TEXCOORD4;
-			float2 uv_SingleBump;
 		};
 
 		float _Snow;
@@ -113,7 +112,6 @@ Shader "Custom/SnowTerrainAdd" {
 		sampler2D _Control;
 		sampler2D _Splat0,_Splat1,_Splat2,_Splat3;
 		sampler2D _Normal0,_Normal1,_Normal2,_Normal3;
-		sampler2D _SingleBump;
 		
 		void vert (inout appdata_full v) {
 			v.tangent.xyz = cross(v.normal, float3(0,0,1));

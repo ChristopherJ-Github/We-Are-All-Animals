@@ -23,6 +23,7 @@ public class Emission : MonoBehaviour {
 		_lightning = GetComponent<Lightning> ();
 		particleAnimator = GetComponent<ParticleAnimator> ();
 		originalPosition = transform.position;
+		originalColor = renderer.material.GetColor ("_TintColor");
 	}
 
 	public bool mainSystem = true;
@@ -56,6 +57,7 @@ public class Emission : MonoBehaviour {
 		ShiftSource (transWindiness);
 		float transSeverity = Mathf.Lerp (0, WeatherControl.instance.severity, WeatherControl.instance.transition);
 		UpdateEmission (transSeverity);
+		SetDatetimeAlpha ();
 		if (mainSystem) {
 			float transOvercast = UpdateOvercast ();
 			SkyManager.instance.sun.weatherDarkness = transOvercast; 
@@ -135,6 +137,17 @@ public class Emission : MonoBehaviour {
 		newPosition += -WindControl.instance.direction * currentHorizontalShift;
 		newPosition += Vector3.down * currentVericalShift;
 		particleEmitter.transform.position = newPosition;
+	}
+
+	public float minAlpha, maxAlpha;
+	private Color originalColor;
+	void SetDatetimeAlpha () {
+
+		float currentAlpha = Mathf.Lerp (minAlpha, maxAlpha, SkyManager.instance.nightDayLerp);
+		currentAlpha /= 255;
+		Color currentColor = originalColor;
+		currentColor.a = currentAlpha;
+		renderer.material.SetColor ("_TintColor", currentColor);
 	}
 	
 	void OnDisable () {
