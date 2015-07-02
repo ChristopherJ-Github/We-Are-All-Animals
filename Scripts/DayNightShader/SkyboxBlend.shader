@@ -3,6 +3,7 @@ Shader  "RenderFX/Skybox Blended" {
 Properties {
     _Tint ("Tint Color", Color) = (.5, .5, .5, .5)
     _Blend ("Blend", Range(0.0,1.0)) = 0.5
+    _SnowTint ("Snow Tint", Float) = 0
     _FrontTex ("Front (+Z)", 2D) = "white" {}
     _BackTex ("Back (-Z)", 2D) = "white" {}
     _LeftTex ("Left (+X)", 2D) = "white" {}
@@ -20,14 +21,16 @@ Properties {
 SubShader {
     Tags { "Queue" = "Background" }
     Cull Off
-  ZTest Less
-ZWrite Off
+ 	ZTest Less
+	ZWrite Off
     Fog { Mode Off }
     Lighting Off       
     Color [_Tint]
+    
     Pass {
         SetTexture [_FrontTex] { combine texture }
         SetTexture [_FrontTex2] { constantColor (0,0,0,[_Blend]) combine texture lerp(constant) previous }
+        SetTexture [_FrontTex2] { constantColor ([_SnowTint],[_SnowTint],[_SnowTint],0) combine previous + constant}
         SetTexture [_FrontTex2] { combine previous +- primary, previous * primary }
     }
     Pass {
