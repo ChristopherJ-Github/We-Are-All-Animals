@@ -72,15 +72,13 @@ public class SkyManager : Singleton<SkyManager>{
 		if (time > sunsetTime && time < sunsetAstroTime)
 			SetDawnSettings(time);
 	}
-
-	public float testDarkness;
+	
 	void SetNightSettings (float time) {
 
+		nightDayLerp = 1;
 		SetSkyBox (1, 0);
 		SetColors (0, 0);
-		nightDayLerp = testDarkness;
-		sun.light.intensity = 0;
-		moon.light.intensity = moon.currentIntesity;
+		SetIntensity (1, 0);
 		DarkenSky (1);
 	}
 
@@ -88,55 +86,49 @@ public class SkyManager : Singleton<SkyManager>{
 	void SetDuskSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseAstroTime, sunriseTime, time);
+		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
 		SetSkyBox (1, lerp);
 		SetColors (lerp, 0);
-		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
-		float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
-		sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
-		moon.light.intensity = Mathf.Lerp(moon.currentIntesity, 0, lerp);
+		SetIntensity (1 - lerp);
 		DarkenSky (1);
 	}
 
 	void SetDuskToMidaySettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseTime, sunriseTime + 2, time);
+		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
 		SetSkyBox (2, lerp);
 		SetColors (1, lerp);
-		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
-		float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
-		sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
-		moon.light.intensity = 0;
+		SetIntensity (0);
 		DarkenSky (1 - lerp);
 	}
 
 	void SetMiddaySettings (float time) {
 
+		nightDayLerp = 1;
 		SetSkyBox (2, 1);
 		SetColors (0, 1);
-		sun.light.intensity = sun.currentIntesity;
-		moon.light.intensity = 0;
+		SetIntensity (0, 1);
 		DarkenSky (0);
 	}
 
 	void SetMiddayToDawnSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunsetTime, sunsetTime - 2, time);
+		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		SetSkyBox (2, lerp);
 		SetColors (1, lerp);
-		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
-		sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, lerp);
-		moon.light.intensity = 0;
+		SetIntensity (0, lerp);
 		DarkenSky (1 - lerp);
 	}
 
 	void SetDawnSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunsetAstroTime, sunsetTime, time);
+		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		SetSkyBox (1, lerp);
 		SetColors (lerp, 0);
-		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
-		sun.light.intensity = 0;
-		moon.light.intensity = Mathf.Lerp(moon.currentIntesity, 0, lerp);
+		SetIntensity (1 - lerp, 0);
 		DarkenSky (1);
 	}
 
@@ -150,6 +142,19 @@ public class SkyManager : Singleton<SkyManager>{
 		float posInNight = Mathf.Clamp01 (SunControl.instance.posInNight);
 		float moonAngle = Math.Convert (posInNight, 0, 1, sunriseAngle, sunsetAngle);
 		moon.transform.localEulerAngles = new Vector3 (moonAngle, 0, 0);
+	}
+
+	void SetIntensity (float moonLerp, float? sunLerp = null) {
+		
+		moon.light.intensity = Mathf.Lerp(0, moon.currentIntesity, moonLerp);
+		
+		if (sunLerp == null) {
+			float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
+			sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
+		} else {
+			sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, (float)sunLerp);
+		}
+		
 	}
 
 	void DarkenSky (float skyDarkness) {
