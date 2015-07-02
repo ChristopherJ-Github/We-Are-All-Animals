@@ -75,7 +75,7 @@ public class SkyManager : Singleton<SkyManager>{
 	
 	void SetNightSettings (float time) {
 
-		nightDayLerp = 1;
+		nightDayLerp = 0;
 		SetSkyBox (1, 0);
 		SetColors (0, 0);
 		SetIntensity (1, 0);
@@ -154,19 +154,18 @@ public class SkyManager : Singleton<SkyManager>{
 		} else {
 			sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, (float)sunLerp);
 		}
-		
-	}
-
-	void DarkenSky (float skyDarkness) {
-
-		Color skySnowTint = new Color (0, 0, 0, skyDarkness * CloudControl.instance.overcast);
-		RenderSettings.skybox.SetColor ("_SnowColor", skySnowTint);
 	}
 
 	void SetSkyBox (int index, float blend) {
 		
 		RenderSettings.skybox = index == 1 ? SkyBoxMaterial1 : SkyBoxMaterial2;
 		RenderSettings.skybox.SetFloat("_Blend", blend);
+	}
+
+	void DarkenSky (float skyDarkness) {
+		
+		Color skySnowTint = new Color (0, 0, 0, skyDarkness * CloudControl.instance.overcast);
+		RenderSettings.skybox.SetColor ("_SnowColor", skySnowTint);
 	}
 
 	void SetColors (float nightToDuskValue, float middayValue, bool desaturate = false) {
