@@ -139,14 +139,14 @@ public class Emission : MonoBehaviour {
 		particleEmitter.transform.position = newPosition;
 	}
 
-	public float minAlpha, maxAlpha;
+	public float nightDarkness;
 	private Color originalColor;
+	public AnimationCurve daytimeToDarkening;
 	void SetDatetimeAlpha () {
 
-		float currentAlpha = Mathf.Lerp (minAlpha, maxAlpha, SkyManager.instance.nightDayLerp);
-		currentAlpha /= 255;
-		Color currentColor = originalColor;
-		currentColor.a = currentAlpha;
+		Color nightColor = Color.Lerp (originalColor, Color.black, nightDarkness);
+		float daytimeInfluence = daytimeToDarkening.Evaluate (SkyManager.instance.nightDayLerp);
+		Color currentColor = Color.Lerp (nightColor, originalColor, daytimeInfluence);
 		renderer.material.SetColor ("_TintColor", currentColor);
 	}
 	
