@@ -6679,8 +6679,8 @@ MonoBehaviour:
   middayCloudy: {r: .419607848, g: .490196079, b: .541176498, a: 0}
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
-  midday: {r: 0, g: 0, b: 0, a: 1}
-  daytimeToCloudDarkening:
+  midday: {r: .699883878, g: .794407308, b: .873338521, a: .995024979}
+  daytimeToDarkeningRain:
     serializedVersion: 2
     m_Curve:
     - time: 0
@@ -6688,15 +6688,35 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 10
-    - time: .539039433
+    - time: .799999952
       value: 0
       inSlope: 0
-      outSlope: 2.16938305
+      outSlope: 4.99999905
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 2.16938305
-      outSlope: 2.16938305
+      inSlope: 4.99999905
+      outSlope: 4.99999905
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  daytimeToDarkeningSnow:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .494999975
+      value: 0
+      inSlope: 0
+      outSlope: 1.98019791
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 1.98019803
+      outSlope: 1.98019803
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
