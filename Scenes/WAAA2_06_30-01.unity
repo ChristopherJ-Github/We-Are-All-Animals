@@ -6679,7 +6679,27 @@ MonoBehaviour:
   middayCloudy: {r: .419607848, g: .490196079, b: .541176498, a: 0}
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
-  midday: {r: .572405994, g: .666383088, b: .810500205, a: .993890047}
+  midday: {r: 0, g: 0, b: 0, a: 1}
+  daytimeToCloudDarkening:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .539039433
+      value: 0
+      inSlope: 0
+      outSlope: 2.16938305
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 2.16938305
+      outSlope: 2.16938305
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   nightToDusk:
     key0:
       serializedVersion: 2
@@ -14795,7 +14815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nightDayLerp: .943333387
-  test: 0
   sun: {fileID: 1930510222}
   moon: {fileID: 1506733896}
   intensityLerp: 1
@@ -22056,6 +22075,7 @@ GameObject:
   - 4: {fileID: 1975547882}
   - 114: {fileID: 1975547881}
   - 114: {fileID: 1975547883}
+  - 114: {fileID: 1975547884}
   m_Layer: 0
   m_Name: Previewer
   m_TagString: Untagged
@@ -22113,6 +22133,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf164e6a45ff3c479164c70627d5bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1975547884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975547880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535921bb9f461c34bb54e8053e51861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1984906346

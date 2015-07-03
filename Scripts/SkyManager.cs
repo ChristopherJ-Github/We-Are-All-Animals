@@ -33,8 +33,6 @@ public class SkyManager : Singleton<SkyManager> {
 		
 		ApplyPhaseChanges ();
 		AdjustSunAndMoon ();
-		if (Input.GetKeyDown(KeyCode.M)) 
-			test = !test;
 	}
 	
 	void ApplyPhaseChanges () {
@@ -73,8 +71,7 @@ public class SkyManager : Singleton<SkyManager> {
 		SetIntensity (1 - lerp);
 		DarkenSky (1);
 	}
-
-	public bool test;
+	
 	void SetDuskToMidaySettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseTime, sunriseTime + 2, time);
@@ -92,6 +89,7 @@ public class SkyManager : Singleton<SkyManager> {
 		SetColors (0, 1);
 		SetIntensity (0, 1);
 		DarkenSky (0);
+		Debug.Log ("midday");
 	}
 
 	void SetMiddayToDawnSettings (float time) {
@@ -102,6 +100,7 @@ public class SkyManager : Singleton<SkyManager> {
 		SetColors (1, lerp);
 		SetIntensity (0, lerp);
 		DarkenSky (1 - lerp);
+		Debug.Log ("midday to dawn");
 	}
 
 	void SetDawnSettings (float time) {
@@ -112,6 +111,7 @@ public class SkyManager : Singleton<SkyManager> {
 		SetColors (lerp, 0);
 		SetIntensity (1 - lerp, 0);
 		DarkenSky (1);
+		Debug.Log ("dawn");
 	}
 
 	public SunProperties sun;
@@ -153,8 +153,8 @@ public class SkyManager : Singleton<SkyManager> {
 
 	void DarkenSky (float skyDarkness) {
 		
-		Color skySnowTint = new Color (0, 0, 0, skyDarkness * CloudControl.instance.overcast);
-		RenderSettings.skybox.SetColor ("_SnowColor", skySnowTint);
+		Color skyColor = new Color (0, 0, 0, skyDarkness * CloudControl.instance.overcast);
+		RenderSettings.skybox.SetColor ("_SnowColor", skyColor);
 	}
 
 	void SetColors (float nightToDuskValue, float middayValue) {
