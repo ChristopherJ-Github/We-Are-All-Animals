@@ -164,14 +164,17 @@ public class SkyManager : Singleton<SkyManager> {
 	}
 
 	void DarkenSky (float skyDarkness) {
-		
-		Color skyColor = new Color (0, 0, 0, skyDarkness * CloudControl.instance.overcast);
+
+		Color skyColor = new Color (0, 0, 0, skyDarkness * CloudControl.instance.grayAmount);
 		RenderSettings.skybox.SetColor ("_SnowColor", skyColor);
 	}
 
 	void SetColors (float nightToDuskValue, float middayValue) {
 
-		float nightToDuskSaturation = 1 - CloudControl.instance.overcast * WeatherControl.instance.severity;
+		float nightToDuskSaturation = 1;
+		if (sunsetProgress == 0) {
+			nightToDuskSaturation = 1 - CloudControl.instance.overcast * WeatherControl.instance.severity;
+		}
 		SetSkyboxTint (nightToDuskValue, middayValue, nightToDuskSaturation);
 		SetAmbientLightColor (nightToDuskValue, middayValue, nightToDuskSaturation);
 		SetFogColor (nightToDuskValue, middayValue, nightToDuskSaturation);

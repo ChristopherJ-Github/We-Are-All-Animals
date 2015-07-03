@@ -9487,7 +9487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: .224734262, y: 0, z: .974420071}
+  direction: {x: -.697416604, y: 0, z: .716665983}
   directionChangeSpeed: 3.5
   likelyWindinessOverYear:
     serializedVersion: 2
@@ -9545,15 +9545,15 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 10
-    - time: .459999979
+    - time: .564999998
       value: 0
       inSlope: 0
-      outSlope: 1.85185182
+      outSlope: 2.29885054
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.85185182
-      outSlope: 1.85185182
+      inSlope: 2.29885054
+      outSlope: 2.29885054
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -16794,18 +16794,18 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: -.00822255202
-      outSlope: -.00822255202
+      inSlope: 0
+      outSlope: 0
       tangentMode: 10
-    - time: .650356889
-      value: -.00534759322
-      inSlope: -.00822255202
-      outSlope: 2.87535357
+    - time: .379999995
+      value: 0
+      inSlope: 0
+      outSlope: 1.61290324
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 2.87535357
-      outSlope: 2.87535357
+      inSlope: 1.61290324
+      outSlope: 1.61290324
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
