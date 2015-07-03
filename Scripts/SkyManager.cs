@@ -61,8 +61,7 @@ public class SkyManager : Singleton<SkyManager> {
 		SetIntensity (1, 0);
 		DarkenSky (1);
 	}
-
-	public AnimationCurve daytimeToIntensity;
+	
 	void SetDuskSettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseAstroTime, sunriseTime, time);
@@ -129,10 +128,10 @@ public class SkyManager : Singleton<SkyManager> {
 		moon.transform.localEulerAngles = new Vector3 (moonAngle, 0, 0);
 	}
 
+	public AnimationCurve daytimeToIntensity;
 	void SetIntensity (float moonLerp, float? sunLerp = null) {
 		
 		moon.light.intensity = Mathf.Lerp(0, moon.currentIntesity, moonLerp);
-		
 		if (sunLerp == null) {
 			float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
 			sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);

@@ -3163,6 +3163,7 @@ MonoBehaviour:
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+  coverThreshold: 0
 --- !u!108 &354943684
 Light:
   m_ObjectHideFlags: 0
@@ -13252,6 +13253,7 @@ MonoBehaviour:
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
+  coverThreshold: 0
 --- !u!1 &1311617514
 GameObject:
   m_ObjectHideFlags: 0
@@ -14793,6 +14795,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nightDayLerp: .943333387
+  sun: {fileID: 1930510222}
+  moon: {fileID: 1506733896}
+  intensityLerp: 1
+  sunrisePosInDay: .101401351
+  sunsetPosInDay: .87459892
+  sunriseAngle: 2.60925293
+  sunsetAngle: 180
   daytimeToIntensity:
     serializedVersion: 2
     m_Curve:
@@ -14828,13 +14837,6 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  sun: {fileID: 1930510222}
-  moon: {fileID: 1506733896}
-  intensityLerp: 1
-  sunrisePosInDay: .101401351
-  sunsetPosInDay: .87459892
-  sunriseAngle: 2.60925293
-  sunsetAngle: 180
   SkyBoxMaterial1: {fileID: 2100000, guid: 9296187a207dab14db758b8af6661f72, type: 2}
   SkyBoxMaterial2: {fileID: 2100000, guid: 7a51ee84628460446bfc2358f6f41067, type: 2}
   sunNightToDusk:
@@ -21784,6 +21786,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  coverThreshold: .800000012
 --- !u!114 &1930510223
 MonoBehaviour:
   m_ObjectHideFlags: 0

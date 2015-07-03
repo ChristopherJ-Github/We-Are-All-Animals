@@ -57,7 +57,7 @@ public class Emission : MonoBehaviour {
 		ShiftSource (transWindiness);
 		float transSeverity = Mathf.Lerp (0, WeatherControl.instance.severity, WeatherControl.instance.transition);
 		UpdateEmission (transSeverity);
-		SetDatetimeAlpha ();
+		SetDaytimeAlpha ();
 		if (mainSystem) {
 			float transOvercast = UpdateOvercast ();
 			SkyManager.instance.sun.weatherDarkness = transOvercast; 
@@ -142,9 +142,9 @@ public class Emission : MonoBehaviour {
 	public float nightDarkness;
 	private Color originalColor;
 	public AnimationCurve daytimeToDarkening;
-	void SetDatetimeAlpha () {
+	void SetDaytimeAlpha () {
 
-		Color nightColor = Color.Lerp (originalColor, Color.black, nightDarkness);
+		Color nightColor = Color.Lerp (originalColor, new Color(0,0,0, originalColor.a), nightDarkness);
 		float daytimeInfluence = daytimeToDarkening.Evaluate (SkyManager.instance.nightDayLerp);
 		Color currentColor = Color.Lerp (nightColor, originalColor, daytimeInfluence);
 		renderer.material.SetColor ("_TintColor", currentColor);

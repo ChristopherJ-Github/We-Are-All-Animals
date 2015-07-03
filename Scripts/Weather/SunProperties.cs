@@ -11,12 +11,14 @@ public class SunProperties : MonoBehaviour {
 		SunCtrl = SunControl.instance;
 		if (this == SkyManager.instance.sun) 
 			isSun = true;
+		_flare = light.flare;
 	}
 	
 	void Update () {
 		
 		UpdateIntensity ();
 		UpdateShadowStrength ();
+		SetFlare ();
 	}
 	
 	[HideInInspector] public float weatherDarkness;
@@ -52,6 +54,16 @@ public class SunProperties : MonoBehaviour {
 		Color middayGrayscale = new Color (middayAfterCloud.grayscale, middayAfterCloud.grayscale, middayAfterCloud.grayscale);
 		Color middayAfterStorm = Color.Lerp (middayAfterCloud, middayGrayscale, CloudControl.instance.grayAmount);
 		return middayAfterStorm;
+	}
+
+	private Flare _flare;
+	public float coverThreshold;
+	void SetFlare () {
+
+		if (CloudControl.instance.overcast >= coverThreshold) 
+			light.flare = null;
+		else 
+			light.flare = _flare;
 	}
 	
 }
