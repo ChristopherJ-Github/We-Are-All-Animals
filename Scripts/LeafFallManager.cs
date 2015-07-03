@@ -10,6 +10,7 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 	public int stopMonth, stopDay; 
 	public int minEmission, maxEmission;
 	public int minEnergy, maxEnergy;
+	public float nightDarkness;
 	public float horizontalShift, verticalShift;
 	public AnimationCurve windinessToShift;
 	public float minSpeed, maxSpeed;
@@ -48,6 +49,7 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		leafParticles.maxEmission = maxEmission / copyCount;
 		leafParticles.minEnergy = minEnergy;
 		leafParticles.maxEnergy = maxEnergy;
+		leafParticles.nightDarkness = nightDarkness;
 		leafParticles.horizontalShift = horizontalShift;
 		leafParticles.verticalShift = verticalShift;
 		leafParticles.windinessToShift = windinessToShift;

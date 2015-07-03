@@ -22411,9 +22411,10 @@ MonoBehaviour:
   stopMonth: 11
   stopDay: 15
   minEmission: 2
-  maxEmission: 31
+  maxEmission: 300
   minEnergy: 0
   maxEnergy: 200
+  nightDarkness: .899999976
   horizontalShift: 34.9599991
   verticalShift: 10
   windinessToShift:
@@ -22440,8 +22441,8 @@ MonoBehaviour:
   maxSpeed: .5
   gravity: .00999999978
   colors:
-  - {r: 1, g: .382352948, b: .382352948, a: 1}
-  - {r: .448529422, g: .220966697, b: .220966697, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: .448529422, g: .448529422, b: .448529422, a: 1}
   particleBase: {fileID: 875829339}
 --- !u!1 &1985074255
 GameObject:

@@ -69,6 +69,20 @@ public class LeafParticles : MonoBehaviour {
 		int emission = (int)Mathf.Lerp (minEmission, maxEmission, leafFall);
 		particleEmitter.maxEmission = allowLeaves ? emission : 0;
 	}
+
+	void Update () {
+
+		SetBrightness ();
+	}
+
+	public float nightDarkness;
+	void SetBrightness () {
+		
+		Color nightColor = Color.Lerp (colorForTheDay, Color.black, nightDarkness);
+		float particleBrightness = AmbientLightingChanger.instance.GetParticleBrightness ();
+		Color currentColor = Color.Lerp (nightColor, colorForTheDay, particleBrightness);
+		particleEmitter.renderer.material.SetColor ("_TintColor", currentColor);
+	}
 	
 	void LateUpdate () {
 		
@@ -102,13 +116,15 @@ public class LeafParticles : MonoBehaviour {
 	}
 
 	public Color originalColor;
+	private Color colorForTheDay;
 	public void ChangeColor (Color treeColor) {
 
 		Color newColor = Color.white;
 		newColor.r = Mathf.Clamp01(originalColor.r - 1 + treeColor.r);
 		newColor.g = Mathf.Clamp01(originalColor.g - 1 + treeColor.g);
 		newColor.b = Mathf.Clamp01(originalColor.b - 1 + treeColor.b);
-		particleEmitter.renderer.material.color = newColor;
+		particleEmitter.renderer.material.SetColor ("_TintColor", newColor);
+		colorForTheDay = newColor;
 	}
 }
 #endif
