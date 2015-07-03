@@ -33,6 +33,8 @@ public class SkyManager : Singleton<SkyManager> {
 		
 		ApplyPhaseChanges ();
 		AdjustSunAndMoon ();
+		if (Input.GetKeyDown(KeyCode.M)) 
+			test = !test;
 	}
 	
 	void ApplyPhaseChanges () {
@@ -72,6 +74,7 @@ public class SkyManager : Singleton<SkyManager> {
 		DarkenSky (1);
 	}
 
+	public bool test;
 	void SetDuskToMidaySettings (float time) {
 
 		float lerp = Mathf.InverseLerp (sunriseTime, sunriseTime + 2, time);
@@ -154,45 +157,61 @@ public class SkyManager : Singleton<SkyManager> {
 		RenderSettings.skybox.SetColor ("_SnowColor", skySnowTint);
 	}
 
-	void SetColors (float nightToDuskValue, float middayValue, bool desaturate = false) {
+	void SetColors (float nightToDuskValue, float middayValue) {
 
-		SetSkyboxTint (nightToDuskValue, middayValue, desaturate);
-		SetAmbientLightColor (nightToDuskValue, middayValue, desaturate);
-		SetFogColor (nightToDuskValue, middayValue, desaturate);
-		SetSunColor (nightToDuskValue, middayValue, desaturate);
+		float nightToDuskSaturation = 1 - CloudControl.instance.overcast * WeatherControl.instance.severity;
+		SetSkyboxTint (nightToDuskValue, middayValue, nightToDuskSaturation);
+		SetAmbientLightColor (nightToDuskValue, middayValue, nightToDuskSaturation);
+		SetFogColor (nightToDuskValue, middayValue, nightToDuskSaturation);
+		SetSunColor (nightToDuskValue, middayValue, nightToDuskSaturation);
 	}
 
-	void SetSkyboxTint (float nightToDuskValue, float middayValue, bool desaturate = false) {
+	void SetSkyboxTint (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
 		
 		Color colorAroundNight = CloudControl.instance.NightToDusk(nightToDuskValue);
+		Color colorAroundNightDesat = Desaturate (colorAroundNight, nightToDuskSaturation);
 		Color colorAtMidday = CloudControl.instance.midday;
-		Color currentColor = Color.Lerp (colorAroundNight, colorAtMidday, middayValue);
+		Color colorAtMiddayDesat = Desaturate (colorAtMidday, middaySaturation);
+		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		RenderSettings.skybox.SetColor ("_Tint", currentColor);
 	}
 
 	public Gradient sunNightToDusk;
 	public Gradient sunMiddayTint;
-	void SetSunColor (float nightToDuskValue, float middayValue, bool desaturate = false) {
+	void SetSunColor (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
 
 		Color colorAroundNight = sunNightToDusk.Evaluate(nightToDuskValue);
+		Color colorAroundNightDesat = Desaturate (colorAroundNight, nightToDuskSaturation);
 		Color colorAtMidday = sun.GetMiddayColor ();
-		Color currentColor = Color.Lerp (colorAroundNight, colorAtMidday, middayValue);
+		Color colorAtMiddayDesat = Desaturate (colorAtMidday, middaySaturation);
+		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		sun.light.color = currentColor;
 	}
 
-	void SetAmbientLightColor (float nightToDuskValue, float middayValue, bool desaturate = false) {
+	void SetAmbientLightColor (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
 		
 		Color colorAroundNight = AmbientLightingChanger.instance.NightToDusk (nightToDuskValue);
+		Color colorAroundNightDesat = Desaturate (colorAroundNight, nightToDuskSaturation);
 		Color colorAtMidday = AmbientLightingChanger.instance.midday;
-		Color currentColor = Color.Lerp (colorAroundNight, colorAtMidday, middayValue);
+		Color colorAtMiddayDesat = Desaturate (colorAtMidday, middaySaturation);
+		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		RenderSettings.ambientLight = currentColor;
 	}
 
-	void SetFogColor (float nightToDuskValue, float middayValue, bool desaturate = false) {
+	void SetFogColor (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
 		
 		Color colorAroundNight = FogControl.instance.NightToDusk (nightToDuskValue);
+		Color colorAroundNightDesat = Desaturate (colorAroundNight, nightToDuskSaturation);
 		Color colorAtMidday = FogControl.instance.midday;
-		Color currentColor = Color.Lerp (colorAroundNight, colorAtMidday, middayValue);
+		Color colorAtMiddayDesat = Desaturate (colorAtMidday, middaySaturation);
+		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		RenderSettings.fogColor = currentColor;
+	}
+
+	Color Desaturate (Color color, float saturation) {
+
+		Color desaturatedColor = new Color (color.grayscale, color.grayscale, color.grayscale);
+		Color newColor = Color.Lerp(desaturatedColor, color, saturation); 
+		return newColor;
 	}
 }

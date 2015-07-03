@@ -14795,6 +14795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nightDayLerp: .943333387
+  test: 0
   sun: {fileID: 1930510222}
   moon: {fileID: 1506733896}
   intensityLerp: 1
@@ -16765,7 +16766,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  nightDarkness: .949999988
+  nightDarkness: .899999976
   daytimeToDarkening:
     serializedVersion: 2
     m_Curve:
@@ -20729,7 +20730,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  nightDarkness: .970000029
+  nightDarkness: .899999976
   daytimeToDarkening:
     serializedVersion: 2
     m_Curve:
