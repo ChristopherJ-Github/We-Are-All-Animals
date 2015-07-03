@@ -52,7 +52,7 @@ public class FogControl : Singleton<FogControl> {
 	Color AddCloudDarkening (Color midday) {
 
 		float darkening = 0;
-		if (SceneManager.curvePosDay * 24 > SunControl.instance.sunriseTime + 2) {
+		if (SkyManager.instance.sunsetProgress > 0) {
 			darkening = 1 - daytimeToCloudDarkening.Evaluate(SkyManager.instance.nightDayLerp);
 		}
 		Color middayAfterCloudDarkening = Color.Lerp (midday, Color.black, darkening * CloudControl.instance.grayAmount);

@@ -46,13 +46,21 @@ public class CloudControl : Singleton<CloudControl> {
 	public void SetOvercast(float overcast) {
 
 		setOvercastCalled = true;
-		this.overcast = overcast;
+		this.overcast = SkyManager.instance.sunsetProgress > 0 ? GetNightOvercast (overcast) : overcast;
 		float scattering = Mathf.Lerp (minScattering, maxScattering, _overcast);
 		float sharpness = Mathf.Lerp (minSharpness, maxSharpness, _overcast);
 		float thickness = Mathf.Lerp (minThickness, maxThickness, _overcast);
 		Shader.SetGlobalFloat("ls_cloudscattering", scattering);
 		Shader.SetGlobalFloat("ls_cloudsharpness", sharpness);
 		Shader.SetGlobalFloat("ls_cloudthickness", thickness);
+		this.overcast = overcast;
+	}
+
+	public float nightOvercast;
+	float GetNightOvercast (float overcast) {
+
+		float currentOvercast = Mathf.Lerp (nightOvercast, overcast, SkyManager.instance.nightDayLerp);
+		return currentOvercast;
 	}
 	
 	public float minHeight, maxHeight;

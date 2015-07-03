@@ -52,10 +52,12 @@ public class SkyManager : Singleton<SkyManager> {
 			SetDawnSettings(time);
 	}
 
-	[HideInInspector] public float nightDayLerp;
+	[HideInInspector] public float nightDayLerp, sunsetProgress, sunriseProgress;
 	void SetNightSettings (float time) {
 
 		nightDayLerp = 0;
+		sunriseProgress = time > 12 && time < 24 ? 1 : 0;
+		sunsetProgress = time > 12 && time < 24 ? 1 : 0;
 		SetSkyBox (1, 0);
 		SetColors (0, 0);
 		SetIntensity (1, 0);
@@ -66,6 +68,8 @@ public class SkyManager : Singleton<SkyManager> {
 
 		float lerp = Mathf.InverseLerp (sunriseAstroTime, sunriseTime, time);
 		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
+		sunriseProgress = nightDayLerp;
+		sunsetProgress = 0;
 		SetSkyBox (1, lerp);
 		SetColors (lerp, 0);
 		SetIntensity (1 - lerp);
@@ -76,6 +80,8 @@ public class SkyManager : Singleton<SkyManager> {
 
 		float lerp = Mathf.InverseLerp (sunriseTime, sunriseTime + 2, time);
 		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
+		sunriseProgress = nightDayLerp;
+		sunsetProgress = 0;
 		SetSkyBox (2, lerp);
 		SetColors (1, lerp);
 		SetIntensity (0);
@@ -85,6 +91,8 @@ public class SkyManager : Singleton<SkyManager> {
 	void SetMiddaySettings (float time) {
 
 		nightDayLerp = 1;
+		sunriseProgress = 1;
+		sunsetProgress = 0;
 		SetSkyBox (2, 1);
 		SetColors (0, 1);
 		SetIntensity (0, 1);
@@ -96,6 +104,8 @@ public class SkyManager : Singleton<SkyManager> {
 
 		float lerp = Mathf.InverseLerp (sunsetTime, sunsetTime - 2, time);
 		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
+		sunriseProgress = 1;
+		sunsetProgress = 1 - nightDayLerp;
 		SetSkyBox (2, lerp);
 		SetColors (1, lerp);
 		SetIntensity (0, lerp);
@@ -107,6 +117,8 @@ public class SkyManager : Singleton<SkyManager> {
 
 		float lerp = Mathf.InverseLerp (sunsetAstroTime, sunsetTime, time);
 		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
+		sunriseProgress = 1;
+		sunsetProgress = 1 - nightDayLerp;
 		SetSkyBox (1, lerp);
 		SetColors (lerp, 0);
 		SetIntensity (1 - lerp, 0);
