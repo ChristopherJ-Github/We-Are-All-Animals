@@ -153,7 +153,7 @@ Shader "Custom/SnowTerrain" {
 				o.Albedo = fixed3(1,0,0);
 			}
 			*/
-			o.Alpha = 1;
+			//o.Alpha = 1;
 		}
 		ENDCG  
 	}

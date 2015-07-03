@@ -76,7 +76,8 @@ public class Emission : MonoBehaviour {
 			case CloudTinting.none:
 				break;
 			case CloudTinting.darken:
-				darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * WeatherControl.instance.severity;
+				float darknessInfluence = WeatherControl.instance.severity * (1 - SnowManager.instance.snowLevel);
+				darkness = Mathf.InverseLerp (0.7f, 1f, WeatherControl.instance.cloudTransition) * darknessInfluence;
 				goto case CloudTinting.desaturate;
 			case CloudTinting.desaturate:
 				grayAmount = transOvercast;
