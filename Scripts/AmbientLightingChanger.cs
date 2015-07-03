@@ -54,4 +54,16 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 		color.g = Mathf.Clamp01(color.g - darkness);
 		return color;
 	}
+
+	public AnimationCurve sunriseToBrightness, sunsetToBrightness;
+	public float GetParticleBrightness () {
+
+		float brightness = 0;
+		if (SkyManager.instance.sunsetProgress == 0) {
+			brightness = sunriseToBrightness.Evaluate(SkyManager.instance.sunriseProgress);
+		} else {
+			brightness = sunsetToBrightness.Evaluate(1 - SkyManager.instance.sunsetProgress);
+		}
+		return brightness;
+	}
 }

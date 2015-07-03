@@ -9579,6 +9579,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   minAlphaOffset: -.0299999993
   maxAlphaOffset: .100000001
+  nightDarkness: .879999995
   minSpeed: .310000002
   maxSpeed: 1.70000005
   normalScale: 5
@@ -14823,7 +14824,47 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  midday: {r: .614138484, g: .590609074, b: .516099334, a: 1}
+  midday: {r: .462348133, g: .540779471, b: .603524566, a: 1}
+  sunriseToBrightness:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .405000001
+      value: 0
+      inSlope: 0
+      outSlope: 1.68067229
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 1.68067217
+      outSlope: 1.68067217
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  sunsetToBrightness:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .875
+      value: 0
+      inSlope: 0
+      outSlope: 8
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 8
+      outSlope: 8
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &1435038623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16809,26 +16850,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   nightDarkness: .899999976
-  daytimeToDarkening:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 10
-    - time: .379999995
-      value: 0
-      inSlope: 0
-      outSlope: 1.61290324
-      tangentMode: 21
-    - time: 1
-      value: 1
-      inSlope: 1.61290324
-      outSlope: 1.61290324
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!15 &1577618586
 EllipsoidParticleEmitter:
   m_ObjectHideFlags: 0
@@ -17212,11 +17233,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   nightDarkness: 0
-  daytimeToDarkening:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!114 &1586924660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20773,26 +20789,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   nightDarkness: .899999976
-  daytimeToDarkening:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 10
-    - time: .726059198
-      value: 0
-      inSlope: 0
-      outSlope: 3.65042377
-      tangentMode: 21
-    - time: 1
-      value: 1
-      inSlope: 3.65042377
-      outSlope: 3.65042377
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!15 &1831586954
 EllipsoidParticleEmitter:
   m_ObjectHideFlags: 0

@@ -107,6 +107,7 @@ public class WindControl : Singleton<WindControl> {
 	private Color originalMatCol;
 	private Color[] originalColors;
 	public float minAlphaOffset, maxAlphaOffset;
+	public float nightDarkness;
 	void SetDustColors () {
 
 		Color[] newColors = new Color[originalColors.Length];
@@ -120,12 +121,14 @@ public class WindControl : Singleton<WindControl> {
 			newColors[i].a *= WeatherControl.instance.totalTransition;
 		}
 		_particleAnimator.colorAnimation = newColors;
-		Color newMatCol = AddSnowTint (originalMatCol);
+		Color matColAfterSnow = AddSnowTint (originalMatCol);
+		Color matColNight = Color.Lerp (matColAfterSnow, new Color(0,0,0, matColAfterSnow.a), nightDarkness);
+		float particleBrightness = AmbientLightingChanger.instance.GetParticleBrightness ();
+		Color matColDarkened = Color.Lerp (matColNight, matColAfterSnow, particleBrightness);
+
 		float snowAlpha = Mathf.Lerp (minSnowAlpha, maxSnowAlpha, WindControl.instance.windiness);
-		newMatCol.a = Mathf.Lerp (newMatCol.a, snowAlpha, SnowManager.instance.snowLevel);
-		float nightAlphaInfluence = datetimeToNightAlpha.Evaluate (SkyManager.instance.nightDayLerp);
-		newMatCol.a = Mathf.Lerp (nightAlpha, newMatCol.a, nightAlphaInfluence);
-		dust.renderer.material.SetColor ("_TintColor", newMatCol);
+		matColDarkened.a = Mathf.Lerp (matColDarkened.a, snowAlpha, SnowManager.instance.snowLevel);
+		dust.renderer.material.SetColor ("_TintColor", matColDarkened);
 	}
 
 	public float minSpeed, maxSpeed;
