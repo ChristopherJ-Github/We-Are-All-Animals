@@ -97,7 +97,6 @@ public class SkyManager : Singleton<SkyManager> {
 		SetColors (0, 1);
 		SetIntensity (0, 1);
 		DarkenSky (0);
-		Debug.Log ("midday");
 	}
 
 	void SetMiddayToDawnSettings (float time) {
@@ -110,7 +109,6 @@ public class SkyManager : Singleton<SkyManager> {
 		SetColors (1, lerp);
 		SetIntensity (0, lerp);
 		DarkenSky (1 - lerp);
-		Debug.Log ("midday to dawn");
 	}
 
 	void SetDawnSettings (float time) {
@@ -123,7 +121,6 @@ public class SkyManager : Singleton<SkyManager> {
 		SetColors (lerp, 0);
 		SetIntensity (1 - lerp, 0);
 		DarkenSky (1);
-		Debug.Log ("dawn");
 	}
 
 	public SunProperties sun;

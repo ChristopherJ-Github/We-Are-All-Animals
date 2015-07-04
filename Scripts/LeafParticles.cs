@@ -79,12 +79,7 @@ public class LeafParticles : MonoBehaviour {
 	void SetBrightness () {
 		
 		Color nightColor = Color.Lerp (colorForTheDay, Color.black, nightDarkness);
-		float particleBrightness;
-		if (Tester.test) {
-			particleBrightness = SkyManager.instance.intensityLerp;
-		} else {
-			particleBrightness = AmbientLightingChanger.instance.GetParticleBrightness ();
-		}
+		float particleBrightness = SkyManager.instance.intensityLerp;
 		Color currentColor = Color.Lerp (nightColor, colorForTheDay, particleBrightness);
 		particleEmitter.renderer.material.SetColor ("_TintColor", currentColor);
 	}
@@ -111,13 +106,17 @@ public class LeafParticles : MonoBehaviour {
 	}
 	
 	public float minSpeed, maxSpeed;
-	public float gravity;
+	public float minGravity, maxGravity;
 	private ParticleAnimator particleAnimator;
+	public float minRandomization, maxRandomization;
 	void UpdateVelocity (float windiness) {
 		
 		float speed = Mathf.Lerp (minSpeed, maxSpeed, windiness);
-		Vector3 currentHorizontalVelocity = Vector3.Lerp(Vector3.zero, WindControl.instance.direction * speed, windiness);
+		Vector3 currentHorizontalVelocity = WindControl.instance.direction * speed;
+		float gravity = Mathf.Lerp (minGravity, maxGravity, windiness);
 		particleAnimator.force = Vector3.down * gravity + currentHorizontalVelocity;
+		float currentRandomization = Mathf.Lerp (minRandomization, maxRandomization, windiness);
+		particleAnimator.rndForce = (new Vector3 (1, 0, 1)) * currentRandomization;
 	}
 
 	public Color originalColor;

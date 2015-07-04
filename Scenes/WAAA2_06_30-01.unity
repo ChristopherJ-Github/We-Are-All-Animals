@@ -6063,7 +6063,7 @@ MonoBehaviour:
     m_Name: 
     m_Normal:
       m_Background: {fileID: 0}
-      m_TextColor: {r: 1, g: 1, b: 1, a: .447058827}
+      m_TextColor: {r: 1, g: 1, b: 1, a: .449999988}
     m_Hover:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -6119,7 +6119,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   scrollPosition: {x: 0, y: 0}
-  toggleStats: 0
+  toggleStats: 1
   sliderUsed: 0
   alphaSavePercentage: 0
   detailSavePercentage: 0
@@ -8385,7 +8385,7 @@ EllipsoidParticleEmitter:
   maxEmission: 200
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 0, z: 0}
-  rndVelocity: {x: .5, y: 0, z: .5}
+  rndVelocity: {x: 0, y: 0, z: 0}
   emitterVelocityScale: 0
   tangentVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 51.4000015
@@ -8466,8 +8466,8 @@ ParticleAnimator:
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
   sizeGrow: 0
-  rndForce: {x: 0, y: 0, z: 0}
-  force: {x: 0, y: -.00999999978, z: 0}
+  rndForce: {x: .5, y: 0, z: .5}
+  force: {x: 0, y: -.0500000007, z: 0}
   damping: 1
   stopSimulation: 0
   autodestruct: 0
@@ -22416,7 +22416,7 @@ MonoBehaviour:
   maxEnergy: 200
   nightDarkness: .899999976
   horizontalShift: 34.9599991
-  verticalShift: 10
+  verticalShift: 14.1300001
   windinessToShift:
     serializedVersion: 2
     m_Curve:
@@ -22439,7 +22439,10 @@ MonoBehaviour:
     m_PostInfinity: 2
   minSpeed: 0
   maxSpeed: .5
-  gravity: .00999999978
+  minGravity: 0
+  maxGravity: 0
+  minRandomization: 0
+  maxRandomization: 0
   colors:
   - {r: .75, g: .75, b: .75, a: 1}
   - {r: .529411793, g: .529411793, b: .529411793, a: 1}

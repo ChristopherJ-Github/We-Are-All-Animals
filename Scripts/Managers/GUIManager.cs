@@ -61,7 +61,7 @@ public class GUIManager : Singleton<GUIManager>
 			
 			buttons();
 			WeatherStats();
-			
+			DisplayCurvePosition();
 		}
 		// if there is a change in the slider Value, send an event with the info
 		sliderUsed = false;
@@ -118,7 +118,7 @@ public class GUIManager : Singleton<GUIManager>
 			detailSaveTotal = terrainData.detailPrototypes.Length * terrainData.detailWidth * terrainData.detailHeight;
 			detailSaveCurrent = 0;
 #if !UNITY_WEBPLAYER
-			TerrainDetailExporter.instance.extractDetailMaps();//comment out for web build
+			TerrainDetailExporter.instance.extractDetailMaps();
 #endif
 		}
 	}
@@ -150,6 +150,19 @@ public class GUIManager : Singleton<GUIManager>
 		percentage = Mathf.FloorToInt(weatherType.severityOverYear.Evaluate(SceneManager.curvePos) * 100);
 		name = "Str";
 		GUI.Label(new Rect(100, y, width, height), name + ": " + percentage + "%", sidebarStyle);
+	}
+
+	void DisplayCurvePosition () {
+
+		int originaFontSize = sidebarStyle.fontSize;
+		sidebarStyle.fontSize = 0;
+		GUI.Label(new Rect(Screen.width * 0.892f, Screen.height * 0.41f, Screen.width * 200, Screen.height * 25), 
+		          "curve position",
+		          sidebarStyle);
+		sidebarStyle.fontSize = originaFontSize;
+		GUI.Label(new Rect(Screen.width * 0.883f, Screen.height * 0.437f, Screen.width * 200, Screen.height * 25), 
+		          SceneManager.curvePos.ToString(), 
+		          sidebarStyle);
 	}
 	
 	public void UpdateAlphaSavePercentage (int toAdd) {
