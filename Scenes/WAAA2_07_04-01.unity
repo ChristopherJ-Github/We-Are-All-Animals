@@ -1694,31 +1694,37 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: -.070731692
-      outSlope: -.0283443332
-      tangentMode: 1
-    - time: .689653575
-      value: 7.57559174e-05
-      inSlope: -.016086014
-      outSlope: -.016086014
-      tangentMode: 1
-    - time: .75999999
-      value: .0706259236
-      inSlope: -.0724780783
-      outSlope: -.0199227557
-      tangentMode: 1
-    - time: .854259431
-      value: .00107300468
-      inSlope: -.0271155331
-      outSlope: -.138349608
-      tangentMode: 1
-    - time: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .670846641
       value: 0
-      inSlope: -.10195148
-      outSlope: .026460778
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .71035862
+      value: .714383721
+      inSlope: 12.3357773
+      outSlope: 12.3357773
       tangentMode: 1
+    - time: .784549892
+      value: .969978094
+      inSlope: -.133528486
+      outSlope: .530572653
+      tangentMode: 1
+    - time: .870000005
+      value: 0
+      inSlope: -14.4396725
+      outSlope: -0
+      tangentMode: 17
+    - time: .957048357
+      value: 0
+      inSlope: -.221120015
+      outSlope: -.221120015
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  maxTint: .115999997
 --- !u!1 &166698382
 GameObject:
   m_ObjectHideFlags: 0

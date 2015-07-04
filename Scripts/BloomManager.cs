@@ -14,10 +14,12 @@ public class BloomManager : MonoBehaviour {
 	}
 
 	public AnimationCurve tintOverYear;
+	public float maxTint;
 	private GlowEffect glowEffect;
 	void SetGlowValues () {
 
 		float tintAmount = tintOverYear.Evaluate (SceneManager.curvePos);
-		glowEffect.glowTint = Color.Lerp (Color.black, Color.white, tintAmount);
+		float currentTint = Mathf.Lerp (0, maxTint, tintAmount);
+		glowEffect.glowTint = Color.Lerp (Color.black, Color.white, currentTint);
 	}
 }

@@ -12,8 +12,15 @@ public class Fog : MonoBehaviour {
 	void OnEnable () {
 
 		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
+		GUIManager.instance.OnGuiEvent += UpdateSeverity;
 		lightShafts.enabled = true;
 		UpdateFog ();
+	}
+
+	void UpdateSeverity (float severity) {
+
+		WeatherControl.instance.severity = severity;
+		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
 	}
 	
 	void UpdateFog () {
