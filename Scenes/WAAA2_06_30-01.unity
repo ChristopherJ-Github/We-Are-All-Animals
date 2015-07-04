@@ -17232,7 +17232,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  nightDarkness: 0
+  nightDarkness: .699999988
 --- !u!114 &1586924660
 MonoBehaviour:
   m_ObjectHideFlags: 0
