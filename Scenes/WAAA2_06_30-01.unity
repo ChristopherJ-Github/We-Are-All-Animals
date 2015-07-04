@@ -22444,10 +22444,10 @@ MonoBehaviour:
     m_PostInfinity: 2
   minSpeed: 0
   maxSpeed: .5
-  minGravity: 0
+  minGravity: .0399999991
   maxGravity: 0
   minRandomization: 0
-  maxRandomization: 0
+  maxRandomization: 14.5
   colors:
   - {r: .75, g: .75, b: .75, a: 1}
   - {r: .529411793, g: .529411793, b: .529411793, a: 1}
