@@ -21825,7 +21825,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  coverThreshold: .800000012
+  coverThreshold: .949999988
 --- !u!114 &1930510223
 MonoBehaviour:
   m_ObjectHideFlags: 0

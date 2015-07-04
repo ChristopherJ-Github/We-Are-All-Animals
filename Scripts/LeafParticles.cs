@@ -9,6 +9,7 @@ public class LeafParticles : MonoBehaviour {
 
 		TreeColorManager.instance.OnColorChange += ChangeColor;
 		SceneManager.instance.OnNewDay += SetAllowLeaves;
+		SceneManager.instance.OnNewDay += particleEmitter.ClearParticles;
 		SetAllowLeaves ();
 		particleAnimator = GetComponent<ParticleAnimator> ();
 		originalPosition = transform.position;
