@@ -17128,7 +17128,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1586924656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.3999996, y: 48.5, z: -27.7999992}
+  m_LocalPosition: {x: 12.3999996, y: 48.5, z: -32.7999992}
   m_LocalScale: {x: 6.84018087, y: 10.000001, z: 5.62981939}
   m_Children: []
   m_Father: {fileID: 806077436}
@@ -17206,10 +17206,10 @@ MonoBehaviour:
   lightning: 1
   dust: 1
   cloudTinting: 0
-  minSpeed: 150
-  maxSpeed: 150
-  minGravity: 0
-  maxGravity: 0
+  minSpeed: 0
+  maxSpeed: 32.5999985
+  minGravity: 4
+  maxGravity: 4
   minRandomization: 0
   maxRandomization: 0
   minEmission: 100
@@ -17277,7 +17277,7 @@ MeshParticleEmitter:
   minEnergy: 3
   maxEnergy: 4
   minEmission: 100
-  maxEmission: 1000
+  maxEmission: 80299.5078
   worldVelocity: {x: 3, y: -100, z: 3}
   localVelocity: {x: 0, y: 0, z: 0}
   rndVelocity: {x: 0, y: 0, z: 0}
