@@ -56,7 +56,7 @@ public class Emission : MonoBehaviour {
 		UpdateVelocity (transWindiness);
 		ShiftSource (transWindiness);
 		float transSeverity = Mathf.Lerp (0, WeatherControl.instance.severity, WeatherControl.instance.transition);
-		UpdateEmission (transSeverity);
+		UpdateEmission (WeatherControl.instance.severity, WeatherControl.instance.transition);
 		SetBrightness ();
 		if (mainSystem) {
 			float transOvercast = UpdateOvercast ();
@@ -114,9 +114,9 @@ public class Emission : MonoBehaviour {
 	
 	public float minEmission = 100, maxEmission = 1000; 
 	public float maxFogDesnity = 0.02f;
-	void UpdateEmission (float severity) {
+	void UpdateEmission (float severity, float transition) {
 
-		particleEmitter.maxEmission =  Mathf.Lerp(minEmission, maxEmission, severity);
+		particleEmitter.maxEmission =  Mathf.Lerp(minEmission, maxEmission, severity) * transition;
 	}
 
 	private float initFogDesnity;
@@ -159,7 +159,7 @@ public class Emission : MonoBehaviour {
 			_lightning.enabled = false;
 		if (dust)
 			WindControl.instance.createDust = false;
-		UpdateEmission (0);
+		UpdateEmission (0, 0);
 		UpdateVelocity (0);
 		if (mainSystem) {
 			UpdateFog (0);

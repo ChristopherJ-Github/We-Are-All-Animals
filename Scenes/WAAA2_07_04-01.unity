@@ -6091,7 +6091,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .603399992
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -6813,7 +6813,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .800000012
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -7962,7 +7962,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .639999986
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -11401,7 +11401,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .764299989
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -13912,7 +13912,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .75999999
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15899,7 +15899,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 1
+  minLeafAmount: .764999986
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -16071,7 +16071,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .610000014
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -18433,7 +18433,35 @@ Prefab:
       objectReference: {fileID: 100000, guid: a58c252aecd64a2449fd2c02162201ac, type: 2}
     - target: {fileID: 11460164, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: minLeafAmount
-      value: 1
+      value: .764999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460152, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460158, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .75999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460166, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .829999983
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460084, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .764299989
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460128, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .603399992
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460080, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .639999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460108, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .610000014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
@@ -18501,7 +18529,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .829999983
   colorOverYear:
     key0:
       serializedVersion: 2

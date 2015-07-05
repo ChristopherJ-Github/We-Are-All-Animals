@@ -34,7 +34,6 @@ public class MaterialSetter : MonoBehaviour {
 		if (distanceFeeder != null)
 			distanceFeeder.InputDistance ();
 		Material[] materials = renderer.materials;
-		Debug.Log (gameObject.name);
 		materials [leafIndex].SetFloat ("_MinLeafAmount", treeProperties.minLeafAmount);
 	}
 }
