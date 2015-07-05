@@ -15,6 +15,7 @@ Properties {
 	// These are here only to provide default values
 	_Scale ("Scale", Vector) = (1,1,1,1)
 	_SquashAmount ("Squash", Float) = 1
+	_MinLeafAmount ("Min leaf Amount", Float) = 0
 }
 
 SubShader { 
@@ -35,6 +36,7 @@ sampler2D _MainTex;
 sampler2D _BumpSpecMap;
 sampler2D _TranslucencyMap;
 float _LeafAmount;
+float _MinLeafAmount;
 
 struct Input {
 	float2 uv_MainTex;
@@ -49,7 +51,7 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	o.Translucency = trngls.b;
 	o.Gloss = trngls.a * _Color.r;
 	o.Alpha = c.a;
-	float leafMultiplier = lerp(0.85, 1, _LeafAmount);
+	float leafMultiplier = lerp(_MinLeafAmount, 1, _LeafAmount);
 	o.Alpha *= leafMultiplier;
 	half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
 	o.Specular = norspc.r;

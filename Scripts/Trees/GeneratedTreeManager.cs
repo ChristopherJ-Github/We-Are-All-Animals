@@ -6,6 +6,7 @@ using System.Collections;
 
 public class GeneratedTreeManager: MonoBehaviour {
 
+	public TreeProperties treeProperties;
 	public prefabInfo[] trees;
 	public GameObject currentTree;
 	public static Transform parent;
@@ -25,5 +26,8 @@ public class GeneratedTreeManager: MonoBehaviour {
 
 		currentTree = ObjectChanger.SetCurrentPrefab(trees, currentTree, transform);
 		currentTree.transform.parent = parent;
+		MaterialSetter materialSetter = currentTree.GetComponent<MaterialSetter> ();
+		if (materialSetter != null)
+			materialSetter.SetTreePropertyValues (treeProperties);
 	}
 }

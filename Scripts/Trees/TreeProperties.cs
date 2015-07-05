@@ -21,8 +21,8 @@ public class TreeProperties : MonoBehaviour {
 
 	public enum type {Generated, Model};
 	public type treeType;
-	ModeledTreeManager MTMinstance;
-	GeneratedTreeManager GTMinstance;
+	ModeledTreeManager modeledTreeManager;
+	GeneratedTreeManager generatedTreeManager;
 	public prefabInfo[] trees;
 	public int barkMatNumber = 1;
 	public int leafMatNumber = 0;
@@ -32,20 +32,30 @@ public class TreeProperties : MonoBehaviour {
 	void Start () {
 
 		SceneManager.instance.OnNewDay += dayUpdate;
-		if (treeType == type.Model) { 
-			MTMinstance = gameObject.AddComponent<ModeledTreeManager>() as ModeledTreeManager;
-			MTMinstance.barkMatNumber = barkMatNumber;
-			MTMinstance.leafMatNumber = leafMatNumber;
-			MTMinstance.bark = bark;
-			MTMinstance.leaves = leaves;
-			MTMinstance.Init ();
-		} else { 
-			GTMinstance = gameObject.AddComponent<GeneratedTreeManager>() as GeneratedTreeManager;
-			GTMinstance.trees = trees;
-			GTMinstance.Init ();
-		}	
-
+		if (treeType == type.Model) 
+			InitModeledTree();
+		else 
+			InitGeneratedTree();
 		dayUpdate ();
+	}
+
+	void InitModeledTree () {
+
+		modeledTreeManager = gameObject.AddComponent<ModeledTreeManager>() as ModeledTreeManager;
+		modeledTreeManager.barkMatNumber = barkMatNumber;
+		modeledTreeManager.leafMatNumber = leafMatNumber;
+		modeledTreeManager.bark = bark;
+		modeledTreeManager.leaves = leaves;
+		modeledTreeManager.Init ();
+	}
+
+	public float minLeafAmount; //in TreeProperties to allow for unique values for instances
+	void InitGeneratedTree () {
+
+		generatedTreeManager = gameObject.AddComponent<GeneratedTreeManager>() as GeneratedTreeManager;
+		generatedTreeManager.treeProperties = this;
+		generatedTreeManager.trees = trees;
+		generatedTreeManager.Init ();
 	}
 
 	void dayUpdate () {
@@ -62,7 +72,7 @@ public class TreeProperties : MonoBehaviour {
 	public bool useOwnColors;
 	void changeMatColor () {
 
-		GameObject tree = treeType == type.Model ? gameObject : GTMinstance.currentTree;
+		GameObject tree = treeType == type.Model ? gameObject : generatedTreeManager.currentTree;
 		if (tree == null || tree.renderer.materials.Length < leafMatNumber + 1)
 			return;
 		Color col = useOwnColors ? colorOverYear.Evaluate (SceneManager.curvePos) : TreeColorManager.instance.currentColor;

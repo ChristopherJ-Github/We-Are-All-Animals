@@ -74,74 +74,6 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
---- !u!1 &15601858
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  m_PrefabInternal: {fileID: 791161713}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 15601862}
-  - 193: {fileID: 15601861}
-  - 33: {fileID: 15601860}
-  - 23: {fileID: 15601859}
-  m_Layer: 0
-  m_Name: Tree1_fall 50%
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &15601859
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 40f5728cae4ba9d4790748b03f6898b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 791161713}
-  m_GameObject: {fileID: 15601858}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  - {fileID: 2100002, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &15601860
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 40f5728cae4ba9d4790748b03f6898b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 791161713}
-  m_GameObject: {fileID: 15601858}
-  m_Mesh: {fileID: 4300000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
---- !u!193 &15601861
-Tree:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 19300000, guid: 40f5728cae4ba9d4790748b03f6898b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 791161713}
-  m_GameObject: {fileID: 15601858}
-  m_TreeData: {fileID: 11400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
---- !u!4 &15601862
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  m_PrefabInternal: {fileID: 791161713}
-  m_GameObject: {fileID: 15601858}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.1100006, y: 7.71000004, z: 42.3300018}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
 --- !u!1 &25683428
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,50 +218,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1876521314}
   m_GameObject: {fileID: 27360004}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &50687310
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 71.8600006
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6.86000013
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 49.7200012
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-  m_RootGameObject: {fileID: 75019973}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &52442159
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +438,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -632,74 +521,6 @@ Tree:
   m_PrefabInternal: {fileID: 1606745248}
   m_GameObject: {fileID: 70714249}
   m_TreeData: {fileID: 11400000, guid: 7be0281adbf2d4e489584045166d2c0f, type: 2}
---- !u!1 &75019973
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-  m_PrefabInternal: {fileID: 50687310}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 75019977}
-  - 193: {fileID: 75019976}
-  - 33: {fileID: 75019975}
-  - 23: {fileID: 75019974}
-  m_Layer: 0
-  m_Name: Tree1_fall 25%
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &75019974
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 3504aa74753dd1a4f86a0af0ae636b19,
-    type: 2}
-  m_PrefabInternal: {fileID: 50687310}
-  m_GameObject: {fileID: 75019973}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-  - {fileID: 2100002, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &75019975
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 3504aa74753dd1a4f86a0af0ae636b19,
-    type: 2}
-  m_PrefabInternal: {fileID: 50687310}
-  m_GameObject: {fileID: 75019973}
-  m_Mesh: {fileID: 4300000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
---- !u!193 &75019976
-Tree:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 19300000, guid: 3504aa74753dd1a4f86a0af0ae636b19,
-    type: 2}
-  m_PrefabInternal: {fileID: 50687310}
-  m_GameObject: {fileID: 75019973}
-  m_TreeData: {fileID: 11400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
---- !u!4 &75019977
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
-  m_PrefabInternal: {fileID: 50687310}
-  m_GameObject: {fileID: 75019973}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.8600006, y: 6.86000013, z: 49.7200012}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
 --- !u!1 &82014530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1266,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -1836,6 +1658,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -2179,6 +2002,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -2316,6 +2140,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -3424,7 +3249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 1
 --- !u!114 &383247938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3440,104 +3265,6 @@ MonoBehaviour:
     rainHeight: 0
     snowLevel: 0
   successfullyLoaded: 0
---- !u!1 &385621805
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  m_PrefabInternal: {fileID: 1287820962}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 385621810}
-  - 193: {fileID: 385621809}
-  - 33: {fileID: 385621808}
-  - 23: {fileID: 385621807}
-  - 114: {fileID: 385621806}
-  - 114: {fileID: 385621811}
-  m_Layer: 0
-  m_Name: Tree1_winter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &385621806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455390, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1287820962}
-  m_GameObject: {fileID: 385621805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4b3253bd757c045a8c6f908d2f3371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 8927533d14742ad498911b383318ce46, type: 2}
-  - {fileID: 2100000, guid: df035a46c96b3e34293159ee3145ab56, type: 2}
---- !u!23 &385621807
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1287820962}
-  m_GameObject: {fileID: 385621805}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  - {fileID: 2100002, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &385621808
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1287820962}
-  m_GameObject: {fileID: 385621805}
-  m_Mesh: {fileID: 4300000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
---- !u!193 &385621809
-Tree:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 19300000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1287820962}
-  m_GameObject: {fileID: 385621805}
-  m_TreeData: {fileID: 11400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
---- !u!4 &385621810
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  m_PrefabInternal: {fileID: 1287820962}
-  m_GameObject: {fileID: 385621805}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.6100006, y: 7.21000004, z: 62.7900009}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
---- !u!114 &385621811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1287820962}
-  m_GameObject: {fileID: 385621805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea55d9984d1ab384e807a228c86cdc71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialIndex: 0
 --- !u!1 &398987482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,6 +3326,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -3883,6 +3611,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -4168,7 +3897,7 @@ Transform:
   - {fileID: 1233146519}
   - {fileID: 1243078214}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 8
 --- !u!114 &493477372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4258,6 +3987,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -4546,7 +4276,7 @@ Transform:
   - {fileID: 1227388051}
   - {fileID: 516659803}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 6
 --- !u!114 &522434463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4626,6 +4356,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -4763,6 +4494,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -5627,6 +5359,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -6358,6 +6091,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -7079,6 +6813,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -7161,50 +6896,6 @@ Tree:
   m_PrefabInternal: {fileID: 1606745248}
   m_GameObject: {fileID: 785072145}
   m_TreeData: {fileID: 11400000, guid: 68164bd9423644242abde93488be7352, type: 2}
---- !u!1001 &791161713
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 63.1100006
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.71000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 42.3300018
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  m_RootGameObject: {fileID: 15601858}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &797062589
 GameObject:
   m_ObjectHideFlags: 0
@@ -8075,6 +7766,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -8186,7 +7878,7 @@ Transform:
   - {fileID: 1339677369}
   - {fileID: 1088912765}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 2
 --- !u!1 &846772184
 GameObject:
   m_ObjectHideFlags: 0
@@ -8270,6 +7962,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -9908,6 +9601,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -10194,7 +9888,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 7
 --- !u!1 &1030049541
 GameObject:
   m_ObjectHideFlags: 0
@@ -10302,6 +9996,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -10466,6 +10161,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -10603,6 +10299,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -10998,6 +10695,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -11223,6 +10921,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -11702,6 +11401,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -11894,50 +11594,6 @@ Transform:
   - {fileID: 174867570}
   m_Father: {fileID: 1532155075}
   m_RootOrder: 13
---- !u!1001 &1206931283
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 80.0500031
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.38999987
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 56.7999992
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-  m_RootGameObject: {fileID: 1322511574}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1215771283
 GameObject:
   m_ObjectHideFlags: 0
@@ -11964,7 +11620,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 5
 --- !u!1 &1225258898
 GameObject:
   m_ObjectHideFlags: 0
@@ -12020,6 +11676,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -12348,6 +12005,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -12756,6 +12414,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -12936,6 +12595,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -13102,142 +12762,6 @@ MonoBehaviour:
   m_DrawTreesAndFoliage: 1
   m_CollectDetailPatches: 1
   m_MaterialTemplate: {fileID: 2100000, guid: d375bdd9b171e6f4790350a4efece765, type: 2}
---- !u!1001 &1287820962
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 11455390, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 88.6100006
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.21000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 62.7900009
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455390, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-      propertyPath: materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: df035a46c96b3e34293159ee3145ab56, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  m_RootGameObject: {fileID: 385621805}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
---- !u!1 &1300027067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-  m_PrefabInternal: {fileID: 1803951026}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1300027071}
-  - 193: {fileID: 1300027070}
-  - 33: {fileID: 1300027069}
-  - 23: {fileID: 1300027068}
-  - 114: {fileID: 1300027072}
-  m_Layer: 0
-  m_Name: Tree1_summer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &1300027068
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 4db8de61c94d3e345b7bcb903bcba570,
-    type: 2}
-  m_PrefabInternal: {fileID: 1803951026}
-  m_GameObject: {fileID: 1300027067}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-  - {fileID: 2100002, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &1300027069
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 4db8de61c94d3e345b7bcb903bcba570,
-    type: 2}
-  m_PrefabInternal: {fileID: 1803951026}
-  m_GameObject: {fileID: 1300027067}
-  m_Mesh: {fileID: 4300000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
---- !u!193 &1300027070
-Tree:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 19300000, guid: 4db8de61c94d3e345b7bcb903bcba570,
-    type: 2}
-  m_PrefabInternal: {fileID: 1803951026}
-  m_GameObject: {fileID: 1300027067}
-  m_TreeData: {fileID: 11400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
---- !u!4 &1300027071
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-  m_PrefabInternal: {fileID: 1803951026}
-  m_GameObject: {fileID: 1300027067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.7599983, y: 7.57999992, z: 34.8699989}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
---- !u!114 &1300027072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11417772, guid: 4db8de61c94d3e345b7bcb903bcba570,
-    type: 2}
-  m_PrefabInternal: {fileID: 1803951026}
-  m_GameObject: {fileID: 1300027067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4b3253bd757c045a8c6f908d2f3371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 0}
-  - {fileID: 2100000, guid: fd72dde7fa57c704090a9fa6ccb1df53, type: 2}
 --- !u!1 &1303033840
 GameObject:
   m_ObjectHideFlags: 0
@@ -13383,6 +12907,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -13561,89 +13086,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1960291737}
   m_RootOrder: 0
---- !u!1 &1322511574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-  m_PrefabInternal: {fileID: 1206931283}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1322511579}
-  - 193: {fileID: 1322511578}
-  - 33: {fileID: 1322511577}
-  - 23: {fileID: 1322511576}
-  - 114: {fileID: 1322511575}
-  m_Layer: 0
-  m_Name: Tree1_winter 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1322511575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11455390, guid: ee4521023ea8a1a4685439845404abc1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1206931283}
-  m_GameObject: {fileID: 1322511574}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4b3253bd757c045a8c6f908d2f3371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 8927533d14742ad498911b383318ce46, type: 2}
---- !u!23 &1322511576
-Renderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: ee4521023ea8a1a4685439845404abc1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1206931283}
-  m_GameObject: {fileID: 1322511574}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
-  m_Materials:
-  - {fileID: 2100000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-  - {fileID: 2100002, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &1322511577
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: ee4521023ea8a1a4685439845404abc1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1206931283}
-  m_GameObject: {fileID: 1322511574}
-  m_Mesh: {fileID: 4300000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
---- !u!193 &1322511578
-Tree:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 19300000, guid: ee4521023ea8a1a4685439845404abc1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1206931283}
-  m_GameObject: {fileID: 1322511574}
-  m_TreeData: {fileID: 11400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
---- !u!4 &1322511579
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: ee4521023ea8a1a4685439845404abc1, type: 2}
-  m_PrefabInternal: {fileID: 1206931283}
-  m_GameObject: {fileID: 1322511574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.0500031, y: 7.38999987, z: 56.7999992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
 --- !u!1 &1339677368
 GameObject:
   m_ObjectHideFlags: 0
@@ -14470,6 +13912,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15102,6 +14545,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15245,6 +14689,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15388,6 +14833,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15632,6 +15078,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15877,6 +15324,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -16089,7 +15537,7 @@ Transform:
   - {fileID: 1205678103}
   - {fileID: 1362775789}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 4
 --- !u!1 &1533870042
 GameObject:
   m_ObjectHideFlags: 0
@@ -16451,6 +15899,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -16622,6 +16071,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -17597,7 +17047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 3
 --- !u!1001 &1606745248
 Prefab:
   m_ObjectHideFlags: 0
@@ -17747,7 +17197,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 460132, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 11460182, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: reactTo
@@ -18981,6 +18431,10 @@ Prefab:
       propertyPath: trees.Array.data[1].prefab
       value: 
       objectReference: {fileID: 100000, guid: a58c252aecd64a2449fd2c02162201ac, type: 2}
+    - target: {fileID: 11460164, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
   m_RootGameObject: {fileID: 1205678102}
@@ -19047,6 +18501,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -19190,6 +18645,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -19712,6 +19168,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -19849,6 +19306,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -20217,50 +19675,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1606745248}
   m_GameObject: {fileID: 1797287743}
   m_Mesh: {fileID: 4300000, guid: 38f16958ab134ac4a910f10faee04ff7, type: 3}
---- !u!1001 &1803951026
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 54.7599983
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.57999992
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 34.8699989
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4db8de61c94d3e345b7bcb903bcba570, type: 2}
-  m_RootGameObject: {fileID: 1300027067}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1805895270
 GameObject:
   m_ObjectHideFlags: 0
@@ -20484,6 +19898,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -21111,6 +20526,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -21437,6 +20853,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -21978,6 +21395,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -22174,7 +21592,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 9
 --- !u!114 &1975547883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22785,6 +22203,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -22928,6 +22347,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -23162,6 +22582,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -23485,6 +22906,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
+  minLeafAmount: 0
   colorOverYear:
     key0:
       serializedVersion: 2
