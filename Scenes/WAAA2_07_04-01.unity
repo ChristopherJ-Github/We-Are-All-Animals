@@ -438,7 +438,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .75
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .639999986
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -2002,7 +2002,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .779999971
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -2140,7 +2140,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .699999988
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -3326,7 +3326,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .639999986
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -5359,7 +5359,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .460000008
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -5863,7 +5863,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   scrollPosition: {x: 0, y: 0}
-  toggleStats: 1
+  toggleStats: 0
   sliderUsed: 0
   alphaSavePercentage: 0
   detailSavePercentage: 0
@@ -6091,7 +6091,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: .603399992
+  minLeafAmount: .603699982
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -9601,7 +9601,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .769999981
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -9996,7 +9996,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .839999974
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -12005,7 +12005,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .810000002
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -12414,7 +12414,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .710650027
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -14545,7 +14545,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .460000008
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -14689,7 +14689,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .870000005
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -14833,7 +14833,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .699000001
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15078,7 +15078,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .74000001
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -18453,7 +18453,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11460128, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: minLeafAmount
-      value: .603399992
+      value: .603699982
       objectReference: {fileID: 0}
     - target: {fileID: 11460080, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: minLeafAmount
@@ -18462,6 +18462,86 @@ Prefab:
     - target: {fileID: 11460108, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: minLeafAmount
       value: .610000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460140, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .710650027
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460144, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .460000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460148, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .699000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460154, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .769999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460176, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .74000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460150, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .764999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460136, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .810000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460076, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460122, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .769999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460126, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .779999971
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460098, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .74000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460114, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .839999974
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460110, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .639999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460160, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .639999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460082, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460172, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .879999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460086, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .460000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460168, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .870000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460174, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: useOwnColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460174, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .699999988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
@@ -19196,7 +19276,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .850000024
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -19926,7 +20006,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .769999981
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -20881,7 +20961,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .764999986
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -22231,7 +22311,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .74000001
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -22375,7 +22455,7 @@ MonoBehaviour:
   leafMatNumber: 0
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .879999995
   colorOverYear:
     key0:
       serializedVersion: 2
