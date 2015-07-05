@@ -7470,29 +7470,34 @@ MonoBehaviour:
     severityOverYear:
       serializedVersion: 2
       m_Curve:
-      - time: .333166808
-        value: -.00967304129
+      - time: 0
+        value: .199999988
         inSlope: 24.1898003
-        outSlope: 33.9409485
-        tangentMode: 21
-      - time: .362914741
-        value: 1
-        inSlope: 33.9409485
         outSlope: -0
         tangentMode: 21
-      - time: .574999988
-        value: 1
+      - time: .25
+        value: .199999988
         inSlope: 0
+        outSlope: 10.0000019
+        tangentMode: 21
+      - time: .329999983
+        value: 1
+        inSlope: 10.0000019
         outSlope: -0
         tangentMode: 21
-      - time: .888883293
+      - time: .672021031
         value: 1
         inSlope: 0
-        outSlope: -39.9803085
+        outSlope: -10.9620619
         tangentMode: 21
-      - time: .913895607
-        value: 0
-        inSlope: -39.9803085
+      - time: .745000005
+        value: .199999988
+        inSlope: -10.9620619
+        outSlope: -0
+        tangentMode: 21
+      - time: 1
+        value: .199999988
+        inSlope: 0
         outSlope: -2.43568683
         tangentMode: 21
       m_PreInfinity: 2
@@ -7550,12 +7555,12 @@ MonoBehaviour:
     causesStorms: 1
   chanceDivisor: 1
   safeToPress: 0
-  transition: 0
+  transition: 1
   cloudTransition: 0
-  totalTransition: 0
+  totalTransition: 1
   storm: 0
   stormThreshold: .5
-  severity: 0
+  severity: .181078359
   dataPath: C:\Data\data.txt
 --- !u!1 &825264538
 GameObject:

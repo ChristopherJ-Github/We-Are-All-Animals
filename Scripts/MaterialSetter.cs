@@ -7,7 +7,14 @@ public class MaterialSetter : MonoBehaviour {
 
 	void Start () {
 
-		renderer.materials = materials;
-		//GameObject.Destroy (this);
+		SetMaterials ();
+	}
+
+	void SetMaterials () {
+
+		Material[] newMaterials = renderer.materials;
+		for (int i = 0; i < newMaterials.Length; i ++) 
+			newMaterials[i] = materials[i] ?? newMaterials[i];
+		renderer.materials = newMaterials;
 	}
 }
