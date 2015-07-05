@@ -13143,7 +13143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11455390, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
       propertyPath: materials.Array.data[1]
@@ -13165,6 +13165,7 @@ GameObject:
   - 193: {fileID: 1300027070}
   - 33: {fileID: 1300027069}
   - 23: {fileID: 1300027068}
+  - 114: {fileID: 1300027072}
   m_Layer: 0
   m_Name: Tree1_summer
   m_TagString: Untagged
@@ -13222,6 +13223,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1300027072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11417772, guid: 4db8de61c94d3e345b7bcb903bcba570,
+    type: 2}
+  m_PrefabInternal: {fileID: 1803951026}
+  m_GameObject: {fileID: 1300027067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4b3253bd757c045a8c6f908d2f3371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 0}
+  - {fileID: 2100000, guid: fd72dde7fa57c704090a9fa6ccb1df53, type: 2}
 --- !u!1 &1303033840
 GameObject:
   m_ObjectHideFlags: 0
@@ -22468,6 +22484,41 @@ MonoBehaviour:
   - {r: .75, g: .75, b: .75, a: 1}
   - {r: .529411793, g: .529411793, b: .529411793, a: 1}
   particleBase: {fileID: 875829339}
+  leafAmountOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: -0
+      tangentMode: 21
+    - time: .109999999
+      value: 0
+      inSlope: 0
+      outSlope: 20.0000019
+      tangentMode: 21
+    - time: .159999996
+      value: 1
+      inSlope: 20.0000019
+      outSlope: -0
+      tangentMode: 21
+    - time: .734999955
+      value: 1
+      inSlope: 0
+      outSlope: -62.9679642
+      tangentMode: 21
+    - time: .750877082
+      value: .000249624252
+      inSlope: -62.9679642
+      outSlope: -.0010020124
+      tangentMode: 21
+    - time: 1
+      value: 0
+      inSlope: -.0010020124
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1985074255
 GameObject:
   m_ObjectHideFlags: 0

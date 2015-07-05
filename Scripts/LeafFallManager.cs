@@ -63,5 +63,19 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		leafParticles.originalColor = originalColor;
 		leafParticles.Init ();
 	}
+
+	void Update () {
+
+		UpdateLeafAmount ();
+	}
+
+	public AnimationCurve leafAmountOverYear;
+	void UpdateLeafAmount () {
+
+		float leafAmount = leafAmountOverYear.Evaluate (SceneManager.curvePos);
+		Shader.SetGlobalFloat ("_LeafAmount", leafAmount);
+	}
+
+
 }
 #endif

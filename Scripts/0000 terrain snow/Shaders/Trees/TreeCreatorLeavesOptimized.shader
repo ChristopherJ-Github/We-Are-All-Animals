@@ -34,6 +34,7 @@ CGPROGRAM
 sampler2D _MainTex;
 sampler2D _BumpSpecMap;
 sampler2D _TranslucencyMap;
+float _LeafAmount;
 
 struct Input {
 	float2 uv_MainTex;
@@ -48,7 +49,8 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	o.Translucency = trngls.b;
 	o.Gloss = trngls.a * _Color.r;
 	o.Alpha = c.a;
-	
+	float leafMultiplier = lerp(0.85, 1, _LeafAmount);
+	o.Alpha *= leafMultiplier;
 	half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
 	o.Specular = norspc.r;
 	o.Normal = UnpackNormalDXT5nm(norspc);
