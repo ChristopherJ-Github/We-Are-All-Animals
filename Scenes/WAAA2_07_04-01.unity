@@ -21812,7 +21812,7 @@ MonoBehaviour:
   flowerColorOverYear:
     key0:
       serializedVersion: 2
-      rgba: 4284374637
+      rgba: 4287139260
     key1:
       serializedVersion: 2
       rgba: 4294967295
@@ -21821,24 +21821,24 @@ MonoBehaviour:
       rgba: 16777215
     key3:
       serializedVersion: 2
-      rgba: 16777215
+      rgba: 8949180
     key4:
       serializedVersion: 2
       rgba: 8949180
     key5:
       serializedVersion: 2
-      rgba: 7572417
+      rgba: 8949180
     key6:
       serializedVersion: 2
-      rgba: 6184557
+      rgba: 8949180
     key7:
       serializedVersion: 2
       rgba: 0
-    ctime0: 11435
-    ctime1: 15855
-    ctime2: 31190
-    ctime3: 43236
-    ctime4: 51698
+    ctime0: 0
+    ctime1: 16912
+    ctime2: 43236
+    ctime3: 51698
+    ctime4: 57463
     ctime5: 57463
     ctime6: 57463
     ctime7: 0
@@ -21850,33 +21850,44 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_NumColorKeys: 6
+    m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   saturationOverYear:
     serializedVersion: 2
     m_Curve:
-    - time: .00499999989
-      value: 1
+    - time: 0
+      value: 0
+      inSlope: 7.53217649
+      outSlope: -0
+      tangentMode: 21
+    - time: .0899999961
+      value: 0
       inSlope: 0
-      outSlope: 0
-      tangentMode: 10
+      outSlope: 5.26315784
+      tangentMode: 21
+    - time: .280000001
+      value: 1
+      inSlope: 5.26315784
+      outSlope: -0
+      tangentMode: 21
     - time: .802998006
       value: 1
       inSlope: 0
-      outSlope: -8.99526787
-      tangentMode: 1
-    - time: .876776814
-      value: .348470449
-      inSlope: -8.20563698
-      outSlope: -.233311906
-      tangentMode: 1
-    - time: .990249813
-      value: .343845844
-      inSlope: -.385940075
+      outSlope: -12.9866772
+      tangentMode: 21
+    - time: .879999995
+      value: 0
+      inSlope: -12.9866772
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 0
+      inSlope: 0
       outSlope: -.385940075
-      tangentMode: 1
+      tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+  minSaturation: .342000008
   billboardLightingColor:
     key0:
       serializedVersion: 2

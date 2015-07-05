@@ -48,11 +48,13 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 
 	public Gradient flowerColorOverYear;
 	public AnimationCurve saturationOverYear;
+	public float minSaturation;
 	void ChangeFlowerColor () {
 		
 		Color currentColor = flowerColorOverYear.Evaluate (SceneManager.curvePos);
 		Shader.SetGlobalColor ("_GrassTint", currentColor);
-		float saturation = saturationOverYear.Evaluate (SceneManager.curvePos);
+		float saturationAmount = saturationOverYear.Evaluate (SceneManager.curvePos);
+		float saturation = Mathf.Lerp (minSaturation, 1, saturationAmount);
 		Shader.SetGlobalFloat ("_Saturation", saturation);
 	}
 
