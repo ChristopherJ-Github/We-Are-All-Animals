@@ -84,6 +84,8 @@ ENDCG
 		#include "Tree.cginc"
 
 		sampler2D _ShadowTex;
+		float _LeafAmount;
+		float _MinLeafAmount;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -138,6 +140,8 @@ ENDCG
 		sampler2D _BumpSpecMap;
 		sampler2D _TranslucencyMap;
 		float _ShadowOffsetScale;
+		float _LeafAmount;
+		float _MinLeafAmount;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -167,7 +171,9 @@ ENDCG
 		
 		half4 frag_surf (v2f_surf IN) : SV_Target {
 			half alpha = tex2D(_MainTex, IN.hip_pack0.xy).a;
-
+			float leafMultiplier = lerp(_MinLeafAmount, 1, _LeafAmount);
+			alpha *= leafMultiplier;
+			
 			float3 shadowOffset = _ShadowOffsetScale * IN.normal * tex2D (_BumpSpecMap, IN.hip_pack0.xy).b;
 			clip (alpha - _Cutoff);
 
