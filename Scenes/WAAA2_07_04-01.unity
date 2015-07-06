@@ -8234,38 +8234,34 @@ MonoBehaviour:
   mainGrowthOverYear:
     serializedVersion: 2
     m_Curve:
-    - time: .00499999989
-      value: .120952174
+    - time: 0
+      value: 0
       inSlope: -.070731692
-      outSlope: -.0245661736
-      tangentMode: 1
-    - time: .154339537
-      value: .211713359
-      inSlope: 1.79790401
-      outSlope: 1.79790401
-      tangentMode: 10
-    - time: .418151975
+      outSlope: -0
+      tangentMode: 21
+    - time: .199999988
+      value: 0
+      inSlope: 0
+      outSlope: 19.9999962
+      tangentMode: 21
+    - time: .25
       value: 1
-      inSlope: .516474247
-      outSlope: .516474247
-      tangentMode: 1
-    - time: .721604109
+      inSlope: 19.9999962
+      outSlope: -0
+      tangentMode: 21
+    - time: .949999988
       value: 1
-      inSlope: -.571608543
-      outSlope: -.571608543
-      tangentMode: 1
-    - time: .828719437
-      value: .307419151
-      inSlope: -3.77113485
-      outSlope: -3.77113485
-      tangentMode: 10
+      inSlope: 0
+      outSlope: -19.9999962
+      tangentMode: 21
     - time: 1
-      value: .123032033
-      inSlope: -.105745025
+      value: 0
+      inSlope: -19.9999962
       outSlope: .026460778
-      tangentMode: 1
+      tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+  minGrowth: .120999999
   flowerAlphaMaps:
   - detailMap: {fileID: 2800000, guid: 7bdf9bdf2895cff4f92c3f3d1b8b0e51, type: 3}
     useMainCurve: 1
@@ -13379,6 +13375,8 @@ MonoBehaviour:
     - alphaMap: {fileID: 2800000, guid: a528f9aaece92b24b8f61619beaaeaee, type: 3}
       black: 1
   - dates:
+    - month: 10
+      day: 25
     - month: 11
       day: 15
     date:
