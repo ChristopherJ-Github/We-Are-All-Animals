@@ -428,12 +428,6 @@ MonoBehaviour:
   - monthStart: 4
     day: 1
     prefab: {fileID: 100000, guid: 7f9991dbb6f477c4eaf81db028ef11c8, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 89fbff6a72fde724d90617c728ae02ac, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 01cb9b357b181db4abdf3a9447c388ac, type: 2}
   barkMatNumber: 1
   leafMatNumber: 0
   bark: []
@@ -1256,12 +1250,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a36928e6bcd15a642bea4d03e82f0f3e, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: a747e58bb51422a499f8ea0424b2279c, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: f81bb591b5b9a5f4b95c3e3030cd267d, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -1992,12 +1980,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 563f05e61ac47ad4da0cfc12df174b38, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 9d93b3eb8814172448e5d524a060555a, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 8f730b0ce879c384abc4e30ffac2a394, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -3316,12 +3298,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a36928e6bcd15a642bea4d03e82f0f3e, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: a747e58bb51422a499f8ea0424b2279c, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: f81bb591b5b9a5f4b95c3e3030cd267d, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -5349,12 +5325,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: dfac086a9aed46a4eb7095da4a492eef, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 62004beee451f654dbe7be32a60950a1, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: e131005a34d4be443adc0efb16c9fffa, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -6081,12 +6051,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a58c252aecd64a2449fd2c02162201ac, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: b33efcb1831b4314c91cf8a20743ca2f, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 301521b2d03987b4dac51e963ffd1e48, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -6803,12 +6767,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -9591,12 +9549,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a955da5b8140c2f48a6e4a694d6f5724, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 89fbff6a72fde724d90617c728ae02ac, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 01cb9b357b181db4abdf3a9447c388ac, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -9986,12 +9938,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 2f65cccae2f8bfb45b8ed021c7d5fa11, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 099dbaf416ceb204aaf51f5956e7f3bf, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 51f212e0dba97304b9c4b454153b8442, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -11391,12 +11337,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -11995,12 +11935,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: f4fb45761dfc2154a88bc2f61dbc8c37, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 3d88f1174b6b5944b878f9427ff8a549, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 4e980a37d3b5b5848bdede58025f2715, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -12404,12 +12338,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 563f05e61ac47ad4da0cfc12df174b38, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 9d93b3eb8814172448e5d524a060555a, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 8f730b0ce879c384abc4e30ffac2a394, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -13902,12 +13830,6 @@ MonoBehaviour:
   - monthStart: 4
     day: 1
     prefab: {fileID: 100000, guid: 07ee921f461bd5546b18b92710a75747, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 73fda884154b97240848b7872117341a, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: a17f4c660ec3ecc4fb3acbc4508ddfe5, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -14535,12 +14457,6 @@ MonoBehaviour:
   - monthStart: 4
     day: 1
     prefab: {fileID: 100000, guid: 09b80420011cf5844a6e556a1c4bf251, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 62004beee451f654dbe7be32a60950a1, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: e131005a34d4be443adc0efb16c9fffa, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -14679,12 +14595,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a5b6957a194ce97458e25306535d74c7, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: b5919e06141320546a84da8ef98bd2d8, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: f0119e72312e09844935032b2beaf74a, type: 2}
   barkMatNumber: 1
   leafMatNumber: 0
   bark: []
@@ -14823,12 +14733,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 13c789884a5a5314f8be126dd3357ec7, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 3dbbee2cdc52dc942be62ae620b7dac8, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: a61d176cddf0d444fb50700313fd45e5, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -15068,12 +14972,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: f4fb45761dfc2154a88bc2f61dbc8c37, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 3d88f1174b6b5944b878f9427ff8a549, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 4e980a37d3b5b5848bdede58025f2715, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -15889,12 +15787,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 779ae7bda0a1de6448f5edde931813b5, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -16061,12 +15953,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 69c985381cc8c4f26a086bb8e64a0ab5, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 0a74135156de65d4083d66dd23aecc89, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: bb91ec19b61cdb54c91573de000dc826, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -17057,111 +16943,111 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11460076, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460152, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460084, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460164, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460150, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460158, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460136, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460176, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460154, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460112, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460122, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460126, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460140, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460166, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460098, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460114, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460110, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460160, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460128, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460108, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460082, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460172, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460144, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460086, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460168, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460148, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460074, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: trees.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11460150, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: leafFallPercentage.m_Curve.Array.size
@@ -18599,12 +18485,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 563f05e61ac47ad4da0cfc12df174b38, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 9d93b3eb8814172448e5d524a060555a, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 8f730b0ce879c384abc4e30ffac2a394, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -18743,12 +18623,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a55d7e03bf3702440a7cc70a89ce989a, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 89fbff6a72fde724d90617c728ae02ac, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 01cb9b357b181db4abdf3a9447c388ac, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -19266,12 +19140,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 69c985381cc8c4f26a086bb8e64a0ab5, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 0a74135156de65d4083d66dd23aecc89, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: bb91ec19b61cdb54c91573de000dc826, type: 2}
   barkMatNumber: 1
   leafMatNumber: 0
   bark: []
@@ -19996,12 +19864,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a955da5b8140c2f48a6e4a694d6f5724, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 89fbff6a72fde724d90617c728ae02ac, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 01cb9b357b181db4abdf3a9447c388ac, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -20951,12 +20813,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 7dd917c138c5a1b479cc5c3c55ca3e9f, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 40f5728cae4ba9d4790748b03f6898b5, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 3504aa74753dd1a4f86a0af0ae636b19, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -22312,12 +22168,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 563f05e61ac47ad4da0cfc12df174b38, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 9d93b3eb8814172448e5d524a060555a, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: 8f730b0ce879c384abc4e30ffac2a394, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
   bark: []
@@ -22456,12 +22306,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 69c985381cc8c4f26a086bb8e64a0ab5, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 0a74135156de65d4083d66dd23aecc89, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: bb91ec19b61cdb54c91573de000dc826, type: 2}
   barkMatNumber: 1
   leafMatNumber: 0
   bark: []
@@ -23015,12 +22859,6 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 13c789884a5a5314f8be126dd3357ec7, type: 2}
-  - monthStart: 10
-    day: 15
-    prefab: {fileID: 100000, guid: 3dbbee2cdc52dc942be62ae620b7dac8, type: 2}
-  - monthStart: 10
-    day: 25
-    prefab: {fileID: 100000, guid: a61d176cddf0d444fb50700313fd45e5, type: 2}
   barkMatNumber: 1
   leafMatNumber: 0
   bark: []
