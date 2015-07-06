@@ -1515,18 +1515,18 @@ MonoBehaviour:
     - time: .814999998
       value: 1
       inSlope: 6.8965497
-      outSlope: -0
+      outSlope: -19.8528214
       tangentMode: 21
-    - time: .870000005
-      value: 1
-      inSlope: 0
-      outSlope: -11.7647085
-      tangentMode: 21
+    - time: .846166849
+      value: .381250083
+      inSlope: -11.6779461
+      outSlope: -11.6779461
+      tangentMode: 10
     - time: .954999983
       value: 0
-      inSlope: -11.7647085
+      inSlope: .126673117
       outSlope: -0
-      tangentMode: 21
+      tangentMode: 17
     - time: 1
       value: 0
       inSlope: 0
@@ -6935,35 +6935,30 @@ MonoBehaviour:
       - time: 0
         value: .996183217
         inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .107339621
-        value: .89149946
-        inSlope: -3.66545486
-        outSlope: -3.66545486
-        tangentMode: 0
-      - time: .175225019
-        value: .199961111
-        inSlope: -3.01291275
-        outSlope: -3.01291275
-        tangentMode: 0
+        outSlope: -5.6924758
+        tangentMode: 17
+      - time: .174999997
+        value: 0
+        inSlope: -5.6924758
+        outSlope: -2.21340279e-08
+        tangentMode: 21
       - time: .501092911
         value: -7.21774995e-09
-        inSlope: -.216011554
-        outSlope: -.216011554
-        tangentMode: 0
-      - time: .831544161
-        value: .184981614
-        inSlope: 2.73637486
+        inSlope: -2.21340279e-08
+        outSlope: 1.93035916e-08
+        tangentMode: 21
+      - time: .875
+        value: 0
+        inSlope: 1.93035916e-08
         outSlope: 2.73637486
-        tangentMode: 0
-      - time: .916254222
-        value: .919333637
-        inSlope: 2.48143816
-        outSlope: 2.48143816
-        tangentMode: 0
+        tangentMode: 5
+      - time: .944999993
+        value: 1
+        inSlope: 43.366787
+        outSlope: -0
+        tangentMode: 17
       - time: 1
-        value: .996183217
+        value: 1
         inSlope: -.209540263
         outSlope: -.209540263
         tangentMode: 0
@@ -6973,29 +6968,34 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 1
+        value: .996183217
         inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .140252337
-        value: .0660827234
-        inSlope: -1.04736495
-        outSlope: -1.04736495
-        tangentMode: 0
-      - time: .5
+        outSlope: -5.6924758
+        tangentMode: 17
+      - time: .174999997
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: .912239671
-        value: .0849608928
-        inSlope: .94691503
-        outSlope: .94691503
-        tangentMode: 0
+        inSlope: -5.6924758
+        outSlope: -2.21340279e-08
+        tangentMode: 21
+      - time: .501092911
+        value: -7.21774995e-09
+        inSlope: -2.21340279e-08
+        outSlope: 1.93035916e-08
+        tangentMode: 21
+      - time: .875
+        value: 0
+        inSlope: 1.93035916e-08
+        outSlope: 2.73637486
+        tangentMode: 5
+      - time: .944999993
+        value: 1
+        inSlope: 43.366787
+        outSlope: -0
+        tangentMode: 17
       - time: 1
         value: 1
-        inSlope: 0
-        outSlope: 0
+        inSlope: -.209540263
+        outSlope: -.209540263
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -7203,13 +7203,13 @@ MonoBehaviour:
     usesFilter: 0
     causesStorms: 1
   chanceDivisor: 1
-  safeToPress: 0
-  transition: 1
+  safeToPress: 1
+  transition: 0
   cloudTransition: 0
-  totalTransition: 1
+  totalTransition: 0
   storm: 0
   stormThreshold: .5
-  severity: .181078359
+  severity: .161672384
   dataPath: C:\Data\data.txt
 --- !u!1 &825264538
 GameObject:
