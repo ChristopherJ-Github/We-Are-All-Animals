@@ -21660,10 +21660,10 @@ MonoBehaviour:
       rgba: 16777215
     key3:
       serializedVersion: 2
-      rgba: 10397439
+      rgba: 11910139
     key4:
       serializedVersion: 2
-      rgba: 10068470
+      rgba: 11910139
     key5:
       serializedVersion: 2
       rgba: 6316672
@@ -21677,7 +21677,7 @@ MonoBehaviour:
     ctime1: 31190
     ctime2: 43236
     ctime3: 53633
-    ctime4: 57147
+    ctime4: 65535
     ctime5: 65535
     ctime6: 0
     ctime7: 0
@@ -21689,9 +21689,9 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_NumColorKeys: 6
+    m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  currentColor: {r: 1, g: .78039217, b: .75686276, a: 1}
+  currentColor: {r: .984313726, g: .733333349, b: .709803939, a: 1}
   updateBillboards: 1
   flowerColorOverYear:
     key0:
