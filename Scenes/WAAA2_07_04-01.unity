@@ -21647,10 +21647,10 @@ MonoBehaviour:
       rgba: 10397439
     key4:
       serializedVersion: 2
-      rgba: 6316672
+      rgba: 10068470
     key5:
       serializedVersion: 2
-      rgba: 0
+      rgba: 6316672
     key6:
       serializedVersion: 2
       rgba: 0
@@ -21661,8 +21661,8 @@ MonoBehaviour:
     ctime1: 31190
     ctime2: 43236
     ctime3: 53633
-    ctime4: 56572
-    ctime5: 0
+    ctime4: 57147
+    ctime5: 65535
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -21673,9 +21673,9 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_NumColorKeys: 5
+    m_NumColorKeys: 6
     m_NumAlphaKeys: 2
-  currentColor: {r: 1, g: 1, b: 1, a: 1}
+  currentColor: {r: .968627453, g: .635294139, b: .603921592, a: 1}
   updateBillboards: 1
   flowerColorOverYear:
     key0:
@@ -21741,16 +21741,16 @@ MonoBehaviour:
     - time: .802998006
       value: 1
       inSlope: 0
-      outSlope: -12.9866772
+      outSlope: -7.27552176
       tangentMode: 21
-    - time: .879999995
-      value: 0
-      inSlope: -12.9866772
-      outSlope: -0
-      tangentMode: 21
+    - time: .888043463
+      value: .381249934
+      inSlope: -4.68022871
+      outSlope: -4.68022871
+      tangentMode: 0
     - time: 1
       value: 0
-      inSlope: 0
+      inSlope: -3.40533876
       outSlope: -.385940075
       tangentMode: 21
     m_PreInfinity: 2
