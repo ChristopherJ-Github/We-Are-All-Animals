@@ -20949,7 +20949,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470900, guid: 095094917de00434a8840d52f6775e0b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 170900, guid: 095094917de00434a8840d52f6775e0b, type: 2}
       propertyPath: m_IsActive
@@ -21907,19 +21907,19 @@ MonoBehaviour:
       inSlope: 20.0000019
       outSlope: -0
       tangentMode: 21
-    - time: .734999955
+    - time: .75
       value: 1
       inSlope: 0
-      outSlope: -62.9679642
+      outSlope: -10.0000038
       tangentMode: 21
-    - time: .750877082
-      value: .000249624252
-      inSlope: -62.9679642
-      outSlope: -.0010020124
+    - time: .849999964
+      value: 0
+      inSlope: -10.0000038
+      outSlope: -0
       tangentMode: 21
     - time: 1
       value: 0
-      inSlope: -.0010020124
+      inSlope: 0
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
