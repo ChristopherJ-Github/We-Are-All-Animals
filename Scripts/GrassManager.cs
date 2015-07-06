@@ -12,9 +12,17 @@ public class MapInfo {
 }
 
 [System.Serializable]
-public class GrassInfo {
+public class Date {
+
 	public int month;
 	public int day = 1;
+}
+
+[System.Serializable]
+public class GrassInfo {
+
+	public Date[] dates;
+	[HideInInspector] public Date date;
 	public List<MapInfo> alphamaps;
 }
 
@@ -22,6 +30,7 @@ public class GrassManager : Singleton<GrassManager> {
 	
 	private TerrainData terrainData;
 	public List<GrassInfo> alphaMapsOverYear;
+	private List<GrassInfo> _alphaMapsOverYear;
 	private float[,,] outputBlock;
 	public int blockWidth;
 
@@ -29,11 +38,25 @@ public class GrassManager : Singleton<GrassManager> {
 		
 		SceneManager.instance.OnNewDay += SetAlphaMaps; 
 		terrainData = Terrain.activeTerrain.terrainData;
-		alphaMapsOverYear = alphaMapsOverYear.OrderBy (grassInfo => grassInfo.month).
-			ThenBy(grassInfo => grassInfo.day).ToList ();
+		PopulateAlphaMapsOverYear ();
+		_alphaMapsOverYear = _alphaMapsOverYear.OrderBy (grassInfo => grassInfo.date.month).
+			ThenBy(grassInfo => grassInfo.date.day).ToList ();
 		outputBlock = new float[blockWidth, blockWidth, terrainData.alphamapLayers];
 		totalLength = blockWidth * blockWidth * terrainData.alphamapLayers;
 		//setAlphaMaps ();
+	}
+
+	void PopulateAlphaMapsOverYear () {
+
+		_alphaMapsOverYear = new List<GrassInfo> ();
+		foreach (GrassInfo sourceGrassInfo in alphaMapsOverYear) {
+			foreach (Date date in sourceGrassInfo.dates) {
+				GrassInfo newGrassInfo = new GrassInfo();
+				newGrassInfo.alphamaps = sourceGrassInfo.alphamaps;
+				newGrassInfo.date = date;
+				_alphaMapsOverYear.Add(newGrassInfo);
+			}
+		}
 	}
 
 	public void SetAlphaMaps () {
@@ -51,30 +74,30 @@ public class GrassManager : Singleton<GrassManager> {
 	void SetSets (out GrassInfo _prevSet, out GrassInfo _nextSet) {
 		
 		int prevIndex = GetPreviousIndex ();
-		_prevSet = alphaMapsOverYear [prevIndex];
-		_nextSet = alphaMapsOverYear [(prevIndex + 1) % alphaMapsOverYear.Count];
+		_prevSet = _alphaMapsOverYear [prevIndex];
+		_nextSet = _alphaMapsOverYear [(prevIndex + 1) % _alphaMapsOverYear.Count];
 	}
 
 	int GetPreviousIndex () {
 		
-		for (int i = alphaMapsOverYear.Count - 1 ; i >= 0 ; i--) {
-			if (SceneManager.currentDate.Month == alphaMapsOverYear[i].month) {
-				if (SceneManager.currentDate.Day >= alphaMapsOverYear[i].day)
+		for (int i = _alphaMapsOverYear.Count - 1 ; i >= 0 ; i--) {
+			GrassInfo grassInfo = _alphaMapsOverYear[i];
+			if (SceneManager.currentDate.Month == _alphaMapsOverYear[i].date.month) {
+				if (SceneManager.currentDate.Day >= _alphaMapsOverYear[i].date.day)
 					return i;
 			}
-			else if (SceneManager.currentDate.Month > alphaMapsOverYear[i].month) 
+			else if (SceneManager.currentDate.Month > _alphaMapsOverYear[i].date.month) 
 				return i;
 		}
-		return alphaMapsOverYear.Count - 1;
+		return _alphaMapsOverYear.Count - 1;
 	}
 	
 	float GetBlend (GrassInfo _prevSet, GrassInfo _nextSet) { //days aren't taken into account like 12/4 vs 12/3
-		
+
 		int prevSetYear = SceneManager.currentDate.Year;
-		DateTime prevSetDate = new DateTime (prevSetYear, _prevSet.month, _prevSet.day);
-		int nextSetYear = _prevSet.month < _nextSet.month ? prevSetYear : prevSetYear + 1;
-		DateTime nextSetDate = new DateTime (nextSetYear, _nextSet.month, _nextSet.day);
-		
+		DateTime prevSetDate = new DateTime (prevSetYear, _prevSet.date.month, _prevSet.date.day);
+		int nextSetYear = _prevSet.date.month < _nextSet.date.month ? prevSetYear : prevSetYear + 1;
+		DateTime nextSetDate = new DateTime (nextSetYear, _nextSet.date.month, _nextSet.date.day);
 		double totalMinutes = (nextSetDate - prevSetDate).TotalMinutes;
 		double currentMinutes = (SceneManager.currentDate - prevSetDate).TotalMinutes;
 		float blend = (float)(currentMinutes / totalMinutes);

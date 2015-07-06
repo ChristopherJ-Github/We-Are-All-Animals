@@ -13229,8 +13229,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alphaMapsOverYear:
-  - month: 1
-    day: 1
+  - dates:
+    - month: 1
+      day: 1
+    date:
+      month: 0
+      day: 1
     alphamaps:
     - alphaMap: {fileID: 2800000, guid: 2d7291ed55e2b264090b7318c5618f4c, type: 3}
       black: 0
@@ -13274,8 +13278,14 @@ MonoBehaviour:
       black: 1
     - alphaMap: {fileID: 2800000, guid: 000c1dbbe5ba7a748bfb78125a364e05, type: 3}
       black: 0
-  - month: 4
-    day: 1
+  - dates:
+    - month: 4
+      day: 1
+    - month: 4
+      day: 1
+    date:
+      month: 0
+      day: 1
     alphamaps:
     - alphaMap: {fileID: 2800000, guid: 3a8bc96358aa07c448285c3bfdfee9da, type: 3}
       black: 0
@@ -13319,8 +13329,12 @@ MonoBehaviour:
       black: 1
     - alphaMap: {fileID: 2800000, guid: 827de7afce9af8447a0a944fbaad4cc9, type: 3}
       black: 1
-  - month: 9
-    day: 26
+  - dates:
+    - month: 9
+      day: 26
+    date:
+      month: 0
+      day: 1
     alphamaps:
     - alphaMap: {fileID: 2800000, guid: 3437ec374faef37428fdb19d894e8172, type: 3}
       black: 0
@@ -13364,8 +13378,12 @@ MonoBehaviour:
       black: 1
     - alphaMap: {fileID: 2800000, guid: a528f9aaece92b24b8f61619beaaeaee, type: 3}
       black: 1
-  - month: 11
-    day: 15
+  - dates:
+    - month: 11
+      day: 15
+    date:
+      month: 0
+      day: 1
     alphamaps:
     - alphaMap: {fileID: 2800000, guid: b167dc6aecb105349812b49a367e8dec, type: 3}
       black: 0
