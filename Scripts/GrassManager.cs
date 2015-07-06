@@ -29,7 +29,8 @@ public class GrassManager : Singleton<GrassManager> {
 		
 		SceneManager.instance.OnNewDay += SetAlphaMaps; 
 		terrainData = Terrain.activeTerrain.terrainData;
-		alphaMapsOverYear = alphaMapsOverYear.OrderBy (grassInfo => grassInfo.month).ToList ();
+		alphaMapsOverYear = alphaMapsOverYear.OrderBy (grassInfo => grassInfo.month).
+			ThenBy(grassInfo => grassInfo.day).ToList ();
 		outputBlock = new float[blockWidth, blockWidth, terrainData.alphamapLayers];
 		totalLength = blockWidth * blockWidth * terrainData.alphamapLayers;
 		//setAlphaMaps ();
@@ -49,19 +50,22 @@ public class GrassManager : Singleton<GrassManager> {
 	
 	void SetSets (out GrassInfo _prevSet, out GrassInfo _nextSet) {
 		
-		int prevIndex = -1;
-		for (int i = alphaMapsOverYear.Count - 1; i >= 0; i--) {
-			if (SceneManager.currentDate.Month >= alphaMapsOverYear[i].month) {
-				
-				prevIndex = i;
-				break;
-			}
-		}
-		if (prevIndex == -1)
-			prevIndex = alphaMapsOverYear.Count -1;
-		
+		int prevIndex = GetPreviousIndex ();
 		_prevSet = alphaMapsOverYear [prevIndex];
 		_nextSet = alphaMapsOverYear [(prevIndex + 1) % alphaMapsOverYear.Count];
+	}
+
+	int GetPreviousIndex () {
+		
+		for (int i = alphaMapsOverYear.Count - 1 ; i >= 0 ; i--) {
+			if (SceneManager.currentDate.Month == alphaMapsOverYear[i].month) {
+				if (SceneManager.currentDate.Day >= alphaMapsOverYear[i].day)
+					return i;
+			}
+			else if (SceneManager.currentDate.Month > alphaMapsOverYear[i].month) 
+				return i;
+		}
+		return alphaMapsOverYear.Count - 1;
 	}
 	
 	float GetBlend (GrassInfo _prevSet, GrassInfo _nextSet) { //days aren't taken into account like 12/4 vs 12/3
