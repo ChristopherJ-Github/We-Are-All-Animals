@@ -3587,7 +3587,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .879999995
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -3963,7 +3963,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .610000014
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -7724,7 +7724,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: 0
+  minLeafAmount: .800000012
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -18428,6 +18428,18 @@ Prefab:
     - target: {fileID: 11460174, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: minLeafAmount
       value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460120, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .879999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460142, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .610000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460130, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: minLeafAmount
+      value: .800000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
