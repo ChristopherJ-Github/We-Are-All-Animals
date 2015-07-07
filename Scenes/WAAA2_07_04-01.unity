@@ -8239,14 +8239,14 @@ MonoBehaviour:
       inSlope: -.070731692
       outSlope: -0
       tangentMode: 21
-    - time: .199999988
+    - time: .164999992
       value: 0
       inSlope: 0
-      outSlope: 19.9999962
+      outSlope: 11.1111107
       tangentMode: 21
-    - time: .25
+    - time: .254999995
       value: 1
-      inSlope: 19.9999962
+      inSlope: 11.1111107
       outSlope: -0
       tangentMode: 21
     - time: .949999988
