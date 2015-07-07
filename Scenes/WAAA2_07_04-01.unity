@@ -13326,6 +13326,8 @@ MonoBehaviour:
     - alphaMap: {fileID: 2800000, guid: 827de7afce9af8447a0a944fbaad4cc9, type: 3}
       black: 1
   - dates:
+    - month: 6
+      day: 15
     - month: 9
       day: 26
     date:
