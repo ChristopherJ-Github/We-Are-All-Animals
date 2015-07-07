@@ -21914,14 +21914,14 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .109999999
+    - time: .25
       value: 0
       inSlope: 0
-      outSlope: 20.0000019
+      outSlope: 6.06060648
       tangentMode: 21
-    - time: .159999996
+    - time: .414999992
       value: 1
-      inSlope: 20.0000019
+      inSlope: 6.06060648
       outSlope: -0
       tangentMode: 21
     - time: .75
