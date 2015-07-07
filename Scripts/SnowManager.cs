@@ -87,6 +87,7 @@ public class SnowManager : Singleton<SnowManager> {
 			return;
 		
 		snowLevel += accumRate * Time.deltaTime;
+		snowLevel = LeafFallManager.thereAreLeaves ? 0 : _snowlevel;
 		TriggerSnowChange (snowLevel);
 		
 		if (snowLevel >= 1) {
@@ -101,6 +102,7 @@ public class SnowManager : Singleton<SnowManager> {
 		float tmpRate = meltRate * temperature.tempPercentage;
 		tmpRate = Mathf.Clamp (tmpRate, 0f, 1f);
 		snowLevel -= tmpRate * Time.deltaTime;
+		snowLevel = LeafFallManager.thereAreLeaves ? 0 : _snowlevel;
 		TriggerSnowChange (snowLevel);
 		if (snowLevel <= 0) {
 			snowLevel = 0;
