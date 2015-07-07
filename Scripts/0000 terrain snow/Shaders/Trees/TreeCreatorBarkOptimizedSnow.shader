@@ -38,6 +38,7 @@ float _SnowStrength;
 float _MaxSnowAmount;
 float _Distance;
 float _MaxAmount;
+float _Stage2Thres;
 
 struct Input {
 	float2 uv_MainTex;
@@ -45,52 +46,54 @@ struct Input {
 	float3 worldPos;
 };
 
-void surf (Input IN, inout SurfaceOutput o) {
-	fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
-	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
-	o.Alpha = col.a;
-	
-	// get snow texture – which tends to be to dark
-	half3 snowtex = tex2D( _SnowTexture, float2(IN.uv_MainTex/64)).rgb * 1.25;
-	
-	float maxAmount;
+float getMaxAmount () {
+
 	if (_MaxAmount != 0) {
-		maxAmount = _MaxAmount;
+		return _MaxAmount;
 	} else {
 		float maxDistance = 43.94991;
 		float minDistance = 43.49573;
 		float distanceNormalized = (_Distance - minDistance) / (maxDistance - minDistance);
 		distanceNormalized = clamp(distanceNormalized, 0, 1);
-		maxAmount = lerp (0.6, 0.7, distanceNormalized);
+		return lerp (0.6, 0.7, distanceNormalized);
 	}
-	_SnowAmount = lerp(0.40, maxAmount, _SnowAmount);
+}
+
+float getSnowAmount (float minAmount, float maxAmount) {
+	
+	if (_SnowAmount <= _Stage2Thres) {
+		float amount = _SnowAmount/_Stage2Thres;
+		return lerp (0, minAmount, amount);
+	} else {
+		float amount = (_SnowAmount - _Stage2Thres)/(1-_Stage2Thres);
+		return lerp (minAmount, maxAmount, amount);
+	}
+}
+
+void surf (Input IN, inout SurfaceOutput o) {
+
+	fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
+	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
+	o.Alpha = col.a;
+	// get snow texture – which tends to be to dark
+	half3 snowtex = tex2D( _SnowTexture, float2(IN.uv_MainTex/64)).rgb * 1.25;
+	float maxAmount = getMaxAmount ();
+	_SnowAmount = getSnowAmount (0.40, maxAmount);
 	// lerp = allows snow even on orthogonal surfaces // (1-col.g) = take the blue channel to get some kind of heightmap // worldNormal is stored in IN.color
 	float snowAmount = lerp(_SnowAmount * IN.color.y, 1, _SnowAmount) * (1-col.b) * _SnowStrength *.65 + o.Normal.y * _SnowAmount *.25;
-	
-	//float snowAmount = _SnowAmount;
-
-	// clamp snow to _SnowStartHeight
-	// billboards do not get effected by snowStartHeight anyway...
-	//snowAmount = snowAmount * clamp((IN.worldPos.y - _SnowStartHeight)*.0125, 0, 1);
-	
 	// sharpen snow mask
 	snowAmount = clamp(pow(snowAmount,8)*512, 0, 1);
-	
 	// mix all together
 	o.Gloss = trngls.a * _Color.r * (1-snowAmount) + ((1-snowtex) * snowAmount);
 	o.Albedo = (col.rgb  * IN.color.a * (1-snowAmount) + snowtex.rgb*snowAmount);
 	o.Albedo.r = clamp(o.Albedo.r, 0, 1);
 	o.Albedo.g = clamp(o.Albedo.g, 0, 1);
 	o.Albedo.b = clamp(o.Albedo.b, 0, 1);
-	
 	half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
 	o.Specular = norspc.r * (1-snowAmount) + _snowShininess * snowAmount;
 	o.Normal = UnpackNormalDXT5nm(norspc);
-	
 	// smooth normal
 	o.Normal = normalize(lerp(o.Normal, float3(0,0,1), snowAmount*.50));
-	
-	
 }
 ENDCG
 }

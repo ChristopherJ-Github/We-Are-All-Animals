@@ -115,9 +115,11 @@ public class SnowManager : Singleton<SnowManager> {
 	
 	public delegate void eventHandler (float snowLvl); 
 	public event eventHandler OnSnowChange;
+	public float secondStageThreshold;
 	public void TriggerSnowChange (float snowLvl) {
 
 		Shader.SetGlobalFloat ("_SnowNormalized", snowLvl);
+		Shader.SetGlobalFloat ("_Stage2Thres", secondStageThreshold);
 		if (OnSnowChange != null) 
 			OnSnowChange (snowLvl);
 	}
