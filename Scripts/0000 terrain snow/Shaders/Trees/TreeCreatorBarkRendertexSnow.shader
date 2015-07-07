@@ -16,6 +16,7 @@ SubShader {
 CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
+#pragma target 3.0
 #include "UnityCG.cginc"
 
 struct v2f {
@@ -23,13 +24,11 @@ struct v2f {
 	float2 uv : TEXCOORD0;
 	float3 color : TEXCOORD1;
 	float2 params[3]: TEXCOORD2;
-	
 	float3 mywn : COLOR;
 };
 
 float3 _TerrainTreeLightDirections[4];
 float4 _TerrainTreeLightColors[4];
-
 v2f vert (appdata_full v) {
 	v2f o;
 	o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
@@ -57,35 +56,38 @@ sampler2D _MainTex;
 sampler2D _BumpSpecMap;
 sampler2D _TranslucencyMap;
 fixed4 _SpecColor;
-
-// this texture has to be send via script = CustomTerrainScriptAtsV3Snow.cs
 sampler2D _SnowTexture;
-
-//snow
 float _SnowAmount;
 float _SnowStartHeight;
+
+float _Stage2Thres;
+float getSnowAmount (float minAmount, float maxAmount) {
+	
+	if (_SnowAmount <= _Stage2Thres) {
+		float amount = _SnowAmount/_Stage2Thres;
+		return lerp (0, minAmount, amount);
+	} else {
+		float amount = (_SnowAmount - _Stage2Thres)/(1-_Stage2Thres);
+		return lerp (minAmount, maxAmount, amount);
+	}
+}
 
 fixed4 frag (v2f i) : COLOR
 {
 	//fixed3 albedo = tex2D (_MainTex, i.uv).rgb * i.color;
 	fixed3 col = tex2D (_MainTex, i.uv) * i.color.rgb;
-	
 	// get snow texture
 	half3 snowtex = tex2D( _SnowTexture, i.uv).rgb;
-	
 	// worldNormal is stored in i.mywn
 	// (1-col.b) = take the blue channel to get some kind of heightmap...
 	// float snowAmount = _SnowAmount * (i.mywn.y) * (1-col.g) * 1.425;
-	
-	_SnowAmount = lerp(0.25, 0.5, _SnowAmount);
+	_SnowAmount = getSnowAmount (0.25, 0.5);
 	// lerp = allows snow even on orthogonal surfaces
 	// float snowAmount = lerp(_SnowAmount * (i.mywn.y), 1, _SnowAmount) * (1-col.g);
 	// lerp = allows snow even on orthogonal surfaces // worldNormal is stored in i.mywn
 	float snowAmount = lerp(_SnowAmount * i.mywn.y, 1, _SnowAmount) * (1-col.b)*.55;
-		
 	// sharpen snow mask
 	snowAmount = clamp(pow(snowAmount,6)*256, 0, 1);
-	
 	fixed3 albedo = (col.rgb * (1-snowAmount) * i.color + snowtex.rgb*snowAmount);
 	half gloss = tex2D (_TranslucencyMap, i.uv).a;
 	half specular = tex2D (_BumpSpecMap, i.uv).r * 128.0;

@@ -64,18 +64,14 @@ void surf (Input IN, inout LeafSurfaceOutput o) {
 	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
 	o.Translucency = trngls.b;
 	o.Alpha = col.a;
-	
 	// get snow texture
 	half3 snowtex = tex2D( _SnowTexture, IN.uv_MainTex).rgb;
-	
 	_SnowAmount = lerp(0.25, _MaxSnow, _BranchThickness);
 	// lerp = allows snow even on orthogonal surfaces // (1-col.g) = take the blue channel to get some kind of heightmap // worldNormal is stored in IN.color
 	float snowAmount = lerp(_SnowAmount * IN.color.y, 1, _SnowAmount) * (1-col.g) * .65 + o.Normal.y * _SnowAmount *.25 * IN.color.a * trngls.b;
-	
 	// clamp snow to _SnowStartHeight
 	// billboards do not get effected by snowStartHeight anyway...
 	snowAmount = snowAmount * clamp((IN.worldPos.y - _SnowStartHeight)*.0125, 0, 1);
-	
 	// sharpen snow mask
 	snowAmount = clamp( pow(snowAmount,6)*256, 0, 1);
 	// mix all together

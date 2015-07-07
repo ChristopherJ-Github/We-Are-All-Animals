@@ -35,10 +35,8 @@ float _snowShininess;
 float _SnowAmount;
 float _SnowStartHeight;
 float _SnowStrength;
-float _MaxSnowAmount;
 float _Distance;
-float _MaxAmount;
-float _Stage2Thres;
+
 
 struct Input {
 	float2 uv_MainTex;
@@ -46,6 +44,7 @@ struct Input {
 	float3 worldPos;
 };
 
+float _MaxAmount;
 float getMaxAmount () {
 
 	if (_MaxAmount != 0) {
@@ -59,6 +58,7 @@ float getMaxAmount () {
 	}
 }
 
+float _Stage2Thres;
 float getSnowAmount (float minAmount, float maxAmount) {
 	
 	if (_SnowAmount <= _Stage2Thres) {
