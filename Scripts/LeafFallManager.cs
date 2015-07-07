@@ -15,7 +15,9 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 	public AnimationCurve windinessToShift;
 	public float minSpeed, maxSpeed;
 	public float minGravity, maxGravity;
+	public AnimationCurve windToVelocity;
 	public float minRandomization, maxRandomization;
+	public AnimationCurve windToRandomization;
 
 	void Start () {
 
@@ -58,8 +60,10 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		leafParticles.maxSpeed = maxSpeed;
 		leafParticles.minGravity = minGravity;
 		leafParticles.maxGravity = maxGravity;
+		leafParticles.windToVelocity = windToVelocity;
 		leafParticles.minRandomization = minRandomization;
 		leafParticles.maxRandomization = maxRandomization;
+		leafParticles.windToRandomization = windToRandomization;
 		leafParticles.originalColor = originalColor;
 		leafParticles.Init ();
 	}

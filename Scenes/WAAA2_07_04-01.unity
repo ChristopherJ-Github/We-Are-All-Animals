@@ -21902,8 +21902,38 @@ MonoBehaviour:
   maxSpeed: .5
   minGravity: .0399999991
   maxGravity: 0
+  windToVelocity:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   minRandomization: 0
   maxRandomization: 14.5
+  windToRandomization:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   colors:
   - {r: .75, g: .75, b: .75, a: 1}
   - {r: .529411793, g: .529411793, b: .529411793, a: 1}

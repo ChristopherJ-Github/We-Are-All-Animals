@@ -108,15 +108,19 @@ public class LeafParticles : MonoBehaviour {
 	
 	public float minSpeed, maxSpeed;
 	public float minGravity, maxGravity;
+	public AnimationCurve windToVelocity;
 	private ParticleAnimator particleAnimator;
 	public float minRandomization, maxRandomization;
+	public AnimationCurve windToRandomization;
 	void UpdateVelocity (float windiness) {
-		
-		float speed = Mathf.Lerp (minSpeed, maxSpeed, windiness);
+
+		float velocityAmount = windToVelocity.Evaluate (windiness);
+		float speed = Mathf.Lerp (minSpeed, maxSpeed, velocityAmount);
 		Vector3 currentHorizontalVelocity = WindControl.instance.direction * speed;
-		float gravity = Mathf.Lerp (minGravity, maxGravity, windiness);
+		float gravity = Mathf.Lerp (minGravity, maxGravity, velocityAmount);
 		particleAnimator.force = Vector3.down * gravity + currentHorizontalVelocity;
-		float currentRandomization = Mathf.Lerp (minRandomization, maxRandomization, windiness);
+		float randomizationAmount = windToRandomization.Evaluate (windiness);
+		float currentRandomization = Mathf.Lerp (minRandomization, maxRandomization, randomizationAmount);
 		particleAnimator.rndForce = (new Vector3 (1, 0, 1)) * currentRandomization;
 	}
 
