@@ -21927,11 +21927,11 @@ MonoBehaviour:
     - time: .75
       value: 1
       inSlope: 0
-      outSlope: -10.0000038
+      outSlope: -8.33333302
       tangentMode: 21
-    - time: .849999964
+    - time: .870000005
       value: 0
-      inSlope: -10.0000038
+      inSlope: -8.33333302
       outSlope: -0
       tangentMode: 21
     - time: 1
