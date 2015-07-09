@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class BirthdayManager : Singleton<BirthdayManager> {
 
@@ -26,8 +27,8 @@ public class BirthdayManager : Singleton<BirthdayManager> {
 
 		DeactivateLastBirthday ();
 		foreach (BirthdayInfo birthday in birthdays) {
-			if (birthday.month == SceneManager.currentDate.Month &&
-			    birthday.day == SceneManager.currentDate.Day) {
+			if (birthday.month == SceneManager.realDate.Month &&
+			    birthday.day == SceneManager.realDate.Day) {
 				ActivateBirthday(birthday);
 			}
 		}
@@ -49,7 +50,7 @@ public class BirthdayManager : Singleton<BirthdayManager> {
 	private AnimalAnimator currentAnimal;
 	void MakeAnimalSpawnAttempt () {
 
-		if (Random.Range (0,100) < currentBirthday.spawnChance && currentAnimal == null) {
+		if (UnityEngine.Random.Range (0,100) < currentBirthday.spawnChance && currentAnimal == null) {
 			GameObject animalObj = Instantiate(currentBirthday.toSpawn) as GameObject;
 			currentAnimal = animalObj.GetComponent<AnimalAnimator> ();
 		}

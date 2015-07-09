@@ -8,8 +8,13 @@ public class SceneManager : Singleton<SceneManager>
 		public static GameObject mainScene;	 						//an array of all scenes to instantiate/destroy on timing					
 		public static GameObject currentScene;							//reference to current scene
 		public static DateTime currentDate = DateTime.Now;			//public for accesibility from GUI
-		public static DateTime startupTime;									//reference to original start date for calculations
-		
+		public static DateTime startupTime;
+		public static DateTime realDate {
+			get {
+				return currentDate.AddMinutes(-60 * 24 * (int)(365 / 4));
+			}
+		}
+
 		public static DateTime dayStart;
 		public static DateTime yearStart;
 		public static DateTime yearEnd;
