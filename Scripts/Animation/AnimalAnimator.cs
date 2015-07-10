@@ -23,7 +23,8 @@ public class AnimalAnimator: MonoBehaviour {
 		AnimationSpawner.instance.currentAnimations.Add(this);
 		speed = initSpeed;
 		animation = animal.GetComponent<Animation> ();
-		animation.Play(initAnimation.name);
+		if (initAnimation != null)
+			animation.Play(initAnimation.name);
 		List<Spline> splines = GetSplines ();
 		splineIndex = GetSplineIndex(splines.Count);
 		if (splineIndex != -1) {
