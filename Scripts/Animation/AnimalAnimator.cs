@@ -198,7 +198,8 @@ public class AnimalAnimator: MonoBehaviour {
 		stopNodePosition = -1f;
 		return false;
 	}
-	
+
+	private Vector3 rotationBeforeIdle;
 	bool StopNodeReached (float currentPosition, float nodePosition, int nodeIndex) {
 		
 		stopNodeProperties = stopNodeArray[nodeIndex].gameObject.GetComponent<StopNodeProperties>();
@@ -215,27 +216,14 @@ public class AnimalAnimator: MonoBehaviour {
 				randomAnimationInterval = Random.Range(stopNodeProperties.minInterval, stopNodeProperties.maxInterval);
 				splineState = idle;
 			}	
-			if (stopNodeProperties.rotation != Vector3.zero)
+			if (stopNodeProperties.rotation != Vector3.zero) {
+				rotationBeforeIdle = animal.transform.localEulerAngles;
 				StartCoroutine(Rotate(stopNodeProperties.rotation));
+			}
 			nodePassed[nodeIndex] = true;
 			return true;
 		}
 		return false;
-	}
-
-	IEnumerator Rotate (Vector3 targetRotation) {
-
-		Quaternion targetQuaternion = Quaternion.Euler (targetRotation);
-		Quaternion initQuaternion = transform.localRotation;
-		float timePassed = 0;
-		float timeLimit = 1;
-		while (timePassed < timeLimit) {
-			timePassed += Time.deltaTime;
-			float rotationAmount = Mathf.Clamp01(timePassed/timeLimit);
-			Quaternion currentQuaternion = Quaternion.Lerp(initQuaternion, targetQuaternion, rotationAmount);
-			animal.transform.localRotation = currentQuaternion;
-			yield return null;
-		}
 	}
 
 	void landing () {
@@ -246,6 +234,21 @@ public class AnimalAnimator: MonoBehaviour {
 			stopIn = stopNodeProperties.duration;
 			animation.CrossFade(idleAnimation.name);
 		} 
+	}
+	
+	IEnumerator Rotate (Vector3 targetRotation) {
+		
+		Quaternion targetQuaternion = Quaternion.Euler (targetRotation);
+		Quaternion initQuaternion = animal.transform.localRotation;
+		float timePassed = 0;
+		float timeLimit = 0.3f;
+		while (timePassed < timeLimit) {
+			timePassed += Time.deltaTime;
+			float rotationAmount = Mathf.Clamp01(timePassed/timeLimit);
+			Quaternion currentQuaternion = Quaternion.Lerp(initQuaternion, targetQuaternion, rotationAmount);
+			animal.transform.localRotation = currentQuaternion;
+			yield return null;
+		}
 	}
 	
 	private float randomAnimationInterval;
@@ -267,12 +270,14 @@ public class AnimalAnimator: MonoBehaviour {
 				if (stopNodeProperties.afterMovementSpeed > 0) 
 					speed = stopNodeProperties.afterMovementSpeed;	
 			}
+			if (stopNodeProperties.rotation != Vector3.zero) 
+				StartCoroutine(Rotate(rotationBeforeIdle));
 		} 
 	}
 
 	void StormCheck () {
 
-		if (WeatherControl.instance.storm)
+		if (WeatherControl.instance.storm || Tester.buttonPressed)
 			stopIn = 0;
 	}
 
