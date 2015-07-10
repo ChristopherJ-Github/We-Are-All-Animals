@@ -15,4 +15,5 @@ public class StopNodeProperties : MonoBehaviour {
 	public float afterMovementSpeed;
 	public bool showBirdFields;
 	public bool showRandomAnimFields;
+	public Vector3 rotation;
 }

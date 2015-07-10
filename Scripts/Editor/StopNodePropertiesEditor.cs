@@ -16,7 +16,8 @@ public class StopNodePropertiesEditor : Editor {
 	public SerializedProperty afterMovementSpeed;
 	public SerializedProperty showBirdFields;
 	public SerializedProperty showRandomAnimFields;
-	
+	public SerializedProperty rotation;
+
 	public void OnEnable() {
 
 		idleAnimation = serializedObject.FindProperty ("idleAnimation");
@@ -32,6 +33,7 @@ public class StopNodePropertiesEditor : Editor {
 		afterMovementSpeed = serializedObject.FindProperty ("afterMovementSpeed");
 		showBirdFields = serializedObject.FindProperty ("showBirdFields");
 		showRandomAnimFields = serializedObject.FindProperty ("showRandomAnimFields");
+		rotation = serializedObject.FindProperty ("rotation");
 	}
 
 	public override void OnInspectorGUI() {
@@ -44,6 +46,7 @@ public class StopNodePropertiesEditor : Editor {
 		EditorGUILayout.PropertyField (afterMovementAnimation,  new GUIContent("Animation Afterwards"));
 		EditorGUILayout.PropertyField (afterMovementSpeed,  new GUIContent("Speed"));
 		BirdFields ();
+		EditorGUILayout.PropertyField (rotation,  new GUIContent("Rotation"));
 		serializedObject.ApplyModifiedProperties ();
 	}
 

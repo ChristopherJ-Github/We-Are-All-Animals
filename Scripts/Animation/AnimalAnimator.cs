@@ -215,10 +215,27 @@ public class AnimalAnimator: MonoBehaviour {
 				randomAnimationInterval = Random.Range(stopNodeProperties.minInterval, stopNodeProperties.maxInterval);
 				splineState = idle;
 			}	
+			if (stopNodeProperties.rotation != Vector3.zero)
+				StartCoroutine(Rotate(stopNodeProperties.rotation));
 			nodePassed[nodeIndex] = true;
 			return true;
 		}
 		return false;
+	}
+
+	IEnumerator Rotate (Vector3 targetRotation) {
+
+		Quaternion targetQuaternion = Quaternion.Euler (targetRotation);
+		Quaternion initQuaternion = transform.localRotation;
+		float timePassed = 0;
+		float timeLimit = 1;
+		while (timePassed < timeLimit) {
+			timePassed += Time.deltaTime;
+			float rotationAmount = Mathf.Clamp01(timePassed/timeLimit);
+			Quaternion currentQuaternion = Quaternion.Lerp(initQuaternion, targetQuaternion, rotationAmount);
+			animal.transform.localRotation = currentQuaternion;
+			yield return null;
+		}
 	}
 
 	void landing () {
