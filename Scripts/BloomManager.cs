@@ -20,6 +20,7 @@ public class BloomManager : MonoBehaviour {
 
 		float tintAmount = tintOverYear.Evaluate (SceneManager.curvePos);
 		float currentTint = Mathf.Lerp (0, maxTint, tintAmount);
-		glowEffect.glowTint = Color.Lerp (Color.black, Color.white, currentTint);
+		float tintAfterSnow = Mathf.Lerp (currentTint, 0, SnowManager.instance.snowLevel);
+		glowEffect.glowTint = Color.Lerp (Color.black, Color.white, tintAfterSnow);
 	}
 }
