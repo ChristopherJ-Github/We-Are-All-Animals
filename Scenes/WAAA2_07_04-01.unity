@@ -3186,6 +3186,7 @@ GameObject:
   - 4: {fileID: 154805018}
   - 114: {fileID: 154805019}
   - 114: {fileID: 154805020}
+  - 114: {fileID: 154805021}
   m_Layer: 0
   m_Name: Effects System
   m_TagString: Untagged
@@ -3374,6 +3375,45 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   maxTint: .115999997
+--- !u!114 &154805021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154805017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa286665248032541b92ceee52dae083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saturationFilter:
+    LutTexture: {fileID: 2800000, guid: 11e8f0fbb9964d140a1d820dd3cdc450, type: 3}
+    blend: 0
+  saturationOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0
+      tangentMode: 21
+    - time: .833000064
+      value: 1
+      inSlope: 0
+      outSlope: -23.2558231
+      tangentMode: 21
+    - time: .876000047
+      value: 0
+      inSlope: -23.2558231
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &158242521
 GameObject:
   m_ObjectHideFlags: 0
@@ -22120,6 +22160,7 @@ MonoBehaviour:
   minFlowerBending: 0
   maxFlowerBending: .25999999
   windiness: 1
+  testValue: .300000012
   dust: {fileID: 421872992}
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
@@ -32811,8 +32852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alphaMapsOverYear:
   - dates:
-    - month: 1
-      day: 1
+    - month: 11
+      day: 15
     date:
       month: 0
       day: 1
@@ -32965,7 +33006,7 @@ MonoBehaviour:
     - month: 10
       day: 25
     - month: 11
-      day: 15
+      day: 1
     date:
       month: 0
       day: 1
@@ -50535,18 +50576,18 @@ MonoBehaviour:
     - time: .802998006
       value: 1
       inSlope: 0
-      outSlope: .127450868
-      tangentMode: 5
-    - time: .900409102
-      value: .755517542
-      inSlope: -5.04800606
-      outSlope: -5.04800606
-      tangentMode: 10
+      outSlope: -14.4923267
+      tangentMode: 21
+    - time: .872000039
+      value: 0
+      inSlope: -14.4923267
+      outSlope: -0
+      tangentMode: 21
     - time: 1
       value: 0
-      inSlope: -7.58621073
-      outSlope: -.385940075
-      tangentMode: 21
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   minSaturation: .342000008

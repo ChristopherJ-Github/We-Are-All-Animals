@@ -59,7 +59,7 @@ public class FilterManager : Singleton<FilterManager> {
 		stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
 		stormBlend = 0;
 	}
-	
+
 	void Update () {
 
 		UpdateMainFilter ();
