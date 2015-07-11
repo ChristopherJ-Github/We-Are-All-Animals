@@ -65,19 +65,23 @@ public class WindControl : Singleton<WindControl> {
 	public float minTurbulence, maxTurbulence;
 	public float minFlowerBending, maxFlowerBending;
 	[HideInInspector] public float windiness; 
-	public float testValue;
+	public AnimationCurve windMultiplierOveryear;
+	public float minWindMutliplier;
 	public void SetValues (float wnd) {
-		
+
+		float multiplierAmount = windMultiplierOveryear.Evaluate (SceneManager.curvePos);
+		float amountAfterSnow = Mathf.Lerp (multiplierAmount, 1, SnowManager.instance.snowLevel);
+		float windMultiplier = Mathf.Lerp (minWindMutliplier, 1, amountAfterSnow);
 		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence , wnd);
 		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, wnd);
-		turbulence *= testValue;
-		mainWind *= testValue;
+		turbulence *= windMultiplier;
+		mainWind *= windMultiplier;
 #if !UNITY_WEBPLAYER
 		WindZone.WindMain = mainWind;
 		WindZone.WindTurbulence = turbulence;
 #endif
 		TerrainData terrainData = terrain.terrainData;
-		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, wnd) * testValue;  //the variables names are off
+		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, wnd) * windMultiplier;  //the variables names are off
 		windiness = wnd;
 	}
 

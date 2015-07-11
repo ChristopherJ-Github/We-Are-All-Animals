@@ -74,10 +74,11 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 	}
 
 	public AnimationCurve leafAmountOverYear;
+	[HideInInspector] public float leafAmount;
 	public static bool thereAreLeaves;
 	void UpdateLeafAmount () {
 
-		float leafAmount = leafAmountOverYear.Evaluate (SceneManager.curvePos);
+		leafAmount = leafAmountOverYear.Evaluate (SceneManager.curvePos);
 		thereAreLeaves = leafAmount > 0;
 		Shader.SetGlobalFloat ("_LeafAmount", leafAmount);
 	}

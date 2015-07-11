@@ -22142,7 +22142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: -.697416604, y: 0, z: .716665983}
+  direction: {x: .214878038, y: 0, z: .97664088}
   directionChangeSpeed: 3.5
   likelyWindinessOverYear:
     serializedVersion: 2
@@ -22187,8 +22187,38 @@ MonoBehaviour:
   maxTurbulence: 6.25
   minFlowerBending: 0
   maxFlowerBending: .25999999
-  windiness: 1
-  testValue: .300000012
+  windiness: .24818024
+  windMultiplierOveryear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .0500000119
+      inSlope: 5.58823538
+      outSlope: 8.63636398
+      tangentMode: 21
+    - time: .109999999
+      value: 1
+      inSlope: 8.63636398
+      outSlope: -0
+      tangentMode: 21
+    - time: .829999983
+      value: 1
+      inSlope: 0
+      outSlope: -24.9999866
+      tangentMode: 21
+    - time: .870000005
+      value: 0
+      inSlope: -24.9999866
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  minWindMutliplier: .300000012
   dust: {fileID: 421872992}
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
