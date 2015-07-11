@@ -16365,7 +16365,35 @@ MonoBehaviour:
   middayCloudy: {r: .419607848, g: .490196079, b: .541176498, a: 0}
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
-  midday: {r: .699883878, g: .794407308, b: .873338521, a: .995024979}
+  midday: {r: .421408474, g: .497398555, b: .556781888, a: .0765264034}
+  maxBrightness: 6.73000002
+  brightnessOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    - time: .834999979
+      value: 0
+      inSlope: 0
+      outSlope: 28.5714073
+      tangentMode: 21
+    - time: .870000005
+      value: 1
+      inSlope: 28.5714073
+      outSlope: -.00323194731
+      tangentMode: 21
+    - time: 1
+      value: .999579847
+      inSlope: -.00323194731
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  lightShafts: {fileID: 1930510223}
+  brightness: 0
   daytimeToDarkeningRain:
     serializedVersion: 2
     m_Curve:
@@ -49188,7 +49216,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1930510219}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0109504c2f6a31b4498a8fd6a490584a, type: 3}
   m_Name: 
@@ -49196,7 +49224,7 @@ MonoBehaviour:
   m_ShadowmapMode: 0
   m_Cameras:
   - {fileID: 825264548}
-  m_CurrentCamera: {fileID: 825264548}
+  m_CurrentCamera: {fileID: 0}
   m_Size: {x: 268.880005, y: 268.880005, z: 273.600006}
   m_SpotNear: .0500000007
   m_SpotFar: 1
@@ -49206,7 +49234,7 @@ MonoBehaviour:
   m_ColorFilterMask:
     serializedVersion: 2
     m_Bits: 0
-  m_Brightness: 85.9000015
+  m_Brightness: 21.4500008
   m_BrightnessColored: 70.8199997
   m_Extinction: 14.4499998
   m_MinDistFromCamera: 0
@@ -53980,11 +54008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c8f2f834579441b0a35fc749ac19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightShafts: {fileID: 1930510223}
   minBrightness: 6.73000002
   maxBrightness: 18.2000008
-  minExtinction: 1000
-  maxExtinction: .439999998
-  lightShafts: {fileID: 1930510223}
 --- !u!1 &2138957626
 GameObject:
   m_ObjectHideFlags: 0

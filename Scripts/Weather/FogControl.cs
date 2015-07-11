@@ -27,8 +27,9 @@ public class FogControl : Singleton<FogControl> {
 	}
 
 	void Update () {
-		
+
 		SetMidayColor ();
+		UpdateLightShaftBrightness ();
 	}
 
 	public Gradient _midday;
@@ -47,6 +48,25 @@ public class FogControl : Singleton<FogControl> {
 		Color middayAfterStorm = Color.Lerp (middayAfterSnow, middayStorm, stormTinting);
 		Color middayAfterCloudDarkening = AddCloudDarkening (middayAfterStorm);
 		midday = middayAfterCloudDarkening;
+	}
+
+	public float maxBrightness;
+	public AnimationCurve brightnessOverYear;
+	void UpdateLightShaftBrightness () {
+
+		float brightnessAmount = brightnessOverYear.Evaluate (SceneManager.curvePos);
+		float currentBrightness = Mathf.Lerp (0, maxBrightness, brightnessAmount);
+		SetLightShaftBrightness (currentBrightness);
+	}
+
+	public LightShafts lightShafts;
+	[HideInInspector] public float brightness;
+	public void SetLightShaftBrightness (float brightness) {
+
+		float brightnessDarkened = Mathf.Lerp (0, brightness, SkyManager.instance.nightDayLerp);
+		this.brightness = brightnessDarkened;
+		lightShafts.enabled = this.brightness > 0;
+		lightShafts.m_Brightness = this.brightness;
 	}
 
 	public AnimationCurve daytimeToDarkeningRain, daytimeToDarkeningSnow;

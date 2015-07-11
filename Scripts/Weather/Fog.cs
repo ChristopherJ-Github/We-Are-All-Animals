@@ -2,18 +2,15 @@
 using System.Collections;
 
 public class Fog : MonoBehaviour {
-
-	private bool applicationIsQuitting;
-	public float minBrightness, maxBrightness;
-	private float brightness;
-	public float minExtinction, maxExtinction;
+	
 	public LightShafts lightShafts;
+	private float initBrightness;
 
 	void OnEnable () {
 
+		initBrightness = FogControl.instance.brightness;
 		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
 		GUIManager.instance.OnGuiEvent += UpdateSeverity;
-		lightShafts.enabled = true;
 		UpdateFog ();
 	}
 
@@ -22,23 +19,26 @@ public class Fog : MonoBehaviour {
 		WeatherControl.instance.severity = severity;
 		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
 	}
-	
+
+	private float brightness;
+	public float minBrightness, maxBrightness;
 	void UpdateFog () {
 
-		float _brightness = Mathf.Lerp (0, brightness, SkyManager.instance.nightDayLerp);
-		lightShafts.m_Brightness = Mathf.Lerp (0, _brightness, WeatherControl.instance.transition);
-		//lightShafts.m_Extinction = Mathf.Lerp (minExtinction, maxExtinction, WeatherControl.instance.transition);
+		float maxBrightness = brightness < initBrightness ? initBrightness : brightness;
+		float currentBrightness = Mathf.Lerp (initBrightness, maxBrightness, WeatherControl.instance.transition);
+		FogControl.instance.SetLightShaftBrightness (currentBrightness);
 	}
 	
 	void Update () {
 		
 		UpdateFog ();
 	}
-	
+
+	private bool applicationIsQuitting;
 	void OnDisable () {
 
 		if (applicationIsQuitting) return;
-		lightShafts.enabled = false;
+		FogControl.instance.SetLightShaftBrightness (initBrightness);
 	}
 
 	void OnApplicationQuit () {
