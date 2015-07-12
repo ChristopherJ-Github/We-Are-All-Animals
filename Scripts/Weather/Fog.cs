@@ -8,7 +8,8 @@ public class Fog : MonoBehaviour {
 
 	void OnEnable () {
 
-		initBrightness = FogControl.instance.brightness;
+		initBrightness = FogControl.instance.brightnessOverYear.Evaluate (SceneManager.curvePos);
+		Debug.Log (initBrightness);
 		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
 		GUIManager.instance.OnGuiEvent += UpdateSeverity;
 		UpdateFog ();
