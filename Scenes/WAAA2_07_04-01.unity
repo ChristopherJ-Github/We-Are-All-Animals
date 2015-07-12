@@ -15595,7 +15595,6 @@ MonoBehaviour:
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
   midday: {r: .421408474, g: .497398555, b: .556781888, a: .0765264034}
-  maxBrightness: 6.73000002
   brightnessOverYear:
     serializedVersion: 2
     m_Curve:
@@ -15621,8 +15620,10 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+  maxDailyBrightnessAmount: .369780004
   lightShafts: {fileID: 1930510223}
-  brightness: 0
+  brightnessAmount: 0
+  maxBrightness: 18.2000008
   daytimeToDarkeningRain:
     serializedVersion: 2
     m_Curve:
@@ -29066,6 +29067,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
+  testValue: 0
   minDelaySpeed: .0399999991
   maxDelaySpeed: 1
   minExtraOvercast: 0
@@ -51326,8 +51328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightShafts: {fileID: 1930510223}
-  minBrightness: 6.73000002
-  maxBrightness: 18.2000008
+  minBrightnessAmount: .369780004
+  maxBrightnessAmount: 1
 --- !u!1 &2138957626
 GameObject:
   m_ObjectHideFlags: 0

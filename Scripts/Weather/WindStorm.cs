@@ -13,8 +13,8 @@ public class WindStorm : MonoBehaviour {
 
 	void Update () {
 
-		float transWindiness = Mathf.Lerp (initWindiness, WeatherControl.instance.severity < initWindiness ?
-		                                   initWindiness : WeatherControl.instance.severity, WeatherControl.instance.transition);
+		float maxWindiness = WeatherControl.instance.severity < initWindiness ? initWindiness : WeatherControl.instance.severity;
+		float transWindiness = Mathf.Lerp (initWindiness, maxWindiness, WeatherControl.instance.transition);
 		WindControl.instance.SetValues(transWindiness); 
 	}
 

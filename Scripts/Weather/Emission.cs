@@ -59,8 +59,8 @@ public class Emission : MonoBehaviour {
 		UpdateEmission (WeatherControl.instance.severity, WeatherControl.instance.transition);
 		SetBrightness ();
 		if (mainSystem) {
-			float transOvercast = UpdateOvercast ();
-			SkyManager.instance.sun.weatherDarkness = transOvercast; 
+			float overcastAmount = UpdateOvercast ();
+			SkyManager.instance.sun.weatherDarkness = overcastAmount; 
 			UpdateFog (transSeverity);
 		}
 	}
@@ -70,7 +70,9 @@ public class Emission : MonoBehaviour {
 	public CloudTinting cloudTinting;
 	float UpdateOvercast () {
 
-		float transOvercast = Mathf.InverseLerp (0f, 0.7f, WeatherControl.instance.cloudTransition);
+		float overcastAmount = Mathf.InverseLerp (0f, 0.7f, WeatherControl.instance.cloudTransition);
+		float maxOvercast = overcastAmount < initWindiness ? initWindiness : overcastAmount;
+		float transOvercast = Mathf.Lerp (initOvercast, maxOvercast, overcastAmount);
 		float grayAmount = 0, darkness = 0;
 		switch (cloudTinting) {
 			case CloudTinting.none:
@@ -85,7 +87,7 @@ public class Emission : MonoBehaviour {
 		}
 		CloudControl.instance.SetStormTint (grayAmount, darkness);
 		CloudControl.instance.SetOvercast (transOvercast); 
-		return transOvercast;
+		return overcastAmount;
 	}
 
 	private float initWindiness;

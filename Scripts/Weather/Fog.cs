@@ -4,13 +4,11 @@ using System.Collections;
 public class Fog : MonoBehaviour {
 	
 	public LightShafts lightShafts;
-	private float initBrightness;
+	private float initBrightnessAmount;
 
 	void OnEnable () {
 
-		initBrightness = FogControl.instance.brightnessOverYear.Evaluate (SceneManager.curvePos);
-		Debug.Log (initBrightness);
-		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
+		initBrightnessAmount = FogControl.instance.brightnessAmount;
 		GUIManager.instance.OnGuiEvent += UpdateSeverity;
 		UpdateFog ();
 	}
@@ -18,15 +16,14 @@ public class Fog : MonoBehaviour {
 	void UpdateSeverity (float severity) {
 
 		WeatherControl.instance.severity = severity;
-		brightness = Mathf.Lerp (minBrightness, maxBrightness, WeatherControl.instance.severity);
 	}
 
-	private float brightness;
-	public float minBrightness, maxBrightness;
+	public float minBrightnessAmount, maxBrightnessAmount;
 	void UpdateFog () {
 
-		float maxBrightness = brightness < initBrightness ? initBrightness : brightness;
-		float currentBrightness = Mathf.Lerp (initBrightness, maxBrightness, WeatherControl.instance.transition);
+		float brightnessAmount = Mathf.Lerp (minBrightnessAmount, maxBrightnessAmount, WeatherControl.instance.severity);
+		float maxBrightness = brightnessAmount < initBrightnessAmount ? initBrightnessAmount : brightnessAmount;
+		float currentBrightness = Mathf.Lerp (initBrightnessAmount, maxBrightness, WeatherControl.instance.transition);
 		FogControl.instance.SetLightShaftBrightness (currentBrightness);
 	}
 	
@@ -39,7 +36,7 @@ public class Fog : MonoBehaviour {
 	void OnDisable () {
 
 		if (applicationIsQuitting) return;
-		FogControl.instance.SetLightShaftBrightness (initBrightness);
+		FogControl.instance.SetLightShaftBrightness (initBrightnessAmount);
 	}
 
 	void OnApplicationQuit () {

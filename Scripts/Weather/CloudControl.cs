@@ -45,6 +45,7 @@ public class CloudControl : Singleton<CloudControl> {
 	private bool setOvercastCalled;
 	public void SetOvercast(float overcast) {
 
+		Debug.Log ("overcast: " + overcast);
 		setOvercastCalled = true;
 		this.overcast = SkyManager.instance.sunsetProgress > 0 ? GetNightOvercast (overcast) : overcast;
 		float scattering = Mathf.Lerp (minScattering, maxScattering, _overcast);
@@ -114,8 +115,10 @@ public class CloudControl : Singleton<CloudControl> {
 
 	[HideInInspector] public float grayAmount;
 	public AnimationCurve overcastToDarkening;
+	public float testValue;
 	public void SetStormTint (float grayAmount, float darkness) {
 
+		grayAmount *= testValue;
 		this.grayAmount = grayAmount;
 		Color initMidday = _midday.Evaluate (initMiddayValue);
 		Color middayGrayscale = new Color (initMidday.grayscale, initMidday.grayscale, initMidday.grayscale);
