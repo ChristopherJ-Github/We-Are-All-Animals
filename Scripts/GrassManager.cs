@@ -67,8 +67,6 @@ public class GrassManager : Singleton<GrassManager> {
 		GrassInfo prevSet, nextSet;
 		SetSets (out prevSet, out nextSet);
 		float blend = GetBlend (prevSet, nextSet);
-		Debug.Log (blend);
-		return;
 		StopAllCoroutines ();
 		StartCoroutine (FinalizeAlphaMaps (prevSet, nextSet, blend));
 	}
