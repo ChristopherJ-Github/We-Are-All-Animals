@@ -45,7 +45,6 @@ public class CloudControl : Singleton<CloudControl> {
 	private bool setOvercastCalled;
 	public void SetOvercast(float overcast) {
 
-		Debug.Log ("overcast: " + overcast);
 		setOvercastCalled = true;
 		this.overcast = SkyManager.instance.sunsetProgress > 0 ? GetNightOvercast (overcast) : overcast;
 		float scattering = Mathf.Lerp (minScattering, maxScattering, _overcast);

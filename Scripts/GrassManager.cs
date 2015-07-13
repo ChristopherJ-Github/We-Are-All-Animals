@@ -67,6 +67,8 @@ public class GrassManager : Singleton<GrassManager> {
 		GrassInfo prevSet, nextSet;
 		SetSets (out prevSet, out nextSet);
 		float blend = GetBlend (prevSet, nextSet);
+		Debug.Log (blend);
+		return;
 		StopAllCoroutines ();
 		StartCoroutine (FinalizeAlphaMaps (prevSet, nextSet, blend));
 	}
@@ -92,16 +94,50 @@ public class GrassManager : Singleton<GrassManager> {
 		return _alphaMapsOverYear.Count - 1;
 	}
 	
-	float GetBlend (GrassInfo _prevSet, GrassInfo _nextSet) { //days aren't taken into account like 12/4 vs 12/3
+	float GetBlend (GrassInfo prevSet, GrassInfo nextSet) {
 
-		int prevSetYear = SceneManager.currentDate.Year;
-		DateTime prevSetDate = new DateTime (prevSetYear, _prevSet.date.month, _prevSet.date.day);
-		int nextSetYear = _prevSet.date.month < _nextSet.date.month ? prevSetYear : prevSetYear + 1;
-		DateTime nextSetDate = new DateTime (nextSetYear, _nextSet.date.month, _nextSet.date.day);
+		int prevSetYear = GetPrevSetYear (prevSet);
+		int nextSetYear = GetNextSetYear (nextSet);
+		DateTime prevSetDate = new DateTime (prevSetYear, prevSet.date.month, prevSet.date.day);
+		DateTime nextSetDate = new DateTime (nextSetYear, nextSet.date.month, nextSet.date.day);
 		double totalMinutes = (nextSetDate - prevSetDate).TotalMinutes;
 		double currentMinutes = (SceneManager.currentDate - prevSetDate).TotalMinutes;
 		float blend = (float)(currentMinutes / totalMinutes);
 		return blend;
+	}
+
+	bool AreDatesInOrder (int firstMonth, int firstDay, int secondMonth, int secondDay) {
+
+		if (firstMonth < secondMonth) {
+			return true;
+		} else if (secondMonth < firstMonth) {
+			return false;
+		} else {
+			if (firstDay <= secondDay)
+				return true;
+			else
+				return false;
+		}
+	}
+
+	int GetPrevSetYear (GrassInfo prevSet) {
+
+		DateTime currentDate = SceneManager.currentDate;
+		Date prevDate = prevSet.date;
+		if (AreDatesInOrder(prevDate.month, prevDate.day, currentDate.Month, currentDate.Day))
+			return currentDate.Year;
+		else 
+		    return currentDate.Year - 1;
+	}
+
+	int GetNextSetYear (GrassInfo nextSet) {
+
+		DateTime currentDate = SceneManager.currentDate;
+		Date nextDate = nextSet.date;
+		if (AreDatesInOrder(currentDate.Month, currentDate.Day, nextDate.month, nextDate.day))
+			return currentDate.Year;
+		else 
+			return currentDate.Year + 1;
 	}
 
 	public Vector2 cropOrigin;
