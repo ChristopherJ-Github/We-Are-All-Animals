@@ -15604,15 +15604,25 @@ MonoBehaviour:
   middayCloudy: {r: .419607848, g: .490196079, b: .541176498, a: 0}
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
-  midday: {r: .421408474, g: .497398555, b: .556781888, a: .0765264034}
+  midday: {r: .487074226, g: .568315029, b: .661905766, a: .452734888}
   brightnessOverYear:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
+      inSlope: Infinity
+      outSlope: -0
+      tangentMode: 21
+    - time: .164000005
+      value: 1
       inSlope: 0
-      outSlope: 0
-      tangentMode: 10
+      outSlope: -11.7647047
+      tangentMode: 21
+    - time: .249000013
+      value: 0
+      inSlope: -11.7647047
+      outSlope: -0
+      tangentMode: 21
     - time: .834999979
       value: 0
       inSlope: 0
