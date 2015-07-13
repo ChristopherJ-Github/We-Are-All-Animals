@@ -3262,8 +3262,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
+      outSlope: -0
+      tangentMode: 21
+    - time: .164000005
+      value: 0
+      inSlope: 0
+      outSlope: 11.7647047
+      tangentMode: 21
+    - time: .249000013
+      value: 1
+      inSlope: 11.7647047
       outSlope: -0
       tangentMode: 21
     - time: .833000064
@@ -31383,8 +31393,6 @@ MonoBehaviour:
     - alphaMap: {fileID: 2800000, guid: 000c1dbbe5ba7a748bfb78125a364e05, type: 3}
       black: 0
   - dates:
-    - month: 4
-      day: 1
     - month: 4
       day: 1
     date:
