@@ -13,7 +13,6 @@ public class FlowerManager : Singleton<FlowerManager> {
 	
 	TerrainData terrainData;
 	public Texture2D noise;
-	public AnimationCurve mainGrowthOverYear;
 	public float minGrowth;
 	public List<FlowerInfo> flowerAlphaMaps;
 	private Texture2D detailMap;
@@ -55,9 +54,7 @@ public class FlowerManager : Singleton<FlowerManager> {
 				for (int map = 0; map < terrainData.detailPrototypes.Length; map ++) {
 
 					detailMap = flowerAlphaMaps[map].detailMap;
-					AnimationCurve growthOverYear = flowerAlphaMaps[map].useMainCurve ? mainGrowthOverYear : flowerAlphaMaps[map].growthOverYear;
-					float growthAmount = growthOverYear.Evaluate (SceneManager.curvePos);
-					float growth = Mathf.Lerp(minGrowth, 1, growthAmount);
+					float growth = Mathf.Lerp(minGrowth, 1, 1 - SnowManager.instance.snowLevel);
 					Color[] detailMapPixels = detailMap.GetPixels(offsetOriginY, offsetOriginX, blockWidth, blockWidth);
 					Color[] safeZonePixels = safeZone.GetPixels(offsetOriginY, offsetOriginX, blockWidth, blockWidth);
 

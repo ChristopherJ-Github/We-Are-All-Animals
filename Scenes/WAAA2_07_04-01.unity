@@ -3266,14 +3266,14 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .164000005
+    - time: .164999992
       value: 0
       inSlope: 0
-      outSlope: 11.7647047
+      outSlope: 11.9047585
       tangentMode: 21
     - time: .249000013
       value: 1
-      inSlope: 11.7647047
+      inSlope: 11.9047585
       outSlope: -0
       tangentMode: 21
     - time: .833000064
@@ -15613,14 +15613,14 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: -0
       tangentMode: 21
-    - time: .164000005
+    - time: .164999992
       value: 1
       inSlope: 0
-      outSlope: -11.7647047
+      outSlope: -11.9047585
       tangentMode: 21
     - time: .249000013
       value: 0
-      inSlope: -11.7647047
+      inSlope: -11.9047585
       outSlope: -0
       tangentMode: 21
     - time: .834999979
@@ -19933,36 +19933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noise: {fileID: 2800000, guid: 8a92248f79d255d44b9f6cb07212ce69, type: 3}
-  mainGrowthOverYear:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: -.070731692
-      outSlope: -0
-      tangentMode: 21
-    - time: .164999992
-      value: 0
-      inSlope: 0
-      outSlope: 11.1111107
-      tangentMode: 21
-    - time: .254999995
-      value: 1
-      inSlope: 11.1111107
-      outSlope: -0
-      tangentMode: 21
-    - time: .949999988
-      value: 1
-      inSlope: 0
-      outSlope: -19.9999962
-      tangentMode: 21
-    - time: 1
-      value: 0
-      inSlope: -19.9999962
-      outSlope: .026460778
-      tangentMode: 21
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   minGrowth: .120999999
   flowerAlphaMaps:
   - detailMap: {fileID: 2800000, guid: 7bdf9bdf2895cff4f92c3f3d1b8b0e51, type: 3}
@@ -29028,13 +28998,13 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 10
     - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -29042,14 +29012,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1.030936
+      value: 1
       inSlope: 0
-      outSlope: -.0188602265
+      outSlope: -0
       tangentMode: 21
-    - time: .24717617
-      value: 1.0262742
-      inSlope: -.0188602265
-      outSlope: -43.2777672
+    - time: .164999992
+      value: 1
+      inSlope: 0
+      outSlope: -17.3803864
       tangentMode: 5
     - time: .291571736
       value: .0133690238
@@ -29064,11 +29034,11 @@ MonoBehaviour:
     - time: .952463925
       value: 1
       inSlope: 51.4883499
-      outSlope: .202491969
+      outSlope: -0
       tangentMode: 17
     - time: 1
-      value: 1.00962567
-      inSlope: .202491969
+      value: 1
+      inSlope: 0
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -29112,8 +29082,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  middayValue: .286316067
-  midday: {r: .568627477, g: .631372571, b: .752941191, a: 1}
+  middayValue: .0316699632
+  midday: {r: .631372571, g: .698039234, b: .835294127, a: 1}
   _midday:
     key0:
       serializedVersion: 2
@@ -29232,7 +29202,7 @@ MonoBehaviour:
   minExtraOvercast: 0
   maxExtraOvercast: .349999994
   snowInfluence: .100000001
-  extraOvercast: -.0673058704
+  extraOvercast: .117358476
   changeSpeed: .109999999
 --- !u!1 &1255126903
 GameObject:
@@ -29316,7 +29286,7 @@ MonoBehaviour:
   leafMatNumber: 1
   bark: []
   leaves: []
-  minLeafAmount: .710650027
+  minLeafAmount: .710799992
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -31356,6 +31326,8 @@ MonoBehaviour:
   - dates:
     - month: 11
       day: 15
+    - month: 3
+      day: 1
     date:
       month: 0
       day: 1
@@ -39850,7 +39822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11460140, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: minLeafAmount
-      value: .710650027
+      value: .710799992
       objectReference: {fileID: 0}
     - target: {fileID: 11460144, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
       propertyPath: minLeafAmount
@@ -48056,7 +48028,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  currentColor: {r: .984313726, g: .733333349, b: .709803939, a: 1}
+  currentColor: {r: 1, g: 1, b: 1, a: 1}
   updateBillboards: 1
   flowerColorOverYear:
     key0:
@@ -48064,13 +48036,13 @@ MonoBehaviour:
       rgba: 4287139260
     key1:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4287139260
     key2:
       serializedVersion: 2
       rgba: 16777215
     key3:
       serializedVersion: 2
-      rgba: 8949180
+      rgba: 16777215
     key4:
       serializedVersion: 2
       rgba: 8949180
@@ -48084,9 +48056,9 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 0
     ctime0: 0
-    ctime1: 16912
-    ctime2: 43236
-    ctime3: 57463
+    ctime1: 10748
+    ctime2: 16912
+    ctime3: 43236
     ctime4: 57463
     ctime5: 57463
     ctime6: 57463
@@ -48099,7 +48071,7 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_NumColorKeys: 4
+    m_NumColorKeys: 5
     m_NumAlphaKeys: 2
   saturationOverYear:
     serializedVersion: 2
@@ -48109,14 +48081,14 @@ MonoBehaviour:
       inSlope: 7.53217649
       outSlope: -0
       tangentMode: 21
-    - time: .0899999961
+    - time: .164999992
       value: 0
       inSlope: 0
-      outSlope: 5.26315784
+      outSlope: 8.69565105
       tangentMode: 21
     - time: .280000001
       value: 1
-      inSlope: 5.26315784
+      inSlope: 8.69565105
       outSlope: -0
       tangentMode: 21
     - time: .802998006
