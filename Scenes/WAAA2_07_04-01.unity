@@ -3216,14 +3216,14 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .669999957
+    - time: .729999959
       value: 0
       inSlope: 0
-      outSlope: 6.24999905
+      outSlope: 9.99999809
       tangentMode: 21
     - time: .829999983
       value: 1
-      inSlope: 6.24999905
+      inSlope: 9.99999809
       outSlope: -33.3333664
       tangentMode: 21
     - time: .859999955
@@ -28996,14 +28996,14 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 10
-    - time: .779999971
+    - time: .75
       value: 0
       inSlope: 0
-      outSlope: 19.9999962
+      outSlope: 16.666666
       tangentMode: 21
-    - time: .829999983
+    - time: .810000002
       value: 1
-      inSlope: 19.9999962
+      inSlope: 16.666666
       outSlope: Infinity
       tangentMode: 29
     - time: .875
@@ -29097,8 +29097,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  middayValue: .558854401
-  midday: {r: .498039216, g: .552941203, b: .662745118, a: 1}
+  middayValue: .83054471
+  midday: {r: .431372553, g: .482352942, b: .576470613, a: 1}
   _midday:
     key0:
       serializedVersion: 2
