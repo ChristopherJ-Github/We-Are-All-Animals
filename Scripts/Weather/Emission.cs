@@ -71,7 +71,7 @@ public class Emission : MonoBehaviour {
 	float UpdateOvercast () {
 
 		float overcastAmount = Mathf.InverseLerp (0f, 0.7f, WeatherControl.instance.cloudTransition);
-		float maxOvercast = overcastAmount < initWindiness ? initWindiness : overcastAmount;
+		float maxOvercast = overcastAmount < initOvercast ? initOvercast : overcastAmount;
 		float transOvercast = Mathf.Lerp (initOvercast, maxOvercast, overcastAmount);
 		float grayAmount = 0, darkness = 0;
 		switch (cloudTinting) {
