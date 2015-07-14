@@ -15,7 +15,7 @@ public class CloudControl : Singleton<CloudControl> {
 		
 		RandomizeOvercast ();
 		RandomizeCloudHeight ();
-		RandomizeSkyboxTint (Random.value);
+		RandomizeSkyboxTint ();
 	}
 
 	public AnimationCurve maxCloudinessOverYear;
@@ -71,16 +71,20 @@ public class CloudControl : Singleton<CloudControl> {
 	}
 
 	public AnimationCurve overcastToRandomization;
-	private float initMiddayValue;
+	void RandomizeSkyboxTint () {
+
+		float maxRandomValue = overcastToRandomization.Evaluate (_overcast);
+		float tintValue = Mathf.Lerp(0, maxRandomValue, Random.value);
+		SetSkyboxTint (tintValue);
+	}
+
 	[HideInInspector] public float middayValue;
 	[HideInInspector] public Color midday;
 	public Gradient _midday;
 	public Gradient nightToDusk;
-	void RandomizeSkyboxTint (float tintValue) {
+	void SetSkyboxTint (float tintValue) {
 
-		float maxRandomValue = overcastToRandomization.Evaluate (_overcast);
-		middayValue = Mathf.Lerp(0, maxRandomValue, tintValue);
-		initMiddayValue = middayValue;
+		middayValue = tintValue;
 		midday = _midday.Evaluate (middayValue);
 	}
 
@@ -94,7 +98,8 @@ public class CloudControl : Singleton<CloudControl> {
 		Shader.SetGlobalVector("ls_cloudcolor", (new Vector3(1,0.9f,0.95f)));
 		Shader.SetGlobalFloat("ls_distScale", distScale);
 	}
-	
+
+	public float testValue;
 	void Update () {
 
 		SetCloudSpeed ();
@@ -103,6 +108,7 @@ public class CloudControl : Singleton<CloudControl> {
 		} else {
 			SetOvercast (initOvercast);
 		}
+		SetSkyboxTint (testValue);//debug
 	}
 
 	public float minSpeed, maxSpeed;
@@ -114,12 +120,10 @@ public class CloudControl : Singleton<CloudControl> {
 
 	[HideInInspector] public float grayAmount;
 	public AnimationCurve overcastToDarkening;
-	public float testValue;
 	public void SetStormTint (float grayAmount, float darkness) {
 
-		grayAmount *= testValue;
 		this.grayAmount = grayAmount;
-		Color initMidday = _midday.Evaluate (initMiddayValue);
+		Color initMidday = _midday.Evaluate (middayValue);
 		Color middayGrayscale = new Color (initMidday.grayscale, initMidday.grayscale, initMidday.grayscale);
 		Color middayAfterGray = Color.Lerp(initMidday, middayGrayscale, grayAmount);
 		float overcastInfluence = overcastToDarkening.Evaluate (_overcast);
