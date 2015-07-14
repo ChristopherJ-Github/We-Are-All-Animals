@@ -3219,23 +3219,18 @@ MonoBehaviour:
     - time: .669999957
       value: 0
       inSlope: 0
-      outSlope: 6.8965497
+      outSlope: 6.24999905
       tangentMode: 21
-    - time: .814999998
+    - time: .829999983
       value: 1
-      inSlope: 6.8965497
-      outSlope: -19.8528214
+      inSlope: 6.24999905
+      outSlope: -33.3333664
       tangentMode: 21
-    - time: .846166849
-      value: .381250083
-      inSlope: -11.6779461
-      outSlope: -11.6779461
-      tangentMode: 10
-    - time: .954999983
+    - time: .859999955
       value: 0
-      inSlope: .126673117
+      inSlope: -33.3333664
       outSlope: -0
-      tangentMode: 17
+      tangentMode: 21
     - time: 1
       value: 0
       inSlope: 0
@@ -3276,14 +3271,14 @@ MonoBehaviour:
       inSlope: 11.9047585
       outSlope: -0
       tangentMode: 21
-    - time: .833000064
+    - time: .829999983
       value: 1
       inSlope: 0
-      outSlope: -23.2558231
+      outSlope: -21.7391014
       tangentMode: 21
     - time: .876000047
       value: 0
-      inSlope: -23.2558231
+      inSlope: -21.7391014
       outSlope: -0
       tangentMode: 21
     - time: 1
@@ -15601,7 +15596,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  middayCloudy: {r: .419607848, g: .490196079, b: .541176498, a: 0}
+  middayCloudy: {r: .638570487, g: .66484642, b: .683823526, a: 0}
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
   midday: {r: .487074226, g: .568315029, b: .661905766, a: .452734888}
@@ -15623,14 +15618,14 @@ MonoBehaviour:
       inSlope: -11.9047585
       outSlope: -0
       tangentMode: 21
-    - time: .834999979
+    - time: .829999983
       value: 0
       inSlope: 0
-      outSlope: 28.5714073
+      outSlope: 24.9999866
       tangentMode: 21
     - time: .870000005
       value: 1
-      inSlope: 28.5714073
+      inSlope: 24.9999866
       outSlope: -.00323194731
       tangentMode: 21
     - time: 1
