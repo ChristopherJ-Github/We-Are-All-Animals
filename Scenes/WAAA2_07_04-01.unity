@@ -988,8 +988,8 @@ MonoBehaviour:
   - monthStart: 4
     day: 1
     prefab: {fileID: 100000, guid: 7f9991dbb6f477c4eaf81db028ef11c8, type: 2}
-  barkMatNumber: 1
-  leafMatNumber: 0
+  barkMatNumber: 0
+  leafMatNumber: 1
   bark: []
   leaves: []
   minLeafAmount: .75
@@ -29211,7 +29211,6 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  testValue: 0
   minDelaySpeed: .0399999991
   maxDelaySpeed: 1
   minExtraOvercast: 0
@@ -33816,8 +33815,8 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: a5b6957a194ce97458e25306535d74c7, type: 2}
-  barkMatNumber: 1
-  leafMatNumber: 0
+  barkMatNumber: 0
+  leafMatNumber: 1
   bark: []
   leaves: []
   minLeafAmount: .870000005
@@ -39927,6 +39926,46 @@ Prefab:
       propertyPath: minLeafAmount
       value: .800000012
       objectReference: {fileID: 0}
+    - target: {fileID: 11460076, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: leafMatNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460076, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: barkMatNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460168, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: barkMatNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460168, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: leafMatNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460082, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: leafMatNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460172, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: leafMatNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460082, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: barkMatNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460172, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: barkMatNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460074, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: leafMatNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460074, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: barkMatNumber
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
   m_RootGameObject: {fileID: 1205678102}
@@ -42175,8 +42214,8 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 69c985381cc8c4f26a086bb8e64a0ab5, type: 2}
-  barkMatNumber: 1
-  leafMatNumber: 0
+  barkMatNumber: 0
+  leafMatNumber: 1
   bark: []
   leaves: []
   minLeafAmount: .850000024
@@ -47831,6 +47870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535921bb9f461c34bb54e8053e51861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testValue: 1
 --- !u!1001 &1979131405
 Prefab:
   m_ObjectHideFlags: 0
@@ -49658,8 +49698,8 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 69c985381cc8c4f26a086bb8e64a0ab5, type: 2}
-  barkMatNumber: 1
-  leafMatNumber: 0
+  barkMatNumber: 0
+  leafMatNumber: 1
   bark: []
   leaves: []
   minLeafAmount: .879999995
@@ -51281,8 +51321,8 @@ MonoBehaviour:
   - monthStart: 11
     day: 15
     prefab: {fileID: 100000, guid: 13c789884a5a5314f8be126dd3357ec7, type: 2}
-  barkMatNumber: 1
-  leafMatNumber: 0
+  barkMatNumber: 0
+  leafMatNumber: 1
   bark: []
   leaves: []
   minLeafAmount: 0

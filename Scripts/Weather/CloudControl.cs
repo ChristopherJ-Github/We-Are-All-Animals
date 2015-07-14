@@ -98,8 +98,7 @@ public class CloudControl : Singleton<CloudControl> {
 		Shader.SetGlobalVector("ls_cloudcolor", (new Vector3(1,0.9f,0.95f)));
 		Shader.SetGlobalFloat("ls_distScale", distScale);
 	}
-
-	public float testValue;
+	
 	void Update () {
 
 		SetCloudSpeed ();
@@ -108,7 +107,6 @@ public class CloudControl : Singleton<CloudControl> {
 		} else {
 			SetOvercast (initOvercast);
 		}
-		SetSkyboxTint (testValue);//debug
 	}
 
 	public float minSpeed, maxSpeed;

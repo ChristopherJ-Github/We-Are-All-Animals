@@ -22,6 +22,7 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 	void Start () {
 
 		CreateLeafParticles ();
+		UpdateLeafAmount ();
 	}
 
 	public Color[] colors;
@@ -80,7 +81,6 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 
 		leafAmount = leafAmountOverYear.Evaluate (SceneManager.curvePos);
 		thereAreLeaves = leafAmount > 0;
-		Shader.SetGlobalFloat ("_LeafAmount", leafAmount);
 	}
 
 
