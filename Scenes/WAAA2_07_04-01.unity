@@ -31340,7 +31340,7 @@ MonoBehaviour:
   alphaMapsOverYear:
   - dates:
     - month: 11
-      day: 15
+      day: 30
     - month: 3
       day: 1
     date:
@@ -48043,7 +48043,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  currentColor: {r: 1, g: 1, b: 1, a: 1}
+  currentColor: {r: .984313726, g: .733333349, b: .709803939, a: 1}
   updateBillboards: 1
   flowerColorOverYear:
     key0:
@@ -48116,7 +48116,7 @@ MonoBehaviour:
       inSlope: -14.4923267
       outSlope: -14.4923267
       tangentMode: 0
-    - time: .872000039
+    - time: .879999995
       value: 0
       inSlope: -113.184761
       outSlope: -0
