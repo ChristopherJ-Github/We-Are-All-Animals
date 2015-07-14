@@ -28996,6 +28996,21 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 10
+    - time: .779999971
+      value: 0
+      inSlope: 0
+      outSlope: 19.9999962
+      tangentMode: 21
+    - time: .829999983
+      value: 1
+      inSlope: 19.9999962
+      outSlope: Infinity
+      tangentMode: 29
+    - time: .875
+      value: 0
+      inSlope: Infinity
+      outSlope: -0
+      tangentMode: 23
     - time: 1
       value: 0
       inSlope: 0
@@ -29082,8 +29097,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  middayValue: .0823761821
-  midday: {r: .615686297, g: .686274529, b: .819607854, a: 1}
+  middayValue: .558854401
+  midday: {r: .498039216, g: .552941203, b: .662745118, a: 1}
   _midday:
     key0:
       serializedVersion: 2
@@ -29202,7 +29217,7 @@ MonoBehaviour:
   minExtraOvercast: 0
   maxExtraOvercast: .349999994
   snowInfluence: .100000001
-  extraOvercast: .121699341
+  extraOvercast: 0
   changeSpeed: .109999999
 --- !u!1 &1255126903
 GameObject:
