@@ -3379,6 +3379,21 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   maxTint: .115999997
+  daytimeToBloom:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &154805021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16300,6 +16315,16 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+    - time: .25
+      value: 1
+      inSlope: Infinity
+      outSlope: -12.5000029
+      tangentMode: 23
+    - time: .329999983
+      value: 0
+      inSlope: -12.5000029
+      outSlope: -0
+      tangentMode: 21
     - time: 1
       value: 0
       inSlope: 0
@@ -16323,7 +16348,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   minDesnity: .00899999961
-  maxDensity: .0109999999
+  maxDensity: .0131104402
   _midday:
     key0:
       serializedVersion: 2
@@ -16395,7 +16420,7 @@ MonoBehaviour:
   middayCloudy: {r: .638570487, g: .66484642, b: .683823526, a: 0}
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
-  midday: {r: .487074226, g: .568315029, b: .661905766, a: .452734888}
+  midday: {r: .637769818, g: .664541781, b: .684208333, a: .00499999523}
   brightnessOverYear:
     serializedVersion: 2
     m_Curve:
@@ -16433,7 +16458,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   maxDailyBrightnessAmount: .369780004
   lightShafts: {fileID: 1930510223}
-  brightnessAmount: 0
+  brightnessAmount: .369780004
   maxBrightness: 18.2000008
   daytimeToDarkeningRain:
     serializedVersion: 2
@@ -49836,7 +49861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535921bb9f461c34bb54e8053e51861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testValue: 1
+  testValue01: 1
 --- !u!1001 &1979131405
 Prefab:
   m_ObjectHideFlags: 0
