@@ -22,7 +22,6 @@ public class BloomManager : MonoBehaviour {
 		float tintAmount = tintOverYear.Evaluate (SceneManager.curvePos);
 		tintAmount = Tester.instance.testValue01;//debug
 		float darkening = 1 - Mathf.Clamp01(daytimeToBloom.Evaluate (SunControl.instance.posInDay));
-		Debug.Log (SunControl.instance.posInDay);
 		float tintAmountDarkened = Mathf.Lerp(tintAmount, 0, darkening);
 		float currentTint = Mathf.Lerp (0, maxTint, tintAmountDarkened);
 		float tintAfterSnow = Mathf.Lerp (currentTint, 0, SnowManager.instance.snowLevel);

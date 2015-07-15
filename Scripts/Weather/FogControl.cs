@@ -7,16 +7,20 @@ public class FogControl : Singleton<FogControl> {
 		
 		RenderSettings.fog = true;
 		SceneManager.instance.OnNewDay += RandomizeFog;
-		RandomizeFog ();
+	}
+
+	void RandomizeFog () {
+
+		SetFog (Random.value);
 	}
 
 	public AnimationCurve minFogOverYear, maxFogOverYear;
 	public float minDesnity, maxDensity;
-	void RandomizeFog () {
-		
+	void SetFog (float fogAmount) {
+
 		float minFog = minFogOverYear.Evaluate (SceneManager.curvePos);
 		float maxFog = maxFogOverYear.Evaluate (SceneManager.curvePos);
-		float fogDensity = Random.Range (minFog, maxFog);
+		float fogDensity = Mathf.Lerp(minFog, maxFog, fogAmount);
 		SetFogDesnity(Mathf.Lerp (minDesnity, maxDensity, fogDensity));
 		SetGlobalFog (false);
 	}
@@ -30,6 +34,9 @@ public class FogControl : Singleton<FogControl> {
 
 		SetMidayColor ();
 		UpdateLightShaftBrightness ();
+
+		float maxFog = maxFogOverYear.Evaluate (SceneManager.curvePos);
+		Debug.Log ("current maxDesnity: " + Mathf.Lerp (minDesnity, maxDensity, maxFog));
 	}
 
 	public Gradient _midday;
