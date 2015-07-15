@@ -27,9 +27,10 @@ public class CloudControl : Singleton<CloudControl> {
 
 		float likelyCloudiness = likelyCloudinessOverYear.Evaluate (SceneManager.curvePos);
 		float influence = likelyInfluence.Evaluate (Random.value);
-		float overcast = Mathf.Lerp (Random.value, likelyCloudiness, influence);
 		float minCloudiness = minCloudinessOverYear.Evaluate (SceneManager.curvePos);
 		float maxCloudiness = maxCloudinessOverYear.Evaluate (SceneManager.curvePos);
+		float randomCloudiness = Mathf.Lerp(minCloudiness, maxCloudiness, Random.value);
+		float overcast = Mathf.Lerp (randomCloudiness, likelyCloudiness, influence);
 		initOvercast = Mathf.Clamp (overcast, minCloudiness, maxCloudiness);
 		SetOvercast (initOvercast);
 	}

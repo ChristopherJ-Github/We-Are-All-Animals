@@ -20,12 +20,13 @@ public class Tester : Singleton <Tester> {
 			buttonPressed = true;
 	}
 
-	public float testValue = 1;
+	public float testValue01 = 1;
 	void UpdateTestValue () {
 
-		if (Input.GetKey(KeyCode.G))
-			testValue -= 2.2f * Time.deltaTime;
-		if (Input.GetKey(KeyCode.H))
-			testValue += 2.2f * Time.deltaTime;
+		if (Input.GetKey(KeyCode.Semicolon))
+			testValue01 -= 2.2f * Time.deltaTime;
+		if (Input.GetKey(KeyCode.Quote))
+			testValue01 += 2.2f * Time.deltaTime;
+		testValue01 = Mathf.Clamp01(testValue01);
 	}
 }
