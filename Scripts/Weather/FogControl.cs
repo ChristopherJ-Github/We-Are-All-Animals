@@ -34,9 +34,6 @@ public class FogControl : Singleton<FogControl> {
 
 		SetMidayColor ();
 		UpdateLightShaftBrightness ();
-
-		float maxFog = maxFogOverYear.Evaluate (SceneManager.curvePos);
-		Debug.Log ("current maxDesnity: " + Mathf.Lerp (minDesnity, maxDensity, maxFog));
 	}
 
 	public Gradient _midday;

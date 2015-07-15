@@ -20,7 +20,6 @@ public class BloomManager : MonoBehaviour {
 	void SetGlowValues () {
 
 		float tintAmount = tintOverYear.Evaluate (SceneManager.curvePos);
-		tintAmount = Tester.instance.testValue01;//debug
 		float darkening = 1 - Mathf.Clamp01(daytimeToBloom.Evaluate (SunControl.instance.posInDay));
 		float tintAmountDarkened = Mathf.Lerp(tintAmount, 0, darkening);
 		float currentTint = Mathf.Lerp (0, maxTint, tintAmountDarkened);
