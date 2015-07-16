@@ -21032,7 +21032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: .214878038, y: 0, z: .97664088}
+  direction: {x: -.141068861, y: 0, z: -.98999989}
   directionChangeSpeed: 3.5
   likelyWindinessOverYear:
     serializedVersion: 2
@@ -21077,20 +21077,20 @@ MonoBehaviour:
   maxTurbulence: 6.25
   minFlowerBending: 0
   maxFlowerBending: .25999999
-  windiness: .24818024
+  windiness: .194081098
   windMultiplierOveryear:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .0500000119
+      value: 0
       inSlope: 5.58823538
-      outSlope: 8.63636398
+      outSlope: 4
       tangentMode: 21
-    - time: .109999999
+    - time: .25
       value: 1
-      inSlope: 8.63636398
+      inSlope: Infinity
       outSlope: -0
-      tangentMode: 21
+      tangentMode: 23
     - time: .829999983
       value: 1
       inSlope: 0
