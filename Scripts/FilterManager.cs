@@ -10,6 +10,18 @@ public class FilterInfo {
 }
 
 [System.Serializable]
+public class StormFilterInfo : FilterInfo {
+	
+	public AnimationCurve effectOverYear = AnimationCurve.Linear(0, 1, 1, 1);
+
+	public StormFilterInfo (FilterInfo filterInfo) {
+
+		LutTexture = filterInfo.LutTexture;
+		blend = filterInfo.blend;
+	}
+}
+
+[System.Serializable]
 public class FilterGroup {
 
 	public AnimationCurve effectOverYear = AnimationCurve.Linear(0, 1, 1, 1);
@@ -48,14 +60,14 @@ public class FilterManager : Singleton<FilterManager> {
 		blend = 1 - currentEffect;
 	}
 
-	public FilterInfo[] stormFilters;
+	public StormFilterInfo[] stormFilters;
 	void RandomizeStormFilter () {
 
 		stormFilterIndex = Random.Range (0, stormFilters.Length);
 		stormFilter = stormFilters [stormFilterIndex];
 		if (WeatherControl.currentWeather != null) 
 			if (WeatherControl.currentWeather.weather.name == "Fog" && Random.value >= 0.5f) 
-				stormFilter = filter;	
+				stormFilter = new StormFilterInfo (filter);	
 		stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
 		stormBlend = 0;
 	}
@@ -90,7 +102,7 @@ public class FilterManager : Singleton<FilterManager> {
 		amplifyColorEffect.BlendAmount = newBlend;
 	}
 
-	private FilterInfo stormFilter;
+	private StormFilterInfo stormFilter;
 	private AmplifyColorEffect stormAmplifyColorEffect;
 	private float _stormBlend, _stormBlendNormalized;
 	public float stormBlend {
@@ -104,8 +116,10 @@ public class FilterManager : Singleton<FilterManager> {
 		
 		float newBlend = _stormBlend;
 		if (WeatherControl.currentWeather != null) {
-			newBlend = Mathf.Lerp (1, newBlend, WeatherControl.instance.totalTransition);
-			newBlend = WeatherControl.currentWeather.usesFilter ? Mathf.Lerp (1, newBlend, WeatherControl.instance.severity) : 1;
+			float weatherEffect = WeatherControl.instance.totalTransition * WeatherControl.instance.severity;
+			float currentEffect = stormFilter.effectOverYear.Evaluate(SceneManager.curvePos);
+			newBlend = Mathf.Lerp (1, newBlend, weatherEffect * currentEffect);
+			newBlend = WeatherControl.currentWeather.usesFilter ? newBlend : 1;
 		} else {
 			newBlend = 1;
 		}

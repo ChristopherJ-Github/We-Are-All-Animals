@@ -3186,14 +3186,89 @@ MonoBehaviour:
   stormFilters:
   - LutTexture: {fileID: 2800000, guid: e16e3f06eda469b4da41b9120bc94bb4, type: 3}
     blend: .389999986
+    effectOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
   - LutTexture: {fileID: 2800000, guid: 19c66773df8c7824c9ba2962940d87eb, type: 3}
     blend: 0
+    effectOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
   - LutTexture: {fileID: 2800000, guid: ebba651cec09da3448b6b9a34a2efcb6, type: 3}
     blend: 0
+    effectOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
   - LutTexture: {fileID: 2800000, guid: 2c4a0794992716440a5eca0ab84ca0c9, type: 3}
     blend: 0
+    effectOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
   - LutTexture: {fileID: 2800000, guid: 1f0f2ca0ecd4bcf49a375821d33e2ad4, type: 3}
     blend: .439999998
+    effectOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
   darkFilter:
     LutTexture: {fileID: 2800000, guid: fa0f3c2aef642884eabb278dcded40e3, type: 3}
     blend: .864497602
