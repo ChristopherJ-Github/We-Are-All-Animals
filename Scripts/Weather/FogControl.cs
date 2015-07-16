@@ -7,6 +7,7 @@ public class FogControl : Singleton<FogControl> {
 		
 		RenderSettings.fog = true;
 		SceneManager.instance.OnNewDay += RandomizeFog;
+		RandomizeFog ();
 	}
 
 	void RandomizeFog () {

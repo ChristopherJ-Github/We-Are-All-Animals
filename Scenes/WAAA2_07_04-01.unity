@@ -3284,9 +3284,9 @@ MonoBehaviour:
     - time: 0
       value: 0
       inSlope: 0
-      outSlope: 4.08163261
+      outSlope: 4.02414513
       tangentMode: 21
-    - time: .24499999
+    - time: .24849999
       value: 1
       inSlope: Infinity
       outSlope: -0
@@ -21032,7 +21032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: -.141068861, y: 0, z: -.98999989}
+  direction: {x: -.999852359, y: 0, z: -.0171859264}
   directionChangeSpeed: 3.5
   likelyWindinessOverYear:
     serializedVersion: 2
@@ -21077,20 +21077,25 @@ MonoBehaviour:
   maxTurbulence: 6.25
   minFlowerBending: 0
   maxFlowerBending: .25999999
-  windiness: .194081098
+  windiness: .15088819
   windMultiplierOveryear:
     serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
       inSlope: 5.58823538
-      outSlope: 4
-      tangentMode: 21
-    - time: .25
-      value: 1
-      inSlope: Infinity
       outSlope: -0
-      tangentMode: 23
+      tangentMode: 21
+    - time: .24935168
+      value: 0
+      inSlope: 0
+      outSlope: 28.051815
+      tangentMode: 21
+    - time: .284999996
+      value: 1
+      inSlope: 28.051815
+      outSlope: -0
+      tangentMode: 21
     - time: .829999983
       value: 1
       inSlope: 0
@@ -29033,10 +29038,10 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 4.08163261
-      outSlope: 4.08163261
+      inSlope: 6.1162076
+      outSlope: 6.1162076
       tangentMode: 10
-    - time: .24499999
+    - time: .163500011
       value: 1
       inSlope: Infinity
       outSlope: -0
@@ -29081,22 +29086,22 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .164999992
+    - time: .24499999
       value: 1
       inSlope: 0
-      outSlope: -17.3803864
-      tangentMode: 5
-    - time: .291571736
-      value: .0133690238
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .75999999
+      outSlope: -11.7647066
+      tangentMode: 21
+    - time: .329999983
+      value: 0
+      inSlope: -11.7647066
+      outSlope: -0
+      tangentMode: 21
+    - time: .75
       value: 0
       inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .870000005
+      outSlope: 20.0000191
+      tangentMode: 21
+    - time: .799999952
       value: 1
       inSlope: 22.8143768
       outSlope: -0
@@ -29152,8 +29157,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  middayValue: .495043099
-  midday: {r: .513725519, g: .572549045, b: .686274529, a: 1}
+  middayValue: .568663955
+  midday: {r: .498039216, g: .552941203, b: .65882355, a: 1}
   _midday:
     key0:
       serializedVersion: 2
@@ -29271,7 +29276,7 @@ MonoBehaviour:
   minExtraOvercast: 0
   maxExtraOvercast: .349999994
   snowInfluence: .100000001
-  extraOvercast: 0
+  extraOvercast: -.0012706737
   changeSpeed: .109999999
 --- !u!1 &1255126903
 GameObject:
@@ -48227,14 +48232,19 @@ MonoBehaviour:
       inSlope: 7.53217649
       outSlope: -0
       tangentMode: 21
-    - time: .164999992
+    - time: .174813822
       value: 0
       inSlope: 0
-      outSlope: 8.69565105
-      tangentMode: 21
-    - time: .280000001
+      outSlope: .15645805
+      tangentMode: 5
+    - time: .215357244
+      value: .376534849
+      inSlope: 14.4597502
+      outSlope: 14.4597502
+      tangentMode: 0
+    - time: .25
       value: 1
-      inSlope: 8.69565105
+      inSlope: 17.9969845
       outSlope: -0
       tangentMode: 21
     - time: .802998006
