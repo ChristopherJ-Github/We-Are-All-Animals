@@ -46,14 +46,23 @@ public class FilterManager : Singleton<FilterManager> {
 		RandomizeStormFilter ();
 	}
 
-	[Tooltip("Leave blank")] public Texture currentLut;
+	[Tooltip("Leave blank")] 
+	public Texture currentLut;
 	public FilterGroup[] filterGroups;
-	private FilterGroup filterGroup;
 	void RandomizeMainFilter () {
 
-		int filterGroupIndex = Random.Range (0, filterGroups.Length);
-		filterGroup = filterGroups [filterGroupIndex];
-		filterIndex = Random.Range (0, filterGroup.filters.Length);
+		int groupIndex = Random.Range (0, filterGroups.Length);
+		FilterGroup filterGroup = filterGroups [groupIndex];
+		int filterIndex = Random.Range (0, filterGroup.filters.Length);
+		SetMainFilter (groupIndex, filterIndex);
+	}
+
+	private FilterGroup filterGroup;
+	void SetMainFilter (int groupIndex, int filterIndex) {
+
+		this.groupIndex = groupIndex;
+		filterGroup = filterGroups [groupIndex];
+		this.filterIndex = filterIndex;
 		filter = filterGroup.filters[filterIndex];
 		amplifyColorEffect.LutTexture = filter.LutTexture;
 		currentLut = filter.LutTexture;
@@ -62,14 +71,22 @@ public class FilterManager : Singleton<FilterManager> {
 		blend = 1 - currentEffect;
 	}
 
-	[Tooltip("Leave blank")] public Texture currentStormLut;
+	[Tooltip("Leave blank")] 
+	public Texture currentStormLut;
 	public StormFilterInfo[] stormFilters;
 	void RandomizeStormFilter () {
 
-		stormFilterIndex = Random.Range (0, stormFilters.Length);
-		stormFilter = stormFilters [stormFilterIndex];
-		if (WeatherControl.currentWeather != null) 
-			if (WeatherControl.currentWeather.weather.name == "Fog" && Random.value >= 0.5f) 
+		int filterIndex = Random.Range (0, stormFilters.Length);
+		bool allowMainFilterCopying = Random.value >= 0.5f;
+		SetStormFilter (filterIndex, allowMainFilterCopying);
+	}
+
+	void SetStormFilter (int filterIndex, bool allowMainFilterCopying) {
+
+		stormFilterIndex = filterIndex;
+		stormFilter = stormFilters [filterIndex];
+		if (WeatherControl.currentWeather != null && allowMainFilterCopying) 
+			if (WeatherControl.currentWeather.weather.name == "Fog") 
 				stormFilter = new StormFilterInfo (filter);	
 		stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
 		currentStormLut = stormFilter.LutTexture;
@@ -139,22 +156,21 @@ public class FilterManager : Singleton<FilterManager> {
 		darkAmplifyColorEffect.BlendAmount = newBlend;
 	}
 
-	private int filterIndex, stormFilterIndex;
-	public void NextFilter (bool _filter = false, bool _stormFilter = false) {
+	private int groupIndex, filterIndex, stormFilterIndex;
+	public void NextFilter (bool changeMainFilter = false, bool changeStormFilter = false) {
 
-		if (_filter) {
-			filterIndex = (int)Mathf.Repeat(filterIndex + 1, filterGroup.filters.Length);
-			filter = filterGroup.filters[filterIndex];
-			amplifyColorEffect.LutTexture = filter.LutTexture;
-			float currentEffect = filterGroup.effectOverYear.Evaluate (SceneManager.curvePos);
-			currentEffect = Mathf.Clamp01 (currentEffect);
-			blend = 1 - currentEffect;
+		if (changeMainFilter) {
+			int filterIndex = this.filterIndex + 1;
+			int groupIndex = this.groupIndex;
+			if (filterIndex >= filterGroup.filters.Length) {
+				groupIndex = (int)Mathf.Repeat(groupIndex + 1, filterGroups.Length);
+				filterIndex = 0;
+			} 
+			SetMainFilter(groupIndex, filterIndex);
 		}
-		if (_stormFilter) {
-			stormFilterIndex = (int)Mathf.Repeat(stormFilterIndex + 1, stormFilters.Length);
-			stormFilter = stormFilters [stormFilterIndex];
-			stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
-			stormBlend = 0;
+		if (changeStormFilter) {
+			int stormFilterIndex = (int)Mathf.Repeat(this.stormFilterIndex + 1, stormFilters.Length);
+			SetStormFilter(stormFilterIndex, false);
 		}
 	}
 

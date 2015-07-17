@@ -38,59 +38,44 @@ public class LEDPreviewManager : MonoBehaviour {
 		
 		GetKeyInput ();
 	}
-	
-	public float keyDelay;
-	private float keyDelayCounter;
+
 	void GetKeyInput () {
-		
-		bool keyPressed = false;
-		keyDelayCounter -= Time.deltaTime;
-		if (keyDelayCounter > 0)
-			return;
-		WeatherInput (ref keyPressed);
-		FilterInput (ref keyPressed);
-		TimeInput (ref keyPressed);
-		AnimalInput(ref keyPressed);
-		MiscInput (ref keyPressed);
-		if (keyPressed)
-			keyDelayCounter = keyDelay;
+
+		WeatherInput ();
+		FilterInput ();
+		TimeInput ();
+		AnimalInput();
+		MiscInput ();
 	}
 	
 	public Lightning lightning;
-	void WeatherInput (ref bool keyPressed) {
+	void WeatherInput () {
 		
-		if (Input.GetKey (KeyCode.Alpha1)) {
-			keyPressed = true;
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
 			StopAllCoroutines ();
 			SpawnWeather (0);
 		}
-		if (Input.GetKey (KeyCode.Alpha2)) {
-			keyPressed = true;
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
 			StopAllCoroutines ();
 			SpawnWeather (1);
 			lightning.SwitchState(false);
 		}
-		if (Input.GetKey (KeyCode.Alpha3)) {
-			keyPressed = true;
+		if (Input.GetKeyDown (KeyCode.Alpha3)) {
 			StopAllCoroutines ();
 			SpawnWeather (2);
 		}
-		if (Input.GetKey (KeyCode.Alpha4)) {
-			keyPressed = true;
+		if (Input.GetKeyDown (KeyCode.Alpha4)) {
 			SpawnWeather (3);
 		}
-		if (Input.GetKey (KeyCode.Alpha5)) {
-			keyPressed = true;
+		if (Input.GetKeyDown (KeyCode.Alpha5)) {
 			StopAllCoroutines ();
 			SpawnWeather (1);
 			lightning.SwitchState(true);
 		}
-		if (Input.GetKey (KeyCode.Alpha6)) {
-			keyPressed = true;
+		if (Input.GetKeyDown (KeyCode.Alpha6)) {
 			WeatherControl.instance.TurnOff();
 		}
 		if (WeatherControl.currentWeather != null) {
-			
 			float severity = WeatherControl.instance.severity;
 			if (Input.GetKey(KeyCode.Minus)) 
 				severity -= transitionSpeed * Time.deltaTime;
@@ -106,28 +91,21 @@ public class LEDPreviewManager : MonoBehaviour {
 		WeatherControl.instance.EnableWeather(WeatherControl.instance.weatherTypes[weatherIndex], (float)SceneManager.minsAtDayStart, 1440, 1, 1, 1);
 	}
 	
-	void FilterInput (ref bool keyPressed) {
+	void FilterInput () {
 		
-		if (Input.GetKey(KeyCode.T)) {
-			keyPressed = true;
-			FilterManager.instance.on = !FilterManager.instance.on;
-		}
-		if (Input.GetKey(KeyCode.Y)) {
-			keyPressed = true;
+		if (Input.GetKeyDown(KeyCode.T)) 
+			FilterManager.instance.on = !FilterManager.instance.on;		
+		if (Input.GetKeyDown(KeyCode.Y)) 
 			FilterManager.instance.NextFilter(true, false);
-		}
-		if (Input.GetKey(KeyCode.U)) {
-			keyPressed = true;
+		if (Input.GetKeyDown(KeyCode.U)) 
 			FilterManager.instance.NextFilter(false, true);
-		}
 	}
 	
 	public float daySpeed, yearSpeed;
-	void TimeInput (ref bool keyPressed) {
+	void TimeInput () {
 		
 		DateTime currentDate = SceneManager.currentDate;
-		if (Input.GetKey(KeyCode.G)) {
-			keyPressed = true;
+		if (Input.GetKeyDown(KeyCode.G)) {
 			if (season == Season.Spring)
 				SceneManager.currentDate = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 7, 40, 0);
 			if (season == Season.Summer)
@@ -137,7 +115,7 @@ public class LEDPreviewManager : MonoBehaviour {
 			if (season == Season.Winter)
 				SceneManager.currentDate = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 8, 20, 0);
 		}
-		if (Input.GetKey(KeyCode.H)) {
+		if (Input.GetKeyDown(KeyCode.H)) {
 			if (season == Season.Spring)
 				SceneManager.currentDate = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day, 9, 23, 0);
 			if (season == Season.Summer)
@@ -147,9 +125,9 @@ public class LEDPreviewManager : MonoBehaviour {
 			if (season == Season.Winter)
 				SceneManager.currentDate = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day, 9, 28, 0);
 		}
-		if (Input.GetKey(KeyCode.J)) 
+		if (Input.GetKeyDown(KeyCode.J)) 
 			SceneManager.currentDate = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day, 15, 32, 0);
-		if (Input.GetKey(KeyCode.K)) {
+		if (Input.GetKeyDown(KeyCode.K)) {
 			if (season == Season.Spring)
 				SceneManager.currentDate = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day, 19, 12, 0);
 			if (season == Season.Summer)
@@ -159,7 +137,7 @@ public class LEDPreviewManager : MonoBehaviour {
 			if (season == Season.Winter)
 				SceneManager.currentDate = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day, 18, 54, 0);
 		}
-		if (Input.GetKey(KeyCode.L)) 
+		if (Input.GetKeyDown(KeyCode.L)) 
 			SceneManager.currentDate = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day, 20, 35, 0);
 		
 		if (Input.GetKey(KeyCode.DownArrow))
@@ -175,18 +153,15 @@ public class LEDPreviewManager : MonoBehaviour {
 	public GameObject animalPreviewPrefab;
 	private bool allAnimalsSpawned;
 	private bool idlePreviewSpawned;
-	void AnimalInput (ref bool keyPressed) {
+	void AnimalInput () {
 
-		if (Input.GetKey(KeyCode.I) && !idlePreviewSpawned) {
-			keyPressed = true;
+		if (Input.GetKeyDown(KeyCode.I) && !idlePreviewSpawned) {
 			idlePreviewSpawned = true;
 			StartCoroutine(SpawnIdleAnimations());
 		}
-		if (Input.GetKey(KeyCode.O) && !allAnimalsSpawned) {
-			allAnimalsSpawned = true;
-			AnimationSpawner.instance.SpawnAllAnimals();
-		}
-		if (Input.GetKey(KeyCode.P)) {
+		if (Input.GetKeyDown(KeyCode.O) && !allAnimalsSpawned) 
+			AnimationSpawner.instance.SpawnAllAnimals();	
+		if (Input.GetKeyDown(KeyCode.P)) {
 			idlePreviewSpawned = false;
 			allAnimalsSpawned = false;
 		}
@@ -204,10 +179,9 @@ public class LEDPreviewManager : MonoBehaviour {
 		}
 	}
 	
-	void MiscInput (ref bool keyPressed) {
+	void MiscInput () {
 		
-		if (Input.GetKey(KeyCode.Alpha8)) {
-			keyPressed = true;
+		if (Input.GetKeyDown(KeyCode.Alpha8)) {
 			bool riverIsFrozen = SnowManager.instance.frozenRiver.activeSelf;
 			SnowManager.instance.SetRiver(!riverIsFrozen);
 		}
