@@ -80,14 +80,25 @@ public class FilterManager : Singleton<FilterManager> {
 	}
 	
 	private int groupIndex, filterIndex;
+
 	public void NextFilter () {
 
-		int filterIndex = this.filterIndex + 1;
+		int filterIndex = this.filterIndex;
 		int groupIndex = this.groupIndex;
-		if (filterIndex >= filterGroup.filters.Length) {
-			groupIndex = (int)Mathf.Repeat(groupIndex + 1, filterGroups.Length);
-			filterIndex = 0;
-		} 
+		int maxIterations = 100;
+		int iterations = 0;
+		while (true) {
+			filterIndex ++;
+			if (filterIndex >= filterGroup.filters.Length) {
+				groupIndex = (int)Mathf.Repeat(groupIndex + 1, filterGroups.Length);
+				filterIndex = 0;
+			} 
+			if (filterGroups[groupIndex].effectOverYear.Evaluate(SceneManager.curvePos) != 0)
+				break;
+			iterations ++;
+			if (iterations >= maxIterations)
+				return;
+		}
 		SetFilter(groupIndex, filterIndex);
 	}
 }
