@@ -46,6 +46,7 @@ public class FilterManager : Singleton<FilterManager> {
 		RandomizeStormFilter ();
 	}
 
+	[Tooltip("Leave blank")] public Texture currentLut;
 	public FilterGroup[] filterGroups;
 	private FilterGroup filterGroup;
 	void RandomizeMainFilter () {
@@ -55,11 +56,13 @@ public class FilterManager : Singleton<FilterManager> {
 		filterIndex = Random.Range (0, filterGroup.filters.Length);
 		filter = filterGroup.filters[filterIndex];
 		amplifyColorEffect.LutTexture = filter.LutTexture;
+		currentLut = filter.LutTexture;
 		float currentEffect = filterGroup.effectOverYear.Evaluate (SceneManager.curvePos);
 		currentEffect = Mathf.Clamp01 (currentEffect);
 		blend = 1 - currentEffect;
 	}
 
+	[Tooltip("Leave blank")] public Texture currentStormLut;
 	public StormFilterInfo[] stormFilters;
 	void RandomizeStormFilter () {
 
@@ -69,6 +72,7 @@ public class FilterManager : Singleton<FilterManager> {
 			if (WeatherControl.currentWeather.weather.name == "Fog" && Random.value >= 0.5f) 
 				stormFilter = new StormFilterInfo (filter);	
 		stormAmplifyColorEffect.LutTexture = stormFilter.LutTexture;
+		currentStormLut = stormFilter.LutTexture;
 		stormBlend = 0;
 	}
 
