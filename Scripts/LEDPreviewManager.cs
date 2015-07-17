@@ -93,12 +93,15 @@ public class LEDPreviewManager : MonoBehaviour {
 	
 	void FilterInput () {
 		
-		if (Input.GetKeyDown(KeyCode.T)) 
-			FilterManager.instance.on = !FilterManager.instance.on;		
+		if (Input.GetKeyDown(KeyCode.T)) {
+			FilterManager.amplifyColorEffect.enabled = !FilterManager.amplifyColorEffect.enabled;
+			StormFilterManager.amplifyColorEffect.enabled = !StormFilterManager.amplifyColorEffect.enabled;
+			DarkFilterManager.amplifyColorEffect.enabled = !DarkFilterManager.amplifyColorEffect.enabled;
+		}
 		if (Input.GetKeyDown(KeyCode.Y)) 
-			FilterManager.instance.NextFilter(true, false);
+			FilterManager.instance.NextFilter();
 		if (Input.GetKeyDown(KeyCode.U)) 
-			FilterManager.instance.NextFilter(false, true);
+			StormFilterManager.instance.NextFilter();
 	}
 	
 	public float daySpeed, yearSpeed;

@@ -2,83 +2,78 @@
 using System.Collections;
 using AmplifyColor;
 
-[System.Serializable]
-public class FilterInfo {
+public class StormFilterManager : Singleton<StormFilterManager> {
 	
-	public Texture LutTexture;
-	public float blend;
-}
-
-[System.Serializable]
-public class FilterGroup {
-
-	public AnimationCurve effectOverYear = AnimationCurve.Linear(0, 1, 1, 1);
-	public FilterInfo[] filters;
-}
-
-public class FilterManager : Singleton<FilterManager> {
-
 	void Start () {
-		
+
 		amplifyColorEffect = Camera.main.gameObject.AddComponent<AmplifyColorEffect> ();
 		SceneManager.instance.OnNewDay += RandomizeFilter;
-		RandomizeFilter();
+		RandomizeFilter ();
 	}
 
 	[Tooltip("Leave blank")] 
 	public Texture currentLut;
 	public FilterGroup[] filterGroups;
 	void RandomizeFilter () {
-
+		
 		int groupIndex = Random.Range (0, filterGroups.Length);
 		FilterGroup filterGroup = filterGroups [groupIndex];
 		int filterIndex = Random.Range (0, filterGroup.filters.Length);
-		SetFilter (groupIndex, filterIndex);
+		bool allowMainFilterCopying = Random.value >= 0.5f;
+		SetFilter (groupIndex, filterIndex, allowMainFilterCopying);
 	}
-
+	
 	private FilterGroup filterGroup;
-	void SetFilter (int groupIndex, int filterIndex) {
-
+	void SetFilter (int groupIndex, int filterIndex, bool allowMainFilterCopying) {
+		
 		this.groupIndex = groupIndex;
 		filterGroup = filterGroups [groupIndex];
 		this.filterIndex = filterIndex;
-		filter = filterGroup.filters[filterIndex];
+		filter = filterGroup.filters [filterIndex];
+		if (WeatherControl.currentWeather != null && allowMainFilterCopying) 
+			if (WeatherControl.currentWeather.weather.name == "Fog") 
+				filter = FilterManager.filter;	
 		amplifyColorEffect.LutTexture = filter.LutTexture;
 		currentLut = filter.LutTexture;
-		float currentEffect = filterGroup.effectOverYear.Evaluate (SceneManager.curvePos);
-		currentEffect = Mathf.Clamp01 (currentEffect);
-		blend = 1 - currentEffect;
+		blend = 0;
 	}
-
+	
 	void Update () {
 
-		UpdateMainFilter ();
+		UpdateFilter ();
 	}
 	
 	private float _blend, _blendNormalized;
 	public float blend {
 		get { return _blendNormalized; } 
-		set { 
+		set {
 			_blendNormalized = value;
-			_blend = Mathf.Lerp(filter.blend, 1, _blendNormalized);
+			_blend = Mathf.Lerp (filter.blend, 1, _blendNormalized); 
 		}
 	}
-
-	public static FilterInfo filter;
+	
+	private FilterInfo filter;
 	public static AmplifyColorEffect amplifyColorEffect;
-	void UpdateMainFilter () {
-
+	public AnimationCurve fogEffectOverYear;
+	void UpdateFilter () {
+		
 		float newBlend = _blend;
 		if (WeatherControl.currentWeather != null) {
-			float stormInfluence = 0;
-			if (WeatherControl.currentWeather.usesFilter) 
-				stormInfluence = Mathf.Lerp(0, WeatherControl.instance.severity, WeatherControl.instance.totalTransition);	
-			newBlend = Mathf.Lerp(1, newBlend, 1 - stormInfluence);
+			float weatherEffect = WeatherControl.instance.totalTransition * WeatherControl.instance.severity;
+			float currentEffect = filterGroup.effectOverYear.Evaluate(SceneManager.curvePos);
+			float fogEffect = currentEffect;
+			if (WeatherControl.currentWeather.weather.name == "Fog") 
+				fogEffect *= fogEffectOverYear.Evaluate(SceneManager.curvePos);
+			float leafEffect = fogEffect * LeafFallManager.instance.leafAmount;
+			newBlend = Mathf.Lerp (1, newBlend, weatherEffect * leafEffect);
+			newBlend = WeatherControl.currentWeather.usesFilter ? newBlend : 1;
+		} else {
+			newBlend = 1;
 		}
 		newBlend = Mathf.Lerp(1, newBlend, SkyManager.instance.nightDayLerp);
 		amplifyColorEffect.BlendAmount = newBlend;
 	}
-	
+
 	private int groupIndex, filterIndex;
 	public void NextFilter () {
 
@@ -88,6 +83,6 @@ public class FilterManager : Singleton<FilterManager> {
 			groupIndex = (int)Mathf.Repeat(groupIndex + 1, filterGroups.Length);
 			filterIndex = 0;
 		} 
-		SetFilter(groupIndex, filterIndex);
+		SetFilter(groupIndex, filterIndex, false);
 	}
 }

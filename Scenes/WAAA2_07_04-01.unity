@@ -3054,6 +3054,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 154805018}
   - 114: {fileID: 154805019}
+  - 114: {fileID: 154805022}
+  - 114: {fileID: 154805023}
   - 114: {fileID: 154805020}
   - 114: {fileID: 154805021}
   m_Layer: 0
@@ -3086,6 +3088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26aded1be83dc364ca74e0652ea63321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLut: {fileID: 0}
   filterGroups:
   - effectOverYear:
       serializedVersion: 2
@@ -3183,95 +3186,6 @@ MonoBehaviour:
       blend: .389999986
     - LutTexture: {fileID: 2800000, guid: 946d8c662adbce74bb74485e6850a555, type: 3}
       blend: .579999983
-  stormFilters:
-  - LutTexture: {fileID: 2800000, guid: e16e3f06eda469b4da41b9120bc94bb4, type: 3}
-    blend: .389999986
-    effectOverYear:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-  - LutTexture: {fileID: 2800000, guid: 19c66773df8c7824c9ba2962940d87eb, type: 3}
-    blend: 0
-    effectOverYear:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-  - LutTexture: {fileID: 2800000, guid: ebba651cec09da3448b6b9a34a2efcb6, type: 3}
-    blend: 0
-    effectOverYear:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-  - LutTexture: {fileID: 2800000, guid: 2c4a0794992716440a5eca0ab84ca0c9, type: 3}
-    blend: 0
-    effectOverYear:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-  - LutTexture: {fileID: 2800000, guid: 1f0f2ca0ecd4bcf49a375821d33e2ad4, type: 3}
-    blend: .439999998
-    effectOverYear:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-  darkFilter:
-    LutTexture: {fileID: 2800000, guid: fa0f3c2aef642884eabb278dcded40e3, type: 3}
-    blend: .864497602
 --- !u!114 &154805020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3383,6 +3297,94 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &154805022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154805017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a4ce6982bea6247aa5d4053e28ed49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLut: {fileID: 0}
+  filterGroups:
+  - effectOverYear:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 24.1898003
+        outSlope: -0
+        tangentMode: 21
+      - time: .329999983
+        value: 0
+        inSlope: 0
+        outSlope: 30.3815079
+        tangentMode: 21
+      - time: .362914741
+        value: 1
+        inSlope: 30.3815079
+        outSlope: -0
+        tangentMode: 21
+      - time: .664999962
+        value: 1
+        inSlope: 0
+        outSlope: -6.66666508
+        tangentMode: 21
+      - time: .814999998
+        value: 0
+        inSlope: -6.66666508
+        outSlope: -0
+        tangentMode: 21
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: -15.3918886
+        tangentMode: 21
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    filters:
+    - LutTexture: {fileID: 2800000, guid: 19c66773df8c7824c9ba2962940d87eb, type: 3}
+      blend: 0
+    - LutTexture: {fileID: 2800000, guid: ebba651cec09da3448b6b9a34a2efcb6, type: 3}
+      blend: 0
+    - LutTexture: {fileID: 2800000, guid: e16e3f06eda469b4da41b9120bc94bb4, type: 3}
+      blend: .389999986
+    - LutTexture: {fileID: 2800000, guid: 2c4a0794992716440a5eca0ab84ca0c9, type: 3}
+      blend: 0
+    - LutTexture: {fileID: 2800000, guid: 1f0f2ca0ecd4bcf49a375821d33e2ad4, type: 3}
+      blend: .439999998
+  fogEffectOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &154805023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154805017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4c352de98c2c442864ce265525139b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter:
+    LutTexture: {fileID: 2800000, guid: fa0f3c2aef642884eabb278dcded40e3, type: 3}
+    blend: .864497602
 --- !u!1 &158242521
 GameObject:
   m_ObjectHideFlags: 0
@@ -47992,7 +47994,6 @@ MonoBehaviour:
   hotKeyMode: 1
   season: 1
   transitionSpeed: 2.20000005
-  keyDelay: .219999999
   lightning: {fileID: 1586924658}
   daySpeed: 754.700012
   yearSpeed: 250868
