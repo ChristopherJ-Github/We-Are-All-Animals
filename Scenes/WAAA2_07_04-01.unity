@@ -3356,21 +3356,6 @@ MonoBehaviour:
       blend: 0
     - LutTexture: {fileID: 2800000, guid: 1f0f2ca0ecd4bcf49a375821d33e2ad4, type: 3}
       blend: .439999998
-  fogEffectOverYear:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!114 &154805023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17473,7 +17458,7 @@ MonoBehaviour:
     maxDuration: 1440
     onceAYear: 0
     changesClouds: 0
-    usesFilter: 1
+    usesFilter: 0
     causesStorms: 0
   - weather: {fileID: 736160403}
     spawnChance:

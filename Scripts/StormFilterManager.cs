@@ -30,9 +30,6 @@ public class StormFilterManager : Singleton<StormFilterManager> {
 		filterGroup = filterGroups [groupIndex];
 		this.filterIndex = filterIndex;
 		filter = filterGroup.filters [filterIndex];
-		if (WeatherControl.currentWeather != null && allowMainFilterCopying) 
-			if (WeatherControl.currentWeather.weather.name == "Fog") 
-				filter = FilterManager.filter;	
 		amplifyColorEffect.LutTexture = filter.LutTexture;
 		currentLut = filter.LutTexture;
 		blend = 0;
@@ -54,18 +51,13 @@ public class StormFilterManager : Singleton<StormFilterManager> {
 	
 	private FilterInfo filter;
 	public static AmplifyColorEffect amplifyColorEffect;
-	public AnimationCurve fogEffectOverYear;
 	void UpdateFilter () {
 		
 		float newBlend = _blend;
 		if (WeatherControl.currentWeather != null) {
 			float weatherEffect = WeatherControl.instance.totalTransition * WeatherControl.instance.severity;
 			float currentEffect = filterGroup.effectOverYear.Evaluate(SceneManager.curvePos);
-			float fogEffect = currentEffect;
-			if (WeatherControl.currentWeather.weather.name == "Fog") 
-				fogEffect *= fogEffectOverYear.Evaluate(SceneManager.curvePos);
-			float leafEffect = fogEffect * LeafFallManager.instance.leafAmount;
-			newBlend = Mathf.Lerp (1, newBlend, weatherEffect * leafEffect);
+			newBlend = Mathf.Lerp (1, newBlend, weatherEffect);
 			newBlend = WeatherControl.currentWeather.usesFilter ? newBlend : 1;
 		} else {
 			newBlend = 1;
