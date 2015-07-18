@@ -17419,32 +17419,37 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .199999988
+        value: .5
         inSlope: 24.1898003
-        outSlope: -0
+        outSlope: -.799999952
         tangentMode: 21
       - time: .25
-        value: .199999988
-        inSlope: 0
-        outSlope: 10.0000019
-        tangentMode: 21
+        value: .300000012
+        inSlope: Infinity
+        outSlope: 6.6601572
+        tangentMode: 23
       - time: .329999983
-        value: 1
-        inSlope: 10.0000019
+        value: .832812488
+        inSlope: 6.6601572
         outSlope: -0
         tangentMode: 21
-      - time: .672021031
-        value: 1
+      - time: .75
+        value: .832812488
         inSlope: 0
-        outSlope: -10.9620619
+        outSlope: -4.63315153
         tangentMode: 21
-      - time: .745000005
-        value: .199999988
-        inSlope: -10.9620619
+      - time: .86500001
+        value: .300000012
+        inSlope: -4.63315153
+        outSlope: Infinity
+        tangentMode: 29
+      - time: .870000005
+        value: .5
+        inSlope: 40.0000343
         outSlope: -0
         tangentMode: 21
       - time: 1
-        value: .199999988
+        value: .5
         inSlope: 0
         outSlope: -2.43568683
         tangentMode: 21
@@ -17504,11 +17509,11 @@ MonoBehaviour:
   chanceDivisor: 1
   safeToPress: 0
   transition: 1
-  cloudTransition: 1
+  cloudTransition: .542510271
   totalTransition: 1
   storm: 0
   stormThreshold: .5
-  severity: .0717772543
+  severity: .5
   dataPath: C:\Data\data.txt
 --- !u!1 &807934659
 GameObject:

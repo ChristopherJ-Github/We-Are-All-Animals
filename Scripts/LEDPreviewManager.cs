@@ -81,14 +81,16 @@ public class LEDPreviewManager : MonoBehaviour {
 				severity -= transitionSpeed * Time.deltaTime;
 			if (Input.GetKey(KeyCode.Equals)) 
 				severity += transitionSpeed * Time.deltaTime;
-			WeatherControl.instance.severity = Mathf.Clamp01(severity);
+			WeatherControl.instance.severity = Mathf.Clamp(severity, 0, WeatherControl.currentWeather.maxSeverity);
 		}
 	}
 	
 	void SpawnWeather (int weatherIndex) {
 		
 		WeatherControl.instance.TurnOff();
-		WeatherControl.instance.EnableWeather(WeatherControl.instance.weatherTypes[weatherIndex], (float)SceneManager.minsAtDayStart, 1440, 1, 1, 1);
+		WeatherInfo weatherType = WeatherControl.instance.weatherTypes [weatherIndex];
+		float maxSeverity = weatherType.severityOverYear.Evaluate (SceneManager.curvePos);
+		WeatherControl.instance.EnableWeather(weatherType, (float)SceneManager.minsAtDayStart, 1440, 1, 1, maxSeverity);
 	}
 	
 	void FilterInput () {
