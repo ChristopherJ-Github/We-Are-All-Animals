@@ -17419,35 +17419,15 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .996183217
+        value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
-      - time: .107339621
-        value: .89149946
-        inSlope: -3.66545486
-        outSlope: -3.66545486
-        tangentMode: 0
-      - time: .170000002
-        value: .5
-        inSlope: -3.01291275
-        outSlope: -0
-        tangentMode: 17
-      - time: .829999983
-        value: .5
-        inSlope: 0
-        outSlope: 2.73637486
-        tangentMode: 5
-      - time: .916254222
-        value: .919333637
-        inSlope: 2.48143816
-        outSlope: 2.48143816
-        tangentMode: 0
+        tangentMode: 10
       - time: 1
-        value: .996183217
-        inSlope: -.209540263
-        outSlope: -.209540263
-        tangentMode: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     severityOverYear:
