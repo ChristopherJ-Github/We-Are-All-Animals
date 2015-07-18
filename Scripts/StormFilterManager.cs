@@ -57,7 +57,7 @@ public class StormFilterManager : Singleton<StormFilterManager> {
 		if (WeatherControl.currentWeather != null) {
 			float weatherEffect = WeatherControl.instance.totalTransition * WeatherControl.instance.severity;
 			float currentEffect = filterGroup.effectOverYear.Evaluate(SceneManager.curvePos);
-			newBlend = Mathf.Lerp (1, newBlend, weatherEffect);
+			newBlend = Mathf.Lerp (1, newBlend, weatherEffect * currentEffect);
 			newBlend = WeatherControl.currentWeather.usesFilter ? newBlend : 1;
 		} else {
 			newBlend = 1;
