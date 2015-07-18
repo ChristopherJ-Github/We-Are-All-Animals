@@ -17332,19 +17332,29 @@ MonoBehaviour:
         inSlope: 11.1111107
         outSlope: -0
         tangentMode: 21
-      - time: .870000005
+      - time: .75
         value: 1
         inSlope: 0
-        outSlope: -12.5000029
+        outSlope: -6.24999952
         tangentMode: 21
-      - time: .949999988
+      - time: .870000005
+        value: .25
+        inSlope: -6.24999952
+        outSlope: -249.973419
+        tangentMode: 21
+      - time: .871000111
         value: 0
-        inSlope: -12.5000029
-        outSlope: -0
+        inSlope: -249.973419
+        outSlope: 1.43904662
+        tangentMode: 21
+      - time: .875101328
+        value: .00590184238
+        inSlope: 1.43904662
+        outSlope: -.0472530425
         tangentMode: 21
       - time: 1
         value: 0
-        inSlope: 0
+        inSlope: -.0472530425
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
@@ -17367,19 +17377,29 @@ MonoBehaviour:
         inSlope: 11.1111107
         outSlope: -0
         tangentMode: 21
-      - time: .870000005
+      - time: .75
         value: 1
         inSlope: 0
-        outSlope: -12.5000029
+        outSlope: -6.24999952
         tangentMode: 21
-      - time: .949999988
+      - time: .870000005
+        value: .25
+        inSlope: -6.24999952
+        outSlope: -249.973419
+        tangentMode: 21
+      - time: .871000111
         value: 0
-        inSlope: -12.5000029
-        outSlope: -0
+        inSlope: -249.973419
+        outSlope: 1.43904662
+        tangentMode: 21
+      - time: .875101328
+        value: .00590184238
+        inSlope: 1.43904662
+        outSlope: -.0472530425
         tangentMode: 21
       - time: 1
         value: 0
-        inSlope: 0
+        inSlope: -.0472530425
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
@@ -17523,12 +17543,12 @@ MonoBehaviour:
     causesStorms: 1
   chanceDivisor: 1
   safeToPress: 0
-  transition: 0
-  cloudTransition: 0
-  totalTransition: 0
+  transition: 1
+  cloudTransition: 1
+  totalTransition: 1
   storm: 0
   stormThreshold: .5
-  severity: .527222276
+  severity: .270200044
   dataPath: C:\Data\data.txt
 --- !u!1 &807934659
 GameObject:
