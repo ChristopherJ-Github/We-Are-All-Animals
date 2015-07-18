@@ -79,8 +79,7 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 
 		Color billboardColor = billboardLightingColor.Evaluate (1 - SkyManager.instance.intensityLerp);
 		billboardColor = billboardLightingColor.Evaluate(1 - SkyManager.instance.nightDayLerp);
-		Vector3 colorVector = new Vector3 (billboardColor.r, billboardColor.b, billboardColor.g);
-		Shader.SetGlobalVector("tree_color", colorVector);
+		Shader.SetGlobalColor ("tree_color", billboardColor);
 	}
 
 	public bool forceBillboardUpdate;
