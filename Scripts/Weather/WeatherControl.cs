@@ -100,8 +100,12 @@ public class WeatherControl : Singleton<WeatherControl> {
 		if (_weatherType == null) 
 			return 0;
 		float maxSeverity = _weatherType.maxSeverity;
-		if (_weatherType.weather.GetComponent<WindStorm>() != null) 
+		if (_weatherType.weather.name == "Wind") {
 			maxSeverity = WindStorm.GetMaxSeverity(maxSeverity);
+		} else if (_weatherType.weather.name == "Fog") {
+			Fog fog = _weatherType.weather.GetComponent<Fog>();
+			maxSeverity = fog.GetMaxSeverity (maxSeverity);
+		}
 		return maxSeverity;
 	}
 

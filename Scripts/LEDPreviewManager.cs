@@ -27,7 +27,7 @@ public class LEDPreviewManager : MonoBehaviour {
 	}
 	
 	void ForceSettings () {
-		
+
 		WeatherControl.instance.TurnOff ();
 		FilterManager.instance.blend = 0;
 		float likelyCloudiness =  CloudControl.instance.likelyCloudinessOverYear.Evaluate (SceneManager.curvePos);
@@ -200,11 +200,14 @@ public class LEDPreviewManager : MonoBehaviour {
 			return;
 		
 		float overcast = CloudControl.instance.overcast;
-		if (Input.GetKey(KeyCode.Q)) 
-			overcast += transitionSpeed * Time.deltaTime;
-		if (Input.GetKey(KeyCode.W)) 
+		if (Input.GetKey(KeyCode.Q)) {
+			overcast += transitionSpeed * Time.deltaTime; 
+			CloudControl.instance.SetOvercast(Mathf.Clamp01(overcast), true);
+		}
+		else if (Input.GetKey(KeyCode.W)) {
 			overcast -= transitionSpeed * Time.deltaTime;
-		CloudControl.instance.SetOvercast(Mathf.Clamp01(overcast));
+			CloudControl.instance.SetOvercast(Mathf.Clamp01(overcast), true);
+		}
 
 #if !UNITY_WEBPLAYER
 		float windiness = WindControl.instance.windiness;

@@ -44,10 +44,11 @@ public class CloudControl : Singleton<CloudControl> {
 	public float minSharpness, maxSharpness;
 	public float minThickness, maxThickness;
 	private bool setOvercastCalled;
-	public void SetOvercast(float overcast) {
+	public void SetOvercast(float overcast, bool overrideInit = false) {
 
 		setOvercastCalled = true;
 		this.overcast = SkyManager.instance.sunsetProgress > 0 ? GetNightOvercast (overcast) : overcast;
+		initOvercast = overrideInit ? _overcast : initOvercast;
 		float scattering = Mathf.Lerp (minScattering, maxScattering, _overcast);
 		float sharpness = Mathf.Lerp (minSharpness, maxSharpness, _overcast);
 		float thickness = Mathf.Lerp (minThickness, maxThickness, _overcast);

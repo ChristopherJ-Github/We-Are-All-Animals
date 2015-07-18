@@ -6,6 +6,14 @@ public class Fog : MonoBehaviour {
 	public LightShafts lightShafts;
 	private float initBrightnessAmount;
 
+	public float maxSnowSeverity;
+	public float GetMaxSeverity (float currentMaxSeverity) {
+
+		float snowInfluence = (1 - CloudControl.instance.overcast) * SnowManager.instance.snowLevel;
+		float maxAfterSnow = Mathf.Lerp (currentMaxSeverity, maxSnowSeverity, snowInfluence);
+		return maxAfterSnow;
+	}
+
 	void OnEnable () {
 
 		initBrightnessAmount = FogControl.instance.brightnessAmount;

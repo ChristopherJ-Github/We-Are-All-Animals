@@ -17237,13 +17237,13 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .996183217
+        value: 1
         inSlope: 0
-        outSlope: .0231320225
+        outSlope: -0
         tangentMode: 17
       - time: .164999992
         value: 1
-        inSlope: .0231320225
+        inSlope: 0
         outSlope: -39.9294853
         tangentMode: 5
       - time: .24499999
@@ -17272,13 +17272,13 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .996183217
+        value: 1
         inSlope: 0
-        outSlope: .0231320225
+        outSlope: -0
         tangentMode: 17
       - time: .164999992
         value: 1
-        inSlope: .0231320225
+        inSlope: 0
         outSlope: -39.9294853
         tangentMode: 5
       - time: .24499999
@@ -51734,6 +51734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightShafts: {fileID: 1930510223}
+  maxSnowSeverity: .25
   minBrightnessAmount: .369780004
   maxBrightnessAmount: 1
 --- !u!1 &2138957626
