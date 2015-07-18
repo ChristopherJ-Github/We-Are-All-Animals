@@ -8,7 +8,10 @@ using System;
 public class WeatherInfo {
 
 	public GameObject weather;
-	public AnimationCurve spawnChance;
+	[HideInInspector] public float spawnChance {
+		get{ return spawnChanceOverYear.Evaluate (SceneManager.curvePos); }
+	}
+	public AnimationCurve spawnChanceOverYear;
 	[HideInInspector] public float maxSeverity { 
 		get{ return severityOverYear.Evaluate (SceneManager.curvePos); } 
 	}
@@ -39,24 +42,47 @@ public class WeatherControl : Singleton<WeatherControl> {
 	}
 
 	public WeatherInfo[] weatherTypes;
-	[HideInInspector] private float currentChance;
-	public float chanceDivisor = 1f;
+	public float weatherChance;
 	/// <summary>
 	/// State where there is no weather. Attempts to spawn weather every call
 	/// </summary>
 	void AttemptToSpawn () {
 
 		TurnOff ();
-		WeatherInfo weatherType = weatherTypes [UnityEngine.Random.Range(0, weatherTypes.Length)];
-		currentChance = 100 * (weatherType.spawnChance.Evaluate(SceneManager.curvePos));
-		if (currentChance/chanceDivisor > UnityEngine.Random.Range (0.0F, 100.0F)) {
-			float randomValue = UnityEngine.Random.value;
-			float transitionLength = Mathf.Lerp (weatherType.minTransition, weatherType.maxTransition, randomValue);
-			float cloudTransitionLength = Mathf.Lerp (weatherType.minCloudTransition, weatherType.maxCloudTransition, randomValue);
-			float weatherlength = Mathf.Lerp (weatherType.minDuration, weatherType.maxDuration, randomValue);
-			float startTime = (float)SceneManager.minsAtDayStart + UnityEngine.Random.Range (0, 12 * 60);
-			EnableWeather(weatherType, startTime, weatherlength, transitionLength, cloudTransitionLength);
+		if (weatherChance > UnityEngine.Random.Range (0, 100)) 
+			RandomlySpawn();
+	}
+
+	public void RandomlySpawn () {
+
+		WeatherInfo weatherType = GetRandomWeather ();
+		if (weatherType == null)
+			return;
+		float randomValue = UnityEngine.Random.value;
+		float transitionLength = Mathf.Lerp (weatherType.minTransition, weatherType.maxTransition, randomValue);
+		float cloudTransitionLength = Mathf.Lerp (weatherType.minCloudTransition, weatherType.maxCloudTransition, randomValue);
+		float weatherlength = Mathf.Lerp (weatherType.minDuration, weatherType.maxDuration, randomValue);
+		float startTime = (float)SceneManager.minsAtDayStart + UnityEngine.Random.Range (0, 12 * 60);
+		EnableWeather(weatherType, startTime, weatherlength, transitionLength, cloudTransitionLength);
+	}
+
+	WeatherInfo GetRandomWeather () {
+
+		float[] cSum = new float[weatherTypes.Length];
+		float total = 0;
+		for (int i = 0; i < cSum.Length; i++) {
+			float currentChance = weatherTypes[i].spawnChance;
+			total += currentChance;
+			cSum[i] = total;
 		}
+		float randomWeatherVal = UnityEngine.Random.Range (0, total);
+		if (total == 0)
+			return null;
+		for (int i = 0; i < cSum.Length; i++) {
+			if (cSum[i] >= randomWeatherVal) 
+				return weatherTypes[i];
+		}
+		return null; //shouldn't be reached
 	}
 
 	public static WeatherInfo currentWeather;
@@ -163,22 +189,6 @@ public class WeatherControl : Singleton<WeatherControl> {
 	}
 	
 	void Off() {}
-	
-	public void ForceSpawn () {
-		
-		StopAllCoroutines ();
-		StartCoroutine (ForceSpawnRoutine ());
-	}
-	
-	IEnumerator ForceSpawnRoutine () {
-		
-		bool weatherSpawned = false;
-		while (!weatherSpawned) {
-			AttemptToSpawn ();
-			weatherSpawned = !safeToPress;
-			yield return null;
-		}
-	}
 
 	[HideInInspector] public float severity;
 	void OnGuiEvent (float val) {

@@ -81,7 +81,7 @@ public class GUIManager : Singleton<GUIManager>
 		if (WeatherControl.instance.safeToPress) {
 			GUI.backgroundColor = Color.grey;
 			if (GUI.Button (new Rect(Screen.width * 0.8f, Screen.height * 0.11f, Screen.width * 0.17f, Screen.height * 0.15f), "Spawn Weather")) 
-				WeatherControl.instance.ForceSpawn();
+				WeatherControl.instance.RandomlySpawn();
 		} else {
 			GUI.backgroundColor = Color.grey;
 			if (GUI.Button (new Rect(Screen.width * 0.8f, Screen.height * 0.11f, Screen.width * 0.17f, Screen.height * 0.15f), "Stop Weather")) {
@@ -145,7 +145,7 @@ public class GUIManager : Singleton<GUIManager>
 		float alpha = weatherType.weather.activeSelf ? 1f : 0.45f;
 		sidebarStyle.normal.textColor = new Color(1.0f, 1.0f, 1.0f, alpha);
 		string name = weatherType.weather.name;
-		int percentage = Mathf.FloorToInt(weatherType.spawnChance.Evaluate(SceneManager.curvePos) * 100);
+		int percentage = Mathf.FloorToInt(weatherType.spawnChance * 100);
 		GUI.Label(new Rect(0, y, width, height), name + ": " + percentage + "%", sidebarStyle);
 		percentage = Mathf.FloorToInt (WeatherControl.instance.GetMaxSeverity (weatherType) * 100);
 		name = "Str";

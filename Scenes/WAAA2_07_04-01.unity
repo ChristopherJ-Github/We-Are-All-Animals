@@ -17233,7 +17233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weatherTypes:
   - weather: {fileID: 721260039}
-    spawnChance:
+    spawnChanceOverYear:
       serializedVersion: 2
       m_Curve:
       - time: 0
@@ -17244,23 +17244,23 @@ MonoBehaviour:
       - time: .164999992
         value: 1
         inSlope: 0
-        outSlope: -39.9294853
-        tangentMode: 5
+        outSlope: -12.5
+        tangentMode: 21
       - time: .24499999
         value: 0
-        inSlope: -.202582762
+        inSlope: -12.5
         outSlope: -0
-        tangentMode: 17
+        tangentMode: 21
       - time: .875
         value: 0
         inSlope: 0
-        outSlope: 2.73637486
-        tangentMode: 5
+        outSlope: 14.2857161
+        tangentMode: 21
       - time: .944999993
         value: 1
-        inSlope: 43.366787
+        inSlope: 14.2857161
         outSlope: -0
-        tangentMode: 17
+        tangentMode: 21
       - time: 1
         value: 1
         inSlope: -.209540263
@@ -17275,32 +17275,32 @@ MonoBehaviour:
         value: 1
         inSlope: 0
         outSlope: -0
-        tangentMode: 17
+        tangentMode: 21
       - time: .164999992
         value: 1
         inSlope: 0
-        outSlope: -39.9294853
-        tangentMode: 5
+        outSlope: -12.5
+        tangentMode: 21
       - time: .24499999
         value: 0
-        inSlope: -.202582762
+        inSlope: -12.5
         outSlope: -0
-        tangentMode: 17
+        tangentMode: 21
       - time: .875
         value: 0
         inSlope: 0
-        outSlope: 2.73637486
-        tangentMode: 5
+        outSlope: 14.2857161
+        tangentMode: 21
       - time: .944999993
         value: 1
-        inSlope: 43.366787
+        inSlope: 14.2857161
         outSlope: -0
-        tangentMode: 17
+        tangentMode: 21
       - time: 1
         value: 1
-        inSlope: -.209540263
+        inSlope: 0
         outSlope: -.209540263
-        tangentMode: 0
+        tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
     minCloudTransition: 10
@@ -17314,7 +17314,7 @@ MonoBehaviour:
     usesFilter: 0
     causesStorms: 1
   - weather: {fileID: 1586924656}
-    spawnChance:
+    spawnChanceOverYear:
       serializedVersion: 2
       m_Curve:
       - time: 0
@@ -17415,7 +17415,7 @@ MonoBehaviour:
     usesFilter: 1
     causesStorms: 1
   - weather: {fileID: 2132949552}
-    spawnChance:
+    spawnChanceOverYear:
       serializedVersion: 2
       m_Curve:
       - time: 0
@@ -17481,19 +17481,19 @@ MonoBehaviour:
     usesFilter: 0
     causesStorms: 0
   - weather: {fileID: 736160403}
-    spawnChance:
+    spawnChanceOverYear:
       serializedVersion: 2
       m_Curve:
       - time: 0
         value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 10
       - time: 1
         value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     severityOverYear:
@@ -17541,7 +17541,7 @@ MonoBehaviour:
     changesClouds: 1
     usesFilter: 0
     causesStorms: 1
-  chanceDivisor: 1
+  weatherChance: 30
   safeToPress: 0
   transition: 1
   cloudTransition: 1
