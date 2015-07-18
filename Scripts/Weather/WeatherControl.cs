@@ -68,8 +68,8 @@ public class WeatherControl : Singleton<WeatherControl> {
 	/// <param name="weatherType">Weather type.</param>
 	public void EnableWeather (WeatherInfo weatherType, float startTime, float weatherLength, float transitionLength, float cloudTransitionLength = 0, float? severity = null) {
 
-		this.severity = severity ?? UnityEngine.Random.Range (0, weatherType.maxSeverity);
 		currentWeather = weatherType;
+		SetSeverity (weatherType, severity);
 		currentWeather.weather.SetActive(true);
 		if (currentWeather.changesClouds) {
 			cloudTransInTime = startTime;
@@ -87,7 +87,24 @@ public class WeatherControl : Singleton<WeatherControl> {
 		safeToPress = false;
 		weatherState = On;
 	}
-	
+
+	void SetSeverity (WeatherInfo weatherType, float? severity) {
+
+		float maxSeverity = GetMaxSeverity (weatherType);
+		this.severity = severity ?? UnityEngine.Random.Range (0, maxSeverity);
+	}
+
+	public float GetMaxSeverity (WeatherInfo weatherType = null) {
+
+		WeatherInfo _weatherType = weatherType ?? currentWeather;
+		if (_weatherType == null) 
+			return 0;
+		float maxSeverity = _weatherType.maxSeverity;
+		if (_weatherType.weather.GetComponent<WindStorm>() != null) 
+			maxSeverity = WindStorm.GetMaxSeverity(maxSeverity);
+		return maxSeverity;
+	}
+
 	[HideInInspector] public float transition, cloudTransition, totalTransition;
 	void On () {
 		
@@ -163,7 +180,7 @@ public class WeatherControl : Singleton<WeatherControl> {
 	void OnGuiEvent (float val) {
 
 		if (currentWeather != null)
-			severity = Mathf.Lerp (0, currentWeather.maxSeverity, val);
+			severity = Mathf.Lerp (0, GetMaxSeverity(), val);
 	}
 
 	private Dictionary <string, int[]> spawnedInYear;

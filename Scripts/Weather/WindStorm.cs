@@ -5,6 +5,12 @@ public class WindStorm : MonoBehaviour {
 
 	private float initWindiness;
 
+	public static float GetMaxSeverity (float currentMaxSeverity) {
+		
+		float maxAfterSnow = Mathf.Lerp (currentMaxSeverity, 1, SnowManager.instance.snowLevel);
+		return maxAfterSnow;
+	}
+
 	void OnEnable () {
 
 		initWindiness = WindControl.instance.windiness; 

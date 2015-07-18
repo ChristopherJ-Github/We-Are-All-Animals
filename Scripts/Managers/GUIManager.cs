@@ -147,7 +147,7 @@ public class GUIManager : Singleton<GUIManager>
 		string name = weatherType.weather.name;
 		int percentage = Mathf.FloorToInt(weatherType.spawnChance.Evaluate(SceneManager.curvePos) * 100);
 		GUI.Label(new Rect(0, y, width, height), name + ": " + percentage + "%", sidebarStyle);
-		percentage = Mathf.FloorToInt(weatherType.severityOverYear.Evaluate(SceneManager.curvePos) * 100);
+		percentage = Mathf.FloorToInt (WeatherControl.instance.GetMaxSeverity (weatherType) * 100);
 		name = "Str";
 		GUI.Label(new Rect(100, y, width, height), name + ": " + percentage + "%", sidebarStyle);
 	}
