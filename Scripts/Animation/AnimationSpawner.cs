@@ -13,6 +13,7 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 		
 		SceneManager.instance.OnNewMin += MinuteSpawnAttempt;
 		SceneManager.instance.OnNewHour += HourSpawnAttempt;
+		SceneManager.instance.OnNewDay += ClearAnimations;
 	}
 
 	void Update () {

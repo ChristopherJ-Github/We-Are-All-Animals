@@ -872,17 +872,17 @@ MonoBehaviour:
     - time: .310000002
       value: .25
       inSlope: -.0471621752
-      outSlope: -.0471621752
-      tangentMode: 0
-    - time: .534999967
+      outSlope: -0
+      tangentMode: 17
+    - time: .635468841
       value: .25
       inSlope: 0
-      outSlope: -.688076377
+      outSlope: -.293734014
       tangentMode: 5
-    - time: .657348394
-      value: .0963136405
-      inSlope: -.878036857
-      outSlope: -.878036857
+    - time: .712271333
+      value: .22912614
+      inSlope: -.967695951
+      outSlope: -.967695951
       tangentMode: 10
     - time: .849999964
       value: 0
