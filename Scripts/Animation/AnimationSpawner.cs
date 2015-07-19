@@ -56,6 +56,7 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 		float total = 0;
 		for (int i = 0; i < cSum.Length; i++) {
 			float currentChance = animations[i].spawnChance.Evaluate(SceneManager.curvePos);
+			currentChance = Mathf.Clamp01(currentChance);
 			total += currentChance;
 			cSum[i] = total;
 		}

@@ -1979,15 +1979,40 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .5
+      value: .25
+      inSlope: .368627429
+      outSlope: .370055556
+      tangentMode: 21
+    - time: .185577855
+      value: .318674117
+      inSlope: 1.84542871
+      outSlope: 1.84542871
+      tangentMode: 10
+    - time: .306795925
+      value: .721215308
+      inSlope: 3.70591879
+      outSlope: 3.70591879
+      tangentMode: 0
+    - time: .501597464
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+    - time: .711066961
+      value: .711744189
+      inSlope: -4.47362375
+      outSlope: -4.47362375
+      tangentMode: 0
+    - time: .873754501
+      value: .299764246
+      inSlope: -1.46326244
+      outSlope: -1.46326244
+      tangentMode: 10
     - time: 1
-      value: .5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      value: .25
+      inSlope: -.394186288
+      outSlope: -3.20829511
+      tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
   bird: 0

@@ -1580,15 +1580,30 @@ MonoBehaviour:
   spawnChance:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: .5
+    - time: .00499999989
+      value: .75
+      inSlope: -.0442358479
+      outSlope: -.0442358479
+      tangentMode: 0
+    - time: .248580039
+      value: .91096282
+      inSlope: .782166064
+      outSlope: .782166064
+      tangentMode: 0
+    - time: .501597464
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+    - time: .766974747
+      value: .882979691
+      inSlope: -.896636784
+      outSlope: -.896636784
+      tangentMode: 0
     - time: 1
-      value: .5
-      inSlope: 0
-      outSlope: 0
+      value: .75
+      inSlope: -.125445768
+      outSlope: -.125445768
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

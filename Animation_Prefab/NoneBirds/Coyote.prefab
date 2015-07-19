@@ -1679,14 +1679,29 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: .5
+      inSlope: .368627429
+      outSlope: -2.10706902
+      tangentMode: 5
+    - time: .391902268
+      value: .0227935314
+      inSlope: -.216905385
+      outSlope: -.216905385
+      tangentMode: 10
+    - time: .628970444
+      value: .208620891
+      inSlope: 2.18335676
+      outSlope: 2.18335676
+      tangentMode: 10
+    - time: .834044278
+      value: .943371177
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - time: 1
-      value: .5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      value: .528430104
+      inSlope: -2.50031185
+      outSlope: -3.20829511
+      tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
   bird: 0
