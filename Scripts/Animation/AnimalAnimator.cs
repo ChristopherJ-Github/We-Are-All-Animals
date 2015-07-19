@@ -26,7 +26,7 @@ public class AnimalAnimator: MonoBehaviour {
 		if (initAnimation != null)
 			animation.Play(initAnimation.name);
 		List<Spline> splines = GetSplines ();
-		splineIndex = GetSplineIndex(splines.Count);
+		splineIndex = GetSplineIndex(splines);
 		if (splineIndex != -1) {
 			spline = splines[splineIndex];
 			InitStopNodeArray();
@@ -55,19 +55,36 @@ public class AnimalAnimator: MonoBehaviour {
 	}
 	
 	public int splineIndex = -1;
-	int GetSplineIndex (int splineCount) {
+	int GetSplineIndex (List<Spline> splines) {
 		
-		if (splineIndex != -1)
-			return splineIndex;
-		List<int> availableSplines = Enumerable.Range (0, splineCount).ToList ();
-		foreach (AnimalAnimator animation in AnimationSpawner.instance.currentAnimations) {
-			if (animal.name == animation.animal.name) 
-				availableSplines.Remove(animation.splineIndex);
-		}
+		if (this.splineIndex != -1)
+			return this.splineIndex;
+		List<int> availableSplines = Enumerable.Range (0,  splines.Count).ToList ();
+		RemoveDuplicateSplines (ref availableSplines);
+		RemoveIncompatibleSplines (ref availableSplines, splines);
 		if (availableSplines.Count > 0) 
 			return availableSplines[Random.Range(0, availableSplines.Count)];
 		else 
 			return -1;
+	}
+
+	void RemoveDuplicateSplines (ref List<int> availableSplines) {
+
+		foreach (AnimalAnimator animation in AnimationSpawner.instance.currentAnimations) {
+			if (animal.name == animation.animal.name) 
+				availableSplines.Remove(animation.splineIndex);
+		}
+	}
+
+	void RemoveIncompatibleSplines (ref List<int> availableSplines, List<Spline> splines) {
+
+		for (int splineIndex = 0; splineIndex < splines.Count; splineIndex ++) {
+			SplineProperties splineProperties = splines[splineIndex].GetComponent<SplineProperties>();
+			if (splineProperties.CanSpawn())
+				continue;
+			else
+				availableSplines.Remove(splineIndex);
+		}
 	}
 
 	private List<SplineNode> stopNodeArray; 

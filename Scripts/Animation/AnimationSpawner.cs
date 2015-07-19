@@ -59,11 +59,11 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 			total += currentChance;
 			cSum[i] = total;
 		}
-		float randomWeatherVal = UnityEngine.Random.Range (0, total);
+		float randomAnimationVal = Random.Range (0, total);
 		if (total == 0)
 			return null;
 		for (int i = 0; i < cSum.Length; i++) {
-			if (cSum[i] >= randomWeatherVal) 
+			if (cSum[i] >= randomAnimationVal) 
 				return animations[i];
 		}
 		return null; //shouldn't be reached

@@ -37,9 +37,13 @@ public class SnowManager : Singleton<SnowManager> {
 		
 		SetRiver ();
 	}
-	
-	public float freezelevel;
+
 	public GameObject river, frozenRiver;
+	[HideInInspector] public bool riverFrozen {
+		get { return frozenRiver.activeSelf; } 
+	}
+
+	public float freezelevel;
 	public void SetRiver (bool? freeze = null) {
 		
 		if (freeze != null) {
@@ -85,11 +89,9 @@ public class SnowManager : Singleton<SnowManager> {
 		
 		if (WeatherControl.instance.transition != 1 && WeatherControl.instance.cloudTransition != 1)
 			return;
-		
 		snowLevel += accumRate * Time.deltaTime;
 		snowLevel = LeafFallManager.thereAreLeaves ? 0 : _snowlevel;
 		TriggerSnowChange (snowLevel);
-		
 		if (snowLevel >= 1) {
 			snowLevel = 1;
 			reactionState = idle;

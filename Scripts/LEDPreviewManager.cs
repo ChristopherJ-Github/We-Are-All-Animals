@@ -188,8 +188,7 @@ public class LEDPreviewManager : MonoBehaviour {
 	void MiscInput () {
 		
 		if (Input.GetKeyDown(KeyCode.Alpha8)) {
-			bool riverIsFrozen = SnowManager.instance.frozenRiver.activeSelf;
-			SnowManager.instance.SetRiver(!riverIsFrozen);
+			SnowManager.instance.SetRiver(!SnowManager.instance.riverFrozen);
 		}
 		if (Input.GetKey(KeyCode.Alpha9))
 			SnowManager.instance.snowLevel -= transitionSpeed * Time.deltaTime;
