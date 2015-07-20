@@ -993,6 +993,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .75
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -2547,6 +2548,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .639999986
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -3083,7 +3085,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154805017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26aded1be83dc364ca74e0652ea63321, type: 3}
   m_Name: 
@@ -3303,7 +3305,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154805017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99a4ce6982bea6247aa5d4053e28ed49, type: 3}
   m_Name: 
@@ -3686,6 +3688,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -4499,6 +4502,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .779999971
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -4837,6 +4841,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .699999988
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -8376,6 +8381,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .639999986
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -9034,6 +9040,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .879999995
+  fallTintMultiplier: 0
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -10119,6 +10126,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .610000014
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -11290,6 +11298,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -11728,6 +11737,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .639999986
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -13553,6 +13563,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .460000008
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15082,6 +15093,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .603699982
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -15725,19 +15737,19 @@ MonoBehaviour:
       inSlope: -25.0000057
       outSlope: -0
       tangentMode: 21
-    - time: .829999983
+    - time: .790669739
       value: 0
       inSlope: 0
-      outSlope: 24.9999866
+      outSlope: 40.971405
       tangentMode: 21
-    - time: .870000005
+    - time: .815077007
       value: 1
-      inSlope: 24.9999866
-      outSlope: -.00323194731
+      inSlope: 40.971405
+      outSlope: -.00227204384
       tangentMode: 21
     - time: 1
       value: .999579847
-      inSlope: -.00323194731
+      inSlope: -.00227204384
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -16783,6 +16795,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .800000012
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -18697,6 +18710,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .800000012
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -19614,6 +19628,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .639999986
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -22158,6 +22173,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .769999981
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -23994,6 +24010,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .839999974
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -24159,6 +24176,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -24361,6 +24379,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -25495,6 +25514,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -25749,6 +25769,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -26943,6 +26964,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -27887,6 +27909,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .764299989
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -28429,6 +28452,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -28998,6 +29022,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .810000002
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -29463,6 +29488,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .710799992
+  fallTintMultiplier: .189999998
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -29883,6 +29909,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -30539,6 +30566,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -32663,6 +32691,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .75999999
+  fallTintMultiplier: .389999986
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -33599,6 +33628,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .460000008
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -33982,6 +34012,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .870000005
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -34184,6 +34215,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .699000001
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -34703,6 +34735,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .74000001
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -35448,6 +35481,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -36753,6 +36787,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .764999986
+  fallTintMultiplier: .239999995
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -37182,6 +37217,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .610000014
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -40180,6 +40216,22 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 65.0100021
       objectReference: {fileID: 0}
+    - target: {fileID: 11460120, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: fallTintMultiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460140, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: fallTintMultiplier
+      value: .189999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460164, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: fallTintMultiplier
+      value: .239999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460158, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: fallTintMultiplier
+      value: .389999986
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
   m_RootGameObject: {fileID: 1205678102}
@@ -40241,6 +40293,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .829999983
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -40701,6 +40754,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -42433,6 +42487,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .850000024
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -42995,6 +43050,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -44220,6 +44276,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .769999981
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -45875,6 +45932,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -46197,6 +46255,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .764999986
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -47356,6 +47415,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 1
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -48254,49 +48314,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71656dcdd33875348aa1fd3189055541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeColorOverYear:
-    key0:
-      serializedVersion: 2
-      rgba: 4294967295
-    key1:
-      serializedVersion: 2
-      rgba: 4294967295
-    key2:
-      serializedVersion: 2
-      rgba: 16777215
-    key3:
-      serializedVersion: 2
-      rgba: 11910139
-    key4:
-      serializedVersion: 2
-      rgba: 11910139
-    key5:
-      serializedVersion: 2
-      rgba: 6316672
-    key6:
-      serializedVersion: 2
-      rgba: 0
-    key7:
-      serializedVersion: 2
-      rgba: 0
-    ctime0: 0
-    ctime1: 31190
-    ctime2: 43236
-    ctime3: 53633
-    ctime4: 65535
-    ctime5: 65535
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_NumColorKeys: 5
-    m_NumAlphaKeys: 2
+  fallTint: {r: .396078438, g: .172549024, b: 0, a: 1}
+  fallTintOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 3.7252903e-09
+      inSlope: .234375015
+      outSlope: -5.17401455e-09
+      tangentMode: 21
+    - time: .719999969
+      value: 0
+      inSlope: -5.17401455e-09
+      outSlope: 16.666666
+      tangentMode: 21
+    - time: .779999971
+      value: 1
+      inSlope: 16.666666
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 2.36111116
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   currentColor: {r: .984313726, g: .733333349, b: .709803939, a: 1}
   updateBillboards: 1
   flowerColorOverYear:
@@ -49757,6 +49800,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .74000001
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -49922,6 +49966,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: .879999995
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -50557,6 +50602,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2
@@ -51545,6 +51591,7 @@ MonoBehaviour:
   bark: []
   leaves: []
   minLeafAmount: 0
+  fallTintMultiplier: 1
   colorOverYear:
     key0:
       serializedVersion: 2

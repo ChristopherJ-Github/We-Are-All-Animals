@@ -11,6 +11,7 @@ public class TreePropertiesEditor : Editor {
 	//=====Generated tree variables======
 	public SerializedProperty trees;
 	public SerializedProperty minLeafAmount;
+	public SerializedProperty fallTintMultiplier;
 
 	//======Modeled tree variables======
 	
@@ -38,6 +39,7 @@ public class TreePropertiesEditor : Editor {
 		colorOverYear = serializedObject.FindProperty ("colorOverYear");
 		useOwnColors = serializedObject.FindProperty ("useOwnColors");
 		minLeafAmount = serializedObject.FindProperty ("minLeafAmount");
+		fallTintMultiplier = serializedObject.FindProperty ("fallTintMultiplier");
 	}
 	
 	// Update is called once per frame
@@ -49,6 +51,7 @@ public class TreePropertiesEditor : Editor {
 		EditorGUILayout.PropertyField(barkMatNumber, true);
 		EditorGUILayout.PropertyField(leafMatNumber, true);
 		EditorGUILayout.PropertyField (minLeafAmount, true);
+		EditorGUILayout.PropertyField (fallTintMultiplier, true);
 		useOwnColors.boolValue = EditorGUILayout.BeginToggleGroup ("Use Own Colors", useOwnColors.boolValue);
 		EditorGUILayout.PropertyField(colorOverYear, true);
 		EditorGUILayout.EndToggleGroup ();

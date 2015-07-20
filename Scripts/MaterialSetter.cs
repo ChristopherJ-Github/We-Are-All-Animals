@@ -34,9 +34,20 @@ public class MaterialSetter : MonoBehaviour {
 		if (distanceFeeder != null)
 			distanceFeeder.InputDistance ();
 		Material[] materials = renderer.materials;
+		SetMinLeafAmount (materials);
+		SetFallTintMultiplier (materials);
+	}
+
+	void SetMinLeafAmount (Material[] materials) {
+
 		float cutoff = materials [leafIndex].GetFloat ("_Cutoff");
 		float leafReduction = Mathf.Lerp (1 - treeProperties.minLeafAmount, 0, LeafFallManager.instance.leafAmount);
 		cutoff += leafReduction;
 		materials [leafIndex].SetFloat ("_Cutoff", cutoff);
+	}
+
+	void SetFallTintMultiplier (Material[] materials) {
+
+		materials [leafIndex].SetFloat ("_TintMultiplier", treeProperties.fallTintMultiplier);
 	}
 }

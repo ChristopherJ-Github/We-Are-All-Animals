@@ -36,6 +36,7 @@ CGPROGRAM
 sampler2D _MainTex;
 sampler2D _BumpSpecMap;
 sampler2D _TranslucencyMap;
+float _FallTintAmount;
 float _TintMultiplier;
 
 struct Input {
@@ -46,7 +47,7 @@ struct Input {
 void surf (Input IN, inout LeafSurfaceOutput o) {
 	fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
 	fixed3 tintedColor = c.rgb + _Color.rgb;
-	o.Albedo = lerp (c.rgb, tintedColor, _TintMultiplier);
+	o.Albedo = lerp (c.rgb, tintedColor, _FallTintAmount * _TintMultiplier);
 	o.Albedo *= IN.color.a;
 	
 	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);

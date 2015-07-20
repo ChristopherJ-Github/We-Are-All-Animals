@@ -17,11 +17,14 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		TriggerColorChange (currentColor);
 	}
 
-	public Gradient treeColorOverYear;
+	public Color fallTint;
+	public AnimationCurve fallTintOverYear;
 	[HideInInspector] public Color currentColor;
 	void ChangeTreeColor () {
 
-		currentColor = treeColorOverYear.Evaluate (SceneManager.curvePos);
+		currentColor = fallTint;
+		float fallTintAmount = fallTintOverYear.Evaluate (SceneManager.curvePos);
+		Shader.SetGlobalFloat ("_FallTintAmount", fallTintAmount);
 		TerrainData terrainData = Terrain.activeTerrain.terrainData;
 		terrainData.wavingGrassTint = currentColor;
 	}

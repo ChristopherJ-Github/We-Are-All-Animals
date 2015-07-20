@@ -50,6 +50,7 @@ public class TreeProperties : MonoBehaviour {
 	}
 
 	public float minLeafAmount; //in TreeProperties to allow for unique values for instances
+	public float fallTintMultiplier = 1;
 	void InitGeneratedTree () {
 
 		generatedTreeManager = gameObject.AddComponent<GeneratedTreeManager>() as GeneratedTreeManager;
