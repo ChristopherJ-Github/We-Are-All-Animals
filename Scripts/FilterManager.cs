@@ -80,7 +80,6 @@ public class FilterManager : Singleton<FilterManager> {
 	}
 	
 	private int groupIndex, filterIndex;
-
 	public void NextFilter () {
 
 		int filterIndex = this.filterIndex;

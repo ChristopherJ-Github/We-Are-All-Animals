@@ -1,6 +1,7 @@
 Shader "Nature/Tree Creator Leaves Optimized Fall" {
 Properties {
 	_Color ("Main Color", Color) = (1,1,1,1)
+	_TintMultiplier ("Tint Multiplier", Float) = 1
 	_TranslucencyColor ("Translucency Color", Color) = (0.73,0.85,0.41,1) // (187,219,106,255)
 	_Cutoff ("Alpha cutoff", Range(0,1)) = 0.3
 	_TranslucencyViewDependency ("View dependency", Range(0,1)) = 0.7
@@ -35,6 +36,7 @@ CGPROGRAM
 sampler2D _MainTex;
 sampler2D _BumpSpecMap;
 sampler2D _TranslucencyMap;
+float _TintMultiplier;
 
 struct Input {
 	float2 uv_MainTex;
@@ -43,7 +45,9 @@ struct Input {
 
 void surf (Input IN, inout LeafSurfaceOutput o) {
 	fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
-	o.Albedo = c.rgb * _Color.rgb * IN.color.a;
+	fixed3 tintedColor = c.rgb + _Color.rgb;
+	o.Albedo = lerp (c.rgb, tintedColor, _TintMultiplier);
+	o.Albedo *= IN.color.a;
 	
 	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
 	o.Translucency = trngls.b;
