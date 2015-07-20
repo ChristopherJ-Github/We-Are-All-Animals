@@ -3280,18 +3280,13 @@ MonoBehaviour:
     - time: .24849999
       value: 1
       inSlope: Infinity
+      outSlope: -1.60642564
+      tangentMode: 23
+    - time: .870999992
+      value: 0
+      inSlope: Infinity
       outSlope: -0
       tangentMode: 23
-    - time: .829999983
-      value: 1
-      inSlope: 0
-      outSlope: -21.7391014
-      tangentMode: 21
-    - time: .876000047
-      value: 0
-      inSlope: -21.7391014
-      outSlope: -0
-      tangentMode: 21
     - time: 1
       value: 0
       inSlope: 0
@@ -15613,6 +15608,21 @@ MonoBehaviour:
       inSlope: -11.7647066
       outSlope: -0
       tangentMode: 21
+    - time: .807999969
+      value: 0
+      inSlope: 0
+      outSlope: 15.8796654
+      tangentMode: 21
+    - time: .870973587
+      value: 1
+      inSlope: 15.8796654
+      outSlope: -37871.8203
+      tangentMode: 21
+    - time: .870999992
+      value: 0
+      inSlope: Infinity
+      outSlope: -0
+      tangentMode: 23
     - time: 1
       value: 0
       inSlope: 0
@@ -15638,6 +15648,21 @@ MonoBehaviour:
       inSlope: -6.00866413
       outSlope: 0
       tangentMode: 29
+    - time: .808006823
+      value: .486546874
+      inSlope: 0
+      outSlope: 7.56428432
+      tangentMode: 23
+    - time: .870794535
+      value: .961490989
+      inSlope: 7.56428432
+      outSlope: 0
+      tangentMode: 29
+    - time: .870993257
+      value: .486546874
+      inSlope: Infinity
+      outSlope: -0
+      tangentMode: 23
     - time: 1
       value: .486546874
       inSlope: 0
@@ -15737,19 +15762,19 @@ MonoBehaviour:
       inSlope: -25.0000057
       outSlope: -0
       tangentMode: 21
-    - time: .790669739
+    - time: .745000005
       value: 0
       inSlope: 0
-      outSlope: 40.971405
+      outSlope: 15.8730097
       tangentMode: 21
-    - time: .815077007
+    - time: .808000028
       value: 1
-      inSlope: 40.971405
-      outSlope: -.00227204384
+      inSlope: 15.8730097
+      outSlope: -.00218829792
       tangentMode: 21
     - time: 1
       value: .999579847
-      inSlope: -.00227204384
+      inSlope: -.00218829792
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -31682,7 +31707,7 @@ MonoBehaviour:
     - month: 10
       day: 25
     - month: 11
-      day: 1
+      day: 15
     date:
       month: 0
       day: 1
@@ -48408,21 +48433,21 @@ MonoBehaviour:
       inSlope: 17.9969845
       outSlope: -0
       tangentMode: 21
-    - time: .802998006
+    - time: .833000064
       value: 1
       inSlope: 0
-      outSlope: -.680040538
-      tangentMode: 5
-    - time: .865609884
-      value: .625178576
-      inSlope: -14.4923267
-      outSlope: -14.4923267
+      outSlope: -34.2567444
+      tangentMode: 21
+    - time: .850874543
+      value: .387678564
+      inSlope: -23.5623894
+      outSlope: -23.5623894
       tangentMode: 0
     - time: .879999995
       value: 0
-      inSlope: -113.184761
+      inSlope: -13.3106451
       outSlope: -0
-      tangentMode: 17
+      tangentMode: 21
     - time: 1
       value: 0
       inSlope: 0
