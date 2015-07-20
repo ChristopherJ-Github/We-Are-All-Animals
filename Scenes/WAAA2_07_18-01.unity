@@ -15608,14 +15608,14 @@ MonoBehaviour:
       inSlope: -11.7647066
       outSlope: -0
       tangentMode: 21
-    - time: .807999969
+    - time: .745000005
       value: 0
       inSlope: 0
-      outSlope: 15.8796654
+      outSlope: 7.93817234
       tangentMode: 21
     - time: .870973587
       value: 1
-      inSlope: 15.8796654
+      inSlope: 7.93817234
       outSlope: -37871.8203
       tangentMode: 21
     - time: .870999992
@@ -15648,14 +15648,14 @@ MonoBehaviour:
       inSlope: -6.00866413
       outSlope: 0
       tangentMode: 29
-    - time: .808006823
+    - time: .745046318
       value: .486546874
       inSlope: 0
-      outSlope: 7.56428432
+      outSlope: 3.77694511
       tangentMode: 23
     - time: .870794535
       value: .961490989
-      inSlope: 7.56428432
+      inSlope: 3.77694511
       outSlope: 0
       tangentMode: 29
     - time: .870993257
@@ -29208,17 +29208,17 @@ MonoBehaviour:
       inSlope: -25.0000057
       outSlope: -0
       tangentMode: 21
-    - time: .75
+    - time: .745000005
       value: 0
       inSlope: 0
-      outSlope: 16.666666
+      outSlope: 15.8730097
       tangentMode: 21
-    - time: .810000002
+    - time: .808000028
       value: 1
-      inSlope: 16.666666
+      inSlope: 15.8730097
       outSlope: Infinity
       tangentMode: 29
-    - time: .875
+    - time: .914999962
       value: 0
       inSlope: Infinity
       outSlope: -0
