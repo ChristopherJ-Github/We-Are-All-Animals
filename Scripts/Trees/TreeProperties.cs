@@ -31,12 +31,10 @@ public class TreeProperties : MonoBehaviour {
 	
 	void Start () {
 
-		SceneManager.instance.OnNewDay += dayUpdate;
 		if (treeType == type.Model) 
 			InitModeledTree();
 		else 
 			InitGeneratedTree();
-		dayUpdate ();
 	}
 
 	void InitModeledTree () {
@@ -58,26 +56,4 @@ public class TreeProperties : MonoBehaviour {
 		generatedTreeManager.trees = trees;
 		generatedTreeManager.Init ();
 	}
-
-	void dayUpdate () {
-
-		changeMatColor ();
-	}
-
-	void Update () {
-
-		changeMatColor ();//debug
-	}
-
-	public Gradient colorOverYear;
-	public bool useOwnColors;
-	void changeMatColor () {
-
-		GameObject tree = treeType == type.Model ? gameObject : generatedTreeManager.currentTree;
-		if (tree == null || tree.renderer.materials.Length < leafMatNumber + 1)
-			return;
-		Color col = useOwnColors ? colorOverYear.Evaluate (SceneManager.curvePos) : TreeColorManager.instance.currentColor;
-		tree.renderer.materials [leafMatNumber].SetColor ("_Color", col);
-	}
-
 }

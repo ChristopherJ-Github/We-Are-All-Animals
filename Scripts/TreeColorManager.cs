@@ -25,6 +25,7 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 		currentColor = fallTint;
 		float fallTintAmount = fallTintOverYear.Evaluate (SceneManager.curvePos);
 		Shader.SetGlobalFloat ("_FallTintAmount", fallTintAmount);
+		Shader.SetGlobalColor ("_FallTint", fallTint);
 		TerrainData terrainData = Terrain.activeTerrain.terrainData;
 		terrainData.wavingGrassTint = currentColor;
 	}
