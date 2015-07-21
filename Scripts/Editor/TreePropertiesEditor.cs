@@ -5,8 +5,6 @@ using UnityEditor;
 [CustomEditor(typeof(TreeProperties))]
 public class TreePropertiesEditor : Editor {
 	public SerializedProperty treeType;
-	public SerializedProperty colorOverYear;
-	public SerializedProperty useOwnColors;
 
 	//=====Generated tree variables======
 	public SerializedProperty trees;
@@ -36,8 +34,6 @@ public class TreePropertiesEditor : Editor {
 		leafFallPercentage = serializedObject.FindProperty ("leafFallPercentage");
 		leafParticals= serializedObject.FindProperty ("leafParticals");
 		hasLeafFall = serializedObject.FindProperty ("hasLeafFall");
-		colorOverYear = serializedObject.FindProperty ("colorOverYear");
-		useOwnColors = serializedObject.FindProperty ("useOwnColors");
 		minLeafAmount = serializedObject.FindProperty ("minLeafAmount");
 		fallTintMultiplier = serializedObject.FindProperty ("fallTintMultiplier");
 	}
@@ -52,9 +48,6 @@ public class TreePropertiesEditor : Editor {
 		EditorGUILayout.PropertyField(leafMatNumber, true);
 		EditorGUILayout.PropertyField (minLeafAmount, true);
 		EditorGUILayout.PropertyField (fallTintMultiplier, true);
-		useOwnColors.boolValue = EditorGUILayout.BeginToggleGroup ("Use Own Colors", useOwnColors.boolValue);
-		EditorGUILayout.PropertyField(colorOverYear, true);
-		EditorGUILayout.EndToggleGroup ();
 		if (treeType.enumValueIndex == 0) {
 			EditorGUILayout.PropertyField(trees, true);
 		} else {

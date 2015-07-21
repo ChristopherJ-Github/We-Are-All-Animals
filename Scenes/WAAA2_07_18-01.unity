@@ -3141,7 +3141,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
-  maxTint: .0700000003
+  maxTint: .0399999991
   daytimeToBloom:
     serializedVersion: 2
     m_Curve:
