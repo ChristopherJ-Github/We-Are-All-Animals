@@ -25,21 +25,21 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		UpdateLeafAmount ();
 	}
 
-	public Color[] colors;
+	public float[] tintMultipliers;
 	public GameObject particleBase;
 	void CreateLeafParticles () {
 
-		int copyCount = colors.Length;
-		foreach (Color color in colors) {
+		int copyCount = tintMultipliers.Length;
+		foreach (float tintMultiplier in tintMultipliers) {
 			GameObject particleCopy = Instantiate(particleBase) as GameObject;
 			particleCopy.transform.parent = transform;
 			particleCopy.transform.position = particleBase.transform.position;
-			InitializeLeafParticles(particleCopy, copyCount, color);
+			InitializeLeafParticles(particleCopy, copyCount, tintMultiplier);
 		}
 		Destroy (particleBase);
 	}
 
-	void InitializeLeafParticles (GameObject particleCopy, int copyCount, Color originalColor) {
+	void InitializeLeafParticles (GameObject particleCopy, int copyCount, float tintMultiplier) {
 
 		LeafParticles leafParticles = particleCopy.AddComponent<LeafParticles>();
 		leafParticles.minInterval = minInterval;
@@ -65,7 +65,7 @@ public class LeafFallManager : Singleton<LeafFallManager> {
 		leafParticles.minRandomization = minRandomization;
 		leafParticles.maxRandomization = maxRandomization;
 		leafParticles.windToRandomization = windToRandomization;
-		leafParticles.originalColor = originalColor;
+		leafParticles.tintMultiplier = tintMultiplier;
 		leafParticles.Init ();
 	}
 

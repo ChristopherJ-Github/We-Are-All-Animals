@@ -3119,21 +3119,21 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .729999959
+    - time: .745000005
       value: 0
       inSlope: 0
-      outSlope: .0655753613
+      outSlope: 15.8730097
       tangentMode: 21
-    - time: .825311422
-      value: .00625008345
-      inSlope: .0655753613
-      outSlope: -.180177227
+    - time: .808000028
+      value: 1
+      inSlope: 15.8730097
+      outSlope: -15.8730097
       tangentMode: 21
-    - time: .859999955
+    - time: .871000051
       value: 0
-      inSlope: -.180177227
+      inSlope: Infinity
       outSlope: -0
-      tangentMode: 21
+      tangentMode: 23
     - time: 1
       value: 0
       inSlope: 0
@@ -3141,7 +3141,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
-  maxTint: .115999997
+  maxTint: .0700000003
   daytimeToBloom:
     serializedVersion: 2
     m_Curve:
@@ -46629,7 +46629,7 @@ MonoBehaviour:
   stopMonth: 11
   stopDay: 15
   minEmission: 2
-  maxEmission: 300
+  maxEmission: 40
   minEnergy: 0
   maxEnergy: 200
   nightDarkness: .899999976
@@ -46691,9 +46691,9 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  colors:
-  - {r: .75, g: .75, b: .75, a: 1}
-  - {r: .529411793, g: .529411793, b: .529411793, a: 1}
+  tintMultipliers:
+  - 1
+  - .5
   particleBase: {fileID: 875829339}
   leafAmountOverYear:
     serializedVersion: 2

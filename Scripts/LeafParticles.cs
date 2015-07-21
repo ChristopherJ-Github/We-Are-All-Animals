@@ -4,16 +4,16 @@ using System;
 using System.Collections;
 
 public class LeafParticles : MonoBehaviour {
-	
+
+	public float tintMultiplier;
 	public void Init() {
 
-		TreeColorManager.instance.OnColorChange += ChangeColor;
 		SceneManager.instance.OnNewDay += SetAllowLeaves;
 		SceneManager.instance.OnNewDay += particleEmitter.ClearParticles;
 		SetAllowLeaves ();
+		renderer.material.SetFloat ("_TintMultiplier", tintMultiplier);
 		particleAnimator = GetComponent<ParticleAnimator> ();
 		originalPosition = transform.position;
-		ChangeColor (TreeColorManager.instance.currentColor);
 		StartCoroutine (IntervalCountDown ());
 	}
 
@@ -79,10 +79,10 @@ public class LeafParticles : MonoBehaviour {
 	public float nightDarkness;
 	void SetBrightness () {
 		
-		Color nightColor = Color.Lerp (colorForTheDay, Color.black, nightDarkness);
+		Color nightColor = Color.Lerp (Color.white, Color.black, nightDarkness);
 		float particleBrightness = SkyManager.instance.intensityLerp;
-		Color currentColor = Color.Lerp (nightColor, colorForTheDay, particleBrightness);
-		particleEmitter.renderer.material.SetColor ("_TintColor", currentColor);
+		Color currentTint = Color.Lerp (nightColor, Color.white, particleBrightness);
+		particleEmitter.renderer.material.SetColor ("_BrightnessTint", currentTint);
 	}
 	
 	void LateUpdate () {
@@ -122,18 +122,6 @@ public class LeafParticles : MonoBehaviour {
 		float randomizationAmount = windToRandomization.Evaluate (windiness);
 		float currentRandomization = Mathf.Lerp (minRandomization, maxRandomization, randomizationAmount);
 		particleAnimator.rndForce = (new Vector3 (1, 0, 1)) * currentRandomization;
-	}
-
-	public Color originalColor;
-	private Color colorForTheDay;
-	public void ChangeColor (Color treeColor) {
-
-		Color newColor = Color.white;
-		newColor.r = Mathf.Clamp01(originalColor.r - 1 + treeColor.r);
-		newColor.g = Mathf.Clamp01(originalColor.g - 1 + treeColor.g);
-		newColor.b = Mathf.Clamp01(originalColor.b - 1 + treeColor.b);
-		particleEmitter.renderer.material.SetColor ("_TintColor", newColor);
-		colorForTheDay = newColor;
 	}
 }
 #endif
