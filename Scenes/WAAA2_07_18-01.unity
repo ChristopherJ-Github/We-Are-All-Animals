@@ -2997,7 +2997,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154805017}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26aded1be83dc364ca74e0652ea63321, type: 3}
   m_Name: 
@@ -3022,14 +3022,14 @@ MonoBehaviour:
         inSlope: 30.3815079
         outSlope: -0
         tangentMode: 21
-      - time: .664999962
+      - time: .70987606
         value: 1
         inSlope: 0
-        outSlope: -6.66666508
+        outSlope: -28.4706059
         tangentMode: 21
-      - time: .814999998
+      - time: .745000005
         value: 0
-        inSlope: -6.66666508
+        inSlope: -28.4706059
         outSlope: -0
         tangentMode: 21
       - time: 1
@@ -3127,13 +3127,18 @@ MonoBehaviour:
     - time: .808000028
       value: 1
       inSlope: 15.8730097
-      outSlope: -15.8730097
+      outSlope: -0
+      tangentMode: 21
+    - time: .869390488
+      value: 1
+      inSlope: 0
+      outSlope: -621.286316
       tangentMode: 21
     - time: .871000051
       value: 0
-      inSlope: Infinity
+      inSlope: -621.286316
       outSlope: -0
-      tangentMode: 23
+      tangentMode: 21
     - time: 1
       value: 0
       inSlope: 0
@@ -3212,7 +3217,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154805017}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99a4ce6982bea6247aa5d4053e28ed49, type: 3}
   m_Name: 
@@ -3237,19 +3242,14 @@ MonoBehaviour:
         inSlope: 30.3815079
         outSlope: -0
         tangentMode: 21
-      - time: .664999962
+      - time: .70987606
         value: 1
         inSlope: 0
-        outSlope: -6.66666508
+        outSlope: -28.4706059
         tangentMode: 21
-      - time: .733526349
-        value: .543157518
-        inSlope: -6.66666508
-        outSlope: -6.66666508
-        tangentMode: 21
-      - time: .814999998
+      - time: .745000005
         value: 0
-        inSlope: -6.66666508
+        inSlope: -28.4706059
         outSlope: -0
         tangentMode: 21
       - time: 1
@@ -8764,7 +8764,7 @@ MonoBehaviour:
     day: 1
     prefab: {fileID: 100000, guid: c69d25ca6f0bd774f84086ea19a8de8a, type: 2}
   - monthStart: 11
-    day: 1
+    day: 15
     prefab: {fileID: 100000, guid: 81f263f1aed0ce146b7b4d053eea010d, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
@@ -9806,7 +9806,7 @@ MonoBehaviour:
     day: 1
     prefab: {fileID: 100000, guid: 0d44c4329b696af44a1764ca4ab83265, type: 2}
   - monthStart: 11
-    day: 1
+    day: 15
     prefab: {fileID: 100000, guid: 95b80074cf3558644b57654068c94d08, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
@@ -18156,7 +18156,7 @@ MonoBehaviour:
     day: 1
     prefab: {fileID: 100000, guid: 6e5e8edda7037e24cb19dc5523723e0e, type: 2}
   - monthStart: 11
-    day: 1
+    day: 15
     prefab: {fileID: 100000, guid: 8b59f347acd98d8469dba2aecb4b125f, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
@@ -38685,6 +38685,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11460120, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: trees.Array.data[1].day
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460142, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: trees.Array.data[1].day
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460130, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: trees.Array.data[1].day
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460094, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: trees.Array.data[1].day
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
   m_RootGameObject: {fileID: 1205678102}
@@ -48608,7 +48624,7 @@ MonoBehaviour:
     day: 1
     prefab: {fileID: 100000, guid: c69d25ca6f0bd774f84086ea19a8de8a, type: 2}
   - monthStart: 11
-    day: 1
+    day: 15
     prefab: {fileID: 100000, guid: 81f263f1aed0ce146b7b4d053eea010d, type: 2}
   barkMatNumber: 0
   leafMatNumber: 1
