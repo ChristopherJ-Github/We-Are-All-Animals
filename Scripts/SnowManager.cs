@@ -3,34 +3,45 @@ using System.Collections;
 
 public class SnowManager : Singleton<SnowManager> {
 	
-	public Emission reactTo;
+	public Emission SnowWeather;
 	public delegate void stateHandler (); 		
 	public event stateHandler reactionState;
-	private float _snowlevel;
+	private float _snowLevel;
 	public float snowLevel{
-		get { return _snowlevel; }
-		set { _snowlevel = Mathf.Clamp01(value); }
+		get { return _snowLevel; }
+		set { _snowLevel = Mathf.Clamp01(value); }
 	}
 	public Gradient objectSnowTint, terrainSnowTint;
 	
 	void Start () {								
 		
 		reactionState = melting;
-		reactTo.onStart += startReaction;
-		reactTo.onStop += stopReaction;
+		SnowWeather.onStart += StartAccumulating;
+		SnowWeather.onStop += StartMelting;
 		SceneManager.instance.OnNewDay += SetRiverEvent;
 		DataManager.instance.OnSave += OnSave;
-		retrieveData ();
+		RetrieveData ();
 		SetRiver ();
 	}
 	
-	void retrieveData () {
+	void RetrieveData () {
 		
 		if (DataManager.instance.successfullyLoaded) 
 			snowLevel = DataManager.instance.data.snowLevel;
 		else 
 			snowLevel = 0;
 		TriggerSnowChange (snowLevel);
+	}
+
+	public delegate void eventHandler (float snowLevel); 
+	public event eventHandler OnSnowChange;
+	public float secondStageThreshold;
+	public void TriggerSnowChange (float snowLevel) {
+		
+		Shader.SetGlobalFloat ("_SnowNormalized", snowLevel);
+		Shader.SetGlobalFloat ("_Stage2Thres", secondStageThreshold);
+		if (OnSnowChange != null) 
+			OnSnowChange (snowLevel);
 	}
 	
 	void SetRiverEvent () {
@@ -56,7 +67,7 @@ public class SnowManager : Singleton<SnowManager> {
 				frozenRiver.SetActive(false);
 			}
 		} else {
-			if (snowLevel >= freezelevel) {
+			if (snowLevel >= freezelevel && !LeafFallManager.thereAreLeaves) {
 				river.SetActive(false);
 				frozenRiver.SetActive(true);
 			} else {
@@ -66,14 +77,50 @@ public class SnowManager : Singleton<SnowManager> {
 		}
 	}
 
-	void startReaction () {
-		
+	[Tooltip("In minutes")]
+	public float minAccumTimeNeeded, maxAccumTimeNeeded;
+	private float accumTimeNeeded;
+	void StartAccumulating () {
+
+		accumTimeNeeded = Mathf.Lerp (minAccumTimeNeeded, maxAccumTimeNeeded, WeatherControl.instance.severity) * 60;
+		timePassed = Mathf.Lerp (0, accumTimeNeeded, snowLevel);
 		reactionState = accumulating;
 	}
+
+	private float timePassed;
+	void accumulating () {
+		
+		if (WeatherControl.instance.transition != 1 && WeatherControl.instance.cloudTransition != 1)
+			return;
+		timePassed += Time.deltaTime;
+		snowLevel = timePassed / accumTimeNeeded;
+		snowLevel = LeafFallManager.thereAreLeaves ? 0 : snowLevel;
+		TriggerSnowChange (snowLevel);
+		if (snowLevel >= 1) {
+			snowLevel = 1;
+			reactionState = idle;
+		}
+	}
+
+	void idle() {}
 	
-	void stopReaction () {
+	void StartMelting () {
 		
 		reactionState = melting; 
+	}
+
+	public float meltRate;
+	void melting () {
+		
+		float tmpRate = meltRate * temperature.tempPercentage;
+		tmpRate = Mathf.Clamp (tmpRate, 0f, 1f);
+		snowLevel -= tmpRate * Time.deltaTime;
+		snowLevel = LeafFallManager.thereAreLeaves ? 0 : snowLevel;
+		TriggerSnowChange (snowLevel);
+		if (snowLevel <= 0) {
+			snowLevel = 0;
+			reactionState = idle;
+		}
 	}
 	
 	void Update () {
@@ -82,49 +129,8 @@ public class SnowManager : Singleton<SnowManager> {
 		reactionState ();
 	}
 
-	void idle() {}
-	
-	public float accumRate;
-	void accumulating () {
-		
-		if (WeatherControl.instance.transition != 1 && WeatherControl.instance.cloudTransition != 1)
-			return;
-		snowLevel += accumRate * Time.deltaTime;
-		snowLevel = LeafFallManager.thereAreLeaves ? 0 : _snowlevel;
-		TriggerSnowChange (snowLevel);
-		if (snowLevel >= 1) {
-			snowLevel = 1;
-			reactionState = idle;
-		}
-	}
-	
-	public float meltRate;
-	void melting () {
-		
-		float tmpRate = meltRate * temperature.tempPercentage;
-		tmpRate = Mathf.Clamp (tmpRate, 0f, 1f);
-		snowLevel -= tmpRate * Time.deltaTime;
-		snowLevel = LeafFallManager.thereAreLeaves ? 0 : _snowlevel;
-		TriggerSnowChange (snowLevel);
-		if (snowLevel <= 0) {
-			snowLevel = 0;
-			reactionState = idle;
-		}
-	}
-	
 	void OnSave () {
 		
 		DataManager.instance.data.snowLevel = snowLevel;
-	}
-	
-	public delegate void eventHandler (float snowLvl); 
-	public event eventHandler OnSnowChange;
-	public float secondStageThreshold;
-	public void TriggerSnowChange (float snowLvl) {
-
-		Shader.SetGlobalFloat ("_SnowNormalized", snowLvl);
-		Shader.SetGlobalFloat ("_Stage2Thres", secondStageThreshold);
-		if (OnSnowChange != null) 
-			OnSnowChange (snowLvl);
 	}
 }

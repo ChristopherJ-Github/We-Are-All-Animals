@@ -805,66 +805,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 234984677}
   m_GameObject: {fileID: 51137673}
   m_Mesh: {fileID: 4300000, guid: a4a0b62db1d84764887247ccf1e0fb6e, type: 3}
---- !u!1 &52442159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100090, guid: c0dca82533f144f499f2bd19b65dcdd3, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 52442161}
-  - 114: {fileID: 52442160}
-  m_Layer: 0
-  m_Name: Temperature System
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &52442160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: c0dca82533f144f499f2bd19b65dcdd3,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 52442159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f019a73912312e34a97d0347260de12e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tempCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: -.0960591435
-      inSlope: -.070731692
-      outSlope: .918674529
-      tangentMode: 1
-    - time: .5
-      value: 1
-      inSlope: .474820495
-      outSlope: -.527974069
-      tangentMode: 1
-    - time: 1
-      value: -.0960591435
-      inSlope: -1.06684864
-      outSlope: .026460778
-      tangentMode: 1
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!4 &52442161
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400090, guid: c0dca82533f144f499f2bd19b65dcdd3, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 52442159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1532155075}
-  m_RootOrder: 7
 --- !u!1 &63533046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2975,7 +2915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1532155075}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!114 &154805019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16571,6 +16511,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 806077436}
   - 114: {fileID: 806077437}
+  - 114: {fileID: 806077438}
   m_Layer: 0
   m_Name: Weather System
   m_TagString: Untagged
@@ -16926,6 +16867,37 @@ MonoBehaviour:
   stormThreshold: .5
   severity: .270200044
   dataPath: C:\Data\data.txt
+--- !u!114 &806077438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806077435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f019a73912312e34a97d0347260de12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: -.0960591435
+      inSlope: -.070731692
+      outSlope: .918674529
+      tangentMode: 1
+    - time: .5
+      value: 1
+      inSlope: .474820495
+      outSlope: -.527974069
+      tangentMode: 1
+    - time: 1
+      value: -.0960591435
+      inSlope: -1.06684864
+      outSlope: .026460778
+      tangentMode: 1
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &807934659
 GameObject:
   m_ObjectHideFlags: 0
@@ -19324,7 +19296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1532155075}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!114 &880076876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27025,7 +26997,7 @@ Transform:
   - {fileID: 174867570}
   - {fileID: 1161942562}
   m_Father: {fileID: 1532155075}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &1210184582
 GameObject:
   m_ObjectHideFlags: 0
@@ -30460,7 +30432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1532155075}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &1362775788
 GameObject:
   m_ObjectHideFlags: 0
@@ -30493,7 +30465,7 @@ Transform:
   - {fileID: 825264539}
   - {fileID: 1165739344}
   m_Father: {fileID: 1532155075}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1001 &1364374715
 Prefab:
   m_ObjectHideFlags: 0
@@ -34268,7 +34240,6 @@ Transform:
   - {fileID: 1984906347}
   - {fileID: 1582253378}
   - {fileID: 906446899}
-  - {fileID: 52442161}
   - {fileID: 1361047546}
   - {fileID: 880076875}
   - {fileID: 1872019481}
@@ -36179,8 +36150,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a4a63eba72b7d4e9a9d02ff17a011f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLightningDelay: 600
-  maxLightningDelay: 2
+  severityToSpawnChance:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  maxFlashes: 3
   severityToDelay:
     serializedVersion: 2
     m_Curve:
@@ -36206,22 +36191,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  severityToSpawnChance:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 10
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  maxFlashes: 3
+  minLightningDelay: 600
+  maxLightningDelay: 2
   lightningStrike: {fileID: 11428674, guid: fae489a11fcd02c4b81a772f43a8def9, type: 2}
   flashDelay: .300000012
 --- !u!114 &1586924659
@@ -43970,7 +43941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1532155075}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &1868691716
 GameObject:
   m_ObjectHideFlags: 0
@@ -44133,7 +44104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1532155075}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &1872019482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44185,7 +44156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5143efdd9d0b740b36be48f75125a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactTo: {fileID: 1577618585}
+  SnowWeather: {fileID: 1577618585}
   objectSnowTint:
     key0:
       serializedVersion: 2
@@ -44272,12 +44243,13 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  secondStageThreshold: .100000001
   river: {fileID: 1540539284}
   frozenRiver: {fileID: 681405467}
   freezelevel: .75
-  accumRate: .00499999989
+  minAccumTimeNeeded: 2160
+  maxAccumTimeNeeded: 90
   meltRate: .00499999989
-  secondStageThreshold: .100000001
 --- !u!1 &1874939076
 GameObject:
   m_ObjectHideFlags: 0

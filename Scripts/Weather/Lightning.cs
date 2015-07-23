@@ -2,9 +2,6 @@
 using System.Collections;
 
 public class Lightning : MonoBehaviour {
-	
-	public float minLightningDelay, maxLightningDelay;
-	public AnimationCurve severityToDelay;
 
 	public AnimationCurve severityToSpawnChance;
 	private bool activated;
@@ -27,13 +24,14 @@ public class Lightning : MonoBehaviour {
 	}
 
 	public int maxFlashes;
+	public AnimationCurve severityToDelay;
+	public float minLightningDelay, maxLightningDelay;
 	IEnumerator StartTimer (float initDelay, float initMaxDelay) {
 
 		float timePassed = 0;
 		float initDelayNorm = initDelay / initMaxDelay; 
 		float currentDelay = initDelay;
 		while (timePassed < currentDelay) {
-
 			float lerp = severityToDelay.Evaluate (WeatherControl.instance.severity * WeatherControl.instance.totalTransition);
 			float currentMaxDelay = Mathf.Lerp (minLightningDelay, maxLightningDelay, lerp);
 			currentDelay = Mathf.Lerp(0, currentMaxDelay, initDelayNorm);
