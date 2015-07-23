@@ -20406,26 +20406,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: -.999852359, y: 0, z: -.0171859264}
+  direction: {x: .457608879, y: 0, z: -.889153719}
   directionChangeSpeed: 3.5
   likelyWindinessOverYear:
     serializedVersion: 2
     m_Curve:
     - time: 0
+      value: 0
+      inSlope: 5.58823538
+      outSlope: -0
+      tangentMode: 21
+    - time: .24935168
+      value: 0
+      inSlope: 0
+      outSlope: 28.051815
+      tangentMode: 21
+    - time: .284999996
+      value: 1
+      inSlope: 28.051815
+      outSlope: -0
+      tangentMode: 21
+    - time: .829999983
       value: 1
       inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: .5
+      outSlope: -24.9999866
+      tangentMode: 21
+    - time: .870000005
+      value: 0
+      inSlope: -24.9999866
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
       value: 0
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   likelyInfluence:
@@ -20451,7 +20466,7 @@ MonoBehaviour:
   maxTurbulence: 6.25
   minFlowerBending: 0
   maxFlowerBending: .25999999
-  windiness: .15088819
+  windiness: .190385237
   windMultiplierOveryear:
     serializedVersion: 2
     m_Curve:
@@ -20488,6 +20503,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   minWindMutliplier: .300000012
+  windOverride: .5
   dust: {fileID: 421872992}
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
@@ -46118,7 +46134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535921bb9f461c34bb54e8053e51861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testValue01: 0
+  testValue01: 1
 --- !u!1001 &1979131405
 Prefab:
   m_ObjectHideFlags: 0

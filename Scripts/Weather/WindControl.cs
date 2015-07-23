@@ -72,7 +72,7 @@ public class WindControl : Singleton<WindControl> {
 		float multiplierAmount = windMultiplierOveryear.Evaluate (SceneManager.curvePos);
 		float amountAfterSnow = Mathf.Lerp (multiplierAmount, 1, SnowManager.instance.snowLevel);
 		float windMultiplier = Mathf.Lerp (minWindMutliplier, 1, amountAfterSnow);
-		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence , wnd);
+		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence, wnd);
 		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, wnd);
 		turbulence *= windMultiplier;
 		mainWind *= windMultiplier;
@@ -84,7 +84,8 @@ public class WindControl : Singleton<WindControl> {
 		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, wnd) * windMultiplier;  //the variables names are off
 		windiness = wnd;
 	}
-
+	
+	public float windOverride;
 	void Update () {
 		
 		if (createDust) 
