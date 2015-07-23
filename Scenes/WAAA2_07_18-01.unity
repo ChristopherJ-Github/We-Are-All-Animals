@@ -16875,25 +16875,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 806077435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f019a73912312e34a97d0347260de12e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b9ce796a59d8e1429d500dd3c377b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tempCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: -.0960591435
+      value: 0
       inSlope: -.070731692
-      outSlope: .918674529
+      outSlope: .196822867
+      tangentMode: 1
+    - time: .269455403
+      value: .31222716
+      inSlope: 2.76148319
+      outSlope: 2.76148319
       tangentMode: 1
     - time: .5
       value: 1
       inSlope: .474820495
       outSlope: -.527974069
       tangentMode: 1
+    - time: .729868829
+      value: .296213984
+      inSlope: -2.86757946
+      outSlope: -2.86757946
+      tangentMode: 1
     - time: 1
-      value: -.0960591435
-      inSlope: -1.06684864
+      value: 0
+      inSlope: .00443851063
       outSlope: .026460778
       tangentMode: 1
     m_PreInfinity: 2
@@ -44247,9 +44257,10 @@ MonoBehaviour:
   river: {fileID: 1540539284}
   frozenRiver: {fileID: 681405467}
   freezelevel: .75
-  minAccumTimeNeeded: 2160
-  maxAccumTimeNeeded: 90
-  meltRate: .00499999989
+  minSeverityAccumTime: 2160
+  maxSeverityAccumeTime: 90
+  minTempMeltTime: 4320
+  maxTempMeltTime: 30
 --- !u!1 &1874939076
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,17 +78,17 @@ public class SnowManager : Singleton<SnowManager> {
 	}
 
 	[Tooltip("In minutes")]
-	public float minAccumTimeNeeded, maxAccumTimeNeeded;
+	public float minSeverityAccumTime, maxSeverityAccumeTime;
 	private float accumTimeNeeded;
 	void StartAccumulating () {
 
-		accumTimeNeeded = Mathf.Lerp (minAccumTimeNeeded, maxAccumTimeNeeded, WeatherControl.instance.severity) * 60;
+		accumTimeNeeded = Mathf.Lerp (minSeverityAccumTime, maxSeverityAccumeTime, WeatherControl.instance.severity) * 60;
 		timePassed = Mathf.Lerp (0, accumTimeNeeded, snowLevel);
 		reactionState = accumulating;
 	}
 
 	private float timePassed;
-	void accumulating () {
+	public void accumulating () {
 		
 		if (WeatherControl.instance.transition != 1 && WeatherControl.instance.cloudTransition != 1)
 			return;
@@ -96,35 +96,31 @@ public class SnowManager : Singleton<SnowManager> {
 		snowLevel = timePassed / accumTimeNeeded;
 		snowLevel = LeafFallManager.thereAreLeaves ? 0 : snowLevel;
 		TriggerSnowChange (snowLevel);
-		if (snowLevel >= 1) {
-			snowLevel = 1;
+		if (snowLevel >= 1) 
 			reactionState = idle;
-		}
 	}
 
 	void idle() {}
 
 	[Tooltip("In minutes")]
-	public float minMeltTimeNeeded, maxMeltTimeNeeded;
-	private float meltTimeNeeded;
-	void StartMelting () {
+	public float minTempMeltTime, maxTempMeltTime;
+	private float meltTime;
+	public void StartMelting () {
 
-		meltTimeNeeded = Mathf.Lerp (minMeltTimeNeeded, maxMeltTimeNeeded, TemperatureManager.temperature) * 60;
+		meltTime = Mathf.Lerp (minTempMeltTime, maxTempMeltTime, TemperatureManager.temperature) * 60;
+		timeLeft = Mathf.Lerp (0, meltTime, snowLevel);
 		reactionState = melting; 
 	}
 
-	public float meltRate;
+	private float timeLeft;
 	void melting () {
-		
-		float tmpRate = meltRate * TemperatureManager.temperature;
-		tmpRate = Mathf.Clamp (tmpRate, 0f, 1f);
-		snowLevel -= tmpRate * Time.deltaTime;
+
+		timeLeft -= Time.deltaTime;
+		snowLevel = timeLeft / meltTime;
 		snowLevel = LeafFallManager.thereAreLeaves ? 0 : snowLevel;
 		TriggerSnowChange (snowLevel);
-		if (snowLevel <= 0) {
-			snowLevel = 0;
+		if (snowLevel <= 0) 
 			reactionState = idle;
-		}
 	}
 	
 	void Update () {

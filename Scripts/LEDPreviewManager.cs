@@ -35,8 +35,9 @@ public class LEDPreviewManager : MonoBehaviour {
 	}
 	
 	void Update () {
-		
-		GetKeyInput ();
+
+		if (Input.anyKey)
+			GetKeyInput ();
 	}
 
 	void GetKeyInput () {
@@ -45,6 +46,7 @@ public class LEDPreviewManager : MonoBehaviour {
 		FilterInput ();
 		TimeInput ();
 		AnimalInput();
+		SnowInput ();
 		MiscInput ();
 	}
 	
@@ -184,20 +186,28 @@ public class LEDPreviewManager : MonoBehaviour {
 			animalAnimator.ForceIdle(idleAnimations[i].nodeIndex, true);
 		}
 	}
-	
-	void MiscInput () {
-		
+
+	void SnowInput () {
+
 		if (Input.GetKeyDown(KeyCode.Alpha8)) {
 			SnowManager.instance.SetRiver(!SnowManager.instance.riverFrozen);
 		}
-		if (Input.GetKey(KeyCode.Alpha9))
+		if (Input.GetKey(KeyCode.Alpha9)) 
 			SnowManager.instance.snowLevel -= transitionSpeed * Time.deltaTime;
 		if (Input.GetKey(KeyCode.Alpha0))
 			SnowManager.instance.snowLevel += transitionSpeed * Time.deltaTime;
-		
+		if (SnowManager.instance.snowLevel > 0) {
+			if (WeatherControl.currentWeather == null) 
+				SnowManager.instance.StartMelting();
+			else if (WeatherControl.currentWeather.weather.name != "Snow")
+				SnowManager.instance.StartMelting();
+		}
+	}
+	
+	void MiscInput () {
+
 		if (WeatherControl.currentWeather != null)
 			return;
-		
 		float overcast = CloudControl.instance.overcast;
 		if (Input.GetKey(KeyCode.Q)) {
 			overcast += transitionSpeed * Time.deltaTime; 
