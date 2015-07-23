@@ -20361,6 +20361,7 @@ GameObject:
   - 4: {fileID: 906446899}
   - 182: {fileID: 906446898}
   - 114: {fileID: 906446900}
+  - 114: {fileID: 906446901}
   m_Layer: 0
   m_Name: Wind System
   m_TagString: Untagged
@@ -20503,10 +20504,22 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   minWindMutliplier: .300000012
-  windOverride: .5
+--- !u!114 &906446901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906446897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9028623e3cb4d74ab99fce4dbe9cbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   dust: {fileID: 421872992}
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
+  minWhiteAlpha: 0
+  maxWhiteAlpha: 0
   nightAlpha: .00669999979
   datetimeToNightAlpha:
     serializedVersion: 2
@@ -20528,9 +20541,10 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  minAlphaOffset: -.0500000007
+  minAlphaOffset: -.0399999991
   maxAlphaOffset: .100000001
   nightDarkness: .879999995
+  testColor: {r: 0, g: 0, b: 0, a: 0}
   minSpeed: .310000002
   maxSpeed: 1.70000005
   normalScale: 5

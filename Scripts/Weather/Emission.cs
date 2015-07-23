@@ -46,7 +46,7 @@ public class Emission : MonoBehaviour {
 		if (lightning)
 			_lightning.enabled = true;
 		if (dust)
-			WindControl.instance.createDust = true;
+			Dust.instance.createDust = true;
 		particleEmitter.ClearParticles ();
 	}
 	
@@ -160,7 +160,7 @@ public class Emission : MonoBehaviour {
 		if (lightning)
 			_lightning.enabled = false;
 		if (dust)
-			WindControl.instance.createDust = false;
+			Dust.instance.createDust = false;
 		UpdateEmission (0, 0);
 		UpdateVelocity (0);
 		if (mainSystem) {

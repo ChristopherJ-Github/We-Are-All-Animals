@@ -14,7 +14,7 @@ public class WindStorm : MonoBehaviour {
 	void OnEnable () {
 
 		initWindiness = WindControl.instance.windiness; 
-		WindControl.instance.createDust = true;
+		Dust.instance.createDust = true;
 	}
 
 	void Update () {
@@ -27,7 +27,7 @@ public class WindStorm : MonoBehaviour {
 	void OnDisable () {
 
 		if (applicationIsQuitting) return;
-		WindControl.instance.createDust = false;
+		Dust.instance.createDust = false;
 		WindControl.instance.SetValues (initWindiness);
 	}
 
