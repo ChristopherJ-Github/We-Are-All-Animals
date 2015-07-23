@@ -16768,16 +16768,16 @@ MonoBehaviour:
       - time: .75
         value: .832812488
         inSlope: 0
-        outSlope: -4.63315153
+        outSlope: -6.97990465
         tangentMode: 21
-      - time: .86500001
-        value: .300000012
-        inSlope: -4.63315153
+      - time: .869315743
+        value: 0
+        inSlope: -6.97990465
         outSlope: Infinity
         tangentMode: 29
       - time: .870000005
         value: .5
-        inSlope: 40.0000343
+        inSlope: 730.714966
         outSlope: -0
         tangentMode: 21
       - time: 1
@@ -16859,13 +16859,13 @@ MonoBehaviour:
     usesFilter: 0
     causesStorms: 1
   weatherChance: 30
-  safeToPress: 0
-  transition: 1
-  cloudTransition: 1
-  totalTransition: 1
+  safeToPress: 1
+  transition: 0
+  cloudTransition: 0
+  totalTransition: 0
   storm: 0
   stormThreshold: .5
-  severity: .270200044
+  severity: .438378274
   dataPath: C:\Data\data.txt
 --- !u!114 &806077438
 MonoBehaviour:
@@ -20512,7 +20512,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  minAlphaOffset: -.0299999993
+  minAlphaOffset: -.0500000007
   maxAlphaOffset: .100000001
   nightDarkness: .879999995
   minSpeed: .310000002
