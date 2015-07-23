@@ -103,16 +103,20 @@ public class SnowManager : Singleton<SnowManager> {
 	}
 
 	void idle() {}
-	
+
+	[Tooltip("In minutes")]
+	public float minMeltTimeNeeded, maxMeltTimeNeeded;
+	private float meltTimeNeeded;
 	void StartMelting () {
-		
+
+		meltTimeNeeded = Mathf.Lerp (minMeltTimeNeeded, maxMeltTimeNeeded, TemperatureManager.temperature) * 60;
 		reactionState = melting; 
 	}
 
 	public float meltRate;
 	void melting () {
 		
-		float tmpRate = meltRate * temperature.tempPercentage;
+		float tmpRate = meltRate * TemperatureManager.temperature;
 		tmpRate = Mathf.Clamp (tmpRate, 0f, 1f);
 		snowLevel -= tmpRate * Time.deltaTime;
 		snowLevel = LeafFallManager.thereAreLeaves ? 0 : snowLevel;

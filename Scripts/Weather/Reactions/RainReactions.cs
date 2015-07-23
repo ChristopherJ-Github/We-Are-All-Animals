@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class RainReactions : MonoBehaviour {
@@ -58,7 +58,7 @@ public class RainReactions : MonoBehaviour {
 		if (WeatherControl.instance.transition != 1 && WeatherControl.instance.cloudTransition != 1)
 			return;
 		
-		float tmpRate = evapRate * temperature.tempPercentage;
+		float tmpRate = evapRate * TemperatureManager.temperature;
 		tmpRate = Mathf.Clamp (tmpRate, 0f, 1f);
 		
 		height = Mathf.MoveTowards (height, maxHeight, AccumRate * Time.deltaTime);
@@ -72,7 +72,7 @@ public class RainReactions : MonoBehaviour {
 	
 	void evaporating () {
 		
-		float tmpRate = evapRate * temperature.tempPercentage;
+		float tmpRate = evapRate * TemperatureManager.temperature;
 		tmpRate = Mathf.Clamp (tmpRate, 0f, 1f);
 		
 		height = Mathf.MoveTowards (height, minHeight, tmpRate * Time.deltaTime);
