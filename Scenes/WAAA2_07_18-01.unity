@@ -1187,7 +1187,6 @@ GameObject:
   - 33: {fileID: 82014535}
   - 23: {fileID: 82014534}
   - 111: {fileID: 82014533}
-  - 136: {fileID: 82014532}
   - 114: {fileID: 82014536}
   m_Layer: 0
   m_Name: Dexsoft_spruce4_lod_Prefab
@@ -1208,20 +1207,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 12
---- !u!136 &82014532
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660178, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 82014530}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .354012489
-  m_Height: 12.1484261
-  m_Direction: 1
-  m_Center: {x: 4.76837158e-07, y: 6.10000038, z: -5.96046448e-07}
 --- !u!111 &82014533
 Animation:
   m_ObjectHideFlags: 0
@@ -4958,7 +4943,6 @@ GameObject:
   - 33: {fileID: 241144295}
   - 23: {fileID: 241144294}
   - 111: {fileID: 241144293}
-  - 136: {fileID: 241144292}
   - 114: {fileID: 241144296}
   m_Layer: 0
   m_Name: Dexsoft_spruce1_lod_Prefab
@@ -4979,20 +4963,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 32
---- !u!136 &241144292
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660170, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 241144290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .209630966
-  m_Height: 18.1170921
-  m_Direction: 1
-  m_Center: {x: 0, y: 9, z: 0}
 --- !u!111 &241144293
 Animation:
   m_ObjectHideFlags: 0
@@ -5552,7 +5522,6 @@ GameObject:
   - 33: {fileID: 278148752}
   - 23: {fileID: 278148751}
   - 111: {fileID: 278148750}
-  - 136: {fileID: 278148749}
   - 114: {fileID: 278148753}
   m_Layer: 0
   m_Name: Dexsoft_spruce1_Prefab
@@ -5573,20 +5542,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 10
---- !u!136 &278148749
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660166, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 278148747}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .300000012
-  m_Height: 18.3244705
-  m_Direction: 1
-  m_Center: {x: .316378474, y: 9.20000076, z: .0527715832}
 --- !u!111 &278148750
 Animation:
   m_ObjectHideFlags: 0
@@ -6276,7 +6231,6 @@ GameObject:
   - 33: {fileID: 305759417}
   - 23: {fileID: 305759416}
   - 111: {fileID: 305759415}
-  - 136: {fileID: 305759414}
   - 114: {fileID: 305759418}
   m_Layer: 0
   m_Name: Dexsoft_spruce1_lod_Prefab
@@ -6297,20 +6251,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 51
---- !u!136 &305759414
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660180, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 305759412}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .209630966
-  m_Height: 18.1170921
-  m_Direction: 1
-  m_Center: {x: 0, y: 9, z: 0}
 --- !u!111 &305759415
 Animation:
   m_ObjectHideFlags: 0
@@ -6829,7 +6769,6 @@ GameObject:
   - 33: {fileID: 333857085}
   - 23: {fileID: 333857084}
   - 111: {fileID: 333857083}
-  - 136: {fileID: 333857082}
   - 114: {fileID: 333857086}
   m_Layer: 0
   m_Name: Dexsoft_spruce1_lod_Prefab
@@ -6850,20 +6789,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 45
---- !u!136 &333857082
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660172, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 333857080}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .209630966
-  m_Height: 18.1170921
-  m_Direction: 1
-  m_Center: {x: 0, y: 9, z: 0}
 --- !u!111 &333857083
 Animation:
   m_ObjectHideFlags: 0
@@ -14167,7 +14092,6 @@ GameObject:
   - 33: {fileID: 720920255}
   - 23: {fileID: 720920254}
   - 111: {fileID: 720920253}
-  - 136: {fileID: 720920252}
   - 114: {fileID: 720920256}
   m_Layer: 0
   m_Name: Dexsoft_spruce4_lod_Prefab
@@ -14188,20 +14112,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 47
---- !u!136 &720920252
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660168, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 720920250}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .354012489
-  m_Height: 12.1484261
-  m_Direction: 1
-  m_Center: {x: 4.76837158e-07, y: 6.10000038, z: -5.96046448e-07}
 --- !u!111 &720920253
 Animation:
   m_ObjectHideFlags: 0
@@ -35752,7 +35662,6 @@ GameObject:
   - 33: {fileID: 1574431808}
   - 23: {fileID: 1574431807}
   - 111: {fileID: 1574431806}
-  - 136: {fileID: 1574431805}
   - 114: {fileID: 1574431809}
   m_Layer: 0
   m_Name: Dexsoft_spruce3_lod_Prefab
@@ -35773,20 +35682,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 55
---- !u!136 &1574431805
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660174, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 1574431803}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .666180909
-  m_Height: 18.4820652
-  m_Direction: 1
-  m_Center: {x: -1.1920929e-06, y: 9.19999981, z: -1.07288361e-06}
 --- !u!111 &1574431806
 Animation:
   m_ObjectHideFlags: 0
@@ -38701,7 +38596,16 @@ Prefab:
       propertyPath: trees.Array.data[1].day
       value: 15
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 13660166, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660178, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660170, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660186, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660172, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660168, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660180, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660174, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+    - {fileID: 13660176, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
   m_RootGameObject: {fileID: 1205678102}
   m_IsPrefabParent: 0
@@ -40629,7 +40533,6 @@ GameObject:
   - 33: {fileID: 1691508636}
   - 23: {fileID: 1691508635}
   - 111: {fileID: 1691508634}
-  - 136: {fileID: 1691508633}
   - 114: {fileID: 1691508637}
   m_Layer: 0
   m_Name: Dexsoft_spruce1_lod_Prefab
@@ -40650,20 +40553,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 54
---- !u!136 &1691508633
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660184, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 1691508631}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .209630966
-  m_Height: 18.1170921
-  m_Direction: 1
-  m_Center: {x: 0, y: 9, z: 0}
 --- !u!111 &1691508634
 Animation:
   m_ObjectHideFlags: 0
@@ -42763,7 +42652,6 @@ GameObject:
   - 33: {fileID: 1824964427}
   - 23: {fileID: 1824964426}
   - 111: {fileID: 1824964425}
-  - 136: {fileID: 1824964424}
   - 114: {fileID: 1824964428}
   m_Layer: 0
   m_Name: Dexsoft_spruce1_Prefab
@@ -42784,20 +42672,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 78
---- !u!136 &1824964424
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660176, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 1824964422}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .300000012
-  m_Height: 18.3244705
-  m_Direction: 1
-  m_Center: {x: .316378474, y: 9.20000076, z: .0527715832}
 --- !u!111 &1824964425
 Animation:
   m_ObjectHideFlags: 0
@@ -46858,7 +46732,6 @@ GameObject:
   - 33: {fileID: 1994892589}
   - 23: {fileID: 1994892588}
   - 111: {fileID: 1994892587}
-  - 136: {fileID: 1994892586}
   - 114: {fileID: 1994892590}
   m_Layer: 0
   m_Name: Dexsoft_spruce3_lod_Prefab
@@ -46879,20 +46752,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1205678103}
   m_RootOrder: 43
---- !u!136 &1994892586
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13660186, guid: ee06f938bea0b274b8576fe7cce4e917,
-    type: 2}
-  m_PrefabInternal: {fileID: 1606745248}
-  m_GameObject: {fileID: 1994892584}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .666180909
-  m_Height: 18.4820652
-  m_Direction: 1
-  m_Center: {x: -1.1920929e-06, y: 9.19999981, z: -1.07288361e-06}
 --- !u!111 &1994892587
 Animation:
   m_ObjectHideFlags: 0
