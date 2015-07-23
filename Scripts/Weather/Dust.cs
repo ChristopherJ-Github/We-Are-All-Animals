@@ -34,17 +34,16 @@ public class Dust : Singleton<Dust> {
 		SetDustProperties ();
 	}
 	
-	public float minSnowAlpha, maxSnowAlpha;
-	public float minWhiteAlpha, maxWhiteAlpha;
-	public float nightAlpha;
-	public AnimationCurve datetimeToNightAlpha;
-	private Color originalMatCol;
-	private Color[] originalColors;
-	public float minAlphaOffset, maxAlphaOffset;
-	public float nightDarkness;
-	public Color testColor;
 	void SetDustColors () {
 		
+		SetAnimatedColors ();
+		SetMaterialColors ();
+	}
+
+	private Color[] originalColors;
+	public float minAlphaOffset, maxAlphaOffset;
+	void SetAnimatedColors () {
+
 		Color[] newColors = new Color[originalColors.Length];
 		System.Array.Copy (originalColors, newColors, originalColors.Length);
 		float alphaOffset = Mathf.Lerp (minAlphaOffset, maxAlphaOffset, WindControl.instance.windiness);
@@ -56,17 +55,42 @@ public class Dust : Singleton<Dust> {
 			newColors[i].a *= WeatherControl.instance.totalTransition;
 		}
 		_particleAnimator.colorAnimation = newColors;
+	}
+
+	private Color originalMatCol;
+	public float nightDarkness;
+	void SetMaterialColors () {
+
 		Color matColAfterSnow = AddSnowTint (originalMatCol);
-		float particleWhiteAmount = (FogControl.instance.brightnessAmount + CloudControl.instance.overcast) / 2.0f;
-		Color matColorAferWhite = Color.Lerp (matColAfterSnow, Color.white, particleWhiteAmount);
+		float whiteAmount = (FogControl.instance.brightnessAmount + CloudControl.instance.overcast) / 2.0f;
+		Color matColorAferWhite = Color.Lerp (matColAfterSnow, Color.white, whiteAmount);
 		Color matColNight = Color.Lerp (matColorAferWhite, Color.black, nightDarkness);
 		float particleBrightness = AmbientLightingChanger.instance.GetParticleBrightness ();
 		Color matColDarkened = Color.Lerp (matColNight, matColorAferWhite, particleBrightness);
-		
-		float snowAlpha = Mathf.Lerp (minSnowAlpha, maxSnowAlpha, WindControl.instance.windiness);
-		//float whiteAlpha = Mathf.Lerp (minWhiteAlpha, maxWhiteAlpha, 
-		matColDarkened.a = Mathf.Lerp (matColDarkened.a, snowAlpha, SnowManager.instance.snowLevel);
+		matColDarkened.a = GetMaterialAlpha (whiteAmount);
 		dust.renderer.material.SetColor ("_TintColor", matColDarkened);
+	}
+
+	public float snowTintOffset;
+	Color AddSnowTint (Color toTint) {
+		
+		Color snowTint = Color.white;
+		snowTint.a = toTint.a;
+		float tintAmount = Mathf.InverseLerp (snowTintOffset, 1, SnowManager.instance.snowLevel);
+		return Color.Lerp(toTint, snowTint, tintAmount);
+	}
+
+	public float minSnowAlpha, maxSnowAlpha;
+	public float minWhiteAlpha, maxWhiteAlpha;
+	public float nightAlpha;
+	float GetMaterialAlpha (float whiteAmount) {
+
+		float windiness = WindControl.instance.windiness;
+		float snowAlpha = Mathf.Lerp (minSnowAlpha, maxSnowAlpha, windiness);
+		float alphaAfteSnow = Mathf.Lerp (originalMatCol.a, snowAlpha, SnowManager.instance.snowLevel);
+		float whiteAlpha = Mathf.Lerp (minWhiteAlpha, maxWhiteAlpha, windiness);
+		float alphaAfterWhite = Mathf.Lerp (alphaAfteSnow, whiteAlpha, whiteAmount);
+		return alphaAfterWhite;
 	}
 	
 	public float minSpeed, maxSpeed;
@@ -83,14 +107,5 @@ public class Dust : Singleton<Dust> {
 		float emission = Mathf.Lerp (normalEmission, snowEmission, snowLevel);
 		_particleEmitter.minEmission = emission;
 		_particleEmitter.maxEmission = emission;
-	}
-	
-	public float snowTintOffset;
-	Color AddSnowTint (Color toTint) {
-		
-		Color snowTint = Color.white;
-		snowTint.a = toTint.a;
-		float tintAmount = Mathf.InverseLerp (snowTintOffset, 1, SnowManager.instance.snowLevel);
-		return Color.Lerp(toTint, snowTint, tintAmount);
 	}
 }
