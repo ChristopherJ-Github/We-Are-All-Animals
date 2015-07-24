@@ -5,7 +5,7 @@ using System;
 public class SunControl : Singleton<SunControl> {
 	
 	public static AnimationCurve sunriseAstroCurve, sunriseCurve, sunsetCurve, sunsetAstroCurve; 
-	[HideInInspector]
+	//[HideInInspector]
 	public AnimationCurve dayCurve;
 	public float[] sunriseAstro; 
 	public float[] sunrise;
@@ -41,17 +41,17 @@ public class SunControl : Singleton<SunControl> {
 
 	void OnEnable () { 
 
-		SceneManager.instance.OnNewYear += setSunCurves;
-		seasonToDay ();
-		setSunCurves ();
-		setDayCurve ();
+		SceneManager.instance.OnNewYear += SetSunCurves;
+		SeasonToDay ();
+		SetSunCurves ();
+		SetDayCurve ();
 	}
 
 	/// <summary>
 	/// Initialize curves for each sun phase
 	/// </summary>
-	void setSunCurves () { 
-		
+	void SetSunCurves () { 
+
 		sunriseAstroCurve = new AnimationCurve ();
 		sunriseCurve = new AnimationCurve ();
 		sunsetCurve = new AnimationCurve ();
@@ -80,7 +80,7 @@ public class SunControl : Singleton<SunControl> {
 	/// <summary>
 	/// Set curve used in regular daily mode
 	/// </summary>
-	public void setDayCurve() {
+	public void SetDayCurve() {
 		
 		dayCurve = new AnimationCurve ();
 		float minsAtSuniseAstro = (float)(sunriseAstroTime * 60 + SceneManager.minsAtDayStart);
@@ -92,7 +92,7 @@ public class SunControl : Singleton<SunControl> {
 	/// <summary>
 	/// Set curve used in seasonal mode for christmas demo
 	/// </summary>
-	public void setSeasonCurve() {
+	public void SetSeasonCurve() {
 		
 		dayCurve = new AnimationCurve ();
 		float minsAtSunise = (float)(SceneManager.minsAtDayStart);
@@ -104,19 +104,19 @@ public class SunControl : Singleton<SunControl> {
 	/// <summary>
 	/// Set to daily sunsets
 	/// </summary>
-	public void seasonToDay () {
+	public void SeasonToDay () {
 
-		SceneManager.instance.OnNewSeason -= setSeasonCurve;
-		SceneManager.instance.OnNewDay += setDayCurve;
+		SceneManager.instance.OnNewSeason -= SetSeasonCurve;
+		SceneManager.instance.OnNewDay += SetDayCurve;
 	}
 
 	/// <summary>
 	/// set to season based sunsets
 	/// </summary>
-	public void dayToSeason () {
+	public void DayToSeason () {
 		
-		SceneManager.instance.OnNewSeason += setSeasonCurve;
-		SceneManager.instance.OnNewDay -= setDayCurve;
+		SceneManager.instance.OnNewSeason += SetSeasonCurve;
+		SceneManager.instance.OnNewDay -= SetDayCurve;
 	}
 
 }

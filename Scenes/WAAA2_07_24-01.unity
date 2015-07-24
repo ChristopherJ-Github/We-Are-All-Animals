@@ -3103,18 +3103,23 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154805017}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa286665248032541b92ceee52dae083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transInStart: {x: 0, y: 0}
-  transInEnd: {x: 0, y: 0}
-  transOutStart: {x: 0, y: 0}
-  transOutEnd: {x: 0, y: 0}
+  transInStart: {x: 9, y: 15}
+  transInEnd: {x: 14, y: 30}
+  transOutStart: {x: 8, y: 51}
+  transOutEnd: {x: 13, y: 18}
   saturationFilter:
     LutTexture: {fileID: 2800000, guid: 11e8f0fbb9964d140a1d820dd3cdc450, type: 3}
     blend: 0
+  saturationOverYear:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &154805022
 MonoBehaviour:
   m_ObjectHideFlags: 0

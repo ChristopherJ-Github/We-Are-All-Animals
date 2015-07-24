@@ -158,6 +158,13 @@ public class SceneManager : Singleton<SceneManager> {
 		currentDate = newDate.AddSeconds(val);
 	}
 
+	public float DateToPosition (DateTime date) {
+
+		double minutesAtDate = (date - yearStart).TotalMinutes;
+		float curvePosition = (float)(minutesAtDate/minsInYear);
+		return curvePosition;
+	}
+
 	public static DateTime realDate {
 		get { return currentDate.AddMinutes(-60 * 24 * (int)(365 / 4));}
 	}
