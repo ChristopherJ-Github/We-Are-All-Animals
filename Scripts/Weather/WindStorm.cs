@@ -21,7 +21,8 @@ public class WindStorm : MonoBehaviour {
 
 		float maxWindiness = WeatherControl.instance.severity < initWindiness ? initWindiness : WeatherControl.instance.severity;
 		float transWindiness = Mathf.Lerp (initWindiness, maxWindiness, WeatherControl.instance.transition);
-		WindControl.instance.SetValues(transWindiness); 
+		float transSeverity = WeatherControl.instance.transition * WeatherControl.instance.severity;
+		WindControl.instance.SetValues(transWindiness, transSeverity); 
 	}
 
 	void OnDisable () {

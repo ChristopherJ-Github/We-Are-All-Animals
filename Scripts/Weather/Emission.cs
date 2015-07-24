@@ -52,10 +52,10 @@ public class Emission : MonoBehaviour {
 	
 	void Update () {
 
-		float transWindiness = UpdateWind ();
+		float transSeverity = Mathf.Lerp (0, WeatherControl.instance.severity, WeatherControl.instance.transition);
+		float transWindiness = UpdateWind (transSeverity);
 		UpdateVelocity (transWindiness);
 		ShiftSource (transWindiness);
-		float transSeverity = Mathf.Lerp (0, WeatherControl.instance.severity, WeatherControl.instance.transition);
 		UpdateEmission (WeatherControl.instance.severity, WeatherControl.instance.transition);
 		SetBrightness ();
 		if (mainSystem) {
@@ -91,12 +91,12 @@ public class Emission : MonoBehaviour {
 	}
 
 	private float initWindiness;
-	float UpdateWind () {
+	float UpdateWind (float transSeverity) {
 
 		float maxWindiness = WeatherControl.instance.severity < initWindiness ? initWindiness : WeatherControl.instance.severity;
 		float transWindiness = Mathf.Lerp (initWindiness, maxWindiness, WeatherControl.instance.cloudTransition);
 		if (mainSystem)
-			WindControl.instance.SetValues(transWindiness);
+			WindControl.instance.SetValues(transWindiness, transSeverity);
 		return transWindiness;
 	}
 
