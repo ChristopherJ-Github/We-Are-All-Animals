@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUIManager : Singleton<GUIManager>
-{
+public class GUIManager : Singleton<GUIManager> {
+
 	public GUISkin gSkin;
 	public GUIStyle gStyle;
 	public GUIStyle sidebarStyle;
@@ -12,18 +12,16 @@ public class GUIManager : Singleton<GUIManager>
 	float delay;
 	float delayVal = 1f;
 	
-	void Start ()
-	{
+	void Start () {
+
 		delay = delayVal;
 	}
 	
 	float yearSliderValue = 0.0F;
 	float daySliderValue = 0.0F;
 	float severitySliderValue = 0.0F;
-	void OnGUI ()
-	{
-		if (!SceneManager.instance.doTick)
-			return;
+	void OnGUI () {
+
 		float yearMin = 0;
 		float yearMax = 525600; 
 		float dayMin = 0;

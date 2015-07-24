@@ -1,275 +1,164 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System;
+using System.Collections;
 
-public class SceneManager : Singleton<SceneManager>
-{
+public class SceneManager : Singleton<SceneManager> {
+							
+	void Awake () {
 
-		public static GameObject mainScene;	 						//an array of all scenes to instantiate/destroy on timing					
-		public static GameObject currentScene;							//reference to current scene
-		public static DateTime currentDate = DateTime.Now;			//public for accesibility from GUI
-		public static DateTime startupTime;
-		public static DateTime realDate {
-			get {
-				return currentDate.AddMinutes(-60 * 24 * (int)(365 / 4));
-			}
-		}
+		InitializeCurrentDate ();
+		InitializeTriggers ();
+		InitializeValues ();
+	}
 
-		public static DateTime dayStart;
-		public static DateTime yearStart;
-		public static DateTime yearEnd;
-		public static double minsInYear;
-		public static double minsAtDayStart;
-		public static double currentMinutes;
-		public static int currentHour;
-		public static int currentSeason; 
-		public static float season; //exact season
-
-		public delegate void SpawnObject (); 		//delegate/event to spawn random objects at random times depending on time of day/scene
-		public event SpawnObject OnNewFrame;
-		public event SpawnObject OnNewSec;
-		public event SpawnObject OnNewMin;
-		public event SpawnObject OnNewHour;
-		public event SpawnObject OnNewDay;
-		public event SpawnObject OnNewMonth;
-		public event SpawnObject OnNewSeason;
-		public event SpawnObject OnNewYear;
+	public static DateTime currentDate = DateTime.Now;	
+	void InitializeCurrentDate () {
 		
-		public static float curvePos;
-		public static float curvePosDay;
+		currentDate = currentDate.AddMinutes(60 * 24 * (int)(365/4));
+		startupTime = currentDate;
+	}
 
-		public void TriggerNewFrame () {
+	void InitializeTriggers () {
 
-				if (OnNewFrame != null)
-						OnNewFrame ();
+		GUIManager.instance.OnGuiSliderEvent += ChangeTime;
+		OnNewYear += UpdateYear;
+		OnNewMonth += UpdateSeason;
+		OnNewDay += UpdateDay;
+		OnNewHour += UpdateHour;
+	}
+
+	void InitializeValues () {
+
+		UpdateYear ();
+		UpdateDay ();
+		UpdateCurvePosition ();
+		currentSeason = Mathf.CeilToInt(currentDate.Month/3f);
+		Application.runInBackground = true;
+	}
+
+	void Update () {
+
+		UpdateSecTimer ();
+		UpdateMinTimer ();
+		UpdateCurvePosition ();
+		FireTriggers();
+	}
+
+	private float secTimer = 1;
+	public event TimeTrigger OnNewSec;
+	void UpdateSecTimer () {
+
+		if (secTimer > 0) {
+			secTimer -= Time.deltaTime;
+		} else if (secTimer <= 0) {
+			TriggerTimeEvent(OnNewSec);
+			currentDate = currentDate.AddSeconds (1);
+			secTimer = 1;
 		}
-		
-		public void TriggerNewSec ()				
-		{
-				if (OnNewSec != null) 
-						OnNewSec ();
+	}
+
+	private float minTimer = 60;
+	public event TimeTrigger OnNewMin;
+	void UpdateMinTimer () {
+
+		if (minTimer > 0) {
+			minTimer -= Time.deltaTime;
+		} else if (minTimer <= 0) {
+			TriggerTimeEvent(OnNewMin);
+			minTimer = 60;
 		}
+	}
 
-		public void TriggerNewMin ()				
-		{
-				if (OnNewMin != null) 
-						OnNewMin ();
+	public static double minsInYear;
+	public static double currentMinutes;
+	public static float curvePos, curvePosDay;
+	void UpdateCurvePosition () {
+
+		currentMinutes = (currentDate - yearStart).TotalMinutes;
+		if (curvePos != 1 ) {
+			curvePos = (float)(currentMinutes/minsInYear);
+			curvePosDay = (float)((currentDate - dayStart).TotalMinutes / (24 * 60));
+			if (curvePos > 1f ) 
+				curvePos = curvePos - 1f;
+			else if (curvePos > 1f) 
+				curvePos = 1f;
 		}
-		
-		public void TriggerNewHour ()				
-		{
-				if (OnNewHour != null) 
-					OnNewHour ();
+	}
+
+	public delegate void TimeTrigger (); 	
+	public event TimeTrigger OnNewFrame;
+	public event TimeTrigger OnNewHour;
+	public event TimeTrigger OnNewDay;
+	public event TimeTrigger OnNewMonth;
+	public event TimeTrigger OnNewSeason;
+	public event TimeTrigger OnNewYear;
+	public static int currentSeason; 
+	void FireTriggers () {
+
+		if (yearEnd.Year != currentDate.Year) 
+			TriggerTimeEvent(OnNewYear);
+		if (dayStart.Month != currentDate.Month) 
+			TriggerTimeEvent(OnNewMonth);
+		if (currentSeason != Mathf.FloorToInt(exactSeason)) {
+			TriggerTimeEvent(OnNewSeason);
+			currentSeason = Mathf.FloorToInt(exactSeason);
 		}
-		
-		public void TriggerNewDay ()					
-		{
-				if (OnNewDay != null) 
-					OnNewDay ();
-		}	
+		if (dayStart.Day != currentDate.Day) 
+			TriggerTimeEvent(OnNewDay);
+		if (currentHour!= currentDate.Hour)
+			TriggerTimeEvent (OnNewHour);
+		TriggerTimeEvent (OnNewFrame);
+	}
 
-		public void TriggerNewMonth ()				
-		{
-				if (OnNewMonth != null) 
-						OnNewMonth ();
-		}
+	void TriggerTimeEvent (TimeTrigger timeTrigger) {
 
-		public void TriggerNewSeason ()				
-		{
-				if (OnNewSeason != null) 
-						OnNewSeason ();
-		}
+		if (timeTrigger != null)
+			timeTrigger ();
+	}
 
-		public void TriggerNewYear ()				
-		{
-				if (OnNewYear != null) 
-					OnNewYear ();
-		}
-	
-		void Awake ()//hook in and remove event methods in OnEnable and OnDisable to prevent weak links
-		{
-				GUIManager.instance.OnGuiSliderEvent += ChangeTime;
-				this.AfterFadeEvent += InitAfterFade;
-				this.StartFadeEvent += PauseBeforeFade;
-				this.OnNewYear += UpdateYear;
-				this.OnNewMonth += UpdateSeason;
-				this.OnNewDay += UpdateDay;
-				this.OnNewHour += UpdateHour;
-				
-				currentDate = currentDate.AddMinutes(60 * 24 * (int)(365/4));
-				startupTime = currentDate;
-				//initialize year and day
-				UpdateYear ();
-				UpdateDay ();
-				
-				currentSeason = Mathf.CeilToInt(currentDate.Month/3f);
-				currentMinutes = (currentDate - yearStart).TotalMinutes;
-				curvePos = (float)(currentMinutes/minsInYear);
-				Application.runInBackground = true;
-		}
+	public static DateTime yearStart, yearEnd;
+	void UpdateYear ()  {
 
-		void OnDisable ()
-		{
-				if (GUIManager.instance != null)
-						GUIManager.instance.OnGuiSliderEvent -= ChangeTime;
-				this.AfterFadeEvent -= InitAfterFade;
-				this.StartFadeEvent -= PauseBeforeFade;
-				this.OnNewYear -= UpdateYear;
-				this.OnNewDay -= UpdateDay;
-		}
-		
-		
-		IEnumerator Start ()
-		{
-				//endDate is created 18 hours in the future from startupTime (length of program running)
-				startupTime = currentDate;
-				var hour = currentDate.AddHours (18).Hour;
-				TriggerNewMin ();
-				//DateTime endDate = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day, hour, currentDate.Minute, currentDate.Second);
-				//just to ensure manager is initialized from InitManager
-				yield return Auto.Wait (1);
+		yearStart = new DateTime (currentDate.Year, 1, 1);
+		yearEnd = new DateTime (currentDate.Year, 12, 31, 23, 59, 59, 99);
+		minsInYear = (yearEnd - yearStart).TotalMinutes;
+	}
 
-				currentScene = mainScene;
-				currentScene.SetActive (true);
-		}
-		
-		float timer = 1;
-		float minTimer = 60;
-		public bool doTick = false;
-		void Update ()
-		{
-				if (!doTick)
-						return;
-				//Timer used to add seconds to Realtime, affected by Time.timeScale
-				if (timer > 0)
-						timer -= Time.deltaTime;
-				else if (timer <= 0) {
-						TriggerNewSec ();
-						currentDate = currentDate.AddSeconds (1);
-						timer = 1;
-				}
+	public static float exactSeason;
+	void UpdateSeason () {
+			
+		int monthShift = 2;
+		exactSeason = (((currentDate.Month + monthShift) % 13)/3f) % 4;
+	}
 
-				//Timer for checking current scene and attempting to spawn an object once per minute
-				if (minTimer > 0)
-						minTimer -= Time.deltaTime;
-				else if (minTimer <= 0) {
-						Debug.Log ("TRIGGER SPAWNED ----------------------------------");
-						TriggerNewMin ();
-						minTimer = 60;
-				}
-				currentMinutes = (currentDate - yearStart).TotalMinutes;
-				if (curvePos != 1 ) {
-					curvePos = (float)(currentMinutes/minsInYear);
-					curvePosDay = (float)((currentDate - dayStart).TotalMinutes / (24 * 60));
-					
-					if (curvePos > 1f ) {
-						curvePos = curvePos - 1f;
-					} else if (curvePos > 1f) {
-						curvePos = 1f;
-					}
-				}
-				FireTriggers();
-				TriggerNewFrame();
-		}
+	public static DateTime dayStart;
+	public static double minsAtDayStart;
+	void UpdateDay () {
 
-		void FireTriggers ()
-		{
-			if (yearEnd.Year != currentDate.Year) 
-				TriggerNewYear ();
-			if (dayStart.Month != currentDate.Month) 
-				TriggerNewMonth ();
-			if (currentSeason != Mathf.FloorToInt(season)) {
-				TriggerNewSeason();
-				currentSeason = Mathf.FloorToInt(season);
-			}
-			if (dayStart.Day != currentDate.Day) 
-				TriggerNewDay ();
-			if (currentHour!= currentDate.Hour)
-				TriggerNewHour ();
-		}
+		dayStart = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day);
+		minsAtDayStart = (dayStart - yearStart).TotalMinutes;
+	}
 
-		void UpdateYear () 
-		{
-			yearStart = new DateTime (currentDate.Year, 1, 1);
-			yearEnd = new DateTime (currentDate.Year, 12, 31, 23, 59, 59, 99);
-			minsInYear = (yearEnd - yearStart).TotalMinutes;
-		}
-		
-		void UpdateSeason () {
-				
-			int monthShift = 2;
-			season = (((currentDate.Month + monthShift) % 13)/3f) % 4;
-		}
+	public static int currentHour;
+	void UpdateHour ()  {
 
-		void UpdateDay ()
-		{
-			dayStart = new DateTime (currentDate.Year, currentDate.Month, currentDate.Day);
-			minsAtDayStart = (dayStart - yearStart).TotalMinutes;
-		}
+		currentHour = currentDate.Hour;
+	}
 
-		void UpdateHour () 
-		{
-			currentHour = currentDate.Hour;
-		}
+	public static DateTime startupTime;
+	public void ChangeTime (float from, float to, float val) {  
 
-		//changes time by minutes and calls checkTime 
-		public void ChangeTime (float from, float to, float val)
-		{   
-				DateTime newDate = startupTime;
-				currentDate = newDate.AddMinutes (val);
-		}
+		DateTime newDate = startupTime;
+		currentDate = newDate.AddMinutes (val);
+	}
 
-		public void ChangeTimeSeconds (float from, float to, float val)
-		{   
-			DateTime newDate = startupTime;
-			currentDate = newDate.AddSeconds(val);
-		}
-	
-	
-	//logic to load up various scenes and destroy old ones based on current hour
-		// note, this can easily be extended into a generic system for scenes/subscenes, with generic actions on particular hours.
+	public void ChangeTimeSeconds (float from, float to, float val) {   
 
+		DateTime newDate = startupTime;
+		currentDate = newDate.AddSeconds(val);
+	}
 
-		//quick helper class
-		public static GameObject DestroyAndSpawn (GameObject gObj)
-		{	
-				currentScene.SetActive (false);
-				Debug.Log(currentScene.activeSelf);
-				gObj.SetActive (true);
-				return gObj;
-		}
-
-		void InitAfterFade (int fadeTimes)
-		{
-				//if (fadeTimes < 1)
-				doTick = true;
-		}
-
-		void PauseBeforeFade (int fadeTimes)
-		{
-				//if (fadeTimes > 0)
-				doTick = false;
-		}
-
-
-
-		public delegate void AfterFade (int hour); 		
-		public event AfterFade AfterFadeEvent, StartFadeEvent;
-
-	
-		public void TriggerAfterFade (int hour)
-		{
-				if (AfterFadeEvent != null) {
-						AfterFadeEvent (hour);
-				}
-		}
-	
-		public void TriggerStartFade (int hour)
-		{
-				if (StartFadeEvent != null) {
-						StartFadeEvent (hour);
-				}
-		}
-
-
+	public static DateTime realDate {
+		get { return currentDate.AddMinutes(-60 * 24 * (int)(365 / 4));}
+	}
 }
