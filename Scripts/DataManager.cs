@@ -8,33 +8,32 @@ using System.Runtime.Serialization.Formatters.Binary;
 [Serializable]
 public class Data {
 
-	public float rainHeight;
+	public float waterLevel;
 	public float snowLevel;
 }
 
 public class DataManager : Singleton<DataManager> {
 
 	[HideInInspector] public Data data;
-	[HideInInspector] public bool successfullyLoaded;
-	string path;
+	private string path;
 
 	public delegate void SaveNotifier ();
 	public event SaveNotifier OnSave;
-
 	public void notifySave () {
 
 		if (OnSave != null)
 			OnSave();
 	}
 
+	[HideInInspector] public bool successfullyLoaded;
 	void Start () {
 
 		data = new Data ();
 		path = Application.dataPath + "data.dat";
-		successfullyLoaded = load ();
+		successfullyLoaded = Load ();
 	}
 	
-	bool load () {
+	bool Load () {
 
 		if (File.Exists(path)) {
 			BinaryFormatter bf = new BinaryFormatter();
@@ -46,7 +45,7 @@ public class DataManager : Singleton<DataManager> {
 		return false;
 	}
 	
-	void save () {
+	void Save () {
 		
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create(path);
@@ -57,6 +56,6 @@ public class DataManager : Singleton<DataManager> {
 	void OnDestroy () {
 
 		notifySave ();
-		save ();
+		Save ();
 	}
 }

@@ -34577,12 +34577,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba54484c306e5d64a825b7c12f63a066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactTo: {fileID: 1586924659}
+  Rain: {fileID: 1586924659}
   evapRate: .00013
   AccumRate: .00013
   minHeight: 6
   maxHeight: 6.03000021
   height: 0
+  minSeverityAccumTime: 0
+  maxSeverityAccumeTime: 0
 --- !u!114 &1540539287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38566,6 +38568,10 @@ Prefab:
       propertyPath: trees.Array.data[1].day
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11460182, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
+      propertyPath: Rain
+      value: 
+      objectReference: {fileID: 1586924659}
     m_RemovedComponents:
     - {fileID: 13660166, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}
     - {fileID: 13660178, guid: ee06f938bea0b274b8576fe7cce4e917, type: 2}

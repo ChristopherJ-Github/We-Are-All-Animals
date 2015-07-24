@@ -8,7 +8,7 @@ public class DayToSeasonConverter : MonoBehaviour {
 
 		SetSeason ();
 	}
-	            
+	         
 	void SetSeason () {
 
 		int season = SceneManager.currentDate.Day % 4;
@@ -27,7 +27,7 @@ public class DayToSeasonConverter : MonoBehaviour {
 				SnowManager.instance.snowLevel = 0;
 				break;
 			case 3:
-				SceneManager.currentDate = new DateTime (currentDate.Year, 10, 14, currentDate.Hour, currentDate.Minute, currentDate.Second);
+				SceneManager.currentDate = new DateTime (currentDate.Year, 10, 28, currentDate.Hour, currentDate.Minute, currentDate.Second);
 				SnowManager.instance.snowLevel = 0;
 				break;
 		}

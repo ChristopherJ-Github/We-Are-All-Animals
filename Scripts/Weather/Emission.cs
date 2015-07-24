@@ -4,18 +4,18 @@ using System.Collections;
 public class Emission : MonoBehaviour {
 
 	public delegate void weatherChangeHandler (); 
-	public event weatherChangeHandler onStart;
-	public void notifyStart () {
+	public event weatherChangeHandler OnStart;
+	public void NotifyStart () {
 		
-		if (onStart != null) 
-			onStart ();
+		if (OnStart != null) 
+			OnStart ();
 	}
 
-	public event weatherChangeHandler onStop;
-	public void notifyStop () {
+	public event weatherChangeHandler OnStop;
+	public void NotifyStop () {
 		
-		if (onStop != null) 
-			onStop ();
+		if (OnStop != null) 
+			OnStop ();
 	}
 
 	void Awake () {
@@ -30,7 +30,7 @@ public class Emission : MonoBehaviour {
 	void OnEnable () {
 
 		if (mainSystem)
-			notifyStart ();
+			NotifyStart ();
 		initializeValues ();
 	}
 	
@@ -169,7 +169,7 @@ public class Emission : MonoBehaviour {
 			CloudControl.instance.SetOvercast (initOvercast); 
 			SkyManager.instance.sun.weatherDarkness = 0;
 			WindControl.instance.SetValues(initWindiness); 
-			notifyStop ();
+			NotifyStop ();
 		}
 	}
 
