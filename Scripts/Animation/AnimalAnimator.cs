@@ -294,7 +294,7 @@ public class AnimalAnimator: MonoBehaviour {
 
 	void StormCheck () {
 
-		if (WeatherControl.instance.storm || Tester.buttonPressed)
+		if (WeatherControl.instance.storm)
 			stopIn = 0;
 	}
 

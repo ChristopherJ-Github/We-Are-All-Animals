@@ -69,10 +69,4 @@ public class BirthdayManager : Singleton<BirthdayManager> {
 			SceneManager.instance.OnNewMin -= MakeAnimalSpawnAttempt; 
 		}
 	}
-
-	void Update () {
-
-		if (Tester.buttonPressed)
-			MakeAnimalSpawnAttempt();
-	}
 }

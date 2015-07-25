@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections;
 
 public class BackgroundChanger : MonoBehaviour {
 	
-	public textureInfo[] backgrounds;
+	public TextureInfo[] backgrounds;
 
 	void OnEnable () {
 		

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections;
@@ -10,8 +10,8 @@ public class ModeledTreeManager : MonoBehaviour {
 	public int leafMatNumber = 0;
 	public GameObject leafParticals;
 	public AnimationCurve leafFallPercentage;
-	public textureInfo[] bark;
-	public textureInfo[] leaves;
+	public TextureInfo[] bark;
+	public TextureInfo[] leaves;
 	
 	public void Init () {
 

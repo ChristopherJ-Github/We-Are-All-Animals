@@ -4,7 +4,7 @@ using System;
 
 public class ObjectChanger : MonoBehaviour {
 
-	public static void SetCurrentTexture (textureInfo[] info, int matNumber, Renderer rendr) {
+	public static void SetCurrentTexture (TextureInfo[] info, int matNumber, Renderer rendr) {
 
 		int indx = ObjectChanger.GetIndex (info);
 		Texture currentTexture = info[indx].texture; //if the bottom loop doesn't apply set to the remaining months
@@ -12,17 +12,19 @@ public class ObjectChanger : MonoBehaviour {
 		
 	}
 
-	public static GameObject SetCurrentPrefab (prefabInfo[] info, GameObject currentPrefab, Transform tranfrm) {
+	public static GameObject SetCurrentPrefab (PrefabInfo[] info, GameObject currentPrefab, Transform tranfrm, out int monthStart) {
 		
 		GameObject.Destroy (currentPrefab);
 		int indx = ObjectChanger.GetIndex (info);
-		currentPrefab = info[indx].prefab; 
+		PrefabInfo prefabInfo = info [indx];
+		currentPrefab = prefabInfo.prefab; 
 		currentPrefab = GameObject.Instantiate (currentPrefab, tranfrm.position, tranfrm.rotation) as GameObject;
 		currentPrefab.transform.localScale = tranfrm.localScale;
+		monthStart = prefabInfo.monthStart;
 		return currentPrefab;
 	}
 
-	public static int GetIndex (monthInfo[] info) {
+	public static int GetIndex (MonthInfo[] info) {
 		
 		for (int i = info.Length-1 ; i >= 0 ; i--) {
 			if (SceneManager.currentDate.Month == info[i].monthStart) {

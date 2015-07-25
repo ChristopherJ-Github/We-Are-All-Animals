@@ -34,10 +34,12 @@ public class MaterialSetter : MonoBehaviour {
 		if (distanceFeeder != null)
 			distanceFeeder.InputDistance ();
 		Material[] materials = renderer.materials;
-		SetMinLeafAmount (materials);
-		SetFallTintMultiplier (materials);
+		if (treeProperties.currentMonthStart == 4) {
+			SetMinLeafAmount (materials);
+			SetFallTintMultiplier (materials);
+		}
 	}
-
+	
 	void SetMinLeafAmount (Material[] materials) {
 
 		float cutoff = materials [leafIndex].GetFloat ("_Cutoff");

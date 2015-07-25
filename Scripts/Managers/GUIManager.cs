@@ -69,6 +69,7 @@ public class GUIManager : Singleton<GUIManager> {
 		}
 		if (severitySliderValue != tempVal3)
 			TriggerGuiEvent (severitySliderValue);
+		Screen.showCursor = toggleStats;
 	}
 
 	public float alphaSavePercentage, detailSavePercentage;
