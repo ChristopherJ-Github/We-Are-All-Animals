@@ -5,11 +5,11 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 
 	void Start () {
 		
-		SceneManager.instance.OnNewDay += dayUpdate;
-		dayUpdate ();
+		SceneManager.instance.OnNewDay += DayUpdate;
+		DayUpdate ();
 	}
 	
-	void dayUpdate () {
+	void DayUpdate () {
 		
 		ChangeTreeColor ();
 		ChangeFlowerColor ();

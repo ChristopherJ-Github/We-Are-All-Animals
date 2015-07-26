@@ -61,7 +61,6 @@ void surf (Input IN, inout SurfaceOutput o) {
 	half4 snowTint2 = half4(0.35f, 0.35f, 0.35f, 0.0f) * _SnowAmount;
 	col += snowTint2;
 	o.Albedo = (col.rgb * (1-snowAmount) + snow.rgb*snowAmount);
-	
 	// debug to test your vertex alpha
 	//o.Albedo = IN.color.a;
 	o.Alpha = col.a;
