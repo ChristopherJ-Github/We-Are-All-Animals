@@ -4,7 +4,22 @@ using System.Collections;
 public class Lightning : MonoBehaviour {
 
 	public AnimationCurve severityToSpawnChance;
-	private bool activated;
+
+	private Emission emission;
+	private bool _activated;
+	public bool activated {
+		get { return _activated; }
+		set { 
+			_activated = value;
+			emission.lightningActivated = _activated;
+		}
+	}
+	
+	void Awake () {
+
+		emission = GetComponent<Emission> ();
+	}
+
 	void OnEnable () {
 
 		activated = false;

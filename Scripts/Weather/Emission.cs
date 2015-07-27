@@ -19,7 +19,7 @@ public class Emission : MonoBehaviour {
 	}
 
 	void Awake () {
-		
+
 		_lightning = GetComponent<Lightning> ();
 		particleAnimator = GetComponent<ParticleAnimator> ();
 		originalPosition = transform.position;
@@ -68,6 +68,7 @@ public class Emission : MonoBehaviour {
 	private float initOvercast;
 	public enum CloudTinting {darken, desaturate, none};
 	public CloudTinting cloudTinting;
+	[HideInInspector] public bool lightningActivated;
 	float UpdateOvercast () {
 
 		float overcastAmount = Mathf.InverseLerp (0f, 0.7f, WeatherControl.instance.cloudTransition);
@@ -85,8 +86,9 @@ public class Emission : MonoBehaviour {
 				grayAmount = transOvercast;
 				break;
 		}
-		CloudControl.instance.SetStormTint (grayAmount, darkness);
-		CloudControl.instance.SetOvercast (transOvercast); 
+		Debug.Log (lightningActivated);
+		CloudControl.instance.SetStormTint (grayAmount, darkness, lightningActivated);
+		CloudControl.instance.SetOvercast (transOvercast * Tester.instance.testValue01); 
 		return overcastAmount;
 	}
 
@@ -165,7 +167,7 @@ public class Emission : MonoBehaviour {
 		UpdateVelocity (0);
 		if (mainSystem) {
 			UpdateFog (0);
-			CloudControl.instance.SetStormTint (0, 0);
+			CloudControl.instance.SetStormTint (0, 0, lightningActivated);
 			CloudControl.instance.SetOvercast (initOvercast); 
 			SkyManager.instance.sun.weatherDarkness = 0;
 			WindControl.instance.SetValues(initWindiness); 

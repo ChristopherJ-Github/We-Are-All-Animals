@@ -162,7 +162,8 @@ public class SkyManager : Singleton<SkyManager> {
 
 	void DarkenSky (float skyDarkness) {
 
-		Color skyColor = new Color (0, 0, 0, skyDarkness * CloudControl.instance.grayAmount);
+		float darknessAmount = skyDarkness * CloudControl.instance.grayAmount;
+		Color skyColor = new Color (0, 0, 0, darknessAmount);
 		RenderSettings.skybox.SetColor ("_SnowColor", skyColor);
 	}
 

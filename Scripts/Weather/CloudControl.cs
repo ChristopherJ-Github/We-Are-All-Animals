@@ -95,16 +95,24 @@ public class CloudControl : Singleton<CloudControl> {
 	public float intensity = 4;
 	public float shadowScale = 0.75f;
 	public float distScale = 10.0f;
+	public Color cloudColor;
 	void SetCloudProperties () {
 		
 		Shader.SetGlobalFloat("ls_cloudintensity", intensity);
 		Shader.SetGlobalFloat("ls_shadowscale", shadowScale);
-		Shader.SetGlobalVector("ls_cloudcolor", (new Vector3(1,0.9f,0.95f)));
 		Shader.SetGlobalFloat("ls_distScale", distScale);
+		SetCloudColor (cloudColor);
+	}
+
+	[HideInInspector] public Color currentCloudColor;
+	public void SetCloudColor (Color color) {
+
+		currentCloudColor = color;
+		Shader.SetGlobalColor("ls_cloudcolor", color);
 	}
 	
 	void Update () {
-
+	
 		SetCloudSpeed ();
 		if (setOvercastCalled) {
 			setOvercastCalled = false;
@@ -120,17 +128,27 @@ public class CloudControl : Singleton<CloudControl> {
 		Shader.SetGlobalFloat("ls_time", Time.time * speed * 0.25f);
 	}
 
-	[HideInInspector] public float grayAmount;
+	[HideInInspector] public float grayAmount, darkness;
 	public AnimationCurve overcastToDarkening;
-	public void SetStormTint (float grayAmount, float darkness) {
+	public void SetStormTint (float grayAmount, float darkness, bool lightning) {
 
 		this.grayAmount = grayAmount;
+		this.darkness = darkness;
 		Color initMidday = _midday.Evaluate (middayValue);
 		Color middayGrayscale = new Color (initMidday.grayscale, initMidday.grayscale, initMidday.grayscale);
 		Color middayAfterGray = Color.Lerp(initMidday, middayGrayscale, grayAmount);
 		float overcastInfluence = overcastToDarkening.Evaluate (_overcast);
 		Color middayDarkened = Color.Lerp (middayAfterGray, Color.black, darkness * overcastInfluence);
 		midday = middayDarkened;
+		if (lightning)
+			SetLightningCloudTint (darkness);
+	}
+
+	public Color lightningCloudColor;
+	void SetLightningCloudTint (float darkness) {
+
+		Color currentCloudColor = Color.Lerp(cloudColor, lightningCloudColor, darkness);
+		CloudControl.instance.SetCloudColor(currentCloudColor);
 	}
 
 	public Color NightToDusk (float lerp) {
