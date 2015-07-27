@@ -87,7 +87,7 @@ public class Emission : MonoBehaviour {
 				break;
 		}
 		CloudControl.instance.SetStormTint (grayAmount, darkness, lightningActivated);
-		CloudControl.instance.SetOvercast (transOvercast * Tester.instance.testValue01); 
+		CloudControl.instance.SetOvercast (transOvercast); 
 		return overcastAmount;
 	}
 

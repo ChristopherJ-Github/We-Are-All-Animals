@@ -6,6 +6,7 @@ public class CloudControl : Singleton<CloudControl> {
 	void OnEnable () {
 		
 		SceneManager.instance.OnNewDay += UpdateClouds;
+		lightning = false;
 		UpdateClouds ();
 		SetCloudProperties ();
 		StartCoroutine(ChangeExtraOvercast());
