@@ -128,9 +128,8 @@ public class CloudControl : Singleton<CloudControl> {
 		float speed = Mathf.Lerp (minSpeed, maxSpeed, WindControl.instance.windiness);
 		Shader.SetGlobalFloat("ls_time", Time.time * speed * 0.25f);
 	}
-
+	
 	[HideInInspector] public float grayAmount, darkness;
-	[HideInInspector] public bool lightning;
 	public AnimationCurve overcastToDarkening;
 	public void SetStormTint (float grayAmount, float darkness, bool lightning) {
 
@@ -146,6 +145,10 @@ public class CloudControl : Singleton<CloudControl> {
 		if (lightning)
 			SetLightningCloudTint (darkness);
 	}
+
+	private bool lightning;
+	private float _lightningDarkness;
+	public float lightningDarkness { get { return lightning ? darkness : 0; } }
 
 	public Color lightningCloudColor;
 	void SetLightningCloudTint (float darkness) {
