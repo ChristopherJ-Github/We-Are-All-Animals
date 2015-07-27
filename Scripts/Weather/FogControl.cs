@@ -4,7 +4,7 @@ using System.Collections;
 public class FogControl : Singleton<FogControl> {
 
 	void Start () {
-		
+
 		RenderSettings.fog = true;
 		SceneManager.instance.OnNewDay += RandomizeFog;
 		RandomizeFog ();
@@ -59,11 +59,12 @@ public class FogControl : Singleton<FogControl> {
 	
 	public AnimationCurve brightnessOverYear;
 	public float maxDailyBrightnessAmount;
+	[HideInInspector] public float dailyBrightnessNorm;
 	void UpdateLightShaftBrightness () {
 
-		float brightnessAmount = brightnessOverYear.Evaluate (SceneManager.curvePos);
-		this.brightnessAmount = Mathf.Lerp (0, maxDailyBrightnessAmount, brightnessAmount); 
-		SetLightShaftBrightness (this.brightnessAmount);
+		dailyBrightnessNorm = brightnessOverYear.Evaluate (SceneManager.curvePos);
+		brightnessAmount = Mathf.Lerp (0, maxDailyBrightnessAmount, dailyBrightnessNorm); 
+		SetLightShaftBrightness (brightnessAmount);
 	}
 
 	public LightShafts lightShafts;

@@ -62,9 +62,8 @@ public class Dust : Singleton<Dust> {
 	void SetMaterialColors () {
 
 		Color matColAfterSnow = AddSnowTint (originalMatCol);
-		float whiteAmount = (FogControl.instance.brightnessAmount + CloudControl.instance.overcast) / 2.0f;
+		float whiteAmount = CloudControl.instance.overcast * FogControl.instance.dailyBrightnessNorm;
 		whiteAmount = Mathf.Lerp (whiteAmount, 0, CloudControl.instance.lightningDarkness);
-		Debug.Log (whiteAmount);
 		Color matColorAferWhite = Color.Lerp (matColAfterSnow, Color.white, whiteAmount);
 		Color matColNight = Color.Lerp (matColorAferWhite, Color.black, nightDarkness);
 		float particleBrightness = AmbientLightingChanger.instance.GetParticleBrightness ();
