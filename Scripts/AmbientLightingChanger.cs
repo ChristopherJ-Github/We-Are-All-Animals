@@ -21,10 +21,13 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 	}
 
 	public float minDarkness, maxDarkness;
+	public float lightningDarkness;
 	void UpdateAmbientLight () {
 
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
-		SetMiddayAmbience (darkness);
+		float lightningInfluence = CloudControl.instance.lightning ? CloudControl.instance.darkness : 0;
+		float darknessAfterLightning = Mathf.Lerp (darkness, lightningDarkness, lightningInfluence);
+		SetMiddayAmbience (darknessAfterLightning);
 	}
 	
 	public Gradient nightToDusk;

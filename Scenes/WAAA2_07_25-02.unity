@@ -33763,6 +33763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDarkness: .370000005
   maxDarkness: .560000002
+  lightningDarkness: .75
   nightToDusk:
     key0:
       serializedVersion: 2
