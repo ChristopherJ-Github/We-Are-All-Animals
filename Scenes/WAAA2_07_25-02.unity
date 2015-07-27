@@ -16235,7 +16235,7 @@ MonoBehaviour:
   middayCloudy: {r: .638570487, g: .66484642, b: .683823526, a: 0}
   middayStorm: {r: .610294104, g: .610294104, b: .610294104, a: 0}
   middaySnow: {r: .701286793, g: .795930505, b: .875, a: 1}
-  middayLightning: {r: .610294104, g: .610294104, b: .610294104, a: 0}
+  middayLightning: {r: .286764681, g: .286764681, b: .286764681, a: 0}
   midday: {r: .638220787, g: .66483593, b: .684443653, a: .00499999523}
   brightnessOverYear:
     serializedVersion: 2
@@ -29875,8 +29875,8 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  middayValue: .568663955
-  midday: {r: .498039216, g: .552941203, b: .65882355, a: 1}
+  middayValue: 2.76194169e-06
+  midday: {r: 0, g: 0, b: 0, a: 1}
   _midday:
     key0:
       serializedVersion: 2
@@ -29967,11 +29967,12 @@ MonoBehaviour:
   shadowScale: 3
   distScale: 10
   cloudColor: {r: 1, g: .898039222, b: .949019611, a: 1}
-  currentCloudColor: {r: 0, g: 0, b: 0, a: 0}
+  currentCloudColor: {r: .257352948, g: .257352948, b: .257352948, a: 1}
   minSpeed: 9.35999966
   maxSpeed: 24
-  grayAmount: 0
-  darkness: 0
+  grayAmount: 1
+  darkness: 1
+  lightning: 1
   overcastToDarkening:
     serializedVersion: 2
     m_Curve:
@@ -29992,13 +29993,13 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  lightningCloudColor: {r: .338235319, g: .338235319, b: .338235319, a: 1}
+  lightningCloudColor: {r: .257352948, g: .257352948, b: .257352948, a: 1}
   minDelaySpeed: .0399999991
   maxDelaySpeed: 1
   minExtraOvercast: 0
   maxExtraOvercast: .349999994
   snowInfluence: .100000001
-  extraOvercast: -.0012706737
+  extraOvercast: 0
   changeSpeed: .109999999
 --- !u!1 &1255126903
 GameObject:

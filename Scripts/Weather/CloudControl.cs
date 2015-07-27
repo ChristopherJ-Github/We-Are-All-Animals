@@ -129,11 +129,13 @@ public class CloudControl : Singleton<CloudControl> {
 	}
 
 	[HideInInspector] public float grayAmount, darkness;
+	[HideInInspector] public bool lightning;
 	public AnimationCurve overcastToDarkening;
 	public void SetStormTint (float grayAmount, float darkness, bool lightning) {
 
 		this.grayAmount = grayAmount;
 		this.darkness = darkness;
+		this.lightning = lightning;
 		Color initMidday = _midday.Evaluate (middayValue);
 		Color middayGrayscale = new Color (initMidday.grayscale, initMidday.grayscale, initMidday.grayscale);
 		Color middayAfterGray = Color.Lerp(initMidday, middayGrayscale, grayAmount);
