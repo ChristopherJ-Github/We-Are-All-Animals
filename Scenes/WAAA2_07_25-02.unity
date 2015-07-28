@@ -2302,7 +2302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &135680506
 Transform:
   m_ObjectHideFlags: 0
@@ -10461,6 +10461,7 @@ MonoBehaviour:
   bird: 0
   animal: {fileID: 661936052}
   initAnimation: {fileID: 7400000, guid: 09dbac3e2b630480885214aec13e63bd, type: 3}
+  dontIdle: 0
   splineIndex: -1
   initSpeed: .800000012
   wrapMode: 1
@@ -16273,6 +16274,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   maxDailyBrightnessAmount: .369780004
+  dailyBrightnessNorm: 0
   lightShafts: {fileID: 1930510223}
   brightnessAmount: .369780004
   maxBrightness: 18.2000008
@@ -21996,7 +21998,7 @@ MonoBehaviour:
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
   minWhiteAlpha: .0900000036
-  maxWhiteAlpha: .230000004
+  maxWhiteAlpha: .165000007
   nightAlpha: .00669999979
   minSpeed: .310000002
   maxSpeed: 1.70000005
@@ -29972,7 +29974,6 @@ MonoBehaviour:
   maxSpeed: 24
   grayAmount: 1
   darkness: 1
-  lightning: 1
   overcastToDarkening:
     serializedVersion: 2
     m_Curve:
@@ -33763,7 +33764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDarkness: .370000005
   maxDarkness: .560000002
-  lightningDarkness: .75
+  lightningDarkness: .660000026
   nightToDusk:
     key0:
       serializedVersion: 2
@@ -36240,7 +36241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1521778659
 Transform:
   m_ObjectHideFlags: 0
@@ -44951,6 +44952,7 @@ MonoBehaviour:
   on: 1
   minuteSpawnChance: 3
   hourSpawnChance: 20
+  birdChance: 100
 --- !u!4 &1863787562
 Transform:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class AnimalAnimator: MonoBehaviour {
 	private Animation animation;
 	public AnimationClip initAnimation;
 	private Spline spline;
+	[HideInInspector] public bool dontIdle;
 
 	void Start () {
 		
@@ -205,14 +206,16 @@ public class AnimalAnimator: MonoBehaviour {
 	/// </summary>
 	private StopNodeProperties stopNodeProperties;
 	bool Stop(out float stopNodePosition) { 
-		
+
+		stopNodePosition = -1f;
+		if (dontIdle)
+			return false;
 		float currentPosition = passedTime % 1f;
 		for (int nodeIndex = 0; nodeIndex < stopNodeArray.Count; nodeIndex ++) {
 			stopNodePosition = stopNodeArray[nodeIndex].Parameters [spline].PosInSpline;
 			if (StopNodeReached(currentPosition, stopNodePosition, nodeIndex))
 				return true;
 		}
-		stopNodePosition = -1f;
 		return false;
 	}
 

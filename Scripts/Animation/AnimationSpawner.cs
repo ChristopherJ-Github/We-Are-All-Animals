@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class AnimationSpawner : Singleton<AnimationSpawner> {
 	
 	public AnimalAnimator[] animations;
+	private AnimalAnimator[] birds;
 	[HideInInspector] public List<AnimalAnimator> currentAnimations;
 	public int maxAllowed;
 	[HideInInspector] public bool on = true;
@@ -16,11 +17,23 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 		SceneManager.instance.OnNewDay += ClearAnimations;
 	}
 
+	void InitializeBirds () {
+
+		List<AnimalAnimator> birds = new List<AnimalAnimator> ();
+		foreach (AnimalAnimator animation in animations) {
+			if (animation.bird)
+				birds.Add(animation);
+		}
+		this.birds = birds.ToArray ();
+	}
+
 	void Update () {
 
 		if (Input.GetKey(KeyCode.P)) {
 			ClearAnimations();
 		}
+		if (Tester.buttonPressed)
+			MinuteSpawnAttempt();
 	}
 
 	public float minuteSpawnChance;
@@ -39,13 +52,26 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 
 		if (!on || WeatherControl.instance.storm || currentAnimations.Count >= maxAllowed) 
 			return;
+		AnimalAnimator animalAnimator = GetRandomAnimal();
+		spawnChance = CalculateSpawnChance (spawnChance, ref animalAnimator);
 		if (spawnChance >= Random.Range(0.0f, 100.0f)) 
-			RandomlySpawn ();
+			Spawn (animalAnimator);
 	}
 
-	public void RandomlySpawn () {
+	public float birdChance;
+	float CalculateSpawnChance (float originalChance, ref AnimalAnimator animalAnimator) {
 
-		AnimalAnimator animalAnimator = GetRandomAnimal();
+		if (animalAnimator.bird) {
+			if (birdChance >= Random.Range(0.0f, 100.0f)) {
+				animalAnimator.dontIdle = true;
+				return 100;
+			}
+		}
+		return originalChance;
+	}
+
+	public void Spawn (AnimalAnimator animalAnimator) {
+
 		if (animalAnimator == null)
 			return;
 		Instantiate(animalAnimator.gameObject);

@@ -5,7 +5,7 @@ using System;
 public class SunControl : Singleton<SunControl> {
 	
 	public static AnimationCurve sunriseAstroCurve, sunriseCurve, sunsetCurve, sunsetAstroCurve; 
-	//[HideInInspector]
+	[HideInInspector]
 	public AnimationCurve dayCurve;
 	public float[] sunriseAstro; 
 	public float[] sunrise;
