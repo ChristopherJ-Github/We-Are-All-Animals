@@ -32,6 +32,7 @@ public class AnimalAnimator: MonoBehaviour {
 			spline = splines[splineIndex];
 			InitStopNodeArray();
 			splineState = moving;
+			Update();
 		} else {
 			RemoveSelf();
 		}
@@ -218,8 +219,6 @@ public class AnimalAnimator: MonoBehaviour {
 	bool Stop(out float stopNodePosition) { 
 
 		stopNodePosition = -1f;
-		if (!allowIdling)
-			return false;
 		float currentPosition = passedTime % 1f;
 		for (int nodeIndex = 0; nodeIndex < stopNodeArray.Count; nodeIndex ++) {
 			stopNodePosition = stopNodeArray[nodeIndex].Parameters [spline].PosInSpline;
@@ -261,7 +260,7 @@ public class AnimalAnimator: MonoBehaviour {
 		if (stopIn <= 0) {
 			splineState = idle;
 			AnimationClip idleAnimation = stopNodeProperties.idleAnimation;
-			stopIn = stopNodeProperties.duration;
+			stopIn = allowIdling ? stopNodeProperties.duration : Random.Range(3, 15);
 			animation.CrossFade(idleAnimation.name);
 		} 
 	}

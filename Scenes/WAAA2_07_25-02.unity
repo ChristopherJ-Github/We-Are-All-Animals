@@ -44953,7 +44953,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   minBirdSpawnChance: 0
-  maxBirdSpawnChance: 7
+  maxBirdSpawnChance: 4
   on: 1
   maxBirdsAllowed: 5
   currentBirdAmount: 0
