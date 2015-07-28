@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -64,7 +64,7 @@ public class BirthdayManager : Singleton<BirthdayManager> {
 			currentBirthday.toSpawn.SetActive (false);
 		if (currentBirthday.type == spawnType.Animal) {
 			if (currentAnimal != null)
-				currentAnimal.Remove();
+				currentAnimal.RemoveSelf();
 			AnimationSpawner.instance.on = true;
 			SceneManager.instance.OnNewMin -= MakeAnimalSpawnAttempt; 
 		}

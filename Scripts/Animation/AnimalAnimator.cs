@@ -17,11 +17,11 @@ public class AnimalAnimator: MonoBehaviour {
 	private Animation animation;
 	public AnimationClip initAnimation;
 	private Spline spline;
-	[HideInInspector] public bool dontIdle;
+	[HideInInspector] public bool allowIdling = true;
 
 	void Start () {
-		
-		AnimationSpawner.instance.currentAnimations.Add(this);
+
+		AddSelf ();
 		speed = initSpeed;
 		animation = animal.GetComponent<Animation> ();
 		if (initAnimation != null)
@@ -33,13 +33,23 @@ public class AnimalAnimator: MonoBehaviour {
 			InitStopNodeArray();
 			splineState = moving;
 		} else {
-			Remove();
+			RemoveSelf();
 		}
 	}
 
-	public void Remove () {
-		
-		AnimationSpawner.instance.currentAnimations.Remove(this);
+	public void AddSelf () {
+
+		AnimationSpawner.instance.currentAnimations.Add(this);
+		if (!allowIdling)
+			AnimationSpawner.instance.currentBirdAmount ++;
+	}
+
+	public void RemoveSelf (bool removeFromList = true) {
+
+		if (removeFromList)
+			AnimationSpawner.instance.currentAnimations.Remove(this);
+		if (!allowIdling)
+			AnimationSpawner.instance.currentBirdAmount --;
 		Destroy (gameObject);
 	}
 	
@@ -187,10 +197,10 @@ public class AnimalAnimator: MonoBehaviour {
 				ResetStopNodes();
 			}
 			if (loopCount >= amountOfLoops)
-				Remove();
+				RemoveSelf();
 		} else {
 			if (nodePosition == 1f) 
-				Remove();
+				RemoveSelf();
 		}
 		lastParam = nodePosition;
 	}
@@ -208,7 +218,7 @@ public class AnimalAnimator: MonoBehaviour {
 	bool Stop(out float stopNodePosition) { 
 
 		stopNodePosition = -1f;
-		if (dontIdle)
+		if (!allowIdling)
 			return false;
 		float currentPosition = passedTime % 1f;
 		for (int nodeIndex = 0; nodeIndex < stopNodeArray.Count; nodeIndex ++) {

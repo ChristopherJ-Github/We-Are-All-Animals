@@ -10461,7 +10461,7 @@ MonoBehaviour:
   bird: 0
   animal: {fileID: 661936052}
   initAnimation: {fileID: 7400000, guid: 09dbac3e2b630480885214aec13e63bd, type: 3}
-  dontIdle: 0
+  allowIdling: 1
   splineIndex: -1
   initSpeed: .800000012
   wrapMode: 1
@@ -44917,6 +44917,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c3c2c75ce6022418e97dacb2b67016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  birdSpawnChanceOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 5.58823538
+      outSlope: -0
+      tangentMode: 21
+    - time: .24935168
+      value: 0
+      inSlope: 0
+      outSlope: 28.051815
+      tangentMode: 21
+    - time: .284999996
+      value: 1
+      inSlope: 28.051815
+      outSlope: -0
+      tangentMode: 21
+    - time: .829999983
+      value: 1
+      inSlope: 0
+      outSlope: -24.9999866
+      tangentMode: 21
+    - time: .870000005
+      value: 0
+      inSlope: -24.9999866
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  minBirdSpawnChance: 0
+  maxBirdSpawnChance: 7
+  on: 1
+  maxBirdsAllowed: 5
+  currentBirdAmount: 0
+  minuteSpawnChance: 3
+  hourSpawnChance: 20
+  maxAllowed: 1
+  currentAnimations: []
   animations:
   - {fileID: 11400000, guid: 3a5735f38adb5be4da8064e19e23c34c, type: 2}
   - {fileID: 11400000, guid: 08350ffa1179e594ab55c91603b73b39, type: 2}
@@ -44947,12 +44991,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f026d433384ca1644b72394b27fc23df, type: 2}
   - {fileID: 11400000, guid: 710e50840685e984a9fe4f29327ef805, type: 2}
   - {fileID: 11400000, guid: 1abcfd7739f97d647b03e2a395f4a1f8, type: 2}
-  currentAnimations: []
-  maxAllowed: 1
-  on: 1
-  minuteSpawnChance: 3
-  hourSpawnChance: 20
-  birdChance: 100
 --- !u!4 &1863787562
 Transform:
   m_ObjectHideFlags: 0
