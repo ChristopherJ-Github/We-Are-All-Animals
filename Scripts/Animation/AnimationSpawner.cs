@@ -41,7 +41,6 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 
 		if (!on || WeatherControl.instance.storm) return;
 		if (currentBirdAmount >= maxBirdsAllowed) return;
-		Debug.Log ("bird spawned");
 		animalAnimator = animalAnimator ?? birds [Random.Range (0, birds.Length)];
 		animalAnimator.allowIdling = false;
 		Instantiate(animalAnimator.gameObject);

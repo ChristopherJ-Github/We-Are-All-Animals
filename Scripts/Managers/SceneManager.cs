@@ -34,7 +34,7 @@ public class SceneManager : Singleton<SceneManager> {
 		UpdateCurvePosition ();
 		currentSeason = Mathf.CeilToInt(currentDate.Month/3f);
 		Application.runInBackground = true;
-		Screen.SetResolution (1920, 785, true);
+		//Screen.SetResolution (1920, 785, true);
 	}
 
 	void Update () {
