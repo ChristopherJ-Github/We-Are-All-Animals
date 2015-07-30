@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3db875e3cb74c8499349be931834510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: .600000024
+  intensity: 5.03999996
   duration: .800000012
   randomizationToIntensity:
     serializedVersion: 2

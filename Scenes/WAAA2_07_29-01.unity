@@ -23284,7 +23284,7 @@ MonoBehaviour:
   dust: {fileID: 421872992}
   minAlphaOffset: -.0399999991
   maxAlphaOffset: .100000001
-  nightDarkness: .879999995
+  nightDarkness: .954999983
   snowTintOffset: .5
   minSnowAlpha: .0900000036
   maxSnowAlpha: .0700000003
@@ -31868,9 +31868,11 @@ MonoBehaviour:
   shadowScale: 3
   distScale: 10
   cloudColor: {r: 1, g: .898039222, b: .949019611, a: 1}
-  currentCloudColor: {r: .257352948, g: .257352948, b: .257352948, a: 1}
+  col: {r: 1, g: 1, b: 1, a: 1}
   minSpeed: 9.35999966
   maxSpeed: 24
+  lightningCloudColor: {r: .257352948, g: .257352948, b: .257352948, a: 1}
+  nightDarkening: .287957907
   grayAmount: 1
   darkness: 1
   overcastToDarkening:
@@ -31893,7 +31895,6 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  lightningCloudColor: {r: .257352948, g: .257352948, b: .257352948, a: 1}
   minDelaySpeed: .0399999991
   maxDelaySpeed: 1
   minExtraOvercast: 0

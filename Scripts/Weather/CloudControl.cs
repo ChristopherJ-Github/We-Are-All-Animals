@@ -104,14 +104,13 @@ public class CloudControl : Singleton<CloudControl> {
 		Shader.SetGlobalFloat("ls_distScale", distScale);
 		SetCloudColor (cloudColor);
 	}
-
-	[HideInInspector] public Color currentCloudColor;
+	
 	public void SetCloudColor (Color color) {
 
-		currentCloudColor = color;
 		Shader.SetGlobalColor("ls_cloudcolor", color);
 	}
-	
+
+	public Color col;
 	void Update () {
 	
 		SetCloudSpeed ();
@@ -120,6 +119,7 @@ public class CloudControl : Singleton<CloudControl> {
 		} else {
 			SetOvercast (initOvercast);
 		}
+		SetCurrnetCloudColor ();
 	}
 
 	public float minSpeed, maxSpeed;
@@ -127,6 +127,19 @@ public class CloudControl : Singleton<CloudControl> {
 		
 		float speed = Mathf.Lerp (minSpeed, maxSpeed, WindControl.instance.windiness);
 		Shader.SetGlobalFloat("ls_time", Time.time * speed * 0.25f);
+	}
+
+	private bool lightning;
+	public float lightningDarkness { get { return lightning ? darkness : 0; } }
+
+	public Color lightningCloudColor;
+	public float nightDarkening;
+	void SetCurrnetCloudColor () {
+
+		Color lightningColor = Color.Lerp(cloudColor, lightningCloudColor, lightningDarkness);
+		float nightInfluence = SkyManager.instance.nightTransition * (1 - nightDarkening);
+		Color nightColor = Color.Lerp(lightningColor, Color.black, nightInfluence);
+		SetCloudColor(nightColor);
 	}
 	
 	[HideInInspector] public float grayAmount, darkness;
@@ -142,19 +155,6 @@ public class CloudControl : Singleton<CloudControl> {
 		float overcastInfluence = overcastToDarkening.Evaluate (_overcast);
 		Color middayDarkened = Color.Lerp (middayAfterGray, Color.black, darkness * overcastInfluence);
 		midday = middayDarkened;
-		if (lightning)
-			SetLightningCloudTint (darkness);
-	}
-
-	private bool lightning;
-	private float _lightningDarkness;
-	public float lightningDarkness { get { return lightning ? darkness : 0; } }
-
-	public Color lightningCloudColor;
-	void SetLightningCloudTint (float darkness) {
-
-		Color currentCloudColor = Color.Lerp(cloudColor, lightningCloudColor, darkness);
-		CloudControl.instance.SetCloudColor(currentCloudColor);
 	}
 
 	public Color NightToDusk (float lerp) {

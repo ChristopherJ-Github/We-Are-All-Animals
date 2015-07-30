@@ -52,6 +52,8 @@ public class SkyManager : Singleton<SkyManager> {
 			SetDawnSettings(time);
 	}
 
+	public float nightTransition{ get { return (1 - sunriseProgress) + sunsetProgress; } }
+	
 	[HideInInspector] public float nightDayLerp, sunsetProgress, sunriseProgress;
 	void SetNightSettings (float time) {
 
