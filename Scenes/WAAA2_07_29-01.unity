@@ -35797,11 +35797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403a5a5d2d035e34ebca2db863a7e436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   sunriseAstro:
   - 6.11600018
   - 5.93300009
@@ -35854,6 +35849,11 @@ MonoBehaviour:
   - 20.566
   - 18.7660007
   - 18.3999996
+  dayCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!4 &1435038621
 Transform:
   m_ObjectHideFlags: 0
@@ -36066,16 +36066,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be7c79c6fee38643aebb0dc310e93ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightDayLerp: .943333387
+  nightDayLerp: .559983552
   sunsetProgress: 0
-  sunriseProgress: 0
+  sunriseProgress: .559983552
   sun: {fileID: 1930510222}
   moon: {fileID: 1506733896}
-  intensityLerp: 1
-  sunrisePosInDay: .101401351
-  sunsetPosInDay: .87459892
+  intensityLerp: .945076108
+  sunrisePosInDay: .138570875
+  sunsetPosInDay: .861976504
   sunriseAngle: 2.60925293
   sunsetAngle: 180
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 1.45079422
+      outSlope: 1.45079422
+      tangentMode: 10
+    - time: .201343939
+      value: .292108625
+      inSlope: 1.16857374
+      outSlope: 1.16857374
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: .886353195
+      outSlope: .886353195
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   daytimeToIntensity:
     serializedVersion: 2
     m_Curve:
@@ -39067,7 +39087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WaterMode: 2
   m_DisablePixelLights: 1
-  m_TextureSize: 256
+  m_TextureSize: 287
   m_ClipPlaneOffset: .0700000003
   m_ReflectLayers:
     serializedVersion: 2
@@ -47329,7 +47349,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   minBirdSpawnChance: 0
-  maxBirdSpawnChance: .300000012
+  maxBirdSpawnChance: .5
   on: 1
   maxBirdsAllowed: 5
   currentBirdAmount: 0
@@ -49728,7 +49748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535921bb9f461c34bb54e8053e51861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testValue01: 1
+  testValue01: .407337397
 --- !u!1001 &1979131405
 Prefab:
   m_ObjectHideFlags: 0
