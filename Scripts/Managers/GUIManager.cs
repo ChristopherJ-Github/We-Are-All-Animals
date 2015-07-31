@@ -66,6 +66,7 @@ public class GUIManager : Singleton<GUIManager> {
 		if (yearSliderValue != tempVal || daySliderValue != tempVal2) {
 			TriggerGuiEvent (yearMin, yearMax, yearSliderValue + daySliderValue);
 			sliderUsed = true;
+			SkyManager.instance.SetCurrentDayPosition(false);
 		}
 		if (severitySliderValue != tempVal3)
 			TriggerGuiEvent (severitySliderValue);

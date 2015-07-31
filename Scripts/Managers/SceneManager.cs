@@ -49,11 +49,11 @@ public class SceneManager : Singleton<SceneManager> {
 	public event TimeTrigger OnNewSec;
 	void UpdateSecTimer () {
 
+		currentDate = currentDate.AddSeconds (Time.deltaTime);
 		if (secTimer > 0) {
 			secTimer -= Time.deltaTime;
 		} else if (secTimer <= 0) {
 			TriggerTimeEvent(OnNewSec);
-			currentDate = currentDate.AddSeconds (1);
 			secTimer = 1;
 		}
 	}
@@ -73,11 +73,13 @@ public class SceneManager : Singleton<SceneManager> {
 	public static double minsInYear;
 	public static double currentMinutes;
 	public static float curvePos, curvePosDay;
+	public static double curvePosDouble;
 	void UpdateCurvePosition () {
 
 		currentMinutes = (currentDate - yearStart).TotalMinutes;
 		if (curvePos != 1 ) {
-			curvePos = (float)(currentMinutes/minsInYear);
+			curvePosDouble = currentMinutes/minsInYear;
+			curvePos = (float)curvePosDouble;
 			curvePosDay = (float)((currentDate - dayStart).TotalMinutes / (24 * 60));
 			if (curvePos > 1f ) 
 				curvePos = curvePos - 1f;

@@ -12,6 +12,7 @@ public class SkyManager : Singleton<SkyManager> {
 	void Start () {
 
 		UpdatePhaseTimes ();
+		SetCurrentDayPosition (false);
 	}
 
 	private float sunriseAstroTime, sunriseTime, sunsetTime, sunsetAstroTime;
@@ -141,23 +142,28 @@ public class SkyManager : Singleton<SkyManager> {
 
 	[HideInInspector] public float sunrisePosInDay, sunsetPosInDay;
 	public float sunriseAngle, sunsetAngle;
-	public AnimationCurve curve;
+	private float currentPosInDay;
 	float GetSunAngle () {
 
-		float dayLengthNorm = Mathf.InverseLerp (SunControl.minDayLength, SunControl.maxDayLength, SunControl.instance.dayLength);
-		float posInDay = Mathf.Clamp01 (SunControl.instance.posInDay);
-		float posInDayCurved = curve.Evaluate (posInDay);
-		float currentPosInDay = Mathf.Lerp (posInDayCurved, posInDay, dayLengthNorm);
-		if (!Tester.test) {
-			currentPosInDay = posInDay;
-		}
-		float sunsetAngleValue = Mathf.Lerp (Tester.instance.testValue01, 1, dayLengthNorm);
-		float sunsetAngle = Mathf.Lerp(sunriseAngle, this.sunsetAngle, sunsetAngleValue);
-		if (!Tester.test) {
-			sunsetAngle = this.sunsetAngle;
-		}
+		SetCurrentDayPosition (true);
 		float sunAngle = Math.Convert (currentPosInDay, sunrisePosInDay, sunsetPosInDay, sunriseAngle, sunsetAngle);
 		return sunAngle;
+	}
+
+	public AnimationCurve curve;
+	public float sunSpeed;
+	public void SetCurrentDayPosition (bool smooth) {
+
+		float posInDay = Mathf.Clamp01 (SunControl.instance.posInDay);
+		if (smooth) {
+			float dayLengthNorm = Mathf.InverseLerp (SunControl.minDayLength, SunControl.maxDayLength, SunControl.instance.dayLength);
+			float posInDayCurved = curve.Evaluate (posInDay);
+			float targetPosInDay = Mathf.Lerp (posInDayCurved, posInDay, dayLengthNorm);
+			currentPosInDay = Mathf.MoveTowards (currentPosInDay, targetPosInDay, sunSpeed * Time.deltaTime);
+		} else {
+			currentPosInDay = posInDay;
+		}
+		//Debug.Log ("posInDay: " + posInDay + "currentPosInDay: " + currentPosInDay);
 	}
 
 	public AnimationCurve daytimeToIntensity;

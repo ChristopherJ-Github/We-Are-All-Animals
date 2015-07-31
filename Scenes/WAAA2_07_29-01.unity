@@ -36096,6 +36096,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
+  sunSpeed: 2.99999992e-05
   daytimeToIntensity:
     serializedVersion: 2
     m_Curve:
