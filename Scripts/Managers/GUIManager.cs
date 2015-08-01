@@ -66,7 +66,6 @@ public class GUIManager : Singleton<GUIManager> {
 		if (yearSliderValue != tempVal || daySliderValue != tempVal2) {
 			TriggerGuiEvent (yearMin, yearMax, yearSliderValue + daySliderValue);
 			sliderUsed = true;
-			SkyManager.instance.SetCurrentDayPosition(false);
 		}
 		if (severitySliderValue != tempVal3)
 			TriggerGuiEvent (severitySliderValue);
@@ -161,7 +160,7 @@ public class GUIManager : Singleton<GUIManager> {
 		          sidebarStyle);
 		sidebarStyle.fontSize = originaFontSize;
 		GUI.Label(new Rect(Screen.width * 0.883f, Screen.height * 0.437f, Screen.width * 200, Screen.height * 25), 
-		          SceneManager.curvePos.ToString(), 
+		          SceneManager.curvePosDouble.ToString(), 
 		          sidebarStyle);
 	}
 	

@@ -71,14 +71,12 @@ public class WindControl : Singleton<WindControl> {
 		float windMultiplier = Mathf.Lerp (minWindMutliplier, 1, amountAfterSnow);
 		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence, windiness);
 		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, windiness);
-		turbulence *= windMultiplier;
-		mainWind *= windMultiplier;
 #if !UNITY_WEBPLAYER
 		WindZone.WindMain = mainWind;
 		WindZone.WindTurbulence = turbulence;
 #endif
 		TerrainData terrainData = terrain.terrainData;
-		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, windiness) * windMultiplier;  //the variables names are off
+		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, windiness);  //the variables names are off
 		this.windiness = windiness;
 	}
 }

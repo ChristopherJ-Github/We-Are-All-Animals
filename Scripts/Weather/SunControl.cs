@@ -123,11 +123,11 @@ public class SunControl : Singleton<SunControl> {
 		}
 	}
 	
-	public float posInDay { 
+	public double posInDay { 
 		get { 
 			float minsAtSuniseAstro = (float)(sunriseAstroTime * 60 + SceneManager.minsAtDayStart);
 			float minsAtSunsetAstro = (float)(sunsetAstroTime * 60 + SceneManager.minsAtDayStart);
-			return Tools.Math.Convert((float)SceneManager.currentMinutes, minsAtSuniseAstro, minsAtSunsetAstro, 0, 1);
+			return Tools.Math.Convert(SceneManager.currentMinutes, minsAtSuniseAstro, minsAtSunsetAstro, 0, 1);
 		}
 	}
 }

@@ -21,5 +21,13 @@ namespace Tools {
 			float newValue = (((value - oldMin) * newRange) / oldRange) + newMin;
 			return newValue;
 		}
+
+		public static double Convert (double value, double oldMin, double oldMax, double newMin, double newMax) {
+			
+			double oldRange = oldMax - oldMin;
+			double newRange = newMax - newMin;
+			double newValue = (((value - oldMin) * newRange) / oldRange) + newMin;
+			return newValue;
+		}
 	}
 }

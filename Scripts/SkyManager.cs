@@ -12,7 +12,6 @@ public class SkyManager : Singleton<SkyManager> {
 	void Start () {
 
 		UpdatePhaseTimes ();
-		SetCurrentDayPosition (false);
 	}
 
 	private float sunriseAstroTime, sunriseTime, sunsetTime, sunsetAstroTime;
@@ -134,7 +133,9 @@ public class SkyManager : Singleton<SkyManager> {
 		float currentIntensity = sun.light.intensity + moon.light.intensity;
 		intensityLerp = Mathf.InverseLerp(0, sun.maxIntensity, currentIntensity);
 		float sunAngle = GetSunAngle ();
-		sun.transform.localEulerAngles = new Vector3(sunAngle, 0, 0);
+		if (Tester.test) {
+			sun.transform.localEulerAngles = new Vector3(sunAngle, 0, 0);
+		}
 		float posInNight = Mathf.Clamp01 (SunControl.instance.posInNight);
 		float moonAngle = Math.Convert (posInNight, 0, 1, sunriseAngle, sunsetAngle);
 		moon.transform.localEulerAngles = new Vector3 (moonAngle, 0, 0);
@@ -142,28 +143,11 @@ public class SkyManager : Singleton<SkyManager> {
 
 	[HideInInspector] public float sunrisePosInDay, sunsetPosInDay;
 	public float sunriseAngle, sunsetAngle;
-	private float currentPosInDay;
 	float GetSunAngle () {
 
-		SetCurrentDayPosition (true);
-		float sunAngle = Math.Convert (currentPosInDay, sunrisePosInDay, sunsetPosInDay, sunriseAngle, sunsetAngle);
+		double posInDay = SunControl.instance.posInDay;
+		float sunAngle = (float)Math.Convert (posInDay, sunrisePosInDay, sunsetPosInDay, sunriseAngle, sunsetAngle);
 		return sunAngle;
-	}
-
-	public AnimationCurve curve;
-	public float sunSpeed;
-	public void SetCurrentDayPosition (bool smooth) {
-
-		float posInDay = Mathf.Clamp01 (SunControl.instance.posInDay);
-		if (smooth) {
-			float dayLengthNorm = Mathf.InverseLerp (SunControl.minDayLength, SunControl.maxDayLength, SunControl.instance.dayLength);
-			float posInDayCurved = curve.Evaluate (posInDay);
-			float targetPosInDay = Mathf.Lerp (posInDayCurved, posInDay, dayLengthNorm);
-			currentPosInDay = Mathf.MoveTowards (currentPosInDay, targetPosInDay, sunSpeed * Time.deltaTime);
-		} else {
-			currentPosInDay = posInDay;
-		}
-		//Debug.Log ("posInDay: " + posInDay + "currentPosInDay: " + currentPosInDay);
 	}
 
 	public AnimationCurve daytimeToIntensity;

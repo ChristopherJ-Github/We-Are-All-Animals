@@ -2494,7 +2494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &135680506
 Transform:
   m_ObjectHideFlags: 0
@@ -36076,27 +36076,6 @@ MonoBehaviour:
   sunsetPosInDay: .861976504
   sunriseAngle: 2.60925293
   sunsetAngle: 180
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 1.45079422
-      outSlope: 1.45079422
-      tangentMode: 10
-    - time: .201343939
-      value: .292108625
-      inSlope: 1.16857374
-      outSlope: 1.16857374
-      tangentMode: 10
-    - time: 1
-      value: 1
-      inSlope: .886353195
-      outSlope: .886353195
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  sunSpeed: 2.99999992e-05
   daytimeToIntensity:
     serializedVersion: 2
     m_Curve:
