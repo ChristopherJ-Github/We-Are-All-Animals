@@ -2091,11 +2091,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37566f9967884d45ab37b2474bccb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleAnimation: {fileID: 7400000, guid: 6698dd8b17da60345947e32868f1fd4e, type: 3}
-  duration: 1200
+  idleAnimation: {fileID: 7400000, guid: 416563f73cea4f74a9b52a776659998c, type: 3}
+  duration: 4.5
   randomAnimation: {fileID: 7400000, guid: 416563f73cea4f74a9b52a776659998c, type: 3}
   minInterval: 0
-  maxInterval: 45
+  maxInterval: 7
   landAnimation: {fileID: 0}
   landDuration: 0
   takeOffAnimation: {fileID: 0}
@@ -2104,7 +2104,7 @@ MonoBehaviour:
     type: 3}
   afterMovementSpeed: 3.5
   showBirdFields: 0
-  showRandomAnimFields: 1
+  showRandomAnimFields: 0
   rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &11400050
 MonoBehaviour:
@@ -2357,6 +2357,7 @@ MonoBehaviour:
   bird: 0
   animal: {fileID: 111806}
   initAnimation: {fileID: 7400000, guid: 85a454bbf0d5d8041aeeb418a1355bed, type: 3}
+  allowIdling: 1
   splineIndex: -1
   initSpeed: 3.5
   wrapMode: 1
@@ -2372,11 +2373,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37566f9967884d45ab37b2474bccb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleAnimation: {fileID: 7400000, guid: 6698dd8b17da60345947e32868f1fd4e, type: 3}
-  duration: 1200
+  idleAnimation: {fileID: 7400000, guid: 416563f73cea4f74a9b52a776659998c, type: 3}
+  duration: 4.5
   randomAnimation: {fileID: 7400000, guid: 416563f73cea4f74a9b52a776659998c, type: 3}
   minInterval: 0
-  maxInterval: 45
+  maxInterval: 7
   landAnimation: {fileID: 0}
   landDuration: 0
   takeOffAnimation: {fileID: 0}
@@ -2385,7 +2386,7 @@ MonoBehaviour:
     type: 3}
   afterMovementSpeed: 3.5
   showBirdFields: 0
-  showRandomAnimFields: 1
+  showRandomAnimFields: 0
   rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &11411776
 MonoBehaviour:
@@ -2605,11 +2606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37566f9967884d45ab37b2474bccb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleAnimation: {fileID: 7400000, guid: 6698dd8b17da60345947e32868f1fd4e, type: 3}
-  duration: 20000
+  idleAnimation: {fileID: 7400000, guid: 416563f73cea4f74a9b52a776659998c, type: 3}
+  duration: 4.5
   randomAnimation: {fileID: 7400000, guid: 416563f73cea4f74a9b52a776659998c, type: 3}
   minInterval: 0
-  maxInterval: 45
+  maxInterval: 7
   landAnimation: {fileID: 0}
   landDuration: 0
   takeOffAnimation: {fileID: 0}
@@ -2618,7 +2619,7 @@ MonoBehaviour:
     type: 3}
   afterMovementSpeed: 3.5
   showBirdFields: 0
-  showRandomAnimFields: 1
+  showRandomAnimFields: 0
   rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &11411800
 MonoBehaviour:
@@ -2642,7 +2643,7 @@ MonoBehaviour:
   takeOffDuration: 0
   afterMovementAnimation: {fileID: 7400000, guid: 7dccb00456537ab4a96cb24cabbaca47,
     type: 3}
-  afterMovementSpeed: 3
+  afterMovementSpeed: 1.5
   showBirdFields: 0
   showRandomAnimFields: 1
   rotation: {x: 0, y: 0, z: 0}

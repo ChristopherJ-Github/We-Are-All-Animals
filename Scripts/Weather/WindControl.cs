@@ -58,6 +58,7 @@ public class WindControl : Singleton<WindControl> {
 		maxDailyWindiness = maxWindiness;
 		float randomWindiness = Mathf.Lerp (minWindiness, maxWindiness, Random.value);
 		float windiness = Mathf.Lerp (randomWindiness, likelyWindiness, influence);
+		windiness = Mathf.Clamp (windiness, minWindiness, maxWindiness);
 		SetValues (windiness);
 	}
 
@@ -69,6 +70,7 @@ public class WindControl : Singleton<WindControl> {
 	[HideInInspector] public float windiness; 
 	public void SetValues (float windiness, float weatherSeverity = 0) {
 
+		Debug.Log (windiness);
 		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence, windiness);
 		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, windiness);
 #if !UNITY_WEBPLAYER
@@ -79,4 +81,6 @@ public class WindControl : Singleton<WindControl> {
 		terrainData.wavingGrassAmount = Mathf.Lerp(minFlowerBending, maxFlowerBending, windiness);  //the variables names are off
 		this.windiness = windiness;
 	}
+
+	public AnimationCurve maxWeatherWindOverYear;
 }
