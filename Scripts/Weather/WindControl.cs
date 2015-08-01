@@ -47,7 +47,7 @@ public class WindControl : Singleton<WindControl> {
 	public AnimationCurve minWindOverYear, maxWindOverYear;
 	public AnimationCurve likelyWindinessOverYear;
 	public AnimationCurve likelyInfluence;
-	public float maxDailyWindiness;
+	[HideInInspector] public float maxDailyWindiness;
 	void RandomizeWindiness () {
 		
 		float likelyWindiness = likelyWindinessOverYear.Evaluate (SceneManager.curvePos);
@@ -55,6 +55,7 @@ public class WindControl : Singleton<WindControl> {
 		float minWindiness = minWindOverYear.Evaluate (SceneManager.curvePos);
 		minWindiness = Mathf.Lerp (minWindiness, 0, SnowManager.instance.snowLevel);
 		float maxWindiness = maxWindOverYear.Evaluate (SceneManager.curvePos);
+		maxDailyWindiness = maxWindiness;
 		float randomWindiness = Mathf.Lerp (minWindiness, maxWindiness, Random.value);
 		float windiness = Mathf.Lerp (randomWindiness, likelyWindiness, influence);
 		SetValues (windiness);
@@ -66,8 +67,6 @@ public class WindControl : Singleton<WindControl> {
 	public float minTurbulence, maxTurbulence;
 	public float minFlowerBending, maxFlowerBending;
 	[HideInInspector] public float windiness; 
-	public AnimationCurve windMultiplierOveryear;
-	public float minWindMutliplier;
 	public void SetValues (float windiness, float weatherSeverity = 0) {
 
 		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence, windiness);

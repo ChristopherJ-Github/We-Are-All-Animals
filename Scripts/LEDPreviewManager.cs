@@ -217,7 +217,6 @@ public class LEDPreviewManager : MonoBehaviour {
 			overcast -= transitionSpeed * Time.deltaTime;
 			CloudControl.instance.SetOvercast(Mathf.Clamp01(overcast), true);
 		}
-
 #if !UNITY_WEBPLAYER
 		float windiness = WindControl.instance.windiness;
 		if (Input.GetKey(KeyCode.E))

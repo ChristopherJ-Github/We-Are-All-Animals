@@ -19298,27 +19298,22 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .100000001
+        value: .300000012
         inSlope: 0
-        outSlope: 3.6189549
+        outSlope: 2.8147428
         tangentMode: 21
       - time: .248690575
         value: 1
         inSlope: Infinity
-        outSlope: -0
+        outSlope: -1.12665272
         tangentMode: 23
-      - time: .75
-        value: 1
-        inSlope: 0
-        outSlope: -7.49999952
-        tangentMode: 21
       - time: .870000005
-        value: .100000001
+        value: .300000012
         inSlope: Infinity
         outSlope: -0
         tangentMode: 23
       - time: 1
-        value: .100000001
+        value: .300000012
         inSlope: 0
         outSlope: 0
         tangentMode: 21
@@ -23175,6 +23170,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: .457608879, y: 0, z: -.889153719}
   directionChangeSpeed: 3.5
+  minWindOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .150000006
+      inSlope: 5.58823538
+      outSlope: -.600000024
+      tangentMode: 21
+    - time: .25
+      value: 0
+      inSlope: Infinity
+      outSlope: .241935492
+      tangentMode: 23
+    - time: .870000005
+      value: .150000006
+      inSlope: Infinity
+      outSlope: -0
+      tangentMode: 23
+    - time: 1
+      value: .150000006
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  maxWindOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .300000012
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: .300000012
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   likelyWindinessOverYear:
     serializedVersion: 2
     m_Curve:
@@ -23234,42 +23269,6 @@ MonoBehaviour:
   minFlowerBending: 0
   maxFlowerBending: .25999999
   windiness: .190385237
-  windMultiplierOveryear:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 5.58823538
-      outSlope: -0
-      tangentMode: 21
-    - time: .24935168
-      value: 0
-      inSlope: 0
-      outSlope: 28.051815
-      tangentMode: 21
-    - time: .284999996
-      value: 1
-      inSlope: 28.051815
-      outSlope: -0
-      tangentMode: 21
-    - time: .829999983
-      value: 1
-      inSlope: 0
-      outSlope: -24.9999866
-      tangentMode: 21
-    - time: .870000005
-      value: 0
-      inSlope: -24.9999866
-      outSlope: -0
-      tangentMode: 21
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  minWindMutliplier: .300000012
 --- !u!114 &906446901
 MonoBehaviour:
   m_ObjectHideFlags: 0

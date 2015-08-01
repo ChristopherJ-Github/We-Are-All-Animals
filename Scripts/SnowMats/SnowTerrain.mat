@@ -231,7 +231,7 @@ Material:
       data:
         first:
           name: _Snow
-        second: -1
+        second: -.994878411
       data:
         first:
           name: _Grass
