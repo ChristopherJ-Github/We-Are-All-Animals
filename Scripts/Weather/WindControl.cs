@@ -10,9 +10,9 @@ public class WindControl : Singleton<WindControl> {
 		WindZone.Init ();
 #endif
 		SceneManager.instance.OnNewMin += minUpdate; 
-		SceneManager.instance.OnNewDay += dayUpdate; 
+		SceneManager.instance.OnNewDay += RandomizeWindiness; 
 		minUpdate ();
-		dayUpdate ();
+		RandomizeWindiness ();
 	}
 	
 	void minUpdate () {
@@ -44,14 +44,19 @@ public class WindControl : Singleton<WindControl> {
 		}
 	}
 
+	public AnimationCurve minWindOverYear, maxWindOverYear;
 	public AnimationCurve likelyWindinessOverYear;
 	public AnimationCurve likelyInfluence;
 	public float maxDailyWindiness;
-	void dayUpdate () {
+	void RandomizeWindiness () {
 		
 		float likelyWindiness = likelyWindinessOverYear.Evaluate (SceneManager.curvePos);
 		float influence = likelyInfluence.Evaluate (Random.value);
-		windiness = Mathf.Lerp (Random.value, likelyWindiness, influence) * maxDailyWindiness;
+		float minWindiness = minWindOverYear.Evaluate (SceneManager.curvePos);
+		minWindiness = Mathf.Lerp (minWindiness, 0, SnowManager.instance.snowLevel);
+		float maxWindiness = maxWindOverYear.Evaluate (SceneManager.curvePos);
+		float randomWindiness = Mathf.Lerp (minWindiness, maxWindiness, Random.value);
+		float windiness = Mathf.Lerp (randomWindiness, likelyWindiness, influence);
 		SetValues (windiness);
 	}
 
@@ -65,10 +70,6 @@ public class WindControl : Singleton<WindControl> {
 	public float minWindMutliplier;
 	public void SetValues (float windiness, float weatherSeverity = 0) {
 
-		float multiplierAmount = windMultiplierOveryear.Evaluate (SceneManager.curvePos);
-		multiplierAmount = Mathf.Lerp (multiplierAmount, 1, weatherSeverity);
-		float amountAfterSnow = Mathf.Lerp (multiplierAmount, 1, SnowManager.instance.snowLevel);
-		float windMultiplier = Mathf.Lerp (minWindMutliplier, 1, amountAfterSnow);
 		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence, windiness);
 		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, windiness);
 #if !UNITY_WEBPLAYER
