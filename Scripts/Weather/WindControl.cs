@@ -70,7 +70,6 @@ public class WindControl : Singleton<WindControl> {
 	[HideInInspector] public float windiness; 
 	public void SetValues (float windiness, float weatherSeverity = 0) {
 
-		Debug.Log (windiness);
 		float turbulence = Mathf.Lerp(minTurbulence, maxTurbulence, windiness);
 		float mainWind = Mathf.Lerp(minMainWind, maxMainWind, windiness);
 #if !UNITY_WEBPLAYER

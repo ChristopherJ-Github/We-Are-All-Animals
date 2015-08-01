@@ -20,6 +20,9 @@ public class WindStorm : MonoBehaviour {
 	void Update () {
 
 		float maxWindiness = WeatherControl.instance.severity < initWindiness ? initWindiness : WeatherControl.instance.severity;
+		float maxPresetWindiness = WindControl.instance.maxWeatherWindOverYear.Evaluate (SceneManager.curvePos);
+		maxPresetWindiness = Mathf.Lerp (maxPresetWindiness, maxWindiness, SnowManager.instance.snowLevel);
+		maxWindiness = maxWindiness > maxPresetWindiness ? maxPresetWindiness : maxWindiness;
 		float transWindiness = Mathf.Lerp (initWindiness, maxWindiness, WeatherControl.instance.transition);
 		float transSeverity = WeatherControl.instance.transition * WeatherControl.instance.severity;
 		WindControl.instance.SetValues(transWindiness, transSeverity); 

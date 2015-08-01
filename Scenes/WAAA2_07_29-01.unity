@@ -23168,7 +23168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d19a6de41be3f65409f34dda905335e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: .457608879, y: 0, z: -.889153719}
+  direction: {x: .0581211783, y: 0, z: -.998309493}
   directionChangeSpeed: 3.5
   minWindOverYear:
     serializedVersion: 2
@@ -23285,7 +23285,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  maxDailyWindiness: .300000012
+  maxDailyWindiness: .149999991
   terrain: {fileID: 1284925685}
   minMainWind: 1.25
   maxMainWind: .569999993
@@ -23293,27 +23293,27 @@ MonoBehaviour:
   maxTurbulence: 6.25
   minFlowerBending: 0
   maxFlowerBending: .25999999
-  windiness: .190385237
+  windiness: .223709479
   maxWeatherWindOverYear:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .150000006
+      value: .219062507
       inSlope: 5.58823538
-      outSlope: 3.40886307
+      outSlope: 3.13189292
       tangentMode: 21
     - time: .249349996
       value: 1
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .829999983
-      value: .150000006
-      inSlope: -1.46387672
+    - time: .871233642
+      value: .219062507
+      inSlope: -1.25576138
       outSlope: -0
       tangentMode: 21
     - time: 1
-      value: .150000006
+      value: .219062507
       inSlope: 0
       outSlope: 0
       tangentMode: 10
@@ -49761,7 +49761,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975547880}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf164e6a45ff3c479164c70627d5bc8, type: 3}
   m_Name: 

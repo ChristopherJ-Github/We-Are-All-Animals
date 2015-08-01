@@ -95,6 +95,9 @@ public class Emission : MonoBehaviour {
 	float UpdateWind (float transSeverity) {
 
 		float maxWindiness = WeatherControl.instance.severity < initWindiness ? initWindiness : WeatherControl.instance.severity;
+		float maxPresetWindiness = WindControl.instance.maxWeatherWindOverYear.Evaluate (SceneManager.curvePos);
+		maxPresetWindiness = Mathf.Lerp (maxPresetWindiness, maxWindiness, SnowManager.instance.snowLevel);
+		maxWindiness = maxWindiness > maxPresetWindiness ? maxPresetWindiness : maxWindiness;
 		float transWindiness = Mathf.Lerp (initWindiness, maxWindiness, WeatherControl.instance.cloudTransition);
 		if (mainSystem)
 			WindControl.instance.SetValues(transWindiness, transSeverity);
