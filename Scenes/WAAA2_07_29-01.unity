@@ -19959,7 +19959,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 825264538}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f202adaee27c646fa9d90739bb84aa42, type: 3}
   m_Name: 
@@ -40277,6 +40277,7 @@ MonoBehaviour:
   globalFog: 0
   lightning: 0
   dust: 1
+  emissionTransLength: 10
   cloudTinting: 1
   lightningActivated: 0
   minSpeed: .620000005
@@ -40732,6 +40733,7 @@ MonoBehaviour:
   globalFog: 0
   lightning: 1
   dust: 1
+  emissionTransLength: 0
   cloudTinting: 0
   lightningActivated: 0
   minSpeed: 0
@@ -46554,6 +46556,7 @@ MonoBehaviour:
   globalFog: 0
   lightning: 0
   dust: 1
+  emissionTransLength: 10
   cloudTinting: 1
   lightningActivated: 0
   minSpeed: 1.30999994
@@ -49761,7 +49764,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975547880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf164e6a45ff3c479164c70627d5bc8, type: 3}
   m_Name: 

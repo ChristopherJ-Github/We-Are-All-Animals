@@ -48,6 +48,19 @@ public class Emission : MonoBehaviour {
 		if (dust)
 			Dust.instance.createDust = true;
 		particleEmitter.ClearParticles ();
+		StartCoroutine (InitEmissionTransition());
+	}
+
+	public float emissionTransLength;
+	IEnumerator InitEmissionTransition () {
+
+		float timePassed = 0;
+		while (timePassed < emissionTransLength) {
+			timePassed += Time.deltaTime;
+			initialTransition = Mathf.InverseLerp(0, emissionTransLength, timePassed);
+			Debug.Log(initialTransition);
+			yield return null;
+		}
 	}
 	
 	void Update () {
@@ -120,9 +133,11 @@ public class Emission : MonoBehaviour {
 	
 	public float minEmission = 100, maxEmission = 1000; 
 	public float maxFogDesnity = 0.02f;
+	private float initialTransition;
 	void UpdateEmission (float severity, float transition) {
 
-		particleEmitter.maxEmission =  Mathf.Lerp(minEmission, maxEmission, severity) * transition;
+		float currentTransition = transition * initialTransition;
+		particleEmitter.maxEmission =  Mathf.Lerp(minEmission, maxEmission, severity) * currentTransition;
 	}
 
 	private float initFogDesnity;
