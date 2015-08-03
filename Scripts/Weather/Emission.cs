@@ -58,7 +58,6 @@ public class Emission : MonoBehaviour {
 		while (timePassed < emissionTransLength) {
 			timePassed += Time.deltaTime;
 			initialTransition = Mathf.InverseLerp(0, emissionTransLength, timePassed);
-			Debug.Log(initialTransition);
 			yield return null;
 		}
 	}

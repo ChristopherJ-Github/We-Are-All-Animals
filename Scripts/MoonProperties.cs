@@ -15,6 +15,8 @@ public class MoonProperties : MonoBehaviour {
 
 	void Update () {
 
-		currentIntesity = maxIntensity;//debug
+		#if UNITY_EDITOR
+			currentIntesity = maxIntensity;
+		#endif
 	}
 }

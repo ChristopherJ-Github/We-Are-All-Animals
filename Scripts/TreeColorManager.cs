@@ -72,8 +72,10 @@ public class TreeColorManager : Singleton<TreeColorManager>{
 
 	void Update () {
 
-		ChangeTreeColor ();//debug
-		ChangeFlowerColor (); //debug
+		#if UNITY_EDITOR
+			ChangeTreeColor ();
+			ChangeFlowerColor (); 
+		#endif
 		SetBillboardLighting ();
 		ForceBillboardUpdateCheck ();
 	}

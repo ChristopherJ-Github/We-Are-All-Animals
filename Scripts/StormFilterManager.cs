@@ -37,6 +37,9 @@ public class StormFilterManager : Singleton<StormFilterManager> {
 	
 	void Update () {
 
+		#if UNITY_EDITOR
+			UpdateBlend ();
+		#endif
 		UpdateFilter ();
 	}
 	
@@ -52,7 +55,7 @@ public class StormFilterManager : Singleton<StormFilterManager> {
 	private FilterInfo filter;
 	public static AmplifyColorEffect amplifyColorEffect;
 	void UpdateFilter () {
-		
+
 		float newBlend = _blend;
 		if (WeatherControl.currentWeather != null) {
 			float weatherEffect = WeatherControl.instance.totalTransition * WeatherControl.instance.severity;
@@ -64,6 +67,13 @@ public class StormFilterManager : Singleton<StormFilterManager> {
 		}
 		newBlend = Mathf.Lerp(1, newBlend, SkyManager.instance.nightDayLerp);
 		amplifyColorEffect.BlendAmount = newBlend;
+	}
+
+	void UpdateBlend () {
+
+		float currentEffect = filterGroup.effectOverYear.Evaluate (SceneManager.curvePos);
+		currentEffect = Mathf.Clamp01 (currentEffect);
+		blend = 1 - currentEffect;
 	}
 
 	private int groupIndex, filterIndex;
