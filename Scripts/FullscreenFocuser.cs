@@ -1,9 +1,8 @@
-﻿#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class FullscreenFocuser : MonoBehaviour {
-
+	
 	void Start () {
 
 		StartCoroutine (FocusScreen ());
@@ -23,8 +22,9 @@ public class FullscreenFocuser : MonoBehaviour {
 
 	void Click () {
 
+		#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
 		MouseOperations.SetCursorPosition (Screen.width / 2, Screen.height / 2);
 		MouseOperations.MouseEvent(MouseOperations.MouseEventFlags.LeftUp | MouseOperations.MouseEventFlags.LeftDown);
+		#endif
 	}
 }
-#endif

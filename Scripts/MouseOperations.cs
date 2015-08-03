@@ -1,9 +1,9 @@
-﻿#if UNITY_STANDALONE_WIN
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 
 public class MouseOperations {
-	
+	#if UNITY_STANDALONE_WIN
+
 	[Flags]
 	public enum MouseEventFlags {
 		LeftDown = 0x00000002,
@@ -65,5 +65,5 @@ public class MouseOperations {
 			Y = y;
 		}
 	}
+	#endif
 }
-#endif
