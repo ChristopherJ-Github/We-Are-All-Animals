@@ -35,15 +35,17 @@ public class GrassManager : Singleton<GrassManager> {
 	public int blockWidth;
 
 	void Start () {
-		
-		SceneManager.instance.OnNewDay += SetAlphaMaps; 
+
 		terrainData = Terrain.activeTerrain.terrainData;
 		PopulateAlphaMapsOverYear ();
 		_alphaMapsOverYear = _alphaMapsOverYear.OrderBy (grassInfo => grassInfo.date.month).
 			ThenBy(grassInfo => grassInfo.date.day).ToList ();
 		outputBlock = new float[blockWidth, blockWidth, terrainData.alphamapLayers];
 		totalLength = blockWidth * blockWidth * terrainData.alphamapLayers;
-		//setAlphaMaps ();
+		#if !UNITY_EDITOR
+			SceneManager.instance.OnNewDay += SetAlphaMaps;
+			SetAlphaMaps ();
+		#endif
 	}
 
 	void PopulateAlphaMapsOverYear () {

@@ -20,15 +20,17 @@ public class FlowerManager : Singleton<FlowerManager> {
 	public int blockWidth;
 
 	void Start () {
-		
-		SceneManager.instance.OnNewDay += SetDetailMaps; 
+
 		terrainData = Terrain.activeTerrain.terrainData;
 		if (flowerAlphaMaps.Count != terrainData.detailPrototypes.Length) { 
 			Debug.LogError("not enough or too many detail maps");
 			return;
 		}
 		outputBlock = new int[blockWidth, blockWidth];
-		//setDetailMaps ();  
+		#if !UNITY_EDITOR
+			SceneManager.instance.OnNewDay += SetDetailMaps; 
+			SetDetailMaps (); 
+		#endif 
 	}
 	
 	public void SetDetailMaps () {

@@ -3332,15 +3332,13 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
     filters:
-    - LutTexture: {fileID: 2800000, guid: 266b51c2b410b2848b43c38f92bdcb6b, type: 3}
+    - LutTexture: {fileID: 2800000, guid: 4276a36b85efd974683213e6fd9890de, type: 3}
       blend: 0
     - LutTexture: {fileID: 2800000, guid: 0ccfe0f3d162fa5408263be19085ff01, type: 3}
       blend: 0
     - LutTexture: {fileID: 2800000, guid: c3d080a0c666c52498681a119beee85d, type: 3}
       blend: .280000001
     - LutTexture: {fileID: 2800000, guid: 8c9a98598e2f8194a851e168152694ed, type: 3}
-      blend: 0
-    - LutTexture: {fileID: 2800000, guid: 4276a36b85efd974683213e6fd9890de, type: 3}
       blend: 0
 --- !u!114 &154805020
 MonoBehaviour:
