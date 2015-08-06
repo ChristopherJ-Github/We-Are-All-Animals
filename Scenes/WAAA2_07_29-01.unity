@@ -3198,7 +3198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26aded1be83dc364ca74e0652ea63321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLut: {fileID: 2800000, guid: 8c9a98598e2f8194a851e168152694ed, type: 3}
+  currentLut: {fileID: 2800000, guid: 4276a36b85efd974683213e6fd9890de, type: 3}
   filterGroups:
   - effectOverYear:
       serializedVersion: 2
@@ -3337,9 +3337,9 @@ MonoBehaviour:
     - LutTexture: {fileID: 2800000, guid: 0ccfe0f3d162fa5408263be19085ff01, type: 3}
       blend: 0
     - LutTexture: {fileID: 2800000, guid: c3d080a0c666c52498681a119beee85d, type: 3}
-      blend: .280000001
-    - LutTexture: {fileID: 2800000, guid: 8c9a98598e2f8194a851e168152694ed, type: 3}
-      blend: 0
+      blend: .449999988
+    - LutTexture: {fileID: 2800000, guid: fff30693569212b4bb3091b91a0f10ae, type: 3}
+      blend: .469999999
 --- !u!114 &154805020
 MonoBehaviour:
   m_ObjectHideFlags: 0
