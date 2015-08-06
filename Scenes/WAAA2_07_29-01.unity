@@ -3198,7 +3198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26aded1be83dc364ca74e0652ea63321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLut: {fileID: 2800000, guid: 4276a36b85efd974683213e6fd9890de, type: 3}
+  currentLut: {fileID: 2800000, guid: c3d080a0c666c52498681a119beee85d, type: 3}
   filterGroups:
   - effectOverYear:
       serializedVersion: 2
@@ -3280,22 +3280,16 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
     filters:
-    - LutTexture: {fileID: 2800000, guid: 0948dbe590b13bf43bfe67950b5db81e, type: 3}
+    - LutTexture: {fileID: 2800000, guid: e340e634e8a33904bb9d007a5e0741d1, type: 3}
       blend: 0
     - LutTexture: {fileID: 2800000, guid: b3212e3b115bbab4bb255b16b2c1f76d, type: 3}
       blend: .479999989
     - LutTexture: {fileID: 2800000, guid: 7301fea20138023448a99d40ac2e10df, type: 3}
       blend: 0
-    - LutTexture: {fileID: 2800000, guid: 5cab546832cfc3740900ff955cf1a66b, type: 3}
-      blend: .50999999
-    - LutTexture: {fileID: 2800000, guid: d1c92a5ed49a1584a8e53976d1e1df9d, type: 3}
-      blend: 0
-    - LutTexture: {fileID: 2800000, guid: e340e634e8a33904bb9d007a5e0741d1, type: 3}
-      blend: 0
-    - LutTexture: {fileID: 2800000, guid: 72b324ed13a521d49acbc669678f3aae, type: 3}
-      blend: .389999986
     - LutTexture: {fileID: 2800000, guid: 946d8c662adbce74bb74485e6850a555, type: 3}
       blend: .579999983
+    - LutTexture: {fileID: 2800000, guid: 72b324ed13a521d49acbc669678f3aae, type: 3}
+      blend: .389999986
   - effectOverYear:
       serializedVersion: 2
       m_Curve:
@@ -3319,16 +3313,11 @@ MonoBehaviour:
         inSlope: Infinity
         outSlope: -0
         tangentMode: 23
-      - time: .997287452
+      - time: 1
         value: 0
         inSlope: 0
         outSlope: 2.66416645
         tangentMode: 21
-      - time: 1.00197935
-        value: .0124999993
-        inSlope: 2.66416645
-        outSlope: 0
-        tangentMode: 5
       m_PreInfinity: 2
       m_PostInfinity: 2
     filters:
