@@ -95,8 +95,8 @@ Shader "Custom/SnowTerrain" {
 		#pragma glsl 
 				
 		struct Input {
-			INTERNAL_DATA	
-			float3 worldNormal; 
+			float3 worldNormal; INTERNAL_DATA	
+			float3 wNormal;
 			float2 uv_Control : TEXCOORD0;
 			float2 uv_Splat0 : TEXCOORD1;
 			float2 uv_Splat1 : TEXCOORD2;
@@ -111,15 +111,17 @@ Shader "Custom/SnowTerrain" {
 		sampler2D _Splat0,_Splat1,_Splat2,_Splat3;
 		sampler2D _Normal0,_Normal1,_Normal2,_Normal3;
 		
-		void vert (inout appdata_full v) {
+		void vert (inout appdata_full v, out Input data) {
+		
 			v.tangent.xyz = cross(v.normal, float3(0,0,1));
 			v.tangent.w = 1;
+			UNITY_INITIALIZE_OUTPUT(Input, v);
+			data.wNormal = mul((float3x3)_Object2World, v.normal);
 		}
 		
 		void surf (Input IN, inout SurfaceOutput o) { 
 			
 			fixed4 splat_control = tex2D (_Control, IN.uv_Control);
-			
 			fixed4 nrm;
 			nrm  = splat_control.r * tex2D (_Normal0, IN.uv_Splat0);
 			nrm += splat_control.g * tex2D (_Normal1, IN.uv_Splat1);
@@ -133,10 +135,8 @@ Shader "Custom/SnowTerrain" {
 			nrm = lerp(flatNormal, nrm, splatSum);
 			nrm = normalize(nrm);
 			o.Normal = UnpackNormal(nrm);
-			fixed3 worldNormal;
 			
-			worldNormal = WorldNormalVector(IN, o.Normal);
-			worldNormal = normalize(worldNormal);
+			fixed3 worldNormal = IN.wNormal;
 			float dotProduct = dot(worldNormal , _SnowDirection.xyz);
 			dotProduct = clamp(dotProduct, 0, 1);
 			fixed snowLerp  = dotProduct + _Snow;
@@ -146,14 +146,6 @@ Shader "Custom/SnowTerrain" {
 			o.Albedo = _SnowColor.rgb * 0.85;
 			float snowAlpha = splat_control.r + splat_control.g + splat_control.b + splat_control.a;
 			o.Alpha = lerp (0, snowAlpha, snowLerp);
-			
-			/*
-			o.Alpha = 1;
-			if (dotProduct < 0 || dotProduct > 1) {
-				o.Albedo = fixed3(1,0,0);
-			}
-			*/
-			//o.Alpha = 1;
 		}
 		ENDCG  
 	}
