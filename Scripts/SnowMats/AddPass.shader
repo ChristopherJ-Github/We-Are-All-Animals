@@ -98,7 +98,7 @@ Shader "Custom/SnowTerrainAdd" {
 		#pragma glsl 
 				
 		struct Input {
-			float3 worldNormal; INTERNAL_DATA	
+			INTERNAL_DATA	
 			float2 uv_Control : TEXCOORD0;
 			float2 uv_Splat0 : TEXCOORD1;
 			float2 uv_Splat1 : TEXCOORD2;
@@ -121,25 +121,27 @@ Shader "Custom/SnowTerrainAdd" {
 		void surf (Input IN, inout SurfaceOutput o) { 
 			
 			fixed4 splat_control = tex2D (_Control, IN.uv_Control);
-			
 			fixed4 nrm;
 			nrm  = splat_control.r * tex2D (_Normal0, IN.uv_Splat0);
 			nrm += splat_control.g * tex2D (_Normal1, IN.uv_Splat1);
 			nrm += splat_control.b * tex2D (_Normal2, IN.uv_Splat2);
 			nrm += splat_control.a * tex2D (_Normal3, IN.uv_Splat3);
-			// Sum of our four splat weights might not sum up to 1, in
-			// case of more than 4 total splat maps. Need to lerp towards
-			// "flat normal" in that case.
 			fixed splatSum = dot(splat_control, fixed4(1,1,1,1));
-			fixed4 flatNormal = fixed4(0.5,0.5,1,0.5); // this is "flat normal" in both DXT5nm and xyz*2-1 cases
+			fixed4 flatNormal = fixed4(0.5,0.5,1,0.5);
 			nrm = lerp(flatNormal, nrm, splatSum);
-			o.Normal = UnpackNormal(nrm);		
+			nrm = normalize(nrm);
+			o.Normal = UnpackNormal(nrm);
 			
-			fixed snowLerp = dot(WorldNormalVector(IN, o.Normal), _SnowDirection.xyz) + _Snow;
+			fixed3 worldNormal = WorldNormalVector(IN, o.Normal);
+			float dotProduct = dot(worldNormal , _SnowDirection.xyz);
+			dotProduct = clamp(dotProduct, 0, 1);
+			fixed snowLerp  = dotProduct + _Snow;
+			
 			snowLerp = pow(snowLerp, 6) * 25;
 			snowLerp = clamp(snowLerp, 0, 1);
-			o.Albedo = lerp (o.Albedo, _SnowColor.rgb * 0.85, snowLerp);
-			o.Alpha = lerp (0, splat_control.r + splat_control.g + splat_control.b + splat_control.a, snowLerp);
+			o.Albedo = _SnowColor.rgb * 0.85;
+			float snowAlpha = splat_control.r + splat_control.g + splat_control.b + splat_control.a;
+			o.Alpha = lerp (0, snowAlpha, snowLerp);
 		}
 		ENDCG   
 		

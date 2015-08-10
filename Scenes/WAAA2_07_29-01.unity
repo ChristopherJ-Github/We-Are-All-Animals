@@ -32583,8 +32583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65584bb6a53261d48b616424ef346288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSnowLevel: -1
-  maxSnowLevel: .0599999987
+  minSnowLevel: .129999995
+  maxSnowLevel: -1.13
   type: 1
 --- !u!154 &1284925684
 TerrainCollider:
