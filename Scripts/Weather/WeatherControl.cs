@@ -165,6 +165,18 @@ public class WeatherControl : Singleton<WeatherControl> {
 			storm = (bool)status;
 		}
 	}
+
+	private float _storminess;
+	public float storminess {
+		get {
+			if (currentWeather != null) {
+				if (currentWeather.causesStorms) {
+					return Mathf.InverseLerp(0, stormThreshold, totalTransition * severity); 
+				}
+			}
+			return 0;
+		} 
+	}
 	
 	void Update () {
 		

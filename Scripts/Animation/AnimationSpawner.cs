@@ -27,9 +27,12 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	public float minBirdSpawnChance, maxBirdSpawnChance;
 	void BirdSpawnAttempt () {
 
+		if (!on) return;
+		if (currentBirdAmount >= maxBirdsAllowed) return;
 		float chanceNormalized = birdSpawnChanceOverYear.Evaluate (SceneManager.curvePos);
 		float spawnChance = Mathf.Lerp (minBirdSpawnChance, maxBirdSpawnChance, chanceNormalized);
-		if (spawnChance >= Random.Range(0.0f, 100.0f)) 
+		float currentSpawnChance = Mathf.Lerp (spawnChance, 0, WeatherControl.instance.storminess);
+		if (currentSpawnChance >= Random.Range(0.0f, 100.0f)) 
 			SpawnBird();
 	}
 	
@@ -39,8 +42,6 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	[HideInInspector] public int currentBirdAmount;
 	void SpawnBird (AnimalAnimator animalAnimator = null) {
 
-		if (!on || WeatherControl.instance.storm) return;
-		if (currentBirdAmount >= maxBirdsAllowed) return;
 		animalAnimator = animalAnimator ?? birds [Random.Range (0, birds.Length)];
 		animalAnimator.allowIdling = false;
 		Instantiate(animalAnimator.gameObject);
@@ -62,9 +63,10 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	[HideInInspector] public List<AnimalAnimator> currentAnimations;
 	void MakeSpawnAttempt(float spawnChance) {
 		
-		if (!on || WeatherControl.instance.storm) return;
+		if (!on) return;
 		if (currentAnimations.Count - currentBirdAmount >= maxAllowed) return;
-		if (spawnChance >= Random.Range(0.0f, 100.0f)) 
+		float currentSpawnChance = Mathf.Lerp (spawnChance, 0, WeatherControl.instance.storminess);
+		if (currentSpawnChance >= Random.Range(0.0f, 100.0f)) 
 			Spawn ();
 	}
 	
@@ -98,7 +100,7 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	}
 
 	void Update () {
-		
+
 		if (Input.GetKey(KeyCode.P)) {
 			ClearAnimations();
 		}
