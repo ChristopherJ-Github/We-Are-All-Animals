@@ -80,7 +80,7 @@ public class LeafParticles : MonoBehaviour {
 	void SetBrightness () {
 		
 		Color nightColor = Color.Lerp (Color.white, Color.black, nightDarkness);
-		float particleBrightness = SkyManager.instance.intensityLerp;
+		float particleBrightness = AmbientLightingChanger.instance.GetParticleBrightness ();
 		Color currentTint = Color.Lerp (nightColor, Color.white, particleBrightness);
 		particleEmitter.renderer.material.SetColor ("_BrightnessTint", currentTint);
 	}
