@@ -22,13 +22,12 @@ public class SnowManager : Singleton<SnowManager> {
 	
 	void RetrieveData () {
 		
-		if (DataManager.instance.successfullyLoaded) {
+		if (DataManager.instance.successfullyLoaded) 
 			linearSnowLevel = DataManager.instance.data.linearSnowLevel;
-			snowLevel = DataManager.instance.data.snowLevel;
-		} else {
-			linearSnowLevel = snowLevel = 0;
-		}
-		TriggerSnowChange (linearSnowLevel);
+		else 
+			linearSnowLevel = 0;
+		snowLevel = GetSnowLevel (linearSnowLevel);
+		TriggerSnowChange (snowLevel);
 	}
 
 	public delegate void eventHandler (float snowLevel); 
@@ -100,21 +99,23 @@ public class SnowManager : Singleton<SnowManager> {
 	}
 
 	public float maxSnowThreshold;
+	public AnimationCurve maxSnowOverYear;
 	private float _linearSnowLevel;
 	public float linearSnowLevel {
 		get { return _linearSnowLevel; }
-		set { _linearSnowLevel = Mathf.Clamp01(value); }
+		set {
+			float maxSnowLevel = maxSnowOverYear.Evaluate(SceneManager.curvePos);
+			_linearSnowLevel = Mathf.Clamp(value, 0, maxSnowLevel); 
+		}
 	}
 	float GetSnowLevel (float initSnowLevel) {
 
 		linearSnowLevel = initSnowLevel;
 		float newSnowLevel = 0;
 		if (initSnowLevel < maxSnowThreshold) 
-			newSnowLevel = initSnowLevel/maxSnowThreshold;
+			newSnowLevel = Mathf.InverseLerp(0, maxSnowThreshold, initSnowLevel);
 		else
 			newSnowLevel = 1;
-		if (LeafFallManager.thereAreLeaves)
-			newSnowLevel = 0;
 		return newSnowLevel;
 	}
 
@@ -149,6 +150,6 @@ public class SnowManager : Singleton<SnowManager> {
 
 	void OnSave () {
 		
-		DataManager.instance.data.snowLevel = snowLevel;
+		DataManager.instance.data.linearSnowLevel = linearSnowLevel;
 	}
 }

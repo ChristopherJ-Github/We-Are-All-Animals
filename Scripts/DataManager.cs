@@ -7,35 +7,35 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 [Serializable]
 public class Data {
-
+	
 	public float waterLevel;
-	public float snowLevel;
 	public float linearSnowLevel;
 }
 
 public class DataManager : Singleton<DataManager> {
-
+	
 	[HideInInspector] public Data data;
 	private string path;
-
+	
 	public delegate void SaveNotifier ();
 	public event SaveNotifier OnSave;
 	public void notifySave () {
-
+		
 		if (OnSave != null)
 			OnSave();
 	}
-
+	
 	[HideInInspector] public bool successfullyLoaded;
 	void Start () {
-
+		
 		data = new Data ();
-		path = Application.dataPath + "data.dat";
+		path = Application.dataPath + "/data.dat";
+		Debug.Log (path);
 		successfullyLoaded = Load ();
 	}
 	
 	bool Load () {
-
+		
 		if (File.Exists(path)) {
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(path, FileMode.Open);
@@ -53,9 +53,9 @@ public class DataManager : Singleton<DataManager> {
 		bf.Serialize (file, data);
 		file.Close ();
 	}
-
+	
 	void OnDestroy () {
-
+		
 		notifySave ();
 		Save ();
 	}

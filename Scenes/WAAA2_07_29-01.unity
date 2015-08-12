@@ -9121,7 +9121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     waterLevel: 0
-    snowLevel: 0
     linearSnowLevel: 0
   successfullyLoaded: 0
 --- !u!114 &383247939
@@ -11953,7 +11952,6 @@ GameObject:
   - 4: {fileID: 516659803}
   - 33: {fileID: 516659802}
   - 23: {fileID: 516659800}
-  - 114: {fileID: 516659801}
   m_Layer: 0
   m_Name: FadeScreen
   m_TagString: Untagged
@@ -11981,17 +11979,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!114 &516659801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 516659799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f0d28a438e44d4e85f4e8288038661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!33 &516659802
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42904,8 +42891,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1658662439}
   - 132: {fileID: 1658662438}
-  - 114: {fileID: 1658662437}
-  - 114: {fileID: 1658662440}
   m_Layer: 0
   m_Name: TimescaleGui
   m_TagString: Untagged
@@ -42913,17 +42898,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1658662437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658662436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb88eea24976f49b9b60585f5fcc01cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!132 &1658662438
 GUIText:
   m_ObjectHideFlags: 0
@@ -42959,17 +42933,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 522434462}
   m_RootOrder: 2
---- !u!114 &1658662440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658662436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4d83dfe8a7e42649fa179feeecf3d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1660218943
 GameObject:
   m_ObjectHideFlags: 0
@@ -47723,6 +47686,36 @@ MonoBehaviour:
   minSeverityAccumTime: 2808
   maxSeverityAccumeTime: 117
   maxSnowThreshold: .699999988
+  maxSnowOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: Infinity
+      outSlope: -0
+      tangentMode: 21
+    - time: .146994129
+      value: 1
+      inSlope: 0
+      outSlope: -55.537468
+      tangentMode: 21
+    - time: .164999992
+      value: 0
+      inSlope: -55.537468
+      outSlope: 1.33689833
+      tangentMode: 21
+    - time: .913000047
+      value: 1
+      inSlope: Infinity
+      outSlope: -.004829349
+      tangentMode: 23
+    - time: 1
+      value: .999579847
+      inSlope: -.004829349
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   minTempMeltTime: 5616
   maxTempMeltTime: 39
 --- !u!1 &1874173808
