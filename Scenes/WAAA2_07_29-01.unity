@@ -9147,6 +9147,7 @@ MonoBehaviour:
   data:
     waterLevel: 0
     snowLevel: 0
+    linearSnowLevel: 0
   successfullyLoaded: 0
 --- !u!114 &383247939
 MonoBehaviour:
@@ -47628,6 +47629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnowWeather: {fileID: 1577618585}
+  snowLevel: 0
   objectSnowTint:
     key0:
       serializedVersion: 2
@@ -47733,25 +47735,21 @@ MonoBehaviour:
       inSlope: .667260051
       outSlope: .667260051
       tangentMode: 1
-    - time: .799999952
-      value: 1
-      inSlope: 2.2863996
-      outSlope: -0
-      tangentMode: 17
     - time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: .911259234
+      outSlope: .911259234
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   river: {fileID: 1540539284}
   frozenRiver: {fileID: 681405467}
   freezelevel: .75
-  minSeverityAccumTime: 2160
-  maxSeverityAccumeTime: 90
-  minTempMeltTime: 4320
-  maxTempMeltTime: 30
+  minSeverityAccumTime: 2808
+  maxSeverityAccumeTime: 117
+  maxSnowThreshold: .699999988
+  minTempMeltTime: 5616
+  maxTempMeltTime: 39
 --- !u!1 &1874173808
 GameObject:
   m_ObjectHideFlags: 0
