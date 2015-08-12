@@ -6,11 +6,7 @@ public class SnowManager : Singleton<SnowManager> {
 	public Emission SnowWeather;
 	public delegate void stateHandler (); 		
 	public event stateHandler reactionState;
-	private float _snowLevel;
-	public float snowLevel{
-		get { return _snowLevel; }
-		set { _snowLevel = Mathf.Clamp01(value); }
-	}
+	public float snowLevel;
 	public Gradient objectSnowTint, terrainSnowTint;
 	
 	void Start () {								
@@ -26,20 +22,24 @@ public class SnowManager : Singleton<SnowManager> {
 	
 	void RetrieveData () {
 		
-		if (DataManager.instance.successfullyLoaded) 
+		if (DataManager.instance.successfullyLoaded) {
+			linearSnowLevel = DataManager.instance.data.linearSnowLevel;
 			snowLevel = DataManager.instance.data.snowLevel;
-		else 
-			snowLevel = 0;
-		TriggerSnowChange (snowLevel);
+		} else {
+			linearSnowLevel = snowLevel = 0;
+		}
+		TriggerSnowChange (linearSnowLevel);
 	}
 
 	public delegate void eventHandler (float snowLevel); 
 	public event eventHandler OnSnowChange;
 	public float secondStageThreshold;
+	public AnimationCurve snowCurve;
 	public void TriggerSnowChange (float snowLevel) {
 		
 		Shader.SetGlobalFloat ("_SnowNormalized", snowLevel);
-		Shader.SetGlobalFloat ("_Stage2Thres", secondStageThreshold);
+		Shader.SetGlobalFloat ("_Stage2Thres", secondStageThreshold); //might only be needed at start
+		snowLevel = snowCurve.Evaluate (snowLevel);
 		if (OnSnowChange != null) 
 			OnSnowChange (snowLevel);
 	}
@@ -83,7 +83,7 @@ public class SnowManager : Singleton<SnowManager> {
 	void StartAccumulating () {
 
 		accumTimeNeeded = Mathf.Lerp (minSeverityAccumTime, maxSeverityAccumeTime, WeatherControl.instance.severity) * 60;
-		timePassed = Mathf.Lerp (0, accumTimeNeeded, snowLevel);
+		timePassed = Mathf.Lerp (0, accumTimeNeeded, linearSnowLevel);
 		reactionState = accumulating;
 	}
 
@@ -93,11 +93,29 @@ public class SnowManager : Singleton<SnowManager> {
 		if (WeatherControl.instance.transition != 1 && WeatherControl.instance.cloudTransition != 1)
 			return;
 		timePassed += Time.deltaTime;
-		snowLevel = timePassed / accumTimeNeeded;
-		snowLevel = LeafFallManager.thereAreLeaves ? 0 : snowLevel;
+		snowLevel = GetSnowLevel(timePassed / accumTimeNeeded);
 		TriggerSnowChange (snowLevel);
 		if (snowLevel >= 1) 
 			reactionState = idle;
+	}
+
+	public float maxSnowThreshold;
+	private float _linearSnowLevel;
+	public float linearSnowLevel {
+		get { return _linearSnowLevel; }
+		set { _linearSnowLevel = Mathf.Clamp01(value); }
+	}
+	float GetSnowLevel (float initSnowLevel) {
+
+		linearSnowLevel = initSnowLevel;
+		float newSnowLevel = 0;
+		if (initSnowLevel < maxSnowThreshold) 
+			newSnowLevel = initSnowLevel/maxSnowThreshold;
+		else
+			newSnowLevel = 1;
+		if (LeafFallManager.thereAreLeaves)
+			newSnowLevel = 0;
+		return newSnowLevel;
 	}
 
 	void idle() {}
@@ -108,7 +126,7 @@ public class SnowManager : Singleton<SnowManager> {
 	public void StartMelting () {
 
 		meltTime = Mathf.Lerp (minTempMeltTime, maxTempMeltTime, TemperatureManager.temperature) * 60;
-		timeLeft = Mathf.Lerp (0, meltTime, snowLevel);
+		timeLeft = Mathf.Lerp (0, meltTime, linearSnowLevel);
 		reactionState = melting; 
 	}
 
@@ -116,8 +134,7 @@ public class SnowManager : Singleton<SnowManager> {
 	void melting () {
 
 		timeLeft -= Time.deltaTime;
-		snowLevel = timeLeft / meltTime;
-		snowLevel = LeafFallManager.thereAreLeaves ? 0 : snowLevel;
+		snowLevel = GetSnowLevel(timeLeft / meltTime);
 		TriggerSnowChange (snowLevel);
 		if (snowLevel <= 0) 
 			reactionState = idle;
@@ -125,6 +142,7 @@ public class SnowManager : Singleton<SnowManager> {
 	
 	void Update () {
 
+		float _meltTime = Mathf.Lerp (minTempMeltTime, maxTempMeltTime, TemperatureManager.temperature) * 60;
 		TriggerSnowChange (snowLevel);
 		reactionState ();
 	}

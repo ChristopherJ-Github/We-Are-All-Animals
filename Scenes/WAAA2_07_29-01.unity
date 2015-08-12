@@ -47715,6 +47715,36 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   secondStageThreshold: .100000001
+  snowCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 27.8593254
+      outSlope: 27.8593254
+      tangentMode: 10
+    - time: .0118366778
+      value: .329761863
+      inSlope: 4.10411882
+      outSlope: .624490678
+      tangentMode: 1
+    - time: .517114401
+      value: .559966028
+      inSlope: .667260051
+      outSlope: .667260051
+      tangentMode: 1
+    - time: .799999952
+      value: 1
+      inSlope: 2.2863996
+      outSlope: -0
+      tangentMode: 17
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   river: {fileID: 1540539284}
   frozenRiver: {fileID: 681405467}
   freezelevel: .75

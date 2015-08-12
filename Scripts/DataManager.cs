@@ -10,6 +10,7 @@ public class Data {
 
 	public float waterLevel;
 	public float snowLevel;
+	public float linearSnowLevel;
 }
 
 public class DataManager : Singleton<DataManager> {

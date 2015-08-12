@@ -189,19 +189,17 @@ public class LEDPreviewManager : MonoBehaviour {
 
 	void SnowInput () {
 
-		if (Input.GetKeyDown(KeyCode.Alpha8)) {
+		if (Input.GetKeyDown(KeyCode.Alpha8)) 
 			SnowManager.instance.SetRiver(!SnowManager.instance.riverFrozen);
-		}
 		if (Input.GetKey(KeyCode.Alpha9)) 
-			SnowManager.instance.snowLevel -= transitionSpeed * Time.deltaTime;
+			SnowManager.instance.linearSnowLevel -= transitionSpeed * Time.deltaTime;
 		if (Input.GetKey(KeyCode.Alpha0))
-			SnowManager.instance.snowLevel += transitionSpeed * Time.deltaTime;
-		if (SnowManager.instance.snowLevel > 0) {
-			if (WeatherControl.currentWeather == null) 
-				SnowManager.instance.StartMelting();
-			else if (WeatherControl.currentWeather.weather.name != "Snow")
-				SnowManager.instance.StartMelting();
-		}
+			SnowManager.instance.linearSnowLevel += transitionSpeed * Time.deltaTime;
+		if (WeatherControl.currentWeather == null) 
+			SnowManager.instance.StartMelting();
+		else if (WeatherControl.currentWeather.weather.name != "Snow")
+			SnowManager.instance.StartMelting();
+
 	}
 	
 	void MiscInput () {
