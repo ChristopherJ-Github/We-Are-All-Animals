@@ -47694,14 +47694,14 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: -0
       tangentMode: 21
-    - time: .146994129
+    - time: .159999996
       value: 1
       inSlope: 0
-      outSlope: -55.537468
+      outSlope: -200.000198
       tangentMode: 21
     - time: .164999992
       value: 0
-      inSlope: -55.537468
+      inSlope: -200.000198
       outSlope: 1.33689833
       tangentMode: 21
     - time: .913000047
