@@ -3198,7 +3198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26aded1be83dc364ca74e0652ea63321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLut: {fileID: 2800000, guid: b3212e3b115bbab4bb255b16b2c1f76d, type: 3}
+  currentLut: {fileID: 2800000, guid: 474a5f4be6eb69247acf1b49ccaef432, type: 3}
   filterGroups:
   - effectOverYear:
       serializedVersion: 2
@@ -3206,28 +3206,18 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 24.1898003
-        outSlope: -0
+        outSlope: 4.01606417
         tangentMode: 21
-      - time: .329999983
-        value: 0
-        inSlope: 0
-        outSlope: 30.3815079
-        tangentMode: 21
-      - time: .362914741
+      - time: .248999998
         value: 1
-        inSlope: 30.3815079
-        outSlope: -0
-        tangentMode: 21
-      - time: .70987606
-        value: 1
-        inSlope: 0
-        outSlope: -28.4706059
-        tangentMode: 21
-      - time: .745000005
+        inSlope: Infinity
+        outSlope: -2.05761337
+        tangentMode: 23
+      - time: .734999955
         value: 0
-        inSlope: -28.4706059
+        inSlope: Infinity
         outSlope: -0
-        tangentMode: 21
+        tangentMode: 23
       - time: 1
         value: 0
         inSlope: 0
@@ -3250,28 +3240,18 @@ MonoBehaviour:
       - time: -.00250702351
         value: 1
         inSlope: 24.1898003
-        outSlope: -0
+        outSlope: -3.99190378
         tangentMode: 21
-      - time: .170000017
-        value: 1
-        inSlope: 0
-        outSlope: -12.5000029
-        tangentMode: 21
-      - time: .25
+      - time: .248000011
         value: 0
-        inSlope: -12.5000029
-        outSlope: -0
-        tangentMode: 21
+        inSlope: Infinity
+        outSlope: 1.60771704
+        tangentMode: 23
       - time: .870000005
-        value: 0
-        inSlope: 0
-        outSlope: 21.3402252
-        tangentMode: 21
-      - time: .916859865
         value: 1
-        inSlope: 21.3402252
+        inSlope: Infinity
         outSlope: -0
-        tangentMode: 21
+        tangentMode: 23
       - time: 1
         value: 1
         inSlope: 0
@@ -3440,26 +3420,21 @@ MonoBehaviour:
         inSlope: 24.1898003
         outSlope: -0
         tangentMode: 21
+      - time: .25
+        value: 0
+        inSlope: 0
+        outSlope: 12.5000029
+        tangentMode: 21
       - time: .329999983
-        value: 0
-        inSlope: 0
-        outSlope: 30.3815079
-        tangentMode: 21
-      - time: .362914741
         value: 1
-        inSlope: 30.3815079
-        outSlope: -0
+        inSlope: 12.5000029
+        outSlope: -2.469136
         tangentMode: 21
-      - time: .70987606
-        value: 1
-        inSlope: 0
-        outSlope: -28.4706059
-        tangentMode: 21
-      - time: .745000005
+      - time: .734999955
         value: 0
-        inSlope: -28.4706059
+        inSlope: Infinity
         outSlope: -0
-        tangentMode: 21
+        tangentMode: 23
       - time: 1
         value: 0
         inSlope: 0
@@ -50123,7 +50098,7 @@ MonoBehaviour:
     ctime0: 10748
     ctime1: 16912
     ctime2: 48168
-    ctime3: 53280
+    ctime3: 51749
     ctime4: 57081
     ctime5: 59965
     ctime6: 57238
