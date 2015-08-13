@@ -133,9 +133,7 @@ public class SkyManager : Singleton<SkyManager> {
 		float currentIntensity = sun.light.intensity + moon.light.intensity;
 		intensityLerp = Mathf.InverseLerp(0, sun.maxIntensity, currentIntensity);
 		float sunAngle = GetSunAngle ();
-		if (Tester.test) {
-			sun.transform.localEulerAngles = new Vector3(sunAngle, 0, 0);
-		}
+		sun.transform.localEulerAngles = new Vector3(sunAngle, 0, 0); 
 		float posInNight = Mathf.Clamp01 (SunControl.instance.posInNight);
 		float moonAngle = Math.Convert (posInNight, 0, 1, sunriseAngle, sunsetAngle);
 		moon.transform.localEulerAngles = new Vector3 (moonAngle, 0, 0);
