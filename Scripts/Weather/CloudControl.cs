@@ -9,7 +9,6 @@ public class CloudControl : Singleton<CloudControl> {
 		lightning = false;
 		UpdateClouds ();
 		SetCloudProperties ();
-		StartCoroutine(ChangeExtraOvercast());
 	}
 	
 	void UpdateClouds () {
@@ -109,8 +108,7 @@ public class CloudControl : Singleton<CloudControl> {
 
 		Shader.SetGlobalColor("ls_cloudcolor", color);
 	}
-
-	public Color col;
+	
 	void Update () {
 	
 		SetCloudSpeed ();
@@ -163,32 +161,5 @@ public class CloudControl : Singleton<CloudControl> {
 		Color grayscale = new Color (initColor.grayscale, initColor.grayscale, initColor.grayscale);
 		Color afterStorm = Color.Lerp (initColor, grayscale, grayAmount);
 		return afterStorm;
-	}
-
-	public float minDelaySpeed, maxDelaySpeed;
-	public float minExtraOvercast, maxExtraOvercast;
-	public float snowInfluence;
-	IEnumerator ChangeExtraOvercast () {
-		
-		float timer = 1;
-		while (timer > 0) {	
-			float speed = Mathf.Lerp(minDelaySpeed, maxDelaySpeed, WindControl.instance.windiness);
-			timer -= Time.deltaTime * speed;
-			yield return null;
-		}
-		float _extraOvercast = Mathf.Lerp (minExtraOvercast, maxExtraOvercast, 1 - _overcast);
-		float extraOvercastGoal = Random.Range (-_extraOvercast, _extraOvercast) * (1 - SnowManager.instance.snowLevel * snowInfluence);
-		StartCoroutine (SetExtraOvercast (extraOvercastGoal));
-	}
-
-	[HideInInspector] public float extraOvercast;
-	public float changeSpeed;
-	IEnumerator SetExtraOvercast (float extraOvercastGoal) {
-
-		while (extraOvercast != extraOvercastGoal) {
-			extraOvercast = Mathf.MoveTowards(extraOvercast, extraOvercastGoal, Time.deltaTime * changeSpeed);
-			yield return null;
-		}
-		StartCoroutine(ChangeExtraOvercast());
 	}
 }

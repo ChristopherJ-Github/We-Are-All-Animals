@@ -29,7 +29,8 @@ public class SunProperties : MonoBehaviour {
 
 		float curvePos = SceneManager.curvePos;
 		float posInDay = SunCtrl.dayCurve.Evaluate (curvePos);
-		float darknessAmount = weatherDarkness + CloudControl.instance.extraOvercast + (SnowManager.instance.snowLevel * snowInfluence);
+		float snowEffect = SnowManager.instance.snowLevel * snowInfluence;
+		float darknessAmount = weatherDarkness + DynamicCloudControl.instance.extraOvercast + snowEffect;
 		float currentDarkness = Mathf.Lerp (0, maxIntensity, darknessAmount);
 		currentIntesity = Mathf.Clamp (maxIntensity - currentDarkness, minIntensity, maxIntensity);
 	}

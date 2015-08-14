@@ -31878,6 +31878,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1254143142}
   - 114: {fileID: 1254143143}
+  - 114: {fileID: 1254143144}
   m_Layer: 0
   m_Name: Cloud System
   m_TagString: Untagged
@@ -32140,7 +32141,6 @@ MonoBehaviour:
   shadowScale: 3
   distScale: 10
   cloudColor: {r: 1, g: .898039222, b: .949019611, a: 1}
-  col: {r: 1, g: 1, b: 1, a: 1}
   minSpeed: 9.35999966
   maxSpeed: 24
   lightningCloudColor: {r: .257352948, g: .257352948, b: .257352948, a: 1}
@@ -32167,12 +32167,23 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
-  minDelaySpeed: .0399999991
-  maxDelaySpeed: 1
+--- !u!114 &1254143144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1254143141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c611800d809ec645b350e1c869625b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDelay: .400000006
+  maxDelay: 10
   minExtraOvercast: 0
-  maxExtraOvercast: .349999994
+  maxExtraOvercast: .800000012
   snowInfluence: .100000001
-  extraOvercast: 0
+  extraOvercast: .15316236
   changeSpeed: .109999999
 --- !u!1 &1255126903
 GameObject:
@@ -49046,7 +49057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weatherDarkness: 0
   minIntensity: .400000006
-  maxIntensity: 1.05999994
+  maxIntensity: 1.34000003
   currentIntesity: 0
   snowInfluence: .800000012
   minShadowStrength: .709999979
