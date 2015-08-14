@@ -30,10 +30,24 @@ public class FilterManager : Singleton<FilterManager> {
 	public FilterGroup[] filterGroups;
 	void RandomizeFilter () {
 
-		int groupIndex = Random.Range (0, filterGroups.Length);
+		int groupIndex = GetGroupIndex ();
 		FilterGroup filterGroup = filterGroups [groupIndex];
 		int filterIndex = Random.Range (0, filterGroup.filters.Length);
 		SetFilter (groupIndex, filterIndex);
+	}
+
+	int GetGroupIndex () {
+
+		float largestEffect = 0;
+		int outputIndex = 0;
+		for (int index = 0; index < filterGroups.Length; index ++) {
+			float effect = filterGroups[index].effectOverYear.Evaluate(SceneManager.curvePos);
+			if (effect > largestEffect) {
+				largestEffect = effect;
+				outputIndex = index;
+			}
+		}
+		return outputIndex;
 	}
 
 	private FilterGroup filterGroup;
