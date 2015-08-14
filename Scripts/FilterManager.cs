@@ -32,7 +32,7 @@ public class FilterManager : Singleton<FilterManager> {
 
 		int groupIndex = GetGroupIndex ();
 		FilterGroup filterGroup = filterGroups [groupIndex];
-		int filterIndex = Random.Range (0, filterGroup.filters.Length);
+		int filterIndex = GetFilterIndex (filterGroup);
 		SetFilter (groupIndex, filterIndex);
 	}
 
@@ -50,13 +50,24 @@ public class FilterManager : Singleton<FilterManager> {
 		return outputIndex;
 	}
 
+	int GetFilterIndex (FilterGroup filterGroup) {
+
+		if (0 == Random.Range(0, filterGroup.filters.Length + 1)) 
+			return -1;
+		else
+			return Random.Range (0, filterGroup.filters.Length);
+	}
+
 	private FilterGroup filterGroup;
 	void SetFilter (int groupIndex, int filterIndex) {
 
 		this.groupIndex = groupIndex;
 		filterGroup = filterGroups [groupIndex];
 		this.filterIndex = filterIndex;
-		filter = filterGroup.filters[filterIndex];
+		if (filterIndex != -1)
+			filter = filterGroup.filters[filterIndex];
+		else
+			filter = new FilterInfo ();
 		amplifyColorEffect.LutTexture = filter.LutTexture;
 		currentLut = filter.LutTexture;
 		float currentEffect = filterGroup.effectOverYear.Evaluate (SceneManager.curvePos);
@@ -107,21 +118,7 @@ public class FilterManager : Singleton<FilterManager> {
 	public void NextFilter () {
 
 		int filterIndex = this.filterIndex;
-		int groupIndex = this.groupIndex;
-		int maxIterations = 100;
-		int iterations = 0;
-		while (true) {
-			filterIndex ++;
-			if (filterIndex >= filterGroup.filters.Length) {
-				groupIndex = (int)Mathf.Repeat(groupIndex + 1, filterGroups.Length);
-				filterIndex = 0;
-			} 
-			if (filterGroups[groupIndex].effectOverYear.Evaluate(SceneManager.curvePos) != 0)
-				break;
-			iterations ++;
-			if (iterations >= maxIterations)
-				return;
-		}
+		filterIndex = (int)Mathf.Repeat (filterIndex + 1, filterGroup.filters.Length);
 		SetFilter(groupIndex, filterIndex);
 	}
 }
