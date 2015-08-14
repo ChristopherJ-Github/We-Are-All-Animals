@@ -26,40 +26,40 @@ SubShader {
 	}
 	LOD 200
 	
-CGPROGRAM
-#pragma surface surf TreeLeaf alphatest:_Cutoff vertex:TreeVertLeaf nolightmap
-#pragma exclude_renderers flash
-#pragma glsl_no_auto_normalization
-#include "Lighting.cginc"
-#include "Tree.cginc"
+	CGPROGRAM
+	#pragma surface surf TreeLeaf alphatest:_Cutoff vertex:TreeVertLeaf nolightmap
+	#pragma exclude_renderers flash
+	#pragma glsl_no_auto_normalization
+	#include "Lighting.cginc"
+	#include "Tree.cginc"
 
-sampler2D _MainTex;
-sampler2D _BumpSpecMap;
-sampler2D _TranslucencyMap;
-fixed3 _FallTint;
-float _FallTintAmount;
-float _TintMultiplier;
+	sampler2D _MainTex;
+	sampler2D _BumpSpecMap;
+	sampler2D _TranslucencyMap;
+	fixed3 _FallTint;
+	float _FallTintAmount;
+	float _TintMultiplier;
 
-struct Input {
-	float2 uv_MainTex;
-	fixed4 color : COLOR; // color.a = AO
-};
+	struct Input {
+		float2 uv_MainTex;
+		fixed4 color : COLOR; // color.a = AO
+	};
 
-void surf (Input IN, inout LeafSurfaceOutput o) {
-	fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
-	fixed3 tintedColor = c.rgb + _FallTint.rgb;
-	o.Albedo = lerp (c.rgb, tintedColor, _FallTintAmount * _TintMultiplier);
-	o.Albedo *= IN.color.a;
-	
-	fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
-	o.Translucency = trngls.b;
-	o.Gloss = trngls.a * _FallTint.r;
-	o.Alpha = c.a;
-	half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
-	o.Specular = norspc.r;
-	o.Normal = UnpackNormalDXT5nm(norspc);
-}
-ENDCG
+	void surf (Input IN, inout LeafSurfaceOutput o) {
+		fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
+		fixed3 tintedColor = c.rgb + _FallTint.rgb;
+		o.Albedo = lerp (c.rgb, tintedColor, _FallTintAmount * _TintMultiplier);
+		o.Albedo *= IN.color.a;
+		
+		fixed4 trngls = tex2D (_TranslucencyMap, IN.uv_MainTex);
+		o.Translucency = trngls.b;
+		o.Gloss = trngls.a * _FallTint.r;
+		o.Alpha = c.a;
+		half4 norspc = tex2D (_BumpSpecMap, IN.uv_MainTex);
+		o.Specular = norspc.r;
+		o.Normal = UnpackNormalDXT5nm(norspc);
+	}
+	ENDCG
 
 	// Pass to render object as a shadow caster
 	Pass {
