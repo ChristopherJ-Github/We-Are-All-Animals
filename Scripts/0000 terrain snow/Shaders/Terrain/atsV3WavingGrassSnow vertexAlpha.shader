@@ -14,7 +14,6 @@ SubShader {
 	}
 	Cull Off
 	LOD 200
-	ColorMask RGB
 		
 	CGPROGRAM
 	#pragma surface surf Lambert vertex:AtsWavingGrassVert addshadow
@@ -66,97 +65,5 @@ SubShader {
 		clip (o.Alpha - _Cutoff);
 	}
 	ENDCG
-	
-	// Pass to render object as a shadow collector
-	Pass {
-		Name "ShadowCollector"
-		Tags { "LightMode" = "ShadowCollector" }
-		
-		Fog {Mode Off}
-		ZWrite On ZTest LEqual
-
-		CGPROGRAM
-		#pragma vertex vert_surf
-		#pragma fragment frag_surf
-		#pragma exclude_renderers noshadows flash
-		#pragma multi_compile_shadowcollector
-		#pragma glsl_no_auto_normalization
-		#include "HLSLSupport.cginc"
-		#define SHADOW_COLLECTOR_PASS
-		#include "UnityCG.cginc"
-		#include "Lighting.cginc"
-
-		#define INTERNAL_DATA
-		#define WorldReflectionVector(data,normal) data.worldRefl
-
-		sampler2D _MainTex;
-		sampler2D _BumpSpecMap;
-		sampler2D _TranslucencyMap;
-		float _ShadowOffsetScale;
-
-		struct Input {
-			float2 uv_MainTex;
-		};
-
-		struct v2f_surf {
-			V2F_SHADOW_COLLECTOR;
-			float2 hip_pack0 : TEXCOORD5;
-			float3 normal : TEXCOORD6;
-		};
-		
-		float4 _MainTex_ST;
-		
-		v2f_surf vert_surf (appdata_full v) {
-			v2f_surf o;
-			TreeVertLeaf (v);
-			o.hip_pack0.xy = TRANSFORM_TEX(v.texcoord, _MainTex);
-			
-			float3 worldN = mul((float3x3)_Object2World, SCALED_NORMAL);
-			o.normal = mul(_World2Shadow, half4(worldN, 0)).xyz;
-
-			TRANSFER_SHADOW_COLLECTOR(o)
-			return o;
-		}
-		
-		fixed _Cutoff;
-		
-		half4 frag_surf (v2f_surf IN) : SV_Target {
-			half alpha = tex2D(_MainTex, IN.hip_pack0.xy).a;
-			float3 shadowOffset = _ShadowOffsetScale * IN.normal * tex2D (_BumpSpecMap, IN.hip_pack0.xy).b;
-			clip (alpha - _Cutoff);
-
-			IN._ShadowCoord0 += shadowOffset;
-			IN._ShadowCoord1 += shadowOffset;
-			IN._ShadowCoord2 += shadowOffset;
-			IN._ShadowCoord3 += shadowOffset;
-
-			SHADOW_COLLECTOR_FRAGMENT(IN)
-		}
-		ENDCG
-	}
 }
-	
-	SubShader {
-		Tags {
-			"Queue" = "Geometry+200"
-			"IgnoreProjector"="True"
-			"RenderType"="Grass"
-		}
-		Cull Off
-		LOD 200
-		ColorMask RGB
-		
-		Pass {
-			Material {
-				Diffuse (1,1,1,1)
-				Ambient (1,1,1,1)
-			}
-			Lighting On
-			ColorMaterial AmbientAndDiffuse
-			AlphaTest Greater [_Cutoff]
-			SetTexture [_MainTex] { combine texture * primary DOUBLE, texture }
-		}
-	}
-	
-	Fallback Off
 }

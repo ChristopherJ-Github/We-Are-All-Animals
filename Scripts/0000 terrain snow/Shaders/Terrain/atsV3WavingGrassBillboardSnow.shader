@@ -37,7 +37,6 @@ ENDCG
 		}
 		Cull Off
 		LOD 200
-		ColorMask RGB
 				
 CGPROGRAM
 #pragma surface surf Lambert vertex:WavingGrassBillboardVert addshadow
@@ -89,30 +88,5 @@ void surf (Input IN, inout SurfaceOutput o) {
 }
 
 ENDCG			
-	}
-
-	SubShader {
-		Tags {
-			"Queue" = "Geometry+200"
-			"IgnoreProjector"="True"
-			"RenderType"="GrassBillboard"
-		}
-
-		ColorMask RGB
-		Cull Off
-		Lighting On
-		
-		Pass {
-			CGPROGRAM
-			#pragma vertex BillboardVert
-			#pragma exclude_renderers shaderonly
-			ENDCG
-
-			AlphaTest Greater [_Cutoff]
-
-			SetTexture [_MainTex] { combine texture * primary DOUBLE, texture * primary }
-		}
-	} 
-	
-	Fallback Off
+}
 }
