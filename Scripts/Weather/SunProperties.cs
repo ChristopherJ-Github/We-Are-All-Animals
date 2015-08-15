@@ -33,7 +33,7 @@ public class SunProperties : MonoBehaviour {
 		float darknessAmount = weatherDarkness + DynamicCloudControl.instance.extraOvercast + snowEffect;
 		float currentDarkness = Mathf.Lerp (0, maxIntensity, darknessAmount);
 		float intensity = Mathf.Clamp (maxIntensity - currentDarkness, minIntensity, maxIntensity);
-		currentIntensity = intensity;
+		currentIntensity = LevelBasedOnDaytime (intensity);
 	}
 	
 	public AnimationCurve daytimeToLeveling;
