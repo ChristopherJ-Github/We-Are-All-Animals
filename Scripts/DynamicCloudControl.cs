@@ -13,10 +13,11 @@ public class DynamicCloudControl : Singleton<DynamicCloudControl> {
 	public float snowInfluence;
 	IEnumerator ChangeExtraOvercast () {
 		
-		float timeLeft = 0;
-		while (timeLeft > 0) {	
-			timeLeft = Mathf.Lerp (maxDelay, minDelay, WindControl.instance.windiness);
-			timeLeft -= Time.deltaTime;
+		float timePassed = 0;
+		float currentDelay = Mathf.Lerp (maxDelay, minDelay, WindControl.instance.windiness);
+		while (timePassed <= currentDelay) {	
+			currentDelay = Mathf.Lerp (maxDelay, minDelay, WindControl.instance.windiness);
+			timePassed += Time.deltaTime;
 			yield return null;
 		}
 		float extraOvercastRange = Mathf.Lerp (maxExtraOvercast, minExtraOvercast, CloudControl.instance.overcast);

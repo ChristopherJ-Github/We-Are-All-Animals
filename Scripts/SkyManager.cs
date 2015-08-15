@@ -3,17 +3,17 @@ using Tools;
 using System.Collections;
 
 public class SkyManager : Singleton<SkyManager> {
-
+	
 	void OnEnable () { 
 		
 		SceneManager.instance.OnNewDay += UpdatePhaseTimes;
 	}
 	
 	void Start () {
-
+		
 		UpdatePhaseTimes ();
 	}
-
+	
 	private float sunriseAstroTime, sunriseTime, sunsetTime, sunsetAstroTime;
 	void UpdatePhaseTimes () {
 		
@@ -51,12 +51,12 @@ public class SkyManager : Singleton<SkyManager> {
 		if (time > sunsetTime && time < sunsetAstroTime)
 			SetDawnSettings(time);
 	}
-
+	
 	public float nightTransition{ get { return (1 - sunriseProgress) + sunsetProgress; } }
 	
 	[HideInInspector] public float nightDayLerp, sunsetProgress, sunriseProgress;
 	void SetNightSettings (float time) {
-
+		
 		nightDayLerp = 0;
 		sunriseProgress = time > 12 && time < 24 ? 1 : 0;
 		sunsetProgress = time > 12 && time < 24 ? 1 : 0;
@@ -67,7 +67,7 @@ public class SkyManager : Singleton<SkyManager> {
 	}
 	
 	void SetDuskSettings (float time) {
-
+		
 		float lerp = Mathf.InverseLerp (sunriseAstroTime, sunriseTime, time);
 		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
 		sunriseProgress = nightDayLerp;
@@ -79,7 +79,7 @@ public class SkyManager : Singleton<SkyManager> {
 	}
 	
 	void SetDuskToMidaySettings (float time) {
-
+		
 		float lerp = Mathf.InverseLerp (sunriseTime, sunriseTime + 2, time);
 		nightDayLerp = Mathf.InverseLerp(sunriseAstroTime, sunriseTime + 2, time);
 		sunriseProgress = nightDayLerp;
@@ -89,9 +89,9 @@ public class SkyManager : Singleton<SkyManager> {
 		SetIntensity (0);
 		DarkenSky (1 - lerp);
 	}
-
+	
 	void SetMiddaySettings (float time) {
-
+		
 		nightDayLerp = 1;
 		sunriseProgress = 1;
 		sunsetProgress = 0;
@@ -100,9 +100,9 @@ public class SkyManager : Singleton<SkyManager> {
 		SetIntensity (0, 1);
 		DarkenSky (0);
 	}
-
+	
 	void SetMiddayToDawnSettings (float time) {
-
+		
 		float lerp = Mathf.InverseLerp (sunsetTime, sunsetTime - 2, time);
 		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		sunriseProgress = 1;
@@ -112,9 +112,9 @@ public class SkyManager : Singleton<SkyManager> {
 		SetIntensity (0, lerp);
 		DarkenSky (1 - lerp);
 	}
-
+	
 	void SetDawnSettings (float time) {
-
+		
 		float lerp = Mathf.InverseLerp (sunsetAstroTime, sunsetTime, time);
 		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		sunriseProgress = 1;
@@ -124,12 +124,12 @@ public class SkyManager : Singleton<SkyManager> {
 		SetIntensity (1 - lerp, 0);
 		DarkenSky (1);
 	}
-
+	
 	public SunProperties sun;
 	public MoonProperties moon;
 	[HideInInspector] public float intensityLerp;
 	void AdjustSunAndMoon () {
-
+		
 		float currentIntensity = sun.light.intensity + moon.light.intensity;
 		intensityLerp = Mathf.InverseLerp(0, sun.maxIntensity, currentIntensity);
 		float sunAngle = GetSunAngle ();
@@ -138,28 +138,28 @@ public class SkyManager : Singleton<SkyManager> {
 		float moonAngle = Math.Convert (posInNight, 0, 1, sunriseAngle, sunsetAngle);
 		moon.transform.localEulerAngles = new Vector3 (moonAngle, 0, 0);
 	}
-
+	
 	[HideInInspector] public float sunrisePosInDay, sunsetPosInDay;
 	public float sunriseAngle, sunsetAngle;
 	float GetSunAngle () {
-
+		
 		double posInDay = SunControl.instance.posInDay;
 		float sunAngle = (float)Math.Convert (posInDay, sunrisePosInDay, sunsetPosInDay, sunriseAngle, sunsetAngle);
 		return sunAngle;
 	}
-
+	
 	public AnimationCurve daytimeToIntensity;
 	void SetIntensity (float moonLerp, float? sunLerp = null) {
 		
 		moon.light.intensity = Mathf.Lerp(0, moon.currentIntesity, moonLerp);
 		if (sunLerp == null) {
 			float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);
-			sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntesity);
+			sun.light.intensity = Tools.Math.Convert (daytimeInfluence,0, 1, 0, sun.currentIntensity);
 		} else {
-			sun.light.intensity = Mathf.Lerp(0, sun.currentIntesity, (float)sunLerp);
+			sun.light.intensity = Mathf.Lerp(0, sun.currentIntensity, (float)sunLerp);
 		}
 	}
-
+	
 	public Material SkyBoxMaterial1;
 	public Material SkyBoxMaterial2;
 	void SetSkyBox (int index, float blend) {
@@ -167,16 +167,16 @@ public class SkyManager : Singleton<SkyManager> {
 		RenderSettings.skybox = index == 1 ? SkyBoxMaterial1 : SkyBoxMaterial2;
 		RenderSettings.skybox.SetFloat("_Blend", blend);
 	}
-
+	
 	void DarkenSky (float skyDarkness) {
-
+		
 		float darknessAmount = skyDarkness * CloudControl.instance.grayAmount;
 		Color skyColor = new Color (0, 0, 0, darknessAmount);
 		RenderSettings.skybox.SetColor ("_SnowColor", skyColor);
 	}
-
+	
 	void SetColors (float nightToDuskValue, float middayValue) {
-
+		
 		float nightToDuskSaturation = 1;
 		if (sunsetProgress == 0) {
 			nightToDuskSaturation = 1 - CloudControl.instance.overcast * WeatherControl.instance.severity;
@@ -186,7 +186,7 @@ public class SkyManager : Singleton<SkyManager> {
 		SetFogColor (nightToDuskValue, middayValue, nightToDuskSaturation);
 		SetSunColor (nightToDuskValue, middayValue, nightToDuskSaturation);
 	}
-
+	
 	void SetSkyboxTint (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
 		
 		Color colorAroundNight = CloudControl.instance.NightToDusk(nightToDuskValue);
@@ -196,11 +196,11 @@ public class SkyManager : Singleton<SkyManager> {
 		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		RenderSettings.skybox.SetColor ("_Tint", currentColor);
 	}
-
+	
 	public Gradient sunNightToDusk;
 	public Gradient sunMiddayTint;
 	void SetSunColor (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
-
+		
 		Color colorAroundNight = sunNightToDusk.Evaluate(nightToDuskValue);
 		Color colorAroundNightDesat = Desaturate (colorAroundNight, nightToDuskSaturation);
 		Color colorAtMidday = sun.GetMiddayColor ();
@@ -208,7 +208,7 @@ public class SkyManager : Singleton<SkyManager> {
 		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		sun.light.color = currentColor;
 	}
-
+	
 	void SetAmbientLightColor (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
 		
 		Color colorAroundNight = AmbientLightingChanger.instance.NightToDusk (nightToDuskValue);
@@ -218,7 +218,7 @@ public class SkyManager : Singleton<SkyManager> {
 		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		RenderSettings.ambientLight = currentColor;
 	}
-
+	
 	void SetFogColor (float nightToDuskValue, float middayValue, float nightToDuskSaturation = 1, float middaySaturation = 1) {
 		
 		Color colorAroundNight = FogControl.instance.NightToDusk (nightToDuskValue);
@@ -228,9 +228,9 @@ public class SkyManager : Singleton<SkyManager> {
 		Color currentColor = Color.Lerp (colorAroundNightDesat, colorAtMiddayDesat, middayValue);
 		RenderSettings.fogColor = currentColor;
 	}
-
+	
 	Color Desaturate (Color color, float saturation) {
-
+		
 		Color desaturatedColor = new Color (color.grayscale, color.grayscale, color.grayscale);
 		Color newColor = Color.Lerp(desaturatedColor, color, saturation); 
 		return newColor;

@@ -23,22 +23,31 @@ public class SunProperties : MonoBehaviour {
 	
 	[HideInInspector] public float weatherDarkness;
 	public float minIntensity, maxIntensity;
-	[HideInInspector] public float currentIntesity;
+	[HideInInspector] public float currentIntensity;
 	public float snowInfluence;
 	void UpdateIntensity () {
-
+		
 		float curvePos = SceneManager.curvePos;
 		float posInDay = SunCtrl.dayCurve.Evaluate (curvePos);
 		float snowEffect = SnowManager.instance.snowLevel * snowInfluence;
 		float darknessAmount = weatherDarkness + DynamicCloudControl.instance.extraOvercast + snowEffect;
 		float currentDarkness = Mathf.Lerp (0, maxIntensity, darknessAmount);
-		currentIntesity = Mathf.Clamp (maxIntensity - currentDarkness, minIntensity, maxIntensity);
+		float intensity = Mathf.Clamp (maxIntensity - currentDarkness, minIntensity, maxIntensity);
+		currentIntensity = intensity;
 	}
-
+	
+	public AnimationCurve daytimeToLeveling;
+	float LevelBasedOnDaytime (float intensity) {
+		
+		float leveling = daytimeToLeveling.Evaluate ((float)SunControl.instance.posInDay);
+		float leveledIntensity = Mathf.Lerp (minIntensity, intensity, leveling);
+		return leveledIntensity;
+	}
+	
 	public float minShadowStrength = 0.81f;
 	public float maxShadowStrength = 1.0f;
 	void UpdateShadowStrength () {
-
+		
 		light.shadowStrength = Mathf.Lerp (maxShadowStrength, minShadowStrength, SnowManager.instance.snowLevel);
 	}
 	
@@ -56,15 +65,14 @@ public class SunProperties : MonoBehaviour {
 		Color middayAfterStorm = Color.Lerp (middayAfterCloud, middayGrayscale, CloudControl.instance.grayAmount);
 		return middayAfterStorm;
 	}
-
+	
 	private Flare _flare;
 	public float coverThreshold;
 	void SetFlare () {
-
+		
 		if (CloudControl.instance.overcast >= coverThreshold) 
 			light.flare = null;
 		else 
 			light.flare = _flare;
 	}
-	
 }

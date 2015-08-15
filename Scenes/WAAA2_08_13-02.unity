@@ -8146,8 +8146,13 @@ MonoBehaviour:
   weatherDarkness: 0
   minIntensity: .200000003
   maxIntensity: 1
-  currentIntesity: 0
+  currentIntensity: 0
   snowInfluence: 0
+  daytimeToLeveling:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   minShadowStrength: .810000002
   maxShadowStrength: 1
   overcastInfluence:
@@ -32181,7 +32186,7 @@ MonoBehaviour:
   minDelay: .400000006
   maxDelay: 10
   minExtraOvercast: 0
-  maxExtraOvercast: .800000012
+  maxExtraOvercast: .75
   snowInfluence: .100000001
   extraOvercast: .15316236
   changeSpeed: .109999999
@@ -33118,8 +33123,13 @@ MonoBehaviour:
   weatherDarkness: 0
   minIntensity: .200000003
   maxIntensity: 1
-  currentIntesity: 0
+  currentIntensity: 0
   snowInfluence: 0
+  daytimeToLeveling:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   minShadowStrength: .810000002
   maxShadowStrength: 1
   overcastInfluence:
@@ -49058,8 +49068,33 @@ MonoBehaviour:
   weatherDarkness: 0
   minIntensity: .400000006
   maxIntensity: 1.34000003
-  currentIntesity: 0
+  currentIntensity: .507725596
   snowInfluence: .800000012
+  daytimeToLeveling:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0
+      tangentMode: 21
+    - time: .299999982
+      value: 1
+      inSlope: 0
+      outSlope: -2.78747058
+      tangentMode: 21
+    - time: .5
+      value: .442505836
+      inSlope: 2.38418579e-07
+      outSlope: 2.38418579e-07
+      tangentMode: 0
+    - time: .699999988
+      value: .442505836
+      inSlope: 0
+      outSlope: 3.16666651
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   minShadowStrength: .709999979
   maxShadowStrength: 1
   overcastInfluence:
