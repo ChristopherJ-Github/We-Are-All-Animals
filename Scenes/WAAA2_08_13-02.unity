@@ -3356,31 +3356,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   maxTint: .0399999991
-  daytimeToBloom:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -0
-      tangentMode: 21
-    - time: .299999982
-      value: 1
-      inSlope: 0
-      outSlope: -4.74999952
-      tangentMode: 21
-    - time: .5
-      value: .0500000119
-      inSlope: 2.38418579e-07
-      outSlope: 2.38418579e-07
-      tangentMode: 0
-    - time: .699999988
-      value: .0500000119
-      inSlope: 0
-      outSlope: 3.16666651
-      tangentMode: 21
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!114 &154805021
 MonoBehaviour:
   m_ObjectHideFlags: 0

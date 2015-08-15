@@ -16,13 +16,10 @@ public class BloomManager : MonoBehaviour {
 	public AnimationCurve tintOverYear;
 	public float maxTint;
 	private GlowEffect glowEffect;
-	public AnimationCurve daytimeToBloom;
 	void SetGlowValues () {
 
 		float tintAmount = tintOverYear.Evaluate (SceneManager.curvePos);
-		float darkening = 1 - Mathf.Clamp01(daytimeToBloom.Evaluate ((float)SunControl.instance.posInDay));
-		float tintAmountDarkened = Mathf.Lerp(tintAmount, 0, darkening);
-		float currentTint = Mathf.Lerp (0, maxTint, tintAmountDarkened);
+		float currentTint = Mathf.Lerp (0, maxTint, tintAmount);
 		float tintAfterSnow = Mathf.Lerp (currentTint, 0, SnowManager.instance.snowLevel);
 		glowEffect.glowTint = Color.Lerp (Color.black, Color.white, tintAfterSnow);
 	}
