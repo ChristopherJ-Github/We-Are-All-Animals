@@ -86,7 +86,7 @@ ModelImporter:
       name: Standing
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 111
+      lastFrame: 111.000008
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
