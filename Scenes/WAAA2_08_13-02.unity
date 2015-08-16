@@ -49043,28 +49043,28 @@ MonoBehaviour:
   weatherDarkness: 0
   minIntensity: .400000006
   maxIntensity: 1.34000003
-  currentIntensity: .507725596
+  currentIntensity: 1.02377319
   snowInfluence: .800000012
   daytimeToLeveling:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: .996515691
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .299999982
-      value: 1
+    - time: .30923751
+      value: .996515691
       inSlope: 0
-      outSlope: -2.78747058
+      outSlope: -4.96297884
       tangentMode: 21
-    - time: .5
-      value: .442505836
-      inSlope: 2.38418579e-07
-      outSlope: 2.38418579e-07
-      tangentMode: 0
+    - time: .376319647
+      value: .663588464
+      inSlope: -4.96297884
+      outSlope: -0
+      tangentMode: 21
     - time: .699999988
-      value: .442505836
+      value: .663588464
       inSlope: 0
       outSlope: 3.16666651
       tangentMode: 21
