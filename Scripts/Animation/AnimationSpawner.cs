@@ -43,8 +43,9 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	void SpawnBird (AnimalAnimator animalAnimator = null) {
 
 		animalAnimator = animalAnimator ?? birds [Random.Range (0, birds.Length)];
-		animalAnimator.allowIdling = false;
-		Instantiate(animalAnimator.gameObject);
+		GameObject animal = Instantiate(animalAnimator.gameObject) as GameObject;
+		AnimalAnimator animalAnimatorInst = animal.GetComponent<AnimalAnimator> ();
+		animalAnimatorInst.allowIdling = false;
 	}
 
 	public float minuteSpawnChance;
