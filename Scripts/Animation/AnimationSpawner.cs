@@ -10,7 +10,7 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 		SceneManager.instance.OnNewSec += BirdSpawnAttempt;
 		SceneManager.instance.OnNewMin += MinuteSpawnAttempt;
 		SceneManager.instance.OnNewHour += HourSpawnAttempt;
-		SceneManager.instance.OnNewDay += ClearAnimations;
+		//SceneManager.instance.OnNewDay += ClearAnimations; debug
 	}
 
 	void InitializeBirds () {
