@@ -1837,7 +1837,7 @@ MonoBehaviour:
   animal: {fileID: 100108}
   initAnimation: {fileID: 7400000, guid: ab8510380f1ef4b1681b1b8d6e7904dc, type: 3}
   allowIdling: 1
-  splineIndex: 4
+  splineIndex: -1
   initSpeed: 8
   wrapMode: 1
   amountOfLoops: 0
