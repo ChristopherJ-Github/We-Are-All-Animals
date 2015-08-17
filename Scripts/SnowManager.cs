@@ -9,15 +9,17 @@ public class SnowManager : Singleton<SnowManager> {
 	public float snowLevel;
 	public Gradient objectSnowTint, terrainSnowTint;
 	
-	void Start () {								
-		
+	void Start () {		
+
+		RetrieveData ();
+		SetOvernightSnow ();
+		SetRiver ();
 		reactionState = melting;
 		SnowWeather.OnStart += StartAccumulating;
 		SnowWeather.OnStop += StartMelting;
 		SceneManager.instance.OnNewDay += SetRiverEvent;
+		SceneManager.instance.OnNewDay += SetOvernightSnow;
 		DataManager.instance.OnSave += OnSave;
-		RetrieveData ();
-		SetRiver ();
 	}
 	
 	void RetrieveData () {
@@ -26,6 +28,14 @@ public class SnowManager : Singleton<SnowManager> {
 			linearSnowLevel = DataManager.instance.data.linearSnowLevel;
 		else 
 			linearSnowLevel = 0;
+	}
+
+	public AnimationCurve overnightSnow;
+	void SetOvernightSnow () {
+
+		//float maxRandSnow = overnightSnow.Evaluate (SceneManager.curvePos);
+		//float randSnow = Random.Range (0, maxRandSnow);
+		//linearSnowLevel = Mathf.Clamp (linearSnowLevel, randSnow, 1);
 		snowLevel = GetSnowLevel (linearSnowLevel);
 		TriggerSnowChange (snowLevel);
 	}

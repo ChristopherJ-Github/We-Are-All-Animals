@@ -19364,15 +19364,35 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: -0
+        tangentMode: 21
+      - time: .159999996
+        value: 0
+        inSlope: 0
+        outSlope: 11.1111107
+        tangentMode: 21
+      - time: .25
+        value: 1
+        inSlope: 11.1111107
+        outSlope: -0
+        tangentMode: 21
+      - time: .870000005
         value: 1
         inSlope: 0
-        outSlope: 0
-        tangentMode: 10
+        outSlope: -22.2222443
+        tangentMode: 21
+      - time: .914999962
+        value: 0
+        inSlope: -22.2222443
+        outSlope: -0
+        tangentMode: 21
       - time: 1
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 10
+        tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
     severityOverYear:
@@ -19430,15 +19450,35 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: -0
+        tangentMode: 21
+      - time: .159999996
+        value: 0
+        inSlope: 0
+        outSlope: 11.1111107
+        tangentMode: 21
+      - time: .25
+        value: 1
+        inSlope: 11.1111107
+        outSlope: -0
+        tangentMode: 21
+      - time: .870000005
         value: 1
         inSlope: 0
-        outSlope: 0
-        tangentMode: 10
+        outSlope: -22.2222443
+        tangentMode: 21
+      - time: .914999962
+        value: 0
+        inSlope: -22.2222443
+        outSlope: -0
+        tangentMode: 21
       - time: 1
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
-        tangentMode: 10
+        tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
     severityOverYear:
@@ -47821,6 +47861,36 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  overnightSnow:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: Infinity
+      outSlope: -0
+      tangentMode: 21
+    - time: .159999996
+      value: 1
+      inSlope: 0
+      outSlope: -200.000198
+      tangentMode: 21
+    - time: .164999992
+      value: 0
+      inSlope: -200.000198
+      outSlope: 1.33689833
+      tangentMode: 21
+    - time: .913000047
+      value: 1
+      inSlope: Infinity
+      outSlope: -.004829349
+      tangentMode: 23
+    - time: 1
+      value: .999579847
+      inSlope: -.004829349
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   secondStageThreshold: .100000001
   snowCurve:
     serializedVersion: 2
@@ -50213,6 +50283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testValue01: .407337397
+  timeScale: 1
 --- !u!1001 &1979131405
 Prefab:
   m_ObjectHideFlags: 0

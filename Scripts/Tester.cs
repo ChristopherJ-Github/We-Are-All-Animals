@@ -7,6 +7,8 @@ public class Tester : Singleton <Tester> {
 
 		CheckForInput ();
 		UpdateTestValue ();
+		if (Application.isEditor)
+			SpeedUpTime ();
 	}
 
 	public static bool test = true;
@@ -28,5 +30,11 @@ public class Tester : Singleton <Tester> {
 		if (Input.GetKey(KeyCode.Quote))
 			testValue01 += 2.2f * Time.deltaTime;
 		testValue01 = Mathf.Clamp01(testValue01);
+	}
+
+	public float timeScale;
+	void SpeedUpTime () {
+
+		Time.timeScale = timeScale;
 	}
 }
