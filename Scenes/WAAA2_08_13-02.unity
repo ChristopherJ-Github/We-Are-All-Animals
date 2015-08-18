@@ -19516,7 +19516,43 @@ MonoBehaviour:
     changesClouds: 1
     usesFilter: 0
     causesStorms: 1
-  weatherChance: 70
+  weatherChanceOverYear:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0
+      tangentMode: 21
+    - time: .159999996
+      value: 1
+      inSlope: 0
+      outSlope: -11.1111107
+      tangentMode: 21
+    - time: .25
+      value: 0
+      inSlope: -11.1111107
+      outSlope: -0
+      tangentMode: 21
+    - time: .870000005
+      value: 0
+      inSlope: 0
+      outSlope: 22.2222443
+      tangentMode: 21
+    - time: .914999962
+      value: 1
+      inSlope: 22.2222443
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  minChance: 30
+  maxChance: 100
   safeToPress: 1
   transition: 0
   cloudTransition: 0

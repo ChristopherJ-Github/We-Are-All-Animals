@@ -42,13 +42,16 @@ public class WeatherControl : Singleton<WeatherControl> {
 	}
 
 	public WeatherInfo[] weatherTypes;
-	public float weatherChance;
+	public AnimationCurve weatherChanceOverYear;
+	public float minChance, maxChance;
 	/// <summary>
 	/// State where there is no weather. Attempts to spawn weather every call
 	/// </summary>
 	void AttemptToSpawn () {
 
 		TurnOff ();
+		float chanceNormalized = weatherChanceOverYear.Evaluate (SceneManager.curvePos);
+		float weatherChance = Mathf.Lerp (minChance, maxChance, chanceNormalized);
 		if (weatherChance > UnityEngine.Random.Range (0, 100)) 
 			RandomlySpawn();
 	}
