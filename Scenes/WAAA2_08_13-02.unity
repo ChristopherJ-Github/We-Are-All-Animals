@@ -19364,32 +19364,32 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
+        value: .150000006
         inSlope: 0
         outSlope: -0
         tangentMode: 21
       - time: .159999996
-        value: 0
+        value: .150000006
         inSlope: 0
-        outSlope: 11.1111107
+        outSlope: 9.4444437
         tangentMode: 21
       - time: .25
         value: 1
-        inSlope: 11.1111107
+        inSlope: 9.4444437
         outSlope: -0
         tangentMode: 21
       - time: .870000005
         value: 1
         inSlope: 0
-        outSlope: -22.2222443
+        outSlope: -18.8889065
         tangentMode: 21
       - time: .914999962
-        value: 0
-        inSlope: -22.2222443
+        value: .150000006
+        inSlope: -18.8889065
         outSlope: -0
         tangentMode: 21
       - time: 1
-        value: 0
+        value: .150000006
         inSlope: 0
         outSlope: 0
         tangentMode: 21
@@ -19450,32 +19450,32 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
+        value: .150000006
         inSlope: 0
         outSlope: -0
         tangentMode: 21
       - time: .159999996
-        value: 0
+        value: .150000006
         inSlope: 0
-        outSlope: 11.1111107
+        outSlope: 9.4444437
         tangentMode: 21
       - time: .25
         value: 1
-        inSlope: 11.1111107
+        inSlope: 9.4444437
         outSlope: -0
         tangentMode: 21
       - time: .870000005
         value: 1
         inSlope: 0
-        outSlope: -22.2222443
+        outSlope: -18.8889065
         tangentMode: 21
       - time: .914999962
-        value: 0
-        inSlope: -22.2222443
+        value: .150000006
+        inSlope: -18.8889065
         outSlope: -0
         tangentMode: 21
       - time: 1
-        value: 0
+        value: .150000006
         inSlope: 0
         outSlope: 0
         tangentMode: 21
@@ -19516,7 +19516,7 @@ MonoBehaviour:
     changesClouds: 1
     usesFilter: 0
     causesStorms: 1
-  weatherChance: 30
+  weatherChance: 70
   safeToPress: 1
   transition: 0
   cloudTransition: 0
