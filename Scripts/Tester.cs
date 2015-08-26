@@ -23,12 +23,13 @@ public class Tester : Singleton <Tester> {
 	}
 
 	public float testValue01 = 1;
+	public float transitionSpeed = 2.2f;
 	void UpdateTestValue () {
 
 		if (Input.GetKey(KeyCode.Semicolon))
-			testValue01 -= 2.2f * Time.deltaTime;
+			testValue01 -= transitionSpeed * Time.deltaTime;
 		if (Input.GetKey(KeyCode.Quote))
-			testValue01 += 2.2f * Time.deltaTime;
+			testValue01 += transitionSpeed * Time.deltaTime;
 		testValue01 = Mathf.Clamp01(testValue01);
 	}
 

@@ -158,7 +158,8 @@ public class AnimalAnimator: MonoBehaviour {
 			return v;
 		}
 	}
-	
+
+	public float shift;
 	void SetPosition (float nodePosition) {
 		
 		animal.transform.position = spline.GetPositionOnSpline(nodePosition);
@@ -167,6 +168,7 @@ public class AnimalAnimator: MonoBehaviour {
 			if (Physics.Raycast (animal.transform.position, -Vector3.up, out hit,1000.0f)) {
 				float distanceToGround = hit.distance;
 				Vector3 down = new Vector3(0,hit.distance,0);
+				down.y -= shift;
 				animal.transform.position -= down;		
 			}
 		}

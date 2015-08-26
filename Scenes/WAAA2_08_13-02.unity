@@ -9098,7 +9098,6 @@ GameObject:
   - 4: {fileID: 383247937}
   - 114: {fileID: 383247936}
   - 114: {fileID: 383247938}
-  - 114: {fileID: 383247939}
   m_Layer: 0
   m_Name: Init Manager
   m_TagString: Untagged
@@ -9145,19 +9144,6 @@ MonoBehaviour:
     waterLevel: 0
     linearSnowLevel: 0
   successfullyLoaded: 0
---- !u!114 &383247939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 383247935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d2203a606aabc946bfe1db682815002, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 30
-  clickDelay: 5
 --- !u!1 &384388799
 GameObject:
   m_ObjectHideFlags: 0
@@ -11539,6 +11525,7 @@ MonoBehaviour:
   splineIndex: -1
   initSpeed: .800000012
   wrapMode: 1
+  shift: 0
   amountOfLoops: 0
 --- !u!1 &494272685
 GameObject:
@@ -31117,6 +31104,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1215771286}
+  - 114: {fileID: 1215771284}
   m_Layer: 0
   m_Name: Screenshoter
   m_TagString: Untagged
@@ -31124,6 +31112,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1215771284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1215771283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3216b182f0af774bb6d385f7c21d369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 2
 --- !u!4 &1215771286
 Transform:
   m_ObjectHideFlags: 0
@@ -40781,13 +40781,13 @@ MonoBehaviour:
   - month: 10
     day: 12
     toSpawn: {fileID: 194210, guid: 76f513ce8bc4e8849ad2bca8e3e19489, type: 2}
-    type: 2
-    spawnChance: 0
+    type: 0
+    spawnChance: 20
   - month: 9
     day: 18
     toSpawn: {fileID: 178342, guid: eb6d21bc8fbc11a45bed284b39ba910b, type: 2}
-    type: 2
-    spawnChance: 0
+    type: 0
+    spawnChance: 100
   - month: 2
     day: 10
     toSpawn: {fileID: 150026, guid: d20b8346eca1766469d288a2930c410a, type: 2}
@@ -50249,6 +50249,7 @@ GameObject:
   - 114: {fileID: 1975547881}
   - 114: {fileID: 1975547883}
   - 114: {fileID: 1975547884}
+  - 114: {fileID: 1975547885}
   m_Layer: 0
   m_Name: Previewer
   m_TagString: Untagged
@@ -50318,8 +50319,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535921bb9f461c34bb54e8053e51861f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testValue01: .407337397
+  testValue01: 0
+  transitionSpeed: 2.20000005
   timeScale: 1
+--- !u!114 &1975547885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975547880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb1b483c0e30994d8200e8d79b887f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blend: 0
+  blendNormalized: 0
+  filter:
+    LutTexture: {fileID: 2800000, guid: 45267d09cfe3812478084ab3e424048d, type: 3}
+    blend: 0
+  testMode: 1
 --- !u!1001 &1979131405
 Prefab:
   m_ObjectHideFlags: 0
