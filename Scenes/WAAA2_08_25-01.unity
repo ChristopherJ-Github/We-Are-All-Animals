@@ -50351,6 +50351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee4b5a2a29434a439d0afc9e0e0c6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unveilMonth: 9
+  unveilDay: 17
   animals:
   - animalAnimator: {fileID: 11400072, guid: 0a6cba3e15b14704a8a873e2441196e1, type: 2}
     spawnTime: {x: 18, y: 45}

@@ -19,9 +19,10 @@ public class UnveilSettings : MonoBehaviour {
 		SceneManager.instance.OnNewDay += CheckDate;
 	}
 
+	public int unveilMonth, unveilDay;
 	void CheckDate () {
 
-		if (SceneManager.realDate.Month == 9 && SceneManager.realDate.Day == 17) {
+		if (SceneManager.realDate.Month == unveilMonth && SceneManager.realDate.Day == unveilDay) {
 			Initialize ();
 			active = true;
 		} else {
@@ -40,7 +41,7 @@ public class UnveilSettings : MonoBehaviour {
 		for (int i = 0; i < animals.Length; i++) {
 			Vector2 spawnTime = animals[i].spawnTime;
 			DateTime dateTime = new DateTime(SceneManager.currentDate.Year, 
-			                                 9, 17, (int)spawnTime.x, (int)spawnTime.y, 0);
+			                                 unveilMonth, unveilDay, (int)spawnTime.x, (int)spawnTime.y, 0);
 			animals[i].dateTime = dateTime;
 		}
 	}
