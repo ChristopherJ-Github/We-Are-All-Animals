@@ -16,8 +16,23 @@ public class UnveilSettings : MonoBehaviour {
 	
 	void Start () {
 
+		SceneManager.instance.OnNewDay += CheckDate;
+	}
+
+	void CheckDate () {
+
+		if (SceneManager.realDate.Month == 9 && SceneManager.realDate.Day == 17) {
+			Initialize ();
+			active = true;
+		} else {
+			active = false;
+		}
+	}
+
+	void Initialize () {
+
 		SkyManager.instance.SetPhaseTimes (12, 15, 19.5f, 20.25f);
-		InitializeDateTimes ();
+		InitializeDateTimes ();;
 	}
 
 	void InitializeDateTimes () {
@@ -30,8 +45,10 @@ public class UnveilSettings : MonoBehaviour {
 		}
 	}
 
+	private bool active;
 	void Update () {
 
+		if (!active) return;
 		MakeAnimalSpawnAttempt ();
 	}
 
@@ -40,7 +57,7 @@ public class UnveilSettings : MonoBehaviour {
 
 		foreach (AnimalInfo animalInfo in animals) {
 			if (animalInfo.spawned) continue;
-			if (animalInfo.dateTime >= SceneManager.realDate) {
+			if (SceneManager.realDate >= animalInfo.dateTime) {
 				AnimationSpawner.instance.Spawn(animalInfo.animalAnimator);
 				animalInfo.spawned = true;
 			}
