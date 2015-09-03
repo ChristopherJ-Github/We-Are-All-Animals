@@ -13,14 +13,22 @@ public class SkyManager : Singleton<SkyManager> {
 		
 		UpdatePhaseTimes ();
 	}
+
+	void UpdatePhaseTimes () {
+
+		SetPhaseTimes (SunControl.instance.sunriseAstroTime,
+		               SunControl.instance.sunriseTime,
+		               SunControl.instance.sunsetTime,
+		               SunControl.instance.sunsetAstroTime);
+	}
 	
 	private float sunriseAstroTime, sunriseTime, sunsetTime, sunsetAstroTime;
-	void UpdatePhaseTimes () {
-		
-		sunriseAstroTime = SunControl.instance.sunriseAstroTime;
-		sunriseTime = SunControl.instance.sunriseTime;
-		sunsetTime = SunControl.instance.sunsetTime;
-		sunsetAstroTime = SunControl.instance.sunsetAstroTime;
+	public void SetPhaseTimes (float sunriseAstroTime, float sunriseTime, float sunsetTime, float sunsetAstroTime) {
+
+		this.sunriseAstroTime = sunriseAstroTime;
+		this.sunriseTime = sunriseTime;
+		this.sunsetTime = sunsetTime;
+		this.sunsetAstroTime = sunsetAstroTime;
 		double minsAtSunise = sunriseTime * 60 + SceneManager.minsAtDayStart;
 		float sunrisePos = (float)(minsAtSunise / SceneManager.minsInYear);
 		sunrisePosInDay = SunControl.instance.dayCurve.Evaluate (sunrisePos);
