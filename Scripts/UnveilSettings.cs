@@ -33,7 +33,8 @@ public class UnveilSettings : MonoBehaviour {
 	void Initialize () {
 
 		SkyManager.instance.SetPhaseTimes (12, 15, 19.5f, 20.25f);
-		InitializeDateTimes ();;
+		InitializeDateTimes ();
+		SpawnSnow ();
 	}
 
 	void InitializeDateTimes () {
@@ -44,6 +45,14 @@ public class UnveilSettings : MonoBehaviour {
 			                                 unveilMonth, unveilDay, (int)spawnTime.x, (int)spawnTime.y, 0);
 			animals[i].dateTime = dateTime;
 		}
+	}
+
+	void SpawnSnow () {
+
+		WeatherControl.instance.TurnOff();
+		WeatherInfo weatherType = WeatherControl.instance.weatherTypes [0];
+		float maxSeverity = WeatherControl.instance.GetMaxSeverity(weatherType);
+		WeatherControl.instance.EnableWeather(weatherType, (float)SceneManager.minsAtDayStart, 1440, 1, 1, maxSeverity);
 	}
 
 	private bool active;
