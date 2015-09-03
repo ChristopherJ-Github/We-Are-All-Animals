@@ -50250,6 +50250,7 @@ GameObject:
   - 114: {fileID: 1975547883}
   - 114: {fileID: 1975547884}
   - 114: {fileID: 1975547885}
+  - 114: {fileID: 1975547886}
   m_Layer: 0
   m_Name: Previewer
   m_TagString: Untagged
@@ -50339,6 +50340,24 @@ MonoBehaviour:
     LutTexture: {fileID: 2800000, guid: 45267d09cfe3812478084ab3e424048d, type: 3}
     blend: 0
   testMode: 1
+--- !u!114 &1975547886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975547880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee4b5a2a29434a439d0afc9e0e0c6ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animals:
+  - animalAnimator: {fileID: 11400072, guid: 0a6cba3e15b14704a8a873e2441196e1, type: 2}
+    spawnTime: {x: 18, y: 45}
+    spawned: 0
+  - animalAnimator: {fileID: 11400026, guid: ef70610cd7c1b3d4aa199a636c2d2d2a, type: 2}
+    spawnTime: {x: 19, y: 45}
+    spawned: 0
 --- !u!1001 &1979131405
 Prefab:
   m_ObjectHideFlags: 0
