@@ -34,7 +34,7 @@ public class UnveilSettings : MonoBehaviour {
 
 		for (int delay = 0; delay < 1; delay ++)
 			yield return null;
-		SkyManager.instance.SetPhaseTimes (4f, 6f, 21.5f, 24f);
+		SkyManager.instance.SetPhaseTimes (4f, 6f, 20.75f, 22f);
 		InitializeDateTimes ();
 		InitializeAccumulationTimes ();
 		ApplyAnimalSettings ();
@@ -44,11 +44,13 @@ public class UnveilSettings : MonoBehaviour {
 	public float birdSpawnChance;
 	void ApplyAnimalSettings () {
 
-		//The spawner is turned back on by the BirthdayManager
+		//The spawner is turned back on by the BirthdayManager by the next day
 		AnimationSpawner.instance.on = false;
 		AnimationSpawner.instance.ClearAnimations();
 		//the spawn chance will reset in AnimationSpawner the next day
 		AnimationSpawner.instance.birdSpawnChance = birdSpawnChance;
+		foreach (AnimalInfo animalInfo in animals) 
+			animalInfo.spawned = false;
 	}
 
 	void InitializeDateTimes () {
@@ -71,7 +73,7 @@ public class UnveilSettings : MonoBehaviour {
 
 		WeatherControl.instance.TurnOff();
 		WeatherInfo weatherType = WeatherControl.instance.weatherTypes [0];
-		float startTime = (float)SceneManager.minsAtDayStart + (18.5f * 60);
+		float startTime = (float)SceneManager.minsAtDayStart ;
 		WeatherControl.instance.EnableWeather(weatherType, startTime, 1440, 15, 1, 0.25f);
 	}
 
