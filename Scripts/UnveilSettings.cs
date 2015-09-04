@@ -37,7 +37,15 @@ public class UnveilSettings : MonoBehaviour {
 		SkyManager.instance.SetPhaseTimes (4f, 6f, 21.5f, 24f);
 		InitializeDateTimes ();
 		InitializeAccumulationTimes ();
+		//The spawner is turned back on by the BirthdayManager
+		TurnOffAnimationSpawner ();
 		SpawnSnow ();
+	}
+
+	void TurnOffAnimationSpawner () {
+		
+		AnimationSpawner.instance.on = false;
+		AnimationSpawner.instance.ClearAnimations();
 	}
 
 	void InitializeDateTimes () {

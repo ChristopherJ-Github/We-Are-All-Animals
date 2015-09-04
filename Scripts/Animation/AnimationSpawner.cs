@@ -27,7 +27,6 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 	public float minBirdSpawnChance, maxBirdSpawnChance;
 	void BirdSpawnAttempt () {
 
-		if (!on) return;
 		if (currentBirdAmount >= maxBirdsAllowed) return;
 		float chanceNormalized = birdSpawnChanceOverYear.Evaluate (SceneManager.curvePos);
 		float spawnChance = Mathf.Lerp (minBirdSpawnChance, maxBirdSpawnChance, chanceNormalized);
