@@ -38,7 +38,7 @@ public class SkyManager : Singleton<SkyManager> {
 	}
 	
 	void Update () {
-		
+
 		ApplyPhaseChanges ();
 		AdjustSunAndMoon ();
 	}
@@ -110,7 +110,7 @@ public class SkyManager : Singleton<SkyManager> {
 	}
 	
 	void SetMiddayToDawnSettings (float time) {
-		
+
 		float lerp = Mathf.InverseLerp (sunsetTime, sunsetTime - 2, time);
 		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		sunriseProgress = 1;
@@ -122,7 +122,7 @@ public class SkyManager : Singleton<SkyManager> {
 	}
 	
 	void SetDawnSettings (float time) {
-		
+
 		float lerp = Mathf.InverseLerp (sunsetAstroTime, sunsetTime, time);
 		nightDayLerp = Mathf.InverseLerp(sunsetAstroTime, sunsetTime - 2, time);
 		sunriseProgress = 1;
@@ -146,12 +146,19 @@ public class SkyManager : Singleton<SkyManager> {
 		float moonAngle = Math.Convert (posInNight, 0, 1, sunriseAngle, sunsetAngle);
 		moon.transform.localEulerAngles = new Vector3 (moonAngle, 0, 0);
 	}
-	
+
+	public double posInDay { 
+		get { 
+			float minsAtSuniseAstro = (float)(sunriseAstroTime * 60 + SceneManager.minsAtDayStart);
+			float minsAtSunsetAstro = (float)(sunsetAstroTime * 60 + SceneManager.minsAtDayStart);
+			return Tools.Math.Convert(SceneManager.currentMinutes, minsAtSuniseAstro, minsAtSunsetAstro, 0, 1);
+		}
+	}
+
 	[HideInInspector] public float sunrisePosInDay, sunsetPosInDay;
 	public float sunriseAngle, sunsetAngle;
 	float GetSunAngle () {
-		
-		double posInDay = SunControl.instance.posInDay;
+
 		float sunAngle = (float)Math.Convert (posInDay, sunrisePosInDay, sunsetPosInDay, sunriseAngle, sunsetAngle);
 		return sunAngle;
 	}

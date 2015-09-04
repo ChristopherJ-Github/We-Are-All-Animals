@@ -3,9 +3,6 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-/// <summary>
-/// Animates a gameobject along the spline at a specific speed. 
-/// </summary>
 [AddComponentMenu("SuperSplines/Animation/Regular Animator")]
 public class ShadowCasterMover: MonoBehaviour {
 
@@ -18,7 +15,7 @@ public class ShadowCasterMover: MonoBehaviour {
 	public Spline spline;
 	void Update() {
 
-		float positionNorm = (float)SunControl.instance.posInDay;
+		float positionNorm = (float)SkyManager.instance.posInDay;
 		float nodePosition = WrapValue (positionNorm, 0f, 1f, wrapMode);
 		Move (nodePosition);
 		Scale (nodePosition);

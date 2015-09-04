@@ -39,7 +39,7 @@ public class SunProperties : MonoBehaviour {
 	public AnimationCurve daytimeToLeveling;
 	float LevelBasedOnDaytime (float intensity) {
 		
-		float leveling = daytimeToLeveling.Evaluate ((float)SunControl.instance.posInDay);
+		float leveling = daytimeToLeveling.Evaluate ((float)SkyManager.instance.posInDay);
 		float leveledIntensity = Mathf.Lerp (minIntensity, intensity, leveling);
 		return leveledIntensity;
 	}

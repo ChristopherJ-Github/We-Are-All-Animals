@@ -14,7 +14,7 @@ public class AnimalInfo {
 
 public class UnveilSettings : MonoBehaviour {
 	
-	void Start () {
+	void OnEnable () {
 
 		SceneManager.instance.OnNewDay += CheckDate;
 	}
@@ -32,7 +32,7 @@ public class UnveilSettings : MonoBehaviour {
 
 	void Initialize () {
 
-		SkyManager.instance.SetPhaseTimes (12, 15, 19.5f, 20.25f);
+		SkyManager.instance.SetPhaseTimes (4f, 6f, 21.5f, 24f);
 		InitializeDateTimes ();
 		SpawnSnow ();
 	}
@@ -51,8 +51,8 @@ public class UnveilSettings : MonoBehaviour {
 
 		WeatherControl.instance.TurnOff();
 		WeatherInfo weatherType = WeatherControl.instance.weatherTypes [0];
-		float maxSeverity = WeatherControl.instance.GetMaxSeverity(weatherType);
-		WeatherControl.instance.EnableWeather(weatherType, (float)SceneManager.minsAtDayStart, 1440, 1, 1, maxSeverity);
+		float startTime = (float)SceneManager.minsAtDayStart + (18.5f * 60);
+		WeatherControl.instance.EnableWeather(weatherType, startTime, 1440, 15, 1, 0.5f);
 	}
 
 	private bool active;
