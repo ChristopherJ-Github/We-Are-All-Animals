@@ -1995,7 +1995,7 @@ MonoBehaviour:
   animal: {fileID: 108568}
   initAnimation: {fileID: 7400000, guid: af376e424668e4e6d92abcc7bfe6e25e, type: 3}
   allowIdling: 1
-  splineIndex: -1
+  splineIndex: 0
   initSpeed: 1.5
   wrapMode: 1
   shift: 0
@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleAnimation: {fileID: 7400000, guid: 2254d9824c31e48efa4fd2e8b444e7d3, type: 3}
-  duration: 5
+  duration: 1800
   randomAnimation: {fileID: 0}
   minInterval: 0
   maxInterval: 0
