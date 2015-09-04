@@ -36,6 +36,7 @@ public class UnveilSettings : MonoBehaviour {
 			yield return null;
 		SkyManager.instance.SetPhaseTimes (4f, 6f, 21.5f, 24f);
 		InitializeDateTimes ();
+		InitializeAccumulationTimes ();
 		SpawnSnow ();
 	}
 
@@ -47,6 +48,12 @@ public class UnveilSettings : MonoBehaviour {
 			                                 unveilMonth, unveilDay, (int)spawnTime.x, (int)spawnTime.y, 0);
 			animals[i].dateTime = dateTime;
 		}
+	}
+	
+	void InitializeAccumulationTimes () {
+
+		accumStart = (float)SceneManager.minsAtDayStart + (18.77f * 60);
+		accumEnd = (float)SceneManager.minsAtDayStart + (20f * 60);
 	}
 
 	void SpawnSnow () {
@@ -62,6 +69,7 @@ public class UnveilSettings : MonoBehaviour {
 
 		if (!active) return;
 		MakeAnimalSpawnAttempt ();
+		OverwriteSnow ();
 	}
 
 	public AnimalInfo[] animals;
@@ -74,5 +82,15 @@ public class UnveilSettings : MonoBehaviour {
 				animalInfo.spawned = true;
 			}
 		}
+	}
+
+	private float accumStart, accumEnd;
+	public float maxSnowLevel;
+	void OverwriteSnow () {
+
+		float linearSnowLevel = Mathf.InverseLerp (accumStart, accumEnd, (float)SceneManager.currentMinutes);
+		linearSnowLevel = Mathf.Clamp (linearSnowLevel, 0, maxSnowLevel);
+		SnowManager.instance.snowLevel = SnowManager.instance.GetSnowLevel (linearSnowLevel);
+		SnowManager.instance.TriggerSnowChange (SnowManager.instance.snowLevel);
 	}
 }

@@ -118,12 +118,12 @@ public class SnowManager : Singleton<SnowManager> {
 			_linearSnowLevel = Mathf.Clamp(value, 0, maxSnowLevel); 
 		}
 	}
-	float GetSnowLevel (float initSnowLevel) {
+	public float GetSnowLevel (float linearSnowLevel) {
 
-		linearSnowLevel = initSnowLevel;
+		this.linearSnowLevel = linearSnowLevel;
 		float newSnowLevel = 0;
-		if (initSnowLevel < maxSnowThreshold) 
-			newSnowLevel = Mathf.InverseLerp(0, maxSnowThreshold, initSnowLevel);
+		if (linearSnowLevel < maxSnowThreshold) 
+			newSnowLevel = Mathf.InverseLerp(0, maxSnowThreshold, linearSnowLevel);
 		else
 			newSnowLevel = 1;
 		return newSnowLevel;

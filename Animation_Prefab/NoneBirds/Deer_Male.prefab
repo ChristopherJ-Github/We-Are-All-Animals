@@ -2267,9 +2267,11 @@ MonoBehaviour:
   bird: 0
   animal: {fileID: 100066}
   initAnimation: {fileID: 7400000, guid: af376e424668e4e6d92abcc7bfe6e25e, type: 3}
+  allowIdling: 1
   splineIndex: -1
   initSpeed: 1.5
   wrapMode: 1
+  shift: 0
   amountOfLoops: 0
 --- !u!114 &11442268
 MonoBehaviour:
