@@ -11,6 +11,7 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 		SceneManager.instance.OnNewMin += MinuteSpawnAttempt;
 		SceneManager.instance.OnNewHour += HourSpawnAttempt;
 		SceneManager.instance.OnNewDay += ClearAnimations; 
+		SceneManager.instance.OnNewDay += UpdateBirdSpawnChance;
 	}
 
 	void InitializeBirds () {
@@ -22,15 +23,20 @@ public class AnimationSpawner : Singleton<AnimationSpawner> {
 		}
 		this.birds = birds.ToArray ();
 	}
+
+	void UpdateBirdSpawnChance () {
+
+		float chanceNormalized = birdSpawnChanceOverYear.Evaluate (SceneManager.curvePos);
+		birdSpawnChance = Mathf.Lerp (minBirdSpawnChance, maxBirdSpawnChance, chanceNormalized);
+	}
 	
 	public AnimationCurve birdSpawnChanceOverYear;
 	public float minBirdSpawnChance, maxBirdSpawnChance;
+	[HideInInspector] public float birdSpawnChance;
 	void BirdSpawnAttempt () {
 
 		if (currentBirdAmount >= maxBirdsAllowed) return;
-		float chanceNormalized = birdSpawnChanceOverYear.Evaluate (SceneManager.curvePos);
-		float spawnChance = Mathf.Lerp (minBirdSpawnChance, maxBirdSpawnChance, chanceNormalized);
-		float currentSpawnChance = Mathf.Lerp (spawnChance, 0, WeatherControl.instance.storminess);
+		float currentSpawnChance = Mathf.Lerp (birdSpawnChance, 0, WeatherControl.instance.storminess);
 		if (currentSpawnChance >= Random.Range(0.0f, 100.0f)) 
 			SpawnBird();
 	}

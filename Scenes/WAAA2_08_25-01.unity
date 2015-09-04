@@ -53091,6 +53091,7 @@ MonoBehaviour:
     m_PostInfinity: 2
   minBirdSpawnChance: 0
   maxBirdSpawnChance: .5
+  birdSpawnChance: 0
   on: 1
   maxBirdsAllowed: 5
   currentBirdAmount: 0
@@ -56042,6 +56043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unveilMonth: 9
   unveilDay: 17
+  birdSpawnChance: .5
   animals:
   - animalAnimator: {fileID: 11400058, guid: 1edee231e2555e941903c59ae1f6c456, type: 2}
     spawnTime: {x: 18, y: 45}
