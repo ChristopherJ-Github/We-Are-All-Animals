@@ -23,15 +23,17 @@ public class UnveilSettings : MonoBehaviour {
 	void CheckDate () {
 
 		if (SceneManager.realDate.Month == unveilMonth && SceneManager.realDate.Day == unveilDay) {
-			Initialize ();
+			StartCoroutine (Initialize ());
 			active = true;
 		} else {
 			active = false;
 		}
 	}
 
-	void Initialize () {
+	IEnumerator Initialize () {
 
+		for (int delay = 0; delay < 1; delay ++)
+			yield return null;
 		SkyManager.instance.SetPhaseTimes (4f, 6f, 21.5f, 24f);
 		InitializeDateTimes ();
 		SpawnSnow ();
