@@ -34707,6 +34707,7 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  snowInfluence: .189999998
   middayOverYear:
     key0:
       serializedVersion: 2
@@ -36927,7 +36928,7 @@ MonoBehaviour:
   minIntensity: 0
   maxIntensity: .36559999
   currentIntensity: 0
-  snowInfluence: .800000012
+  snowInfluence: .810000002
 --- !u!1 &1514764104
 GameObject:
   m_ObjectHideFlags: 0
@@ -48358,7 +48359,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975547880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bee4b5a2a29434a439d0afc9e0e0c6ae, type: 3}
   m_Name: 

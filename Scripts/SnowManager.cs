@@ -17,8 +17,8 @@ public class SnowManager : Singleton<SnowManager> {
 		reactionState = melting;
 		SnowWeather.OnStart += StartAccumulating;
 		SnowWeather.OnStop += StartMelting;
-		SceneManager.instance.OnNewDay += SetRiverEvent;
 		SceneManager.instance.OnNewDay += SetOvernightSnow;
+		SceneManager.instance.OnNewDay += SetRiverEvent;
 		DataManager.instance.OnSave += OnSave;
 	}
 	

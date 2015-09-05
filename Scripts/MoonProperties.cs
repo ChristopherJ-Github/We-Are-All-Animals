@@ -14,7 +14,7 @@ public class MoonProperties : MonoBehaviour {
 	void UpdateIntensity () {
 		
 		float snowEffect = SnowManager.instance.snowLevel * snowInfluence;
-		float darknessAmount = SkyManager.instance.sun.weatherDarkness + snowEffect;
+		float darknessAmount = SkyManager.instance.sun.weatherDarkness * + snowEffect;
 		float currentDarkness = Mathf.Lerp (0, maxIntensity, darknessAmount);
 		float intensity = Mathf.Clamp (maxIntensity - currentDarkness, minIntensity, maxIntensity);
 		currentIntensity = intensity;

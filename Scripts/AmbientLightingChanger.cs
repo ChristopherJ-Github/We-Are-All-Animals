@@ -30,10 +30,14 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 	}
 	
 	public Gradient nightToDusk;
+	public float snowInfluence;
 	public Color NightToDusk (float lerp) {
 
 		Color initColor = nightToDusk.Evaluate (lerp);
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
+		float snowEffect = SnowManager.instance.snowLevel * snowInfluence;
+		darkness += snowEffect;
+		darkness = Mathf.Clamp01 (darkness);
 		Color darkened = SetDarkness (initColor, darkness);
 		return darkened;
 	}
