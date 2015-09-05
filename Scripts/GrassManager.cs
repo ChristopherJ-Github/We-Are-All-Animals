@@ -146,53 +146,26 @@ public class GrassManager : Singleton<GrassManager> {
 	[HideInInspector] public float progress;
 	IEnumerator FinalizeAlphaMaps (GrassInfo _prevSet, GrassInfo _nextSet, float blend) {
 
-		float total = GetTotal ();
-		float currentTotal = 0;
-		for (int originY = 0; originY <= cropHeight - blockWidth; originY += blockWidth) {
+		Color[] outputPixels;
+		//float[] outputValues;
+		float[,,] finalResult = new float[terrainData.alphamapWidth, terrainData.alphamapHeight, terrainData.alphamapLayers];
+		for (int i = 0; i < terrainData.alphamapLayers; i++) {
 
-			float currentCropWidth = cropWidth + originY;
-			for (int originX = 0; originX <= currentCropWidth - blockWidth; originX += blockWidth) {
-
-				int offsetOriginX = originX + (int)(cropOrigin.x - originY/2);
-				int offsetOriginY = originY + (int)cropOrigin.y;
-				for (int layer = 0; layer < terrainData.alphamapLayers; layer++) {
-
-					currentTotal += blockWidth * blockWidth;
-					progress = currentTotal/total * 100;
-					if (_prevSet.alphamaps[layer].black && _nextSet.alphamaps[layer].black) 
-						continue;
-
-					Texture2D inputText1 = new Texture2D(blockWidth, blockWidth);
-					Texture2D inputText2 = new Texture2D(blockWidth, blockWidth);
-					Color[] inputText1Pixels = _prevSet.alphamaps[layer].alphaMap.GetPixels (offsetOriginY , offsetOriginX, blockWidth, blockWidth);
-					Color[] inputText2Pixels = _nextSet.alphamaps[layer].alphaMap.GetPixels (offsetOriginY , offsetOriginX, blockWidth, blockWidth);
-					inputText1.SetPixels(inputText1Pixels);
-					inputText2.SetPixels(inputText2Pixels);
-					inputText1.Apply();
-					inputText2.Apply();
-					GrassTextureCombiner.instance.inputTex1 = inputText1;
-					GrassTextureCombiner.instance.inputTex2 = inputText2;
-					GrassTextureCombiner.instance.blend = blend;
-					GrassTextureCombiner.instance.activate = true;
-					yield return new WaitForEndOfFrame();
-
-					Texture2D outputTexture2D = GrassTextureCombiner.instance.outputTexture2D;
-					Color[] outputPixels = outputTexture2D.GetPixels ();
-					int index = 0;
-					for (int y = 0; y < blockWidth; y ++) {
-						for (int x = 0; x < blockWidth; x ++) {
-							outputBlock[x, y, layer] = outputPixels[index].r; //it's grayscale so any one value will do
-							index ++;
-						}
-					}
-					Destroy(inputText1);
-					Destroy(inputText2);
-					Destroy(GrassTextureCombiner.instance.outputTexture2D);
+			Texture2D outputTexture2D = new Texture2D(_prevSet.alphamaps[i].alphaMap.width, _prevSet.alphamaps[i].alphaMap.height);
+			outputTexture2D.SetPixels(_prevSet.alphamaps[i].alphaMap.GetPixels());
+			outputPixels = outputTexture2D.GetPixels();
+			float[] outputValues = outputPixels.Select(pixel => pixel.r).ToArray(); //it's grayscale so any one value will do
+			int index = 0;
+			for (int y = 0; y < finalResult.GetLength(1); y ++) {
+				for (int x = 0; x < finalResult.GetLength(0); x ++) {
+					finalResult[x, y, i] = outputValues[index];
+					index ++;
 				}
-				terrainData.SetAlphamaps (offsetOriginX, offsetOriginY, outputBlock);
-				Array.Clear (outputBlock, 0, totalLength);
 			}
+			yield return null;
 		}
+		terrainData.SetAlphamaps (0, 0, finalResult);
+		yield return null;
 	}
 
 	float GetTotal () {

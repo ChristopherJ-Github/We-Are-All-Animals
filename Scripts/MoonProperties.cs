@@ -6,7 +6,7 @@ public class MoonProperties : MonoBehaviour {
 	void Update () {
 
 		UpdateIntensity ();
-		CompareSettings ();
+		CompareSettings (); 
 	}
 	
 	public float minIntensity, maxIntensity;
@@ -24,7 +24,7 @@ public class MoonProperties : MonoBehaviour {
 
 	void CompareSettings () {
 
-		if (Tester.test) {
+		if (!Tester.test) {
 			minIntensity = 0.06f;
 			maxIntensity = 0.14f;
 			snowInfluence = 0.81f;
