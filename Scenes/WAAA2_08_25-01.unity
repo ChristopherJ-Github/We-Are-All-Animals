@@ -36925,9 +36925,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b4c093e4942164d9dabf0e57ae2a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 0
-  maxIntensity: .36559999
-  currentIntensity: 0
+  minIntensity: .0599999987
+  maxIntensity: .140000001
+  currentIntensity: .0599999987
   snowInfluence: .810000002
 --- !u!1 &1514764104
 GameObject:
