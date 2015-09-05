@@ -30804,7 +30804,7 @@ MonoBehaviour:
   minSpeed: 9.35999966
   maxSpeed: 24
   lightningCloudColor: {r: .257352948, g: .257352948, b: .257352948, a: 1}
-  nightDarkening: .287957907
+  nightDarkening: 0
   grayAmount: 1
   darkness: 1
   overcastToDarkening:
@@ -37436,7 +37436,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1532155075}
   m_Layer: 0
-  m_Name: Main Scene
+  m_Name: Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
