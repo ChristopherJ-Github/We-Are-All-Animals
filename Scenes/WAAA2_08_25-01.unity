@@ -36926,7 +36926,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 0
   maxIntensity: .36559999
-  currentIntesity: 0
+  currentIntensity: 0
+  snowInfluence: .800000012
 --- !u!1 &1514764104
 GameObject:
   m_ObjectHideFlags: 0
