@@ -165,7 +165,7 @@ public class SkyManager : Singleton<SkyManager> {
 	
 	public AnimationCurve daytimeToIntensity;
 	void SetIntensity (float moonLerp, float? sunLerp = null) {
-		
+
 		moon.light.intensity = Mathf.Lerp(0, moon.currentIntesity, moonLerp);
 		if (sunLerp == null) {
 			float daytimeInfluence = daytimeToIntensity.Evaluate (nightDayLerp);

@@ -34667,7 +34667,7 @@ MonoBehaviour:
   nightToDusk:
     key0:
       serializedVersion: 2
-      rgba: 4288453788
+      rgba: 4291809231
     key1:
       serializedVersion: 2
       rgba: 4288453788
@@ -36925,7 +36925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minIntensity: 0
-  maxIntensity: .0500000007
+  maxIntensity: .36559999
   currentIntesity: 0
 --- !u!1 &1514764104
 GameObject:

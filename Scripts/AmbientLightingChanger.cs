@@ -35,6 +35,7 @@ public class AmbientLightingChanger : Singleton <AmbientLightingChanger> {
 		Color initColor = nightToDusk.Evaluate (lerp);
 		float darkness = Mathf.Lerp (maxDarkness, minDarkness, SkyManager.instance.intensityLerp);
 		Color darkened = SetDarkness (initColor, darkness);
+		Debug.Log (darkened.r);
 		return darkened;
 	}
 
