@@ -14,7 +14,7 @@ public class SnowManager : Singleton<SnowManager> {
 		RetrieveData ();
 		SetOvernightSnow ();
 		SetRiver ();
-		reactionState = melting;
+		StartMelting ();
 		SnowWeather.OnStart += StartAccumulating;
 		SnowWeather.OnStop += StartMelting;
 		SceneManager.instance.OnNewDay += SetOvernightSnow;
