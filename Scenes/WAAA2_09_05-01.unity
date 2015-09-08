@@ -34794,15 +34794,20 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  midday: {r: .462348133, g: .540779471, b: .603524566, a: 1}
+  midday: {r: .355539978, g: .433971345, b: .49671644, a: 1}
   sunriseToBrightness:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: 0
+    - time: .000769822858
+      value: .130927488
       inSlope: 0
-      outSlope: 0
-      tangentMode: 10
+      outSlope: -4.59537411
+      tangentMode: 21
+    - time: .0292609707
+      value: 0
+      inSlope: -4.59537411
+      outSlope: -0
+      tangentMode: 21
     - time: .405000001
       value: 0
       inSlope: 0
@@ -34818,20 +34823,30 @@ MonoBehaviour:
   sunsetToBrightness:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
+    - time: .000773378531
+      value: .199999988
+      inSlope: -3.25012445
+      outSlope: -3.25012445
       tangentMode: 10
-    - time: .875
+    - time: .0623094812
+      value: 0
+      inSlope: -3.25012445
+      outSlope: -0
+      tangentMode: 21
+    - time: .546023607
       value: 0
       inSlope: 0
-      outSlope: 8
+      outSlope: 1.37166786
       tangentMode: 21
+    - time: .707123637
+      value: .220975727
+      inSlope: 2.01578808
+      outSlope: 2.01578808
+      tangentMode: 13
     - time: 1
       value: 1
-      inSlope: 8
-      outSlope: 8
+      inSlope: 2.65990829
+      outSlope: 2.65990829
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -39152,7 +39167,7 @@ MonoBehaviour:
     day: 2
     toSpawn: {fileID: 123036, guid: 3635817c6bd8d1d4aae46dc33b568d94, type: 2}
     type: 0
-    spawnChance: 10
+    spawnChance: 20
   - month: 6
     day: 17
     toSpawn: {fileID: 852207025}

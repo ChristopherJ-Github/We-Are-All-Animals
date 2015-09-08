@@ -20,8 +20,6 @@ public class Tester : Singleton <Tester> {
 		buttonPressed = false;
 		if (Input.GetKeyDown(KeyCode.F)) 
 			buttonPressed = true;
-		if (Input.GetKeyDown(KeyCode.G))
-			MemoryError ();
 	}
 
 	public float testValue01 = 1;
@@ -39,10 +37,5 @@ public class Tester : Singleton <Tester> {
 	void SpeedUpTime () {
 
 		Time.timeScale = timeScale;
-	}
-
-	void MemoryError () {
-
-		float[,,] giantArray = new float[10000, 10000, 10000];
 	}
 }

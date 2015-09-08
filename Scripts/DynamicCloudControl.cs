@@ -29,7 +29,7 @@ public class DynamicCloudControl : Singleton<DynamicCloudControl> {
 	[HideInInspector] public float extraOvercast;
 	public float changeSpeed;
 	IEnumerator SetExtraOvercast (float extraOvercastGoal) {
-		
+
 		while (extraOvercast != extraOvercastGoal) {
 			extraOvercast = Mathf.MoveTowards(extraOvercast, extraOvercastGoal, Time.deltaTime * changeSpeed);
 			yield return null;
