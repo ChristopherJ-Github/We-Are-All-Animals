@@ -11,10 +11,12 @@ public class DynamicCloudControl : Singleton<DynamicCloudControl> {
 	public float minDelay, maxDelay;
 	public float minExtraOvercast, maxExtraOvercast;
 	public float snowInfluence;
+	[HideInInspector] public float timePassed;
+	[HideInInspector] public float currentDelay;
 	IEnumerator ChangeExtraOvercast () {
 		
-		float timePassed = 0;
-		float currentDelay = Mathf.Lerp (maxDelay, minDelay, WindControl.instance.windiness);
+		timePassed = 0;
+		currentDelay = Mathf.Lerp (maxDelay, minDelay, WindControl.instance.windiness);
 		while (timePassed <= currentDelay) {	
 			currentDelay = Mathf.Lerp (maxDelay, minDelay, WindControl.instance.windiness);
 			timePassed += Time.deltaTime;
@@ -28,10 +30,12 @@ public class DynamicCloudControl : Singleton<DynamicCloudControl> {
 	
 	[HideInInspector] public float extraOvercast;
 	public float changeSpeed;
+	[HideInInspector] public float extraOvercastGoal;
 	IEnumerator SetExtraOvercast (float extraOvercastGoal) {
 
-		while (extraOvercast != extraOvercastGoal) {
-			extraOvercast = Mathf.MoveTowards(extraOvercast, extraOvercastGoal, Time.deltaTime * changeSpeed);
+		this.extraOvercastGoal = extraOvercastGoal;
+		while (extraOvercast != this.extraOvercastGoal) {
+			extraOvercast = Mathf.MoveTowards(extraOvercast, this.extraOvercastGoal, Time.deltaTime * changeSpeed);
 			yield return null;
 		}
 		StartCoroutine(ChangeExtraOvercast());

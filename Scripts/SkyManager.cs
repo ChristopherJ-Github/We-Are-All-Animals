@@ -30,10 +30,13 @@ public class SkyManager : Singleton<SkyManager> {
 		this.sunsetTime = sunsetTime;
 		this.sunsetAstroTime = sunsetAstroTime;
 		double minsAtSunise = sunriseTime * 60 + SceneManager.minsAtDayStart;
-		float sunrisePos = (float)(minsAtSunise / SceneManager.minsInYear);
+		double minsInYear = SceneManager.minsInYear;
+		if (minsInYear == 0) 
+			minsInYear += 0.000001f;
+		float sunrisePos = (float)(minsAtSunise / (SceneManager.minsInYear));
 		sunrisePosInDay = SunControl.instance.dayCurve.Evaluate (sunrisePos);
 		double minsAtSunset = sunsetTime * 60 + SceneManager.minsAtDayStart;
-		float sunsetPos = (float)(minsAtSunset / SceneManager.minsInYear);
+		float sunsetPos = (float)(minsAtSunset / (SceneManager.minsInYear));
 		sunsetPosInDay = SunControl.instance.dayCurve.Evaluate (sunsetPos);
 	}
 	

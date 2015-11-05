@@ -7,7 +7,7 @@ public class GUIManager : Singleton<GUIManager> {
 	public GUIStyle gStyle;
 	public GUIStyle sidebarStyle;
 	public Vector2 scrollPosition = Vector2.zero;
-	[HideInInspector] public bool toggleStats = false;
+	public bool toggleStats;
 	public bool sliderUsed;
 	float delay;
 	float delayVal = 1f;

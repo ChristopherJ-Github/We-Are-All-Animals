@@ -111,7 +111,8 @@ Shader "Custom/SnowTerrain" {
 		sampler2D _Normal0,_Normal1,_Normal2,_Normal3;
 		
 		void vert (inout appdata_full v, out Input data) {
-		
+			
+			UNITY_INITIALIZE_OUTPUT(Input, data);
 			v.tangent.xyz = cross(v.normal, float3(0,0,1));
 			v.tangent.w = 1;
 		}

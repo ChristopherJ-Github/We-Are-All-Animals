@@ -17,6 +17,8 @@ namespace Tools {
 		public static float Convert (float value, float oldMin, float oldMax, float newMin, float newMax) {
 			
 			float oldRange = oldMax - oldMin;
+			if (oldRange == 0)
+				oldRange = 0.001f;
 			float newRange = newMax - newMin;
 			float newValue = (((value - oldMin) * newRange) / oldRange) + newMin;
 			return newValue;
@@ -25,6 +27,8 @@ namespace Tools {
 		public static double Convert (double value, double oldMin, double oldMax, double newMin, double newMax) {
 			
 			double oldRange = oldMax - oldMin;
+			if (oldRange == 0)
+				oldRange = 0.001f;
 			double newRange = newMax - newMin;
 			double newValue = (((value - oldMin) * newRange) / oldRange) + newMin;
 			return newValue;
