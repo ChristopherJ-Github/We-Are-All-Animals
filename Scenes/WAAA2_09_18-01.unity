@@ -37008,9 +37008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b4c093e4942164d9dabf0e57ae2a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: .0599999987
-  maxIntensity: .140000001
-  currentIntensity: .0599999987
+  minIntensity: .192194
+  maxIntensity: .36559999
+  currentIntensity: .192194
   snowInfluence: .810000002
 --- !u!1 &1514764104
 GameObject:
@@ -48440,7 +48440,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975547880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 969bb344b7b84c84799ecd0ec78bc8e8, type: 3}
   m_Name: 
@@ -48491,7 +48491,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975547880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 535921bb9f461c34bb54e8053e51861f, type: 3}
   m_Name: 

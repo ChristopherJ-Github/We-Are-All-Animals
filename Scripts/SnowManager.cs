@@ -6,7 +6,7 @@ public class SnowManager : Singleton<SnowManager> {
 	public Emission SnowWeather;
 	public delegate void stateHandler (); 		
 	public event stateHandler reactionState;
-	public float snowLevel;
+	[HideInInspector] public float snowLevel;
 	public Gradient objectSnowTint, terrainSnowTint;
 	
 	void Start () {		
@@ -153,8 +153,6 @@ public class SnowManager : Singleton<SnowManager> {
 	
 	void Update () {
 
-		float _meltTime = Mathf.Lerp (minTempMeltTime, maxTempMeltTime, TemperatureManager.temperature) * 60;
-		TriggerSnowChange (snowLevel);
 		reactionState ();
 	}
 

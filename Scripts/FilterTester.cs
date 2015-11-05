@@ -5,7 +5,7 @@ using AmplifyColor;
 public class FilterTester : MonoBehaviour {
 	
 	void Start () {
-		
+
 		amplifyColorEffect = Camera.main.gameObject.AddComponent<AmplifyColorEffect> ();
 		SetFilter ();
 	}

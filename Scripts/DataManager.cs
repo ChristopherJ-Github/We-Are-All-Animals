@@ -30,7 +30,7 @@ public class DataManager : Singleton<DataManager> {
 		
 		data = new Data ();
 		path = Application.dataPath + "/data.dat";
-		Debug.Log (path);
+		Debug.Log ("Data saved at: " + path);
 		successfullyLoaded = Load ();
 	}
 	
